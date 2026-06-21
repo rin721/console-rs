@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoi.example.local/plugin-protocol/schemas/common.schema.json",
+  "title": "PluginProtocolCommon",
+  "$defs": {
+    "auth": {
+      "type": "object",
+      "properties": {
+        "mode": { "type": "string" },
+        "token": { "type": "string" },
+        "signature": { "type": "string" },
+        "key_id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "nonce": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "request_meta": {
+      "type": "object",
+      "properties": {
+        "request_id": { "type": "string" },
+        "trace_id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "idempotency_key": { "type": "string" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "auth": { "$ref": "#/$defs/auth" }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "scope": { "type": "string" },
+        "permissions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "input_schema": true,
+        "output_schema": true,
+        "secret_policy": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "plugin_metadata": {
+      "type": "object",
+      "required": ["plugin_id", "instance_id", "name", "version", "protocol", "transport", "endpoint", "capabilities"],
+      "properties": {
+        "plugin_id": { "type": "string" },
+        "instance_id": { "type": "string" },
+        "name": { "type": "string" },
+        "version": { "type": "string" },
+        "protocol": { "type": "string" },
+        "transport": { "enum": ["http", "websocket", "rpc"] },
+        "endpoint": { "type": "string" },
+        "capabilities": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/capability" }
+        },
+        "permissions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "hooks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "schema_version": { "type": "string" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "response_envelope": {
+      "type": "object",
+      "properties": {
+        "data": true,
+        "error": { "$ref": "#/$defs/error" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

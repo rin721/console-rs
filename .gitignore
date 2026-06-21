@@ -1,0 +1,11 @@
+/target/
+/data/
+/.env
+/configs/*.secrets.yaml
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+node_modules/
+dist/
+playwright-report/
+test-results/

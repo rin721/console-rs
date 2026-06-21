@@ -1,0 +1,5 @@
+common.required: "{{.field}} is required"
+common.invalid: "{{.field}} is invalid"
+common.invalidNumber: "{{.field}} must be a valid number"
+common.invalidBoolean: "{{.field}} must be a boolean"
+common.invalidEmail: "{{.field}} must be a valid email address"

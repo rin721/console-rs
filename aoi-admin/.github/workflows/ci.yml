@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Go verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: web/app/pnpm-lock.yaml
+
+      - name: Enable pnpm
+        run: corepack enable
+
+      - name: Install WebUI dependencies
+        run: pnpm -C web/app install --frozen-lockfile
+
+      - name: Report Go formatting drift
+        run: |
+          files="$(gofmt -l $(git ls-files '*.go'))"
+          if [ -n "$files" ]; then
+            echo "Go files that would change with gofmt:"
+            echo "$files"
+          else
+            echo "All Go files are gofmt formatted."
+          fi
+
+      - name: Run tests
+        run: go test ./... -count=1 -mod=readonly
+
+      - name: Build server
+        run: go build -mod=readonly -o /tmp/go-scaffold-server ./cmd/aoi
+
+      - name: Lint WebUI i18n
+        run: pnpm -C web/app lint:i18n
+
+      - name: Lint WebUI
+        run: pnpm -C web/app lint
+
+      - name: Typecheck WebUI
+        run: pnpm -C web/app typecheck
+
+      - name: Test WebUI
+        run: pnpm -C web/app test:unit
+
+      - name: Build WebUI
+        run: pnpm -C web/app build
+
+      - name: Build Docker image
+        run: docker build -t go-scaffold:ci .
+
+      - name: Check whitespace
+        run: git diff --check

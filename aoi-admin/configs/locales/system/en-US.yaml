@@ -1,0 +1,338 @@
+brand.productName: "{{.ProductName}}"
+brand.versionName: "{{.VersionName}}"
+menus.groups.workspace.label: Workspace
+menus.groups.security.label: Security Audit
+menus.groups.system.label: System Management
+menus.items.dashboard.label: Dashboard
+menus.items.organizations.label: Organizations
+menus.items.users.label: Users
+menus.items.roles.label: Roles & Permissions
+menus.items.sessions.label: Sessions
+menus.items.apiTokens.label: API Token
+menus.items.loginLogs.label: Login Logs
+menus.items.auditLogs.label: Audit Logs
+menus.items.errorLogs.label: Error Logs
+menus.items.trafficHijack.label: Traffic Hijack Monitoring
+menus.items.security.label: Security
+menus.items.menus.label: Menu Management
+menus.items.apis.label: API Management
+menus.items.dictionaries.label: Dictionaries
+menus.items.operationRecords.label: Operation History
+menus.items.parameters.label: Parameters
+menus.items.versions.label: Versions
+menus.items.mediaResumable.label: Resumable Uploads
+menus.items.media.label: Media Library
+menus.items.system.label: System Config
+
+config.sections.brand.label: Brand
+config.sections.brand.description: Product name, product code, and public version display.
+config.sections.server.label: System service
+config.sections.server.description: HTTP listener, runtime mode, and connection timeouts.
+config.sections.database.label: Database
+config.sections.database.description: Primary database driver, connection settings, and pool options.
+config.sections.cache.label: Cache
+config.sections.cache.description: Cache driver, local cache capacity, and Redis connection settings.
+config.sections.auth.label: Authentication and security
+config.sections.auth.description: IAM, tokens, MFA, login lockout, and notification policy.
+config.sections.logger.label: Logging
+config.sections.logger.description: Log levels, formats, and file rotation.
+config.sections.webui.label: WebUI
+config.sections.webui.description: Built-in WebUI static hosting and public URL.
+config.sections.storage.label: File storage
+config.sections.storage.description: Storage driver, local paths, and object storage settings.
+config.sections.runtime.label: Runtime policy
+config.sections.runtime.description: CORS, i18n, migration, executor, and RPC runtime policy.
+config.sections.plugins.label: Plugins
+config.sections.plugins.description: Remote plugin host, active registration, and heartbeat policy.
+
+config.groups.brand.general.label: Brand settings
+config.groups.brand.general.description: Public product identity shown by the website, console, and notifications.
+config.groups.server.general.label: Service settings
+config.groups.server.general.description: HTTP listener and timeout settings for the current process.
+config.groups.database.driver.label: Database scheme
+config.groups.database.driver.description: Choose the database driver used by the runtime.
+config.groups.database.sqlite.label: SQLite
+config.groups.database.sqlite.description: File database for local and lightweight deployments.
+config.groups.database.mysql.label: MySQL
+config.groups.database.mysql.description: MySQL connection settings for production or team deployments.
+config.groups.database.postgres.label: PostgreSQL
+config.groups.database.postgres.description: PostgreSQL connection settings for production or team deployments.
+config.groups.database.pool.label: Connection pool
+config.groups.database.pool.description: Tune database connection pool capacity.
+config.groups.cache.driver.label: Cache scheme
+config.groups.cache.driver.description: Choose local cache, Redis, or Hybrid cache strategy.
+config.groups.cache.local.label: Local cache
+config.groups.cache.local.description: In-process cache capacity and default TTL.
+config.groups.cache.redis.label: Redis
+config.groups.cache.redis.description: Redis connection, pool, and retry settings.
+config.groups.auth.iam.label: IAM basics
+config.groups.auth.iam.description: Account system, issuer, audience, and signing key.
+config.groups.auth.registration.label: Registration strategy
+config.groups.auth.registration.description: Public registration mode, email verification, and invitation lifetime.
+config.groups.auth.tokens.label: Tokens
+config.groups.auth.tokens.description: Access/Refresh token lifetimes and refresh secret.
+config.groups.auth.cookie.label: Cookie session
+config.groups.auth.cookie.description: Browser session cookie names, domain, security flags, and SameSite policy.
+config.groups.auth.csrf.label: CSRF protection
+config.groups.auth.csrf.description: Double-submit token settings for cookie-backed write operations.
+config.groups.auth.session.label: Platform session
+config.groups.auth.session.description: Product dimension, client type, and single-session concurrency policy.
+config.groups.auth.cache.label: IAM cache
+config.groups.auth.cache.description: Cache switches and TTLs for account, organization, role, and permission lists.
+config.groups.auth.mfa.label: MFA
+config.groups.auth.mfa.description: One-time code issuer and secret.
+config.groups.auth.login.label: Login protection
+config.groups.auth.login.description: Login lockout, captcha, and captcha lifetime.
+config.groups.auth.notification.label: Notification scheme
+config.groups.auth.notification.description: Choose debug notifications or real SMTP mail.
+config.groups.auth.smtp_connection.label: SMTP connection
+config.groups.auth.smtp_connection.description: SMTP host and port.
+config.groups.auth.smtp_security.label: SMTP security and auth
+config.groups.auth.smtp_security.description: SMTP encryption mode, username, and password.
+config.groups.auth.smtp_sender.label: Sender
+config.groups.auth.smtp_sender.description: Sender address and display name used in emails.
+config.groups.auth.password_policy.label: Password and permission policy
+config.groups.auth.password_policy.description: Password length, reset lifetime, and policy refresh.
+config.groups.logger.general.label: Log output
+config.groups.logger.general.description: Log level, formats, output destination, and file rotation.
+config.groups.webui.general.label: WebUI hosting
+config.groups.webui.general.description: WebUI enabled state, mount path, and static directory.
+config.groups.storage.driver.label: Storage scheme
+config.groups.storage.driver.description: Choose local, S3, MinIO, or local plus remote storage.
+config.groups.storage.local.label: Local storage
+config.groups.storage.local.description: Local filesystem, upload path, public URL, and watcher policy.
+config.groups.storage.s3.label: S3-compatible storage
+config.groups.storage.s3.description: Cloudflare R2, AWS S3, or other S3-compatible service settings.
+config.groups.storage.minio.label: MinIO
+config.groups.storage.minio.description: MinIO endpoint, bucket, and access key settings.
+config.groups.runtime.cors.label: CORS
+config.groups.runtime.cors.description: Cross-origin origins, methods, headers, and credentials.
+config.groups.runtime.i18n.label: Internationalization
+config.groups.runtime.i18n.description: Default locale, fallback locale, and resource directories.
+config.groups.runtime.migration.label: Database migration
+config.groups.runtime.migration.description: Startup migration policy and migration directory.
+config.groups.runtime.executor.label: Executor
+config.groups.runtime.executor.description: Background executor and worker pool settings.
+config.groups.runtime.rpc.label: RPC
+config.groups.runtime.rpc.description: RPC entry, listener, and timeout settings.
+config.groups.plugins.general.label: Plugin runtime
+config.groups.plugins.general.description: Plugin API, node, registration, heartbeat, routing, and transports.
+
+config.items.brand.productName.label: Product name
+config.items.brand.productName.description: Public product name displayed in the website and admin console.
+config.items.brand.productCode.label: Product code
+config.items.brand.productCode.description: Stable product identifier used in generated labels and integrations.
+config.items.brand.versionName.label: Version name
+config.items.brand.versionName.description: Public release channel or edition name.
+config.items.server.host.label: Listen address
+config.items.server.port.label: Listen port
+config.items.server.mode.label: Runtime mode
+config.items.server.read_timeout.label: Read timeout seconds
+config.items.server.write_timeout.label: Write timeout seconds
+config.items.server.idle_timeout.label: Idle timeout seconds
+config.items.database.driver.label: Driver
+config.items.database.sqlite.path.label: SQLite file
+config.items.database.mysql.host.label: MySQL host
+config.items.database.mysql.port.label: MySQL port
+config.items.database.mysql.username.label: MySQL user
+config.items.database.mysql.password.label: MySQL password
+config.items.database.mysql.database.label: MySQL database
+config.items.database.mysql.charset.label: MySQL charset
+config.items.database.postgres.host.label: PostgreSQL host
+config.items.database.postgres.port.label: PostgreSQL port
+config.items.database.postgres.username.label: PostgreSQL user
+config.items.database.postgres.password.label: PostgreSQL password
+config.items.database.postgres.database.label: PostgreSQL database
+config.items.database.postgres.sslMode.label: PostgreSQL SSL
+config.items.database.pool.maxOpenConns.label: Max open connections
+config.items.database.pool.maxIdleConns.label: Max idle connections
+config.items.cache.driver.label: Driver
+config.items.cache.local.maxCost.label: Local max cost
+config.items.cache.local.numCounters.label: Local counters
+config.items.cache.local.bufferItems.label: Local write buffer
+config.items.cache.local.defaultTtlSeconds.label: Local default TTL seconds
+config.items.cache.redis.addr.label: Redis address
+config.items.cache.redis.username.label: Redis user
+config.items.cache.redis.password.label: Redis password
+config.items.cache.redis.db.label: Redis database
+config.items.cache.redis.poolSize.label: Redis pool size
+config.items.cache.redis.minIdleConns.label: Redis minimum idle connections
+config.items.cache.redis.maxRetries.label: Redis max retries
+config.items.cache.redis.dialTimeout.label: Redis dial timeout seconds
+config.items.cache.redis.readTimeout.label: Redis read timeout seconds
+config.items.cache.redis.writeTimeout.label: Redis write timeout seconds
+config.items.auth.enabled.label: Enable IAM
+config.items.auth.registration_mode.label: Registration mode
+config.items.auth.issuer.label: Issuer
+config.items.auth.audience.label: Audience
+config.items.auth.signing_key.label: Signing key
+config.items.auth.access_token_ttl_seconds.label: Access token TTL seconds
+config.items.auth.refresh_token_ttl_seconds.label: Refresh token TTL seconds
+config.items.auth.refresh_token_pepper.label: Refresh pepper
+config.items.auth.cookie.name_prefix.label: Cookie name prefix
+config.items.auth.cookie.domain.label: Cookie domain
+config.items.auth.cookie.path.label: Cookie path
+config.items.auth.cookie.same_site.label: Cookie SameSite
+config.items.auth.cookie.secure.label: Cookie Secure
+config.items.auth.csrf.enabled.label: Enable CSRF protection
+config.items.auth.csrf.cookie_name.label: CSRF cookie name
+config.items.auth.csrf.header_name.label: CSRF header name
+config.items.auth.session.single_per_product_platform.label: Single session per product platform
+config.items.auth.session.product_header.label: Product dimension header
+config.items.auth.session.client_type_header.label: Client type header
+config.items.auth.session.default_client_type.label: Default client type
+config.items.auth.session.mobile_user_agent_hints.label: Mobile user-agent hints
+config.items.auth.cache.enabled.label: Enable IAM cache
+config.items.auth.cache.user_ttl_seconds.label: User cache TTL seconds
+config.items.auth.cache.org_ttl_seconds.label: Organization cache TTL seconds
+config.items.auth.cache.role_ttl_seconds.label: Role cache TTL seconds
+config.items.auth.cache.permission_ttl_seconds.label: Permission cache TTL seconds
+config.items.auth.mfa_issuer.label: MFA issuer
+config.items.auth.mfa_secret_key.label: MFA secret key
+config.items.auth.login_max_failures.label: Login lock failure count
+config.items.auth.login_lock_minutes.label: Lock duration minutes
+config.items.auth.login_captcha_enabled.label: Login captcha
+config.items.auth.captcha_ttl_seconds.label: Captcha TTL seconds
+config.items.auth.invitation_ttl_seconds.label: Invitation TTL seconds
+config.items.auth.email_verification_ttl_seconds.label: Email verification TTL seconds
+config.items.auth.password_reset_ttl_seconds.label: Password reset TTL seconds
+config.items.auth.notification_driver.label: Notification driver
+config.items.auth.casbin_reload_interval_seconds.label: Policy reload interval seconds
+config.items.auth.password_policy.min_length.label: Minimum password length
+config.items.auth.smtp.host.label: SMTP host
+config.items.auth.smtp.port.label: SMTP port
+config.items.auth.smtp.username.label: SMTP user
+config.items.auth.smtp.password.label: SMTP password
+config.items.auth.smtp.from.label: SMTP sender
+config.items.auth.smtp.from_name.label: SMTP sender name
+config.items.auth.smtp.security.label: SMTP security
+config.items.logger.level.label: Level
+config.items.logger.format.label: Default format
+config.items.logger.console_format.label: Console format
+config.items.logger.file_format.label: File format
+config.items.logger.output.label: Output
+config.items.logger.file_path.label: File path
+config.items.logger.max_size.label: Single file size MB
+config.items.logger.max_backups.label: Backup count
+config.items.logger.max_age.label: Retention days
+config.items.webui.enabled.label: Enabled
+config.items.webui.mount_path.label: Mount path
+config.items.webui.dist_dir.label: Static directory
+config.items.webui.public_base_url.label: Public URL
+config.items.storage.driver.label: Driver
+config.items.storage.local.fsType.label: Local filesystem
+config.items.storage.local.basePath.label: Local path
+config.items.storage.local.publicUrl.label: Local public URL
+config.items.storage.local.enableWatch.label: Watch changes
+config.items.storage.local.watchBufferSize.label: Watch buffer size
+config.items.storage.s3.endpoint.label: S3 endpoint
+config.items.storage.s3.region.label: S3 region
+config.items.storage.s3.bucket.label: S3 bucket
+config.items.storage.s3.accessKeyId.label: S3 access key
+config.items.storage.s3.secretAccessKey.label: S3 secret
+config.items.storage.s3.usePathStyle.label: S3 path-style
+config.items.storage.s3.publicBaseUrl.label: S3 public URL
+config.items.storage.minio.endpoint.label: MinIO endpoint
+config.items.storage.minio.region.label: MinIO region
+config.items.storage.minio.bucket.label: MinIO bucket
+config.items.storage.minio.accessKeyId.label: MinIO access key
+config.items.storage.minio.secretAccessKey.label: MinIO secret
+config.items.storage.minio.usePathStyle.label: MinIO path-style
+config.items.storage.minio.publicBaseUrl.label: MinIO public URL
+config.items.plugins.enabled.label: Enabled
+config.items.plugins.base_path.label: Plugin API path
+config.items.plugins.default_protocol_version.label: Protocol version
+config.items.plugins.allowed_transports.label: Allowed transports
+config.items.plugins.node_id.label: Node ID
+config.items.plugins.node_address.label: Node address
+config.items.plugins.registry_backend.label: Registry backend
+config.items.plugins.request_timeout_seconds.label: Request timeout seconds
+config.items.plugins.heartbeat_timeout_seconds.label: Heartbeat timeout seconds
+config.items.plugins.lease_ttl_seconds.label: Lease TTL seconds
+config.items.plugins.lease_scan_interval_seconds.label: Lease scan seconds
+config.items.plugins.retry_count.label: Retry count
+config.items.plugins.router_strategy.label: Router strategy
+config.items.plugins.allowed_permissions.label: Allowed permissions
+config.items.plugins.registration_auth_mode.label: Registration auth
+config.items.plugins.shared_secret_env.label: Shared secret environment variable
+config.items.plugins.http_enabled.label: HTTP enabled
+config.items.plugins.ws_enabled.label: WebSocket enabled
+config.items.plugins.rpc_enabled.label: RPC enabled
+config.items.plugins.injection_enabled.label: Injection enabled
+config.items.cors.enabled.label: Enable CORS
+config.items.cors.allow_origins.label: Allowed origins
+config.items.cors.allow_methods.label: Allowed methods
+config.items.cors.allow_headers.label: Allowed request headers
+config.items.cors.expose_headers.label: Exposed response headers
+config.items.cors.allow_credentials.label: Allow credentials
+config.items.cors.max_age.label: Preflight cache seconds
+config.items.i18n.defaultLocale.label: Default locale
+config.items.i18n.fallbackLocale.label: Fallback locale
+config.items.i18n.supportedLocales.label: Supported locales
+config.items.i18n.resources.ui.label: UI locale directory
+config.items.i18n.resources.api.label: API locale directory
+config.items.i18n.resources.validation.label: Validation locale directory
+config.items.i18n.resources.system.label: System locale directory
+config.items.migration.auto_apply.label: Auto migration
+config.items.migration.dir.label: Migration directory
+config.items.executor.enabled.label: Executor enabled
+config.items.rpc.enabled.label: RPC entry
+config.items.rpc.host.label: RPC host
+config.items.rpc.port.label: RPC port
+config.items.rpc.read_timeout.label: RPC read timeout seconds
+config.items.rpc.write_timeout.label: RPC write timeout seconds
+
+config.options.database.driver.sqlite.label: SQLite
+config.options.database.driver.mysql.label: MySQL
+config.options.database.driver.postgres.label: PostgreSQL
+config.options.cache.driver.local.label: Local cache
+config.options.cache.driver.hybrid.label: Local + Redis
+config.options.cache.driver.redis.label: Redis
+config.options.cache.driver.disabled.label: Disabled
+config.options.storage.driver.local.label: Local storage
+config.options.storage.driver.s3.label: S3-compatible storage
+config.options.storage.driver.minio.label: MinIO
+config.options.storage.driver.local_s3.label: Local + S3
+config.options.storage.driver.local_minio.label: Local + MinIO
+config.options.storage.driver.disabled.label: Disabled
+config.options.storage.local.fsType.basepath.label: Base path
+config.options.storage.local.fsType.os.label: OS filesystem
+config.options.storage.local.fsType.memory.label: Memory filesystem
+config.options.storage.local.fsType.readonly.label: Read-only filesystem
+config.options.auth.notification_driver.debug.label: Debug notification
+config.options.auth.notification_driver.smtp.label: SMTP mail
+config.options.auth.registration_mode.disabled.label: Disabled
+config.options.auth.registration_mode.direct.label: Direct signup
+config.options.auth.registration_mode.email_verification.label: Email verification
+config.options.auth.registration_mode.invite_only.label: Invite only
+config.options.auth.cookie.same_site.lax.label: Lax
+config.options.auth.cookie.same_site.strict.label: Strict
+config.options.auth.cookie.same_site.none.label: None
+config.options.auth.session.default_client_type.pc_web.label: PC Web
+config.options.auth.session.default_client_type.mobile_web.label: Mobile Web
+config.options.auth.session.default_client_type.mobile_app.label: Mobile App
+config.options.auth.smtp.security.none.label: None
+config.options.auth.smtp.security.starttls.label: STARTTLS
+config.options.auth.smtp.security.tls.label: TLS/SMTPS
+config.options.logger.level.debug.label: Debug
+config.options.logger.level.info.label: Info
+config.options.logger.level.warn.label: Warn
+config.options.logger.level.error.label: Error
+config.options.logger.format.json.label: JSON
+config.options.logger.format.console.label: Console
+config.options.logger.console_format.json.label: JSON
+config.options.logger.console_format.console.label: Console
+config.options.logger.file_format.json.label: JSON
+config.options.logger.file_format.console.label: Console
+config.options.logger.output.stdout.label: Stdout
+config.options.logger.output.file.label: File
+config.options.logger.output.both.label: Stdout + file
+config.options.plugins.registration_auth_mode.none.label: None
+config.options.plugins.registration_auth_mode.shared_secret.label: Shared secret
+
+config.secret.configured: Configured
+config.secret.unconfigured: Not configured
+menu.workspace.label: Workspace
+dictionary.system.status.name: System status
+dictionary.system.status.enabled: Enabled
+dictionary.system.status.disabled: Disabled

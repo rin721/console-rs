@@ -1,0 +1,213 @@
+openapi: 3.0.3
+info:
+  title: Aoi Remote Plugin Protocol
+  version: v1
+  description: |
+    分布式远程插件 HTTP wire contract。远程插件只依赖本 JSON 契约，
+    不依赖主系统 Go module 或 `pkg/plugin/protocol` 包。
+servers:
+  - url: http://127.0.0.1:9999/plugin-api/v1
+paths:
+  /negotiate:
+    post:
+      summary: Negotiate protocol version and transport.
+      operationId: negotiatePluginProtocol
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/negotiate.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /register:
+    post:
+      summary: Register a remote plugin instance.
+      operationId: registerPluginInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/register.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /heartbeat:
+    post:
+      summary: Refresh plugin liveness.
+      operationId: heartbeatPluginInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/heartbeat.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /lease:
+    post:
+      summary: Renew plugin lease TTL.
+      operationId: renewPluginLease
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/renew_lease.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /unregister:
+    post:
+      summary: Unregister a remote plugin instance.
+      operationId: unregisterPluginInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/unregister.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /health-check:
+    post:
+      summary: Query plugin instance health.
+      operationId: healthCheckPluginInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/health_check.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /capabilities:
+    post:
+      summary: List plugin capabilities.
+      operationId: listPluginCapabilities
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/list_capabilities.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /invoke:
+    post:
+      summary: Invoke a plugin capability.
+      operationId: invokePluginCapability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/invoke.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /events:
+    post:
+      summary: Push an event to plugin instances.
+      operationId: pushPluginEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/push_event.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /subscriptions:
+    post:
+      summary: Subscribe a plugin instance to events.
+      operationId: subscribePluginEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/subscribe_event.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /context:
+    post:
+      summary: Fetch injected JSON context.
+      operationId: injectPluginContext
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/inject_context.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /injected-schema:
+    post:
+      summary: List injected JSON Schema capabilities.
+      operationId: getInjectedPluginSchema
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/get_injected_schema.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /status:
+    post:
+      summary: Report plugin runtime status.
+      operationId: reportPluginStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/report_status.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /metadata:
+    post:
+      summary: Synchronize plugin public metadata.
+      operationId: syncPluginMetadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/sync_metadata.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+  /drain:
+    post:
+      summary: Ask a plugin instance to drain.
+      operationId: drainPluginInstance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/drain.schema.json
+      responses:
+        "200":
+          $ref: "#/components/responses/Envelope"
+components:
+  responses:
+    Envelope:
+      description: Protocol response envelope.
+      content:
+        application/json:
+          schema:
+            $ref: ./schemas/common.schema.json#/$defs/response_envelope

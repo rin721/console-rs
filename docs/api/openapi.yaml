@@ -1,0 +1,3588 @@
+components:
+  schemas:
+    APITokenSummary:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        expires_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        id:
+          format: int64
+          type: integer
+        org_id:
+          format: int64
+          type: integer
+        revoked_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+        token_prefix:
+          type: string
+        user_id:
+          format: int64
+          type: integer
+      required:
+      - id
+      - org_id
+      - user_id
+      - token_prefix
+      - status
+      - created_at
+      type: object
+    AcceptInvitationRequest:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        password:
+          description: 邀请接受密码
+          format: password
+          type: string
+          writeOnly: true
+        token:
+          type: string
+      required:
+      - token
+      - password
+      - display_name
+      type: object
+    ApiCatalogEntry:
+      additionalProperties: false
+      properties:
+        access:
+          type: string
+        id:
+          type: string
+        method:
+          type: string
+        path:
+          type: string
+        permission:
+          anyOf:
+          - type: string
+          - type: 'null'
+        product_code:
+          type: string
+        scope:
+          type: string
+        summary:
+          type: string
+        tag:
+          type: string
+      required:
+      - id
+      - method
+      - path
+      - tag
+      - summary
+      - access
+      - scope
+      - product_code
+      type: object
+    ApiCatalogGroup:
+      additionalProperties: false
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/ApiCatalogEntry'
+          type: array
+        tag:
+          type: string
+      required:
+      - tag
+      - items
+      type: object
+    BooleanResult:
+      additionalProperties: false
+      properties:
+        accepted:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+        deleted:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+        reset:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+        revoked:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+        verified:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+      required: []
+      type: object
+    CompleteSetupRequest:
+      additionalProperties: false
+      properties:
+        confirm:
+          type: boolean
+        run_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required:
+      - confirm
+      type: object
+    CompleteSetupResult:
+      additionalProperties: false
+      properties:
+        completed:
+          type: boolean
+      required:
+      - completed
+      type: object
+    ConfirmEmailVerificationRequest:
+      additionalProperties: false
+      properties:
+        token:
+          description: 邮箱验证一次性令牌
+          format: password
+          type: string
+          writeOnly: true
+      required:
+      - token
+      type: object
+    CreateAPITokenRequest:
+      additionalProperties: false
+      properties:
+        expires_in_days:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+        remark:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required: []
+      type: object
+    CreateAPITokenResult:
+      additionalProperties: false
+      properties:
+        item:
+          $ref: '#/components/schemas/APITokenSummary'
+        token:
+          description: 仅创建时返回一次的 API Token 明文
+          type: string
+          x-console-sensitive: true
+      required:
+      - item
+      - token
+      type: object
+    CreateMediaAssetRequest:
+      additionalProperties: false
+      properties:
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+        display_name:
+          type: string
+        mime_type:
+          type: string
+        size_bytes:
+          format: int64
+          type: integer
+        storage_key:
+          type: string
+      required:
+      - display_name
+      - storage_key
+      - mime_type
+      - size_bytes
+      type: object
+    CreateRoleRequest:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        permission_codes:
+          items:
+            type: string
+          type: array
+      required:
+      - code
+      - name
+      - permission_codes
+      type: object
+    CreateSetupRunRequest:
+      additionalProperties: false
+      properties:
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required: []
+      type: object
+    CreateTrafficProbeTargetRequest:
+      additionalProperties: false
+      properties:
+        expected_status:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+        name:
+          type: string
+        url:
+          type: string
+      required:
+      - name
+      - url
+      type: object
+    CreateVersionPackageRequest:
+      additionalProperties: false
+      properties:
+        manifest:
+          additionalProperties: true
+          description: 任意 JSON 值
+        version_code:
+          type: string
+        version_name:
+          type: string
+      required:
+      - version_name
+      - version_code
+      - manifest
+      type: object
+    DeleteResult:
+      additionalProperties: false
+      properties:
+        deleted:
+          type: boolean
+      required:
+      - deleted
+      type: object
+    DeleteStorageObjectRequest:
+      additionalProperties: false
+      properties:
+        storage_key:
+          type: string
+      required:
+      - storage_key
+      type: object
+    ForgotPasswordRequest:
+      additionalProperties: false
+      properties:
+        email:
+          type: string
+      required:
+      - email
+      type: object
+    IamSetupStatus:
+      additionalProperties: false
+      properties:
+        initialized:
+          type: boolean
+      required:
+      - initialized
+      type: object
+    InitialAdminRequest:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        email:
+          type: string
+        organization_code:
+          type: string
+        organization_name:
+          type: string
+        password:
+          description: 初始管理员密码
+          format: password
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+      - display_name
+      - organization_code
+      - organization_name
+      type: object
+    InvitationSummary:
+      additionalProperties: false
+      properties:
+        accepted_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        created_at:
+          type: string
+        email:
+          type: string
+        expires_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        org_id:
+          format: int64
+          type: integer
+        revoked_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        role_code:
+          type: string
+        status:
+          type: string
+      required:
+      - id
+      - org_id
+      - email
+      - role_code
+      - status
+      - expires_at
+      - created_at
+      type: object
+    InviteUserRequest:
+      additionalProperties: false
+      properties:
+        email:
+          type: string
+        role_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required:
+      - email
+      type: object
+    InviteUserResult:
+      additionalProperties: false
+      properties:
+        delivery:
+          $ref: '#/components/schemas/NotificationDelivery'
+        item:
+          $ref: '#/components/schemas/InvitationSummary'
+      required:
+      - item
+      - delivery
+      type: object
+    LoginRequest:
+      additionalProperties: false
+      properties:
+        identifier:
+          type: string
+        mfa_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+        password:
+          description: 登录密码
+          format: password
+          type: string
+          writeOnly: true
+      required:
+      - identifier
+      - password
+      type: object
+    LogoutResult:
+      additionalProperties: false
+      properties:
+        logged_out:
+          type: boolean
+      required:
+      - logged_out
+      type: object
+    MediaAssetEntry:
+      additionalProperties: false
+      properties:
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+        created_at:
+          type: string
+        display_name:
+          type: string
+        id:
+          format: int64
+          type: integer
+        mime_type:
+          type: string
+        size_bytes:
+          format: int64
+          type: integer
+        storage_key:
+          type: string
+      required:
+      - id
+      - display_name
+      - storage_key
+      - mime_type
+      - size_bytes
+      - created_at
+      type: object
+    MediaUploadMultipart:
+      additionalProperties: false
+      properties:
+        category:
+          anyOf:
+          - type: string
+          - type: 'null'
+        display_name:
+          type: string
+        file:
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    MfaFactorSummary:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        kind:
+          type: string
+        revoked_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+        verified_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required:
+      - id
+      - kind
+      - status
+      - created_at
+      type: object
+    MfaRecoveryCodeSummary:
+      additionalProperties: false
+      properties:
+        code_prefix:
+          type: string
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        revoked_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+        used_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required:
+      - id
+      - code_prefix
+      - status
+      - created_at
+      type: object
+    MfaRecoveryCodesResult:
+      additionalProperties: false
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/MfaRecoveryCodeSummary'
+          type: array
+        recovery_codes:
+          items:
+            description: 仅轮换时返回一次的 MFA 恢复码
+            type: string
+            x-console-sensitive: true
+          type: array
+      required:
+      - items
+      - recovery_codes
+      type: object
+    MfaSetupResult:
+      additionalProperties: false
+      properties:
+        factor:
+          $ref: '#/components/schemas/MfaFactorSummary'
+        otpauth_url:
+          description: 包含 TOTP secret 的一次性 URI
+          type: string
+          x-console-sensitive: true
+        secret:
+          description: 仅设置时返回一次的 TOTP secret
+          type: string
+          x-console-sensitive: true
+      required:
+      - factor
+      - secret
+      - otpauth_url
+      type: object
+    MfaVerifyResult:
+      additionalProperties: false
+      properties:
+        recovery_codes:
+          items:
+            description: 仅启用时返回一次的 MFA 恢复码
+            type: string
+            x-console-sensitive: true
+          type: array
+        verified:
+          type: boolean
+      required:
+      - verified
+      - recovery_codes
+      type: object
+    NotificationDelivery:
+      additionalProperties: false
+      properties:
+        accepted:
+          type: boolean
+        channel:
+          type: string
+      required:
+      - accepted
+      - channel
+      type: object
+    OperationRecord:
+      additionalProperties: false
+      properties:
+        actor_user_id:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        method:
+          type: string
+        path:
+          type: string
+        status:
+          format: int64
+          type: integer
+      required:
+      - id
+      - method
+      - path
+      - status
+      - created_at
+      type: object
+    OperationRecordCountBucket:
+      additionalProperties: false
+      properties:
+        count:
+          format: int64
+          type: integer
+        key:
+          type: string
+      required:
+      - key
+      - count
+      type: object
+    OperationRecordCsv:
+      description: UTF-8 CSV 文本，列为 id、actor_user_id、method、path、status、created_at
+      type: string
+    OperationRecordPathBucket:
+      additionalProperties: false
+      properties:
+        count:
+          format: int64
+          type: integer
+        error_count:
+          format: int64
+          type: integer
+        last_seen_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        path:
+          type: string
+      required:
+      - path
+      - count
+      - error_count
+      type: object
+    OperationRecordRetentionReport:
+      additionalProperties: false
+      properties:
+        cutoff:
+          type: string
+        deleted:
+          format: int64
+          type: integer
+        prune_batch_size:
+          format: int64
+          type: integer
+        retention_days:
+          format: int64
+          type: integer
+      required:
+      - retention_days
+      - cutoff
+      - prune_batch_size
+      - deleted
+      type: object
+    OperationRecordSummary:
+      additionalProperties: false
+      properties:
+        by_method:
+          items:
+            $ref: '#/components/schemas/OperationRecordCountBucket'
+          type: array
+        by_status_class:
+          items:
+            $ref: '#/components/schemas/OperationRecordCountBucket'
+          type: array
+        client_error_count:
+          format: int64
+          type: integer
+        generated_at:
+          type: string
+        other_count:
+          format: int64
+          type: integer
+        redirect_count:
+          format: int64
+          type: integer
+        server_error_count:
+          format: int64
+          type: integer
+        success_count:
+          format: int64
+          type: integer
+        top_limit:
+          format: int64
+          type: integer
+        top_paths:
+          items:
+            $ref: '#/components/schemas/OperationRecordPathBucket'
+          type: array
+        total_count:
+          format: int64
+          type: integer
+      required:
+      - generated_at
+      - total_count
+      - success_count
+      - redirect_count
+      - client_error_count
+      - server_error_count
+      - other_count
+      - top_limit
+      - by_method
+      - by_status_class
+      - top_paths
+      type: object
+    Organization:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        scope:
+          type: string
+      required:
+      - id
+      - code
+      - name
+      - scope
+      type: object
+    OrganizationSummary:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        scope:
+          type: string
+        status:
+          type: string
+      required:
+      - id
+      - code
+      - name
+      - scope
+      - status
+      - created_at
+      type: object
+    OrganizationUserSummary:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        email:
+          type: string
+        email_verified_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        id:
+          format: int64
+          type: integer
+        role_codes:
+          items:
+            type: string
+          type: array
+        status:
+          type: string
+      required:
+      - id
+      - email
+      - display_name
+      - status
+      - role_codes
+      type: object
+    PermissionSummary:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        product_code:
+          type: string
+        scope:
+          type: string
+      required:
+      - id
+      - product_code
+      - scope
+      - code
+      - name
+      type: object
+    PrometheusMetrics:
+      description: Prometheus text exposition format 0.0.4，内容只来自后端真实采集的 ServerStatus 指标。
+      type: string
+    PublicAuthSettings:
+      additionalProperties: false
+      properties:
+        client_type_header:
+          type: string
+        csrf_cookie_name:
+          type: string
+        csrf_enabled:
+          type: boolean
+        csrf_header_name:
+          type: string
+        default_client_type:
+          type: string
+        product_header:
+          type: string
+        refresh_cookie_name:
+          type: string
+        self_signup_enabled:
+          type: boolean
+        session_cookie_name:
+          type: string
+      required:
+      - self_signup_enabled
+      - session_cookie_name
+      - refresh_cookie_name
+      - product_header
+      - client_type_header
+      - default_client_type
+      - csrf_enabled
+      - csrf_cookie_name
+      - csrf_header_name
+      type: object
+    PublicSettings:
+      additionalProperties: false
+      properties:
+        auth:
+          $ref: '#/components/schemas/PublicAuthSettings'
+        default_locale:
+          type: string
+        product_code:
+          type: string
+        product_name:
+          type: string
+        supported_locales:
+          items:
+            type: string
+          type: array
+      required:
+      - product_name
+      - product_code
+      - default_locale
+      - supported_locales
+      - auth
+      type: object
+    RegisterRequest:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        email:
+          type: string
+        organization_code:
+          type: string
+        organization_name:
+          type: string
+        password:
+          description: 注册密码
+          format: password
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+      - display_name
+      - organization_code
+      - organization_name
+      type: object
+    RequestEmailVerification:
+      additionalProperties: false
+      properties:
+        email:
+          type: string
+      required:
+      - email
+      type: object
+    ResetPasswordRequest:
+      additionalProperties: false
+      properties:
+        password:
+          description: 新密码
+          format: password
+          type: string
+          writeOnly: true
+        token:
+          type: string
+      required:
+      - token
+      - password
+      type: object
+    RoleSummary:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        org_id:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+        permissions:
+          items:
+            type: string
+          type: array
+        scope:
+          type: string
+        system_builtin:
+          type: boolean
+      required:
+      - id
+      - code
+      - name
+      - scope
+      - system_builtin
+      - permissions
+      type: object
+    ServerResourceMetrics:
+      additionalProperties: false
+      properties:
+        available_disk_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        available_memory_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        cpu_usage_percent:
+          format: float
+          type: number
+        disk_count:
+          format: uint64
+          minimum: 0
+          type: integer
+        load_average_fifteen:
+          format: float
+          type: number
+        load_average_five:
+          format: float
+          type: number
+        load_average_one:
+          format: float
+          type: number
+        network_interface_count:
+          format: uint64
+          minimum: 0
+          type: integer
+        network_received_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        network_transmitted_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        process_cpu_usage_percent:
+          format: float
+          type: number
+        process_memory_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        process_virtual_memory_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        source:
+          type: string
+        system_boot_time_seconds:
+          format: uint64
+          minimum: 0
+          type: integer
+        system_uptime_seconds:
+          format: uint64
+          minimum: 0
+          type: integer
+        total_disk_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        total_memory_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        total_swap_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        used_disk_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        used_memory_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+        used_swap_bytes:
+          format: uint64
+          minimum: 0
+          type: integer
+      required:
+      - source
+      - cpu_usage_percent
+      - process_cpu_usage_percent
+      - total_memory_bytes
+      - used_memory_bytes
+      - available_memory_bytes
+      - process_memory_bytes
+      - process_virtual_memory_bytes
+      - total_swap_bytes
+      - used_swap_bytes
+      - total_disk_bytes
+      - used_disk_bytes
+      - available_disk_bytes
+      - disk_count
+      - network_interface_count
+      - network_received_bytes
+      - network_transmitted_bytes
+      - system_uptime_seconds
+      - system_boot_time_seconds
+      - load_average_one
+      - load_average_five
+      - load_average_fifteen
+      type: object
+    ServerStatus:
+      additionalProperties: false
+      properties:
+        arch:
+          type: string
+        available_parallelism:
+          format: int64
+          type: integer
+        collected_at:
+          type: string
+        database_driver:
+          type: string
+        metrics:
+          $ref: '#/components/schemas/ServerResourceMetrics'
+        os:
+          type: string
+        process_id:
+          format: int64
+          type: integer
+        product_code:
+          type: string
+        source:
+          type: string
+        started_at:
+          type: string
+        uptime_seconds:
+          format: int64
+          type: integer
+        version:
+          type: string
+      required:
+      - source
+      - collected_at
+      - started_at
+      - uptime_seconds
+      - process_id
+      - os
+      - arch
+      - available_parallelism
+      - product_code
+      - version
+      - database_driver
+      - metrics
+      type: object
+    SessionSnapshot:
+      additionalProperties: false
+      properties:
+        authenticated:
+          type: boolean
+        client_type:
+          type: string
+        expires_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        mfa_enabled:
+          type: boolean
+        organization:
+          anyOf:
+          - $ref: '#/components/schemas/Organization'
+          - type: 'null'
+        permissions:
+          items:
+            type: string
+          type: array
+        product_code:
+          type: string
+        refresh_expires_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        user:
+          anyOf:
+          - $ref: '#/components/schemas/User'
+          - type: 'null'
+      required:
+      - authenticated
+      - product_code
+      - client_type
+      - permissions
+      - mfa_enabled
+      type: object
+    SetupConfigCheck:
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        message:
+          type: string
+        severity:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+      required:
+      - key
+      - title
+      - status
+      - severity
+      - message
+      type: object
+    SetupConfigCheckSummary:
+      additionalProperties: false
+      properties:
+        checks:
+          items:
+            $ref: '#/components/schemas/SetupConfigCheck'
+          type: array
+        ready:
+          type: boolean
+      required:
+      - ready
+      - checks
+      type: object
+    SetupFieldSchema:
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        kind:
+          type: string
+        label:
+          type: string
+        required:
+          type: boolean
+        sensitive:
+          type: boolean
+      required:
+      - key
+      - label
+      - kind
+      - required
+      - sensitive
+      type: object
+    SetupRun:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        id:
+          type: string
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+        updated_at:
+          type: string
+      required:
+      - id
+      - status
+      - created_at
+      - updated_at
+      type: object
+    SetupSchema:
+      additionalProperties: false
+      properties:
+        locale:
+          type: string
+        steps:
+          items:
+            $ref: '#/components/schemas/SetupStepSchema'
+          type: array
+      required:
+      - locale
+      - steps
+      type: object
+    SetupStatus:
+      additionalProperties: false
+      properties:
+        completed:
+          type: boolean
+        has_initial_admin:
+          type: boolean
+        required_steps:
+          items:
+            $ref: '#/components/schemas/SetupStepStatus'
+          type: array
+      required:
+      - completed
+      - has_initial_admin
+      - required_steps
+      type: object
+    SetupStepLog:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        message:
+          type: string
+        status:
+          type: string
+        step_key:
+          type: string
+      required:
+      - step_key
+      - status
+      - message
+      - created_at
+      type: object
+    SetupStepSchema:
+      additionalProperties: false
+      properties:
+        fields:
+          items:
+            $ref: '#/components/schemas/SetupFieldSchema'
+          type: array
+        key:
+          type: string
+        title:
+          type: string
+      required:
+      - key
+      - title
+      - fields
+      type: object
+    SetupStepStatus:
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        status:
+          type: string
+        title:
+          type: string
+      required:
+      - key
+      - title
+      - status
+      type: object
+    StorageObjectEntry:
+      additionalProperties: false
+      properties:
+        e_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+        size_bytes:
+          format: int64
+          type: integer
+        storage_key:
+          type: string
+        updated_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required:
+      - storage_key
+      - size_bytes
+      - updated_at
+      - e_tag
+      type: object
+    SystemConfigEntry:
+      additionalProperties: false
+      properties:
+        key:
+          type: string
+        updated_at:
+          type: string
+        value:
+          additionalProperties: true
+          description: 任意 JSON 值
+      required:
+      - key
+      - value
+      - updated_at
+      type: object
+    SystemDictionaryEntry:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+      required:
+      - id
+      - code
+      - name
+      - created_at
+      type: object
+    SystemMenuEntry:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+        path:
+          type: string
+        permission:
+          anyOf:
+          - type: string
+          - type: 'null'
+        scope:
+          type: string
+        sort_order:
+          format: int64
+          type: integer
+        title:
+          type: string
+      required:
+      - code
+      - title
+      - path
+      - scope
+      - sort_order
+      type: object
+    SystemParameterEntry:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        key:
+          type: string
+        name:
+          type: string
+        updated_at:
+          type: string
+        value:
+          type: string
+      required:
+      - id
+      - key
+      - name
+      - value
+      - created_at
+      - updated_at
+      type: object
+    TrafficProbeAlertActionResult:
+      additionalProperties: false
+      properties:
+        updated:
+          type: boolean
+      required:
+      - updated
+      type: object
+    TrafficProbeAlertEntry:
+      additionalProperties: false
+      properties:
+        acknowledged_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        detail:
+          additionalProperties: true
+          description: 任意 JSON 值
+        id:
+          format: int64
+          type: integer
+        opened_at:
+          type: string
+        reason:
+          type: string
+        resolved_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        result_id:
+          format: int64
+          type: integer
+        severity:
+          type: string
+        status:
+          type: string
+        target_id:
+          format: int64
+          type: integer
+      required:
+      - id
+      - target_id
+      - result_id
+      - severity
+      - status
+      - reason
+      - detail
+      - opened_at
+      - acknowledged_at
+      - resolved_at
+      type: object
+    TrafficProbeEventError:
+      additionalProperties: false
+      properties:
+        event_type:
+          type: string
+        generated_at:
+          type: string
+        message:
+          type: string
+      required:
+      - event_type
+      - generated_at
+      - message
+      type: object
+    TrafficProbeEventSnapshot:
+      additionalProperties: false
+      properties:
+        alerts:
+          items:
+            $ref: '#/components/schemas/TrafficProbeAlertEntry'
+          type: array
+        event_type:
+          type: string
+        generated_at:
+          type: string
+        reconnect_after_millis:
+          format: uint64
+          minimum: 0
+          type: integer
+      required:
+      - event_type
+      - generated_at
+      - reconnect_after_millis
+      - alerts
+      type: object
+    TrafficProbeEventStream:
+      additionalProperties: false
+      properties:
+        content_type:
+          type: string
+        error_event:
+          $ref: '#/components/schemas/TrafficProbeEventError'
+        snapshot_event:
+          $ref: '#/components/schemas/TrafficProbeEventSnapshot'
+      required:
+      - content_type
+      - snapshot_event
+      - error_event
+      type: object
+    TrafficProbeResultEntry:
+      additionalProperties: false
+      properties:
+        detail:
+          additionalProperties: true
+          description: 任意 JSON 值
+        id:
+          format: int64
+          type: integer
+        probed_at:
+          type: string
+        status:
+          type: string
+        target_id:
+          format: int64
+          type: integer
+      required:
+      - id
+      - target_id
+      - status
+      - detail
+      - probed_at
+      type: object
+    TrafficProbeTargetEntry:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        expected_status:
+          format: int64
+          type: integer
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+        url:
+          type: string
+      required:
+      - id
+      - name
+      - url
+      - expected_status
+      - status
+      - created_at
+      type: object
+    UpdateOrgUserRequest:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        role_codes:
+          items:
+            type: string
+          type: array
+        status:
+          type: string
+      required:
+      - display_name
+      - status
+      - role_codes
+      type: object
+    UpdateRoleRequest:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        permission_codes:
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      - permission_codes
+      type: object
+    UpsertSystemConfigRequest:
+      additionalProperties: false
+      properties:
+        value:
+          additionalProperties: true
+          description: 任意 JSON 值
+      required:
+      - value
+      type: object
+    UpsertSystemDictionaryRequest:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    UpsertSystemParameterRequest:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      type: object
+    User:
+      additionalProperties: false
+      properties:
+        display_name:
+          type: string
+        email:
+          type: string
+        id:
+          format: int64
+          type: integer
+        status:
+          type: string
+      required:
+      - id
+      - email
+      - display_name
+      - status
+      type: object
+    VerifyMfaRequest:
+      additionalProperties: false
+      properties:
+        code:
+          type: string
+      required:
+      - code
+      type: object
+    VersionPackageActionRequest:
+      additionalProperties: false
+      properties:
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+      required: []
+      type: object
+    VersionPackageActionResult:
+      additionalProperties: false
+      properties:
+        event_id:
+          format: int64
+          type: integer
+        package:
+          $ref: '#/components/schemas/VersionPackageEntry'
+        previous_active_id:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+      required:
+      - event_id
+      - package
+      type: object
+    VersionPackageEntry:
+      additionalProperties: false
+      properties:
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        manifest:
+          additionalProperties: true
+          description: 任意 JSON 值
+        published_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        retired_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+        version_code:
+          type: string
+        version_name:
+          type: string
+      required:
+      - id
+      - version_name
+      - version_code
+      - manifest
+      - status
+      - created_at
+      type: object
+    VersionReleaseEventEntry:
+      additionalProperties: false
+      properties:
+        action:
+          type: string
+        created_at:
+          type: string
+        id:
+          format: int64
+          type: integer
+        package_id:
+          format: int64
+          type: integer
+        previous_active_id:
+          anyOf:
+          - format: int64
+            type: integer
+          - type: 'null'
+        reason:
+          anyOf:
+          - type: string
+          - type: 'null'
+        status:
+          type: string
+      required:
+      - id
+      - package_id
+      - action
+      - status
+      - created_at
+      type: object
+info:
+  description: 由 Rust route registry 生成的当前有效 API 契约，禁止手写漂移。
+  title: Aoi[葵] API
+  version: 0.1.0
+openapi: 3.1.0
+paths:
+  /api/v1/auth/email-verifications:
+    post:
+      operationId: iam.email-verification.request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestEmailVerification'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationDelivery'
+          description: 成功
+      summary: 创建邮箱验证通知
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/email-verifications/confirm:
+    post:
+      operationId: iam.email-verification.confirm
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConfirmEmailVerificationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 确认邮箱验证令牌
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/invitations/accept:
+    post:
+      operationId: iam.invitations.accept
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcceptInvitationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionSnapshot'
+          description: 成功
+      summary: 接受组织邀请并建立会话
+      tags:
+      - IAM Invitation
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/login:
+    post:
+      operationId: iam.login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionSnapshot'
+          description: 成功
+      summary: 登录并建立 HttpOnly Cookie 会话
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/logout:
+    post:
+      operationId: iam.logout
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogoutResult'
+          description: 成功
+      summary: 撤销当前会话
+      tags:
+      - IAM
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/mfa/factors:
+    get:
+      operationId: iam.mfa.factors.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MfaFactorSummary'
+                type: array
+          description: 成功
+      summary: 列出当前账号 TOTP MFA 因子元数据
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/mfa/factors/{factorId}:
+    delete:
+      operationId: iam.mfa.revoke
+      parameters:
+      - in: path
+        name: factorId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 撤销当前账号 TOTP MFA 因子
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/mfa/recovery-codes:
+    get:
+      operationId: iam.mfa.recovery-codes.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MfaRecoveryCodeSummary'
+                type: array
+          description: 成功
+      summary: 列出当前账号 MFA 恢复码元数据
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+    post:
+      operationId: iam.mfa.recovery-codes.rotate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MfaRecoveryCodesResult'
+          description: 成功
+      summary: 轮换当前账号 MFA 恢复码
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/mfa/setup:
+    post:
+      operationId: iam.mfa.setup
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MfaSetupResult'
+          description: 成功
+      summary: 创建或轮换 TOTP MFA 密钥
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/mfa/verify:
+    post:
+      operationId: iam.mfa.verify
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyMfaRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MfaVerifyResult'
+          description: 成功
+      summary: 验证并启用 TOTP MFA
+      tags:
+      - IAM MFA
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/password/forgot:
+    post:
+      operationId: iam.password.forgot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationDelivery'
+          description: 成功
+      summary: 创建密码重置通知
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/password/reset:
+    post:
+      operationId: iam.password.reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 使用重置令牌更新密码
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/refresh:
+    post:
+      operationId: iam.refresh
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionSnapshot'
+          description: 成功
+      summary: 使用 refresh cookie 轮换会话
+      tags:
+      - IAM
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/auth/register:
+    post:
+      operationId: iam.register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationDelivery'
+          description: 成功
+      summary: 自助注册租户账号并创建邮箱验证通知
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/setup/initial-admin:
+    post:
+      operationId: iam.initial-admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitialAdminRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionSnapshot'
+          description: 成功
+      summary: 创建首个管理员并建立会话
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/auth/setup/status:
+    get:
+      operationId: iam.setup.status
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IamSetupStatus'
+          description: 成功
+      summary: 查询首个管理员状态
+      tags:
+      - IAM
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/iam/orgs:
+    get:
+      operationId: iam.organizations.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationSummary'
+                type: array
+          description: 成功
+      summary: 列出组织
+      tags:
+      - IAM Organization
+      x-console-access: permission
+      x-console-permission: org:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/iam/orgs/{orgId}/roles:
+    get:
+      operationId: iam.org-roles.list
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/RoleSummary'
+                type: array
+          description: 成功
+      summary: 列出组织角色
+      tags:
+      - IAM Role
+      x-console-access: permission
+      x-console-permission: role:read
+      x-console-product-code: console
+      x-console-scope: tenant
+    post:
+      operationId: iam.org-roles.create
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRoleRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleSummary'
+          description: 成功
+      summary: 创建组织角色
+      tags:
+      - IAM Role
+      x-console-access: permission
+      x-console-permission: role:write
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/iam/orgs/{orgId}/roles/{roleId}:
+    delete:
+      operationId: iam.org-roles.delete
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: roleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 删除组织角色
+      tags:
+      - IAM Role
+      x-console-access: permission
+      x-console-permission: role:write
+      x-console-product-code: console
+      x-console-scope: tenant
+    put:
+      operationId: iam.org-roles.update
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: roleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRoleRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoleSummary'
+          description: 成功
+      summary: 更新组织角色
+      tags:
+      - IAM Role
+      x-console-access: permission
+      x-console-permission: role:write
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/iam/orgs/{orgId}/users:
+    get:
+      operationId: iam.org-users.list
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OrganizationUserSummary'
+                type: array
+          description: 成功
+      summary: 列出组织用户
+      tags:
+      - IAM User
+      x-console-access: permission
+      x-console-permission: user:read
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/iam/orgs/{orgId}/users/{userId}:
+    put:
+      operationId: iam.org-users.update
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOrgUserRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationUserSummary'
+          description: 成功
+      summary: 更新组织用户资料、状态和角色
+      tags:
+      - IAM User
+      x-console-access: permission
+      x-console-permission: user:write
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/iam/permissions:
+    get:
+      operationId: iam.permissions.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PermissionSummary'
+                type: array
+          description: 成功
+      summary: 列出 IAM 权限
+      tags:
+      - IAM Permission
+      x-console-access: permission
+      x-console-permission: permission:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/me/session:
+    get:
+      operationId: iam.me.session
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionSnapshot'
+          description: 成功
+      summary: 读取当前会话快照
+      tags:
+      - IAM
+      x-console-access: authenticated
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/orgs/{orgId}/api-tokens:
+    get:
+      operationId: iam.api-tokens.list
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/APITokenSummary'
+                type: array
+          description: 成功
+      summary: 列出组织 API Token
+      tags:
+      - IAM API Token
+      x-console-access: permission
+      x-console-permission: api_token:read
+      x-console-product-code: console
+      x-console-scope: tenant
+    post:
+      operationId: iam.api-tokens.create
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAPITokenRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateAPITokenResult'
+          description: 成功
+      summary: 签发组织 API Token
+      tags:
+      - IAM API Token
+      x-console-access: permission
+      x-console-permission: api_token:create
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/orgs/{orgId}/api-tokens/{tokenId}:
+    delete:
+      operationId: iam.api-tokens.revoke
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: tokenId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 撤销组织 API Token
+      tags:
+      - IAM API Token
+      x-console-access: permission
+      x-console-permission: api_token:revoke
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/orgs/{orgId}/invitations:
+    get:
+      operationId: iam.invitations.list
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/InvitationSummary'
+                type: array
+          description: 成功
+      summary: 列出组织邀请
+      tags:
+      - IAM Invitation
+      x-console-access: permission
+      x-console-permission: user:invite
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/orgs/{orgId}/invitations/{invitationId}:
+    delete:
+      operationId: iam.invitations.revoke
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: invitationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooleanResult'
+          description: 成功
+      summary: 撤销组织邀请
+      tags:
+      - IAM Invitation
+      x-console-access: permission
+      x-console-permission: user:invite
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/orgs/{orgId}/users/invitations:
+    post:
+      operationId: iam.invitations.create
+      parameters:
+      - in: path
+        name: orgId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InviteUserRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InviteUserResult'
+          description: 成功
+      summary: 创建组织邀请
+      tags:
+      - IAM Invitation
+      x-console-access: permission
+      x-console-permission: user:invite
+      x-console-product-code: console
+      x-console-scope: tenant
+  /api/v1/setup/complete:
+    post:
+      operationId: setup.complete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteSetupRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompleteSetupResult'
+          description: 成功
+      summary: 完成初始化
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/setup/config-checks:
+    get:
+      operationId: setup.config-checks
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetupConfigCheckSummary'
+          description: 成功
+      summary: 查询初始化配置检测结果
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/setup/runs:
+    get:
+      operationId: setup.run.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SetupRun'
+                type: array
+          description: 成功
+      summary: 列出初始化运行
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+    post:
+      operationId: setup.run.create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSetupRunRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetupRun'
+          description: 成功
+      summary: 创建初始化运行
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/setup/runs/{runId}/logs:
+    get:
+      operationId: setup.run.logs
+      parameters:
+      - in: path
+        name: runId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SetupStepLog'
+                type: array
+          description: 成功
+      summary: 查询初始化步骤日志
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/setup/schema:
+    get:
+      operationId: setup.schema
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetupSchema'
+          description: 成功
+      summary: 查询首次安装 schema
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/setup/status:
+    get:
+      operationId: setup.status
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetupStatus'
+          description: 成功
+      summary: 查询首次安装状态
+      tags:
+      - Setup
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/apis:
+    get:
+      operationId: system.apis
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/ApiCatalogGroup'
+                type: array
+          description: 成功
+      summary: 读取 API 目录
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: permission:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/configs:
+    get:
+      operationId: system.configs.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SystemConfigEntry'
+                type: array
+          description: 成功
+      summary: 列出系统配置
+      tags:
+      - System Config
+      x-console-access: permission
+      x-console-permission: config:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/configs/{key}:
+    delete:
+      operationId: system.configs.delete
+      parameters:
+      - in: path
+        name: key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除系统配置
+      tags:
+      - System Config
+      x-console-access: permission
+      x-console-permission: config:write
+      x-console-product-code: console
+      x-console-scope: platform
+    put:
+      operationId: system.configs.upsert
+      parameters:
+      - in: path
+        name: key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertSystemConfigRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemConfigEntry'
+          description: 成功
+      summary: 写入系统配置
+      tags:
+      - System Config
+      x-console-access: permission
+      x-console-permission: config:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/dictionaries:
+    get:
+      operationId: system.dictionaries.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SystemDictionaryEntry'
+                type: array
+          description: 成功
+      summary: 列出系统字典
+      tags:
+      - System Dictionary
+      x-console-access: permission
+      x-console-permission: dictionary:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/dictionaries/{code}:
+    delete:
+      operationId: system.dictionaries.delete
+      parameters:
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除系统字典
+      tags:
+      - System Dictionary
+      x-console-access: permission
+      x-console-permission: dictionary:write
+      x-console-product-code: console
+      x-console-scope: platform
+    put:
+      operationId: system.dictionaries.upsert
+      parameters:
+      - in: path
+        name: code
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertSystemDictionaryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemDictionaryEntry'
+          description: 成功
+      summary: 写入系统字典
+      tags:
+      - System Dictionary
+      x-console-access: permission
+      x-console-permission: dictionary:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/media-assets:
+    get:
+      operationId: system.media-assets.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MediaAssetEntry'
+                type: array
+          description: 成功
+      summary: 列出媒体资产
+      tags:
+      - System Media
+      x-console-access: permission
+      x-console-permission: media:read
+      x-console-product-code: console
+      x-console-scope: platform
+    post:
+      operationId: system.media-assets.create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMediaAssetRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaAssetEntry'
+          description: 成功
+      summary: 登记媒体资产
+      tags:
+      - System Media
+      x-console-access: permission
+      x-console-permission: media:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/media-assets/upload:
+    post:
+      operationId: system.media-assets.upload
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MediaUploadMultipart'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaAssetEntry'
+          description: 成功
+      summary: 上传媒体文件
+      tags:
+      - System Media
+      x-console-access: permission
+      x-console-permission: media:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/media-assets/{id}:
+    delete:
+      operationId: system.media-assets.delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除媒体资产
+      tags:
+      - System Media
+      x-console-access: permission
+      x-console-permission: media:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/menus:
+    get:
+      operationId: system.menus
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SystemMenuEntry'
+                type: array
+          description: 成功
+      summary: 读取系统菜单
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: menu:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/metrics/prometheus:
+    get:
+      operationId: system.metrics.prometheus
+      responses:
+        '200':
+          content:
+            text/plain; version=0.0.4:
+              schema:
+                $ref: '#/components/schemas/PrometheusMetrics'
+          description: 成功
+      summary: 导出 Prometheus 文本指标
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: server:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/operation-records:
+    get:
+      operationId: system.operation-records
+      parameters:
+      - description: 按 HTTP method 精确过滤
+        in: query
+        name: method
+        required: false
+        schema:
+          type: string
+      - description: 按 route 模板精确过滤，不包含 query/fragment
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+      - description: 按 HTTP 状态码过滤
+        in: query
+        name: status
+        required: false
+        schema:
+          type: integer
+      - description: 按操作者用户 ID 过滤
+        in: query
+        name: actor_user_id
+        required: false
+        schema:
+          type: integer
+      - description: 按创建时间起点过滤，RFC3339
+        in: query
+        name: created_from
+        required: false
+        schema:
+          type: string
+      - description: 按创建时间终点过滤，RFC3339
+        in: query
+        name: created_to
+        required: false
+        schema:
+          type: string
+      - description: 返回条数，范围 1..200
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+      - description: 分页偏移，范围 0..10000
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/OperationRecord'
+                type: array
+          description: 成功
+      summary: 读取操作记录
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: operation_record:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/operation-records/export.csv:
+    get:
+      operationId: system.operation-records.export
+      parameters:
+      - description: 按 HTTP method 精确过滤
+        in: query
+        name: method
+        required: false
+        schema:
+          type: string
+      - description: 按 route 模板精确过滤，不包含 query/fragment
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+      - description: 按 HTTP 状态码过滤
+        in: query
+        name: status
+        required: false
+        schema:
+          type: integer
+      - description: 按操作者用户 ID 过滤
+        in: query
+        name: actor_user_id
+        required: false
+        schema:
+          type: integer
+      - description: 按创建时间起点过滤，RFC3339
+        in: query
+        name: created_from
+        required: false
+        schema:
+          type: string
+      - description: 按创建时间终点过滤，RFC3339
+        in: query
+        name: created_to
+        required: false
+        schema:
+          type: string
+      - description: 返回条数，范围 1..200
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+      - description: 分页偏移，范围 0..10000
+        in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            text/csv; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/OperationRecordCsv'
+          description: 成功
+      summary: 导出操作记录 CSV
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: operation_record:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/operation-records/prune:
+    post:
+      operationId: system.operation-records.prune
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationRecordRetentionReport'
+          description: 成功
+      summary: 按留存策略清理操作记录
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: operation_record:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/operation-records/summary:
+    get:
+      operationId: system.operation-records.summary
+      parameters:
+      - description: 按 HTTP method 精确过滤
+        in: query
+        name: method
+        required: false
+        schema:
+          type: string
+      - description: 按 route 模板精确过滤，不包含 query/fragment
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+      - description: 按 HTTP 状态码过滤
+        in: query
+        name: status
+        required: false
+        schema:
+          type: integer
+      - description: 按操作者用户 ID 过滤
+        in: query
+        name: actor_user_id
+        required: false
+        schema:
+          type: integer
+      - description: 按创建时间起点过滤，RFC3339
+        in: query
+        name: created_from
+        required: false
+        schema:
+          type: string
+      - description: 按创建时间终点过滤，RFC3339
+        in: query
+        name: created_to
+        required: false
+        schema:
+          type: string
+      - description: top route 返回条数，范围 1..50
+        in: query
+        name: top_limit
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationRecordSummary'
+          description: 成功
+      summary: 读取操作记录审计汇总
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: operation_record:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/parameters:
+    get:
+      operationId: system.parameters.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SystemParameterEntry'
+                type: array
+          description: 成功
+      summary: 列出系统参数
+      tags:
+      - System Parameter
+      x-console-access: permission
+      x-console-permission: parameter:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/parameters/{key}:
+    delete:
+      operationId: system.parameters.delete
+      parameters:
+      - in: path
+        name: key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除系统参数
+      tags:
+      - System Parameter
+      x-console-access: permission
+      x-console-permission: parameter:write
+      x-console-product-code: console
+      x-console-scope: platform
+    put:
+      operationId: system.parameters.upsert
+      parameters:
+      - in: path
+        name: key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertSystemParameterRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemParameterEntry'
+          description: 成功
+      summary: 写入系统参数
+      tags:
+      - System Parameter
+      x-console-access: permission
+      x-console-permission: parameter:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/public-settings:
+    get:
+      operationId: system.public-settings
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicSettings'
+          description: 成功
+      summary: 读取前端公开运行设置
+      tags:
+      - System
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/server-status:
+    get:
+      operationId: system.server-status
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerStatus'
+          description: 成功
+      summary: 读取服务器状态
+      tags:
+      - System
+      x-console-access: permission
+      x-console-permission: server:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/storage-objects:
+    delete:
+      operationId: system.storage-objects.delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteStorageObjectRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除对象存储对象
+      tags:
+      - System Storage
+      x-console-access: permission
+      x-console-permission: storage_object:delete
+      x-console-product-code: console
+      x-console-scope: platform
+    get:
+      operationId: system.storage-objects.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/StorageObjectEntry'
+                type: array
+          description: 成功
+      summary: 列出对象存储对象
+      tags:
+      - System Storage
+      x-console-access: permission
+      x-console-permission: storage_object:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/alerts:
+    get:
+      operationId: system.traffic-probes.alerts
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TrafficProbeAlertEntry'
+                type: array
+          description: 成功
+      summary: 列出流量探针告警
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/alerts/{id}/ack:
+    post:
+      operationId: system.traffic-probes.alerts.ack
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrafficProbeAlertActionResult'
+          description: 成功
+      summary: 确认流量探针告警
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/alerts/{id}/resolve:
+    post:
+      operationId: system.traffic-probes.alerts.resolve
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrafficProbeAlertActionResult'
+          description: 成功
+      summary: 恢复流量探针告警
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/events:
+    get:
+      operationId: system.traffic-probes.events
+      responses:
+        '200':
+          content:
+            text/event-stream:
+              schema:
+                $ref: '#/components/schemas/TrafficProbeEventStream'
+          description: 成功
+      summary: 订阅流量探针告警事件流
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/results:
+    get:
+      operationId: system.traffic-probes.results
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TrafficProbeResultEntry'
+                type: array
+          description: 成功
+      summary: 列出流量探针结果
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/targets:
+    get:
+      operationId: system.traffic-probes.targets.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/TrafficProbeTargetEntry'
+                type: array
+          description: 成功
+      summary: 列出流量探针目标
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:read
+      x-console-product-code: console
+      x-console-scope: platform
+    post:
+      operationId: system.traffic-probes.targets.create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTrafficProbeTargetRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrafficProbeTargetEntry'
+          description: 成功
+      summary: 创建流量探针目标
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/targets/{id}:
+    delete:
+      operationId: system.traffic-probes.targets.delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除流量探针目标
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/traffic-probes/targets/{id}/run:
+    post:
+      operationId: system.traffic-probes.targets.run
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrafficProbeResultEntry'
+          description: 成功
+      summary: 立即执行流量探针
+      tags:
+      - System Traffic Probe
+      x-console-access: permission
+      x-console-permission: traffic_probe:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/version-packages:
+    get:
+      operationId: system.version-packages.list
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VersionPackageEntry'
+                type: array
+          description: 成功
+      summary: 列出版本包
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:read
+      x-console-product-code: console
+      x-console-scope: platform
+    post:
+      operationId: system.version-packages.create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateVersionPackageRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionPackageEntry'
+          description: 成功
+      summary: 创建版本包
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/version-packages/releases:
+    get:
+      operationId: system.version-packages.releases
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/VersionReleaseEventEntry'
+                type: array
+          description: 成功
+      summary: 列出版本发布事件
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:read
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/version-packages/{id}:
+    delete:
+      operationId: system.version-packages.delete
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResult'
+          description: 成功
+      summary: 删除版本包
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/version-packages/{id}/publish:
+    post:
+      operationId: system.version-packages.publish
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VersionPackageActionRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionPackageActionResult'
+          description: 成功
+      summary: 发布版本包为 active
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /api/v1/system/version-packages/{id}/rollback:
+    post:
+      operationId: system.version-packages.rollback
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VersionPackageActionRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionPackageActionResult'
+          description: 成功
+      summary: 回滚到指定版本包
+      tags:
+      - System Version
+      x-console-access: permission
+      x-console-permission: version_package:write
+      x-console-product-code: console
+      x-console-scope: platform
+  /health:
+    get:
+      operationId: probe.health
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: 成功
+      summary: 存活探针
+      tags:
+      - Probe
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /openapi.yaml:
+    get:
+      operationId: openapi.yaml
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: 成功
+      summary: 读取 OpenAPI 契约
+      tags:
+      - OpenAPI
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform
+  /ready:
+    get:
+      operationId: probe.ready
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+          description: 成功
+      summary: 就绪探针
+      tags:
+      - Probe
+      x-console-access: public
+      x-console-permission: null
+      x-console-product-code: console
+      x-console-scope: platform

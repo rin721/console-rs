@@ -1,0 +1,5 @@
+interface:
+  display_name: "Aoi Quality"
+  short_description: "Run repo quality gates for console-rs Rust and WebUI changes."
+  default_prompt: "Use this when verifying console-rs changes before reporting progress."
+

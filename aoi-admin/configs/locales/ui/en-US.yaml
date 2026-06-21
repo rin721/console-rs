@@ -1,0 +1,431 @@
+app.name: "{{.ProductName}}"
+app.versionName: "{{.VersionName}}"
+
+common.actions.back: Back
+common.actions.continue: Continue
+common.actions.retry: Retry
+common.actions.save: Save
+common.actions.skip: Skip
+common.actions.test: Test
+
+setup.steps.welcome.title: Welcome
+setup.steps.welcome.description: The system is not initialized yet. The wizard will guide language, file storage, database, cache, administrator account, and site information setup.
+setup.steps.config.source.title: Configuration source
+setup.steps.config.source.description: Confirm the configuration file and runtime environment currently used by the system.
+setup.steps.config.diagnostics.title: Configuration diagnostics
+setup.steps.config.diagnostics.description: Check the configuration file for values that block startup or initialization.
+setup.steps.dependencies.check.title: Dependency check
+setup.steps.dependencies.check.description: Confirm that the database and enabled optional dependencies are ready.
+setup.steps.database.configure.title: Database configuration and connection test
+setup.steps.database.configure.description: Select the database driver, then test connectivity, permissions, and migration readiness.
+setup.steps.cache.configure.title: Cache strategy
+setup.steps.cache.configure.description: Select the cache backend and test read/write capability.
+setup.steps.storage.configure.title: File storage
+setup.steps.storage.configure.description: Select local or object storage and run a read/write health check.
+setup.steps.system.configure.title: System settings
+setup.steps.system.configure.description: Confirm the default locale, IAM issuer, password policy, and default data policy.
+setup.steps.database.migrate.title: Database migration
+setup.steps.database.migrate.description: Apply database migrations before loading application data.
+setup.steps.system.seed.title: System seed data
+setup.steps.system.seed.description: Initialize built-in dictionaries, parameters, menus, and required system defaults.
+setup.steps.catalog.sync.title: API and permission sync
+setup.steps.catalog.sync.description: Sync API catalog, IAM permissions, menus, and access policies.
+setup.steps.iam.owner.title: Administrator account
+setup.steps.iam.owner.description: Create the first platform owner account and load default IAM policies.
+setup.steps.site.configure.title: Site information
+setup.steps.site.configure.description: Confirm the product name, version display name, and public base URL.
+setup.steps.optional.finalize.title: Optional finalization
+setup.steps.optional.finalize.description: Create an optional service API token when needed.
+setup.steps.verify.finish.title: Final verification
+setup.steps.verify.finish.description: Verify that required configuration, data, permissions, and runtime dependencies are ready.
+
+setup.report.restartRequired: Restart the process before continuing initialization.
+setup.report.failed: "{{.count}} initialization step(s) failed."
+setup.report.risk: "{{.count}} initialization item(s) still need attention."
+setup.report.passed: Initialization checks passed.
+setup.stepStatus.succeeded: "{{.step}} completed."
+setup.stepStatus.failed: "{{.step}} failed."
+setup.stepStatus.skipped: "{{.step}} skipped."
+setup.stepStatus.running: "{{.step}} is running."
+setup.stepStatus.pending: "{{.step}} is pending."
+setup.tests.succeeded: "{{.step}} test passed."
+setup.tests.failed: "{{.step}} test failed."
+setup.tests.skipped: "{{.step}} has no executable test."
+setup.testRepair.database_configure: Fix the database driver and the selected configuration branch, then test again.
+setup.testRepair.cache_configure: Fix the selected cache driver and connection values, then test again.
+setup.testRepair.storage_configure: Fix the storage driver, local directory, endpoint, bucket, and credentials, then test again.
+setup.testRepair.system_configure: Confirm the default locale, IAM issuer, security keys, and password policy.
+setup.testRepair.site_configure: Confirm the product name, version display name, and public base URL.
+
+setup.details.welcome.automaticActions.1: Read initialization status.
+setup.details.welcome.automaticActions.2: Show the initialization steps.
+setup.details.welcome.completionMark: The user has entered the unified setup entry.
+setup.details.welcome.recovery: Continue with the Web wizard, or run aoi init from the CLI.
+setup.details.database_configure.automaticActions.1: Test database connectivity.
+setup.details.database_configure.automaticActions.2: Check SQLite directory permissions.
+setup.details.database_configure.automaticActions.3: Return a restart prompt when saving changed database configuration.
+setup.details.database_configure.completionMark: The database connection is available.
+setup.details.database_configure.recovery: Fix the database configuration and test again. If a new database configuration was saved, restart the process and continue.
+setup.details.cache_configure.automaticActions.1: Save the configuration draft.
+setup.details.cache_configure.automaticActions.2: Run an immediate availability test.
+setup.details.cache_configure.automaticActions.3: Record skipped or degraded capability reasons.
+setup.details.cache_configure.completionMark: The optional capability has been confirmed.
+setup.details.cache_configure.recovery: Fix the configuration and test again. Disabled optional capabilities can be skipped; explicitly enabled failures block continuing.
+setup.details.storage_configure.automaticActions.1: Save the configuration draft.
+setup.details.storage_configure.automaticActions.2: Run an immediate availability test.
+setup.details.storage_configure.automaticActions.3: Record skipped or degraded capability reasons.
+setup.details.storage_configure.completionMark: The optional capability has been confirmed.
+setup.details.storage_configure.recovery: Fix the configuration and test again. Disabled optional capabilities can be skipped; explicitly enabled failures block continuing.
+setup.details.system_configure.automaticActions.1: Validate system configuration.
+setup.details.system_configure.automaticActions.2: Apply required default values.
+setup.details.system_configure.completionMark: The base system configuration is valid.
+setup.details.system_configure.recovery: Fix locale, IAM, and password policy configuration, then retry.
+setup.details.config_source.automaticActions.1: Read the configuration file path.
+setup.details.config_source.automaticActions.2: Generate the configuration fingerprint.
+setup.details.config_source.completionMark: The configuration snapshot has been loaded.
+setup.details.config_source.recovery: Check the --config flag or RIN_CONFIG_PATH environment variable.
+setup.details.config_diagnostics.automaticActions.1: Run configuration diagnostics.
+setup.details.config_diagnostics.automaticActions.2: Return blocking items and environment variable candidates.
+setup.details.config_diagnostics.completionMark: No blocking configuration diagnostics remain.
+setup.details.config_diagnostics.recovery: Run aoi init or aoi run and follow the repair prompts.
+setup.details.dependencies_check.automaticActions.1: Ping the database.
+setup.details.dependencies_check.automaticActions.2: Check Redis, storage, WebUI, and plugin enabled states.
+setup.details.dependencies_check.completionMark: Required dependencies are available.
+setup.details.dependencies_check.recovery: Fix the database connection. Optional dependencies can be disabled or retried after fixing configuration.
+setup.details.database_migrate.automaticActions.1: Run all pending migrations.
+setup.details.database_migrate.automaticActions.2: Do not automatically create remote databases.
+setup.details.database_migrate.completionMark: Migrations have been applied to the latest version.
+setup.details.database_migrate.recovery: Fix database permissions or migration SQL, then retry from the failed step.
+setup.details.system_seed.automaticActions.1: Run system default data seeds.
+setup.details.system_seed.automaticActions.2: Keep writes idempotent.
+setup.details.system_seed.completionMark: Default data has been completed.
+setup.details.system_seed.recovery: Check system_* table structure and database write permissions, then retry.
+setup.details.catalog_sync.automaticActions.1: Sync the API catalog.
+setup.details.catalog_sync.automaticActions.2: Sync the permission catalog.
+setup.details.catalog_sync.completionMark: Routes and permission catalogs have been synchronized.
+setup.details.catalog_sync.recovery: Confirm HTTP routes are mounted and the IAM permission repository is available.
+setup.details.iam_owner.userInputs.1: Organization code.
+setup.details.iam_owner.userInputs.2: Organization name.
+setup.details.iam_owner.userInputs.3: Administrator username.
+setup.details.iam_owner.userInputs.4: Email.
+setup.details.iam_owner.userInputs.5: Display name.
+setup.details.iam_owner.userInputs.6: Password.
+setup.details.iam_owner.automaticActions.1: Create the organization, user, and membership relation.
+setup.details.iam_owner.automaticActions.2: Bind the platform owner role.
+setup.details.iam_owner.automaticActions.3: Issue login tokens for Web setup.
+setup.details.iam_owner.completionMark: The platform owner administrator can sign in and has platform permissions.
+setup.details.iam_owner.recovery: Confirm the users table is empty, or retry with the CLI idempotent bootstrap mode.
+setup.details.site_configure.automaticActions.1: Validate site information configuration.
+setup.details.site_configure.automaticActions.2: Save brand and public access configuration.
+setup.details.site_configure.completionMark: The site information configuration is valid.
+setup.details.site_configure.recovery: Fix the product name, version display name, or public base URL, then retry.
+setup.details.optional_finalize.userInputs.1: Whether to create a service API token.
+setup.details.optional_finalize.userInputs.2: Token validity days.
+setup.details.optional_finalize.userInputs.3: Token remark.
+setup.details.optional_finalize.automaticActions.1: Create an API token when requested.
+setup.details.optional_finalize.automaticActions.2: Skip optional capabilities that are not enabled.
+setup.details.optional_finalize.completionMark: Optional output has been handled.
+setup.details.optional_finalize.recovery: If token creation fails, confirm IAM platform owner completion and retry.
+setup.details.verify_finish.automaticActions.1: Ping the database.
+setup.details.verify_finish.automaticActions.2: Reload IAM policies.
+setup.details.verify_finish.automaticActions.3: Summarize initialization status.
+setup.details.verify_finish.completionMark: The system initialization workflow is complete.
+setup.details.verify_finish.recovery: Review failed step logs, fix the issue, then retry from the failed step.
+
+setup.groups.driver.title: Strategy
+setup.groups.driver.description: Choose the implementation used by this capability.
+setup.groups.sqlite.title: SQLite
+setup.groups.sqlite.description: Local file database. The system checks that the directory can be created and written.
+setup.groups.mysql.title: MySQL
+setup.groups.mysql.description: Remote MySQL database. The application does not create remote databases automatically.
+setup.groups.postgres.title: PostgreSQL
+setup.groups.postgres.description: Remote PostgreSQL database. The application does not create remote databases automatically.
+setup.groups.pool.title: Connection pool
+setup.groups.pool.description: Keep the defaults for small deployments; tune these values for high concurrency or remote databases.
+setup.groups.local.title: Local
+setup.groups.local.description: Local cache or local file storage used by single-node deployments and hybrid modes.
+setup.groups.redis.title: Redis
+setup.groups.redis.description: Redis is used for shared cache across processes. Hybrid mode can fall back to local cache when Redis is unavailable.
+setup.groups.s3.title: S3-compatible object storage
+setup.groups.s3.description: Use Cloudflare R2, AWS S3, OSS, COS, or another S3-compatible service. Secrets are never echoed back.
+setup.groups.minio.title: MinIO
+setup.groups.minio.description: Use a self-hosted MinIO service. Secrets are never echoed back.
+setup.groups.locale.title: Default locale
+setup.groups.locale.description: Default language used by backend APIs, the CLI, and setup flows.
+setup.groups.security.title: Security and default data
+setup.groups.security.description: Token issuer, password policy, and default data behavior.
+setup.groups.site.title: Site display
+setup.groups.site.description: Product identity and public access URL used by the website, notifications, and admin console.
+
+setup.fields.database.driver.label: Database driver
+setup.fields.database.sqlite.path.label: Database file
+setup.fields.database.sqlite.path.help: For example ./data/app.db
+setup.fields.database.mysql.host.label: MySQL host
+setup.fields.database.mysql.host.help: For example 127.0.0.1
+setup.fields.database.mysql.port.label: MySQL port
+setup.fields.database.mysql.username.label: MySQL username
+setup.fields.database.mysql.password.label: MySQL password
+setup.fields.database.mysql.database.label: MySQL database
+setup.fields.database.mysql.charset.label: MySQL charset
+setup.fields.database.mysql.charset.help: For example utf8mb4
+setup.fields.database.postgres.host.label: PostgreSQL host
+setup.fields.database.postgres.host.help: For example 127.0.0.1
+setup.fields.database.postgres.port.label: PostgreSQL port
+setup.fields.database.postgres.username.label: PostgreSQL username
+setup.fields.database.postgres.password.label: PostgreSQL password
+setup.fields.database.postgres.database.label: PostgreSQL database
+setup.fields.database.postgres.sslMode.label: PostgreSQL SSL mode
+setup.fields.database.postgres.sslMode.help: For example disable or require
+setup.fields.database.pool.maxOpenConns.label: Max open connections
+setup.fields.database.pool.maxIdleConns.label: Max idle connections
+
+setup.fields.cache.driver.label: Cache driver
+setup.fields.cache.local.maxCost.label: Local cache max cost
+setup.fields.cache.local.numCounters.label: Local cache counters
+setup.fields.cache.local.bufferItems.label: Local cache write buffer
+setup.fields.cache.local.defaultTtlSeconds.label: Default TTL seconds
+setup.fields.cache.redis.addr.label: Redis address
+setup.fields.cache.redis.addr.help: For example 127.0.0.1:6379
+setup.fields.cache.redis.username.label: Redis username
+setup.fields.cache.redis.password.label: Redis password
+setup.fields.cache.redis.db.label: Redis DB
+setup.fields.cache.redis.poolSize.label: Redis pool size
+setup.fields.cache.redis.minIdleConns.label: Redis minimum idle connections
+setup.fields.cache.redis.maxRetries.label: Redis max retries
+setup.fields.cache.redis.dialTimeout.label: Redis dial timeout seconds
+setup.fields.cache.redis.readTimeout.label: Redis read timeout seconds
+setup.fields.cache.redis.writeTimeout.label: Redis write timeout seconds
+
+setup.fields.storage.driver.label: Storage driver
+setup.fields.storage.local.fsType.label: Local filesystem backend
+setup.fields.storage.local.fsType.help: OS uses the real filesystem; Base Path confines access under the configured directory; Memory is temporary; Readonly prevents writes.
+setup.fields.storage.local.basePath.label: Local directory
+setup.fields.storage.local.basePath.help: For example ./data/uploads
+setup.fields.storage.local.publicUrl.label: Public URL prefix
+setup.fields.storage.local.publicUrl.help: For example /uploads
+setup.fields.storage.local.enableWatch.label: Watch local file changes
+setup.fields.storage.local.watchBufferSize.label: Watch buffer size
+setup.fields.storage.s3.endpoint.label: S3 endpoint
+setup.fields.storage.s3.endpoint.help: R2 example https://<account>.r2.cloudflarestorage.com
+setup.fields.storage.s3.region.label: S3 region
+setup.fields.storage.s3.region.help: R2 can use auto
+setup.fields.storage.s3.bucket.label: S3 bucket
+setup.fields.storage.s3.accessKeyId.label: S3 access key ID
+setup.fields.storage.s3.secretAccessKey.label: S3 secret access key
+setup.fields.storage.s3.usePathStyle.label: S3 path-style access
+setup.fields.storage.s3.publicBaseUrl.label: S3 public base URL
+setup.fields.storage.s3.publicBaseUrl.help: Optional. Used to generate public object URLs.
+setup.fields.storage.minio.endpoint.label: MinIO endpoint
+setup.fields.storage.minio.endpoint.help: For example http://127.0.0.1:9000
+setup.fields.storage.minio.region.label: MinIO region
+setup.fields.storage.minio.region.help: For example us-east-1
+setup.fields.storage.minio.bucket.label: MinIO bucket
+setup.fields.storage.minio.accessKeyId.label: MinIO access key ID
+setup.fields.storage.minio.secretAccessKey.label: MinIO secret access key
+setup.fields.storage.minio.usePathStyle.label: MinIO path-style access
+setup.fields.storage.minio.publicBaseUrl.label: MinIO public base URL
+setup.fields.storage.minio.publicBaseUrl.help: Optional. Used to generate public object URLs.
+
+setup.fields.i18n.defaultLocale.label: Default locale
+setup.fields.brand.productName.label: Product name
+setup.fields.brand.versionName.label: Version display name
+setup.fields.webui.public_base_url.label: Public base URL
+setup.fields.webui.public_base_url.help: For example https://aoi.example.com
+setup.fields.auth.issuer.label: IAM issuer
+setup.fields.auth.issuer.help: Token issuer identifier.
+setup.fields.auth.password_policy.min_length.label: Minimum password length
+setup.fields.system.seed_defaults_on_start.label: Fill default data on startup
+setup.fields.orgCode.label: Organization code
+setup.fields.orgCode.help: For example default
+setup.fields.orgName.label: Organization name
+setup.fields.username.label: Admin username
+setup.fields.email.label: Admin email
+setup.fields.displayName.label: Display name
+setup.fields.password.label: Admin password
+setup.fields.createServiceToken.label: Create service API token
+setup.fields.serviceTokenDays.label: Token validity days
+setup.fields.serviceTokenRemark.label: Token remark
+
+setup.options.database.driver.sqlite: SQLite
+setup.options.database.driver.mysql: MySQL
+setup.options.database.driver.postgres: PostgreSQL
+setup.options.cache.driver.local: Local cache
+setup.options.cache.driver.hybrid: Local + Redis
+setup.options.cache.driver.redis: Redis
+setup.options.cache.driver.disabled: Disabled
+setup.options.storage.driver.local: Local storage
+setup.options.storage.driver.s3: S3-compatible
+setup.options.storage.driver.minio: MinIO
+setup.options.storage.driver.local_s3: Local + S3-compatible
+setup.options.storage.driver.local_minio: Local + MinIO
+setup.options.storage.driver.disabled: Disabled
+setup.options.storage.local.fsType.os: OS filesystem
+setup.options.storage.local.fsType.basepath: Base path filesystem
+setup.options.storage.local.fsType.memory: In-memory filesystem
+setup.options.storage.local.fsType.readonly: Read-only filesystem
+setup.options.i18n.defaultLocale.zh_cn: Simplified Chinese
+setup.options.i18n.defaultLocale.en_us: English
+
+email.invitation.subject: "{{.ProductName}} invitation"
+email.invitation.body: "You have been invited to {{.ProductName}}.\r\n\r\nOpen this link to accept the invitation:\r\n{{.URL}}\r\n"
+email.passwordReset.subject: "{{.ProductName}} password reset"
+email.passwordReset.body: "A password reset was requested for your {{.ProductName}} account.\r\n\r\nOpen this link to reset your password:\r\n{{.URL}}\r\n"
+email.emailVerification.subject: "{{.ProductName}} email verification"
+email.emailVerification.body: "A signup request was created for your {{.ProductName}} account.\r\n\r\nOpen this link to verify your email and activate the account:\r\n{{.URL}}\r\n"
+
+cli.flags.locale.description: Display locale
+cli.flags.config.description: Config file path
+
+cli.run.description: Start managed background services
+cli.run.homeLabel: Start / run
+cli.run.server.description: Start server as a managed background process
+cli.run.flags.service.description: "Service to select in the start flow: server, db, iam, cache, or storage"
+cli.run.flags.yes.description: Use default choices and skip remaining interactive confirmations
+cli.run.prompts.service: Select service
+cli.run.prompts.privacy: Fill or generate private configuration?
+cli.run.errors.exampleConfigReadonly: Example config is read-only and cannot persist private configuration.
+cli.run.info.privacyHandled: Private configuration has been processed.
+cli.run.info.uninitializedWithYes: The system is not initialized. Continuing will open the WebUI setup wizard; business features are limited until initialization is complete.
+cli.run.initialization.prompt: The system is not initialized. Choose an initialization mode.
+cli.run.initialization.option.cli.label: CLI initialization
+cli.run.initialization.option.cli.description: Fill required settings and run initialization in this terminal.
+cli.run.initialization.option.web.label: WebUI initialization
+cli.run.initialization.option.web.description: Start the backend service and complete the setup wizard in a browser.
+cli.run.initialization.option.continue.label: Continue previous initialization
+cli.run.initialization.option.continue.description: Reuse the current configuration and resume from the initialization center.
+cli.run.initialization.option.status.label: View initialization status
+cli.run.initialization.option.status.description: Show current step, failure reasons, risks, and repair hints.
+cli.run.initialization.option.skip.label: Skip for now
+cli.run.initialization.option.skip.description: Continue starting the service, but the system is not fully usable yet.
+cli.run.initialization.skipped: Initialization was skipped for now. The service will start, but the system is not fully usable until setup is complete.
+cli.run.initialization.status.notStarted: not started
+cli.run.initialization.status.line: "Initialization status: required={{.Required}} completed={{.Completed}} currentStep={{.CurrentStep}}"
+cli.run.initialization.status.restartRequired: "Restart required: {{.Reason}}"
+cli.run.initialization.status.failedStep: "Failed step: {{.Title}} ({{.Key}})"
+cli.run.initialization.status.reason: "Reason: {{.Reason}}"
+cli.run.initialization.status.repairHint: "Repair hint: {{.Hint}}"
+cli.run.initialization.status.report: "Report: success {{.Successful}}, failed {{.Failed}}, skipped {{.Skipped}}, risk {{.Risk}}"
+cli.run.setupUrl: "Setup URL: {{.URL}}"
+cli.run.service.server.description: Managed HTTP server process
+cli.run.service.db.description: Database configuration, migration, and initialization capability
+cli.run.service.iam.description: IAM administrators, roles, permissions, and API tokens
+cli.run.service.cache.description: Cache dependency status
+cli.run.service.storage.description: Storage configuration and dependency status
+cli.run.dependencyInfo.note: v1 only manages the server background process. Other services are shown as configuration, initialization, help, and dependency status.
+
+cli.config.selector.exampleDescription: Example config; private configuration is read-only.
+cli.config.selector.customPath: Enter path manually
+cli.config.selector.prompt: Select config file
+cli.config.selector.pathPrompt: Config file path
+cli.config.summary.configFile: Config file
+cli.config.summary.http: HTTP
+cli.config.summary.database: Database
+cli.config.summary.cache: Cache
+cli.config.summary.storage: Storage
+cli.config.summary.iam: IAM
+cli.config.summary.appLog: App log
+
+cli.init.description: Initialize database, IAM admin, service account, and system defaults
+cli.init.homeLabel: Initialize / init
+cli.init.defaults.serviceTokenRemark: created by cli init
+cli.init.flags.orgCode.description: IAM organization code for optional admin bootstrap
+cli.init.flags.orgName.description: IAM organization name for optional admin bootstrap
+cli.init.flags.adminUsername.description: IAM admin username
+cli.init.flags.adminEmail.description: IAM admin email
+cli.init.flags.adminDisplayName.description: IAM admin display name
+cli.init.flags.adminPassword.description: IAM admin password; omit to skip admin bootstrap
+cli.init.flags.adminPasswordStdin.description: Read IAM admin password from stdin
+cli.init.flags.createServiceToken.description: Create API token for the initialized admin
+cli.init.flags.serviceTokenDays.description: API token validity days; use -1 for no expiration
+cli.init.flags.serviceTokenRemark.description: API token remark
+cli.init.prompts.orgCode: Organization code
+cli.init.prompts.orgName: Organization name
+cli.init.prompts.adminUsername: Admin username
+cli.init.prompts.adminEmail: Admin email
+cli.init.prompts.adminDisplayName: Admin display name
+cli.init.prompts.adminPassword: Admin password; leave empty to skip admin creation
+cli.init.prompts.createServiceToken: Create service account API token?
+cli.init.prompts.serviceTokenDays: Token validity days; -1 means no expiration
+cli.init.prompts.serviceTokenRemark: Token remark
+cli.init.prompts.configureStep: "Configure and test {{.Step}}?"
+cli.init.prompts.secretKeepCurrent: "{{.Label}} (leave empty to keep current value)"
+cli.init.restartRequired: Configuration has been saved. Restart the process before continuing initialization.
+cli.init.post.statusCheckFailed: "Initialization completed, but managed server status could not be checked: {{.Error}}"
+cli.init.post.restartCommand: "Managed server is still running; restart it to refresh in-memory IAM policies: {{.Command}} service restart {{.Service}}"
+cli.init.post.restartPrompt: Managed server is running. Restart it now to refresh IAM policies?
+cli.init.post.restartSkipped: "Managed server was not restarted; restart it before using WebUI permissions: {{.Command}} service restart {{.Service}}"
+cli.init.post.startCommand: "Initialization completed. Start the server when ready: {{.Command}} run --service=server --config={{.ConfigPath}} --yes"
+cli.init.post.startPrompt: Initialization completed. Start managed server now?
+cli.init.post.startSkipped: "Server was not started. Start it when ready: {{.Command}} run --service=server --config={{.ConfigPath}} --yes"
+
+cli.service.description: Inspect and control managed services
+cli.service.homeLabel: Service / service
+cli.service.status.description: Show managed service status
+cli.service.info.description: Show managed service metadata
+cli.service.logs.description: Show managed service logs
+cli.service.terminal.description: Attach to managed service log terminal
+cli.service.restart.description: Restart managed service
+cli.service.stop.description: Stop managed service
+cli.service.flags.lines.description: History lines to print
+cli.service.flags.follow.description: Follow appended logs
+cli.service.prompts.action: "Service management: server"
+cli.service.prompts.followLogs: Follow appended logs?
+cli.service.actions.status: View runtime status
+cli.service.actions.info: View service information
+cli.service.actions.logs: View service logs
+cli.service.actions.terminal: Enter service terminal
+cli.service.actions.restart: Restart service
+cli.service.actions.stop: Stop service
+cli.service.actions.back: Exit service
+cli.service.state.service: Service
+cli.service.state.status: Status
+cli.service.state.listen: Listen
+cli.service.state.executable: Executable
+cli.service.state.config: Config
+cli.service.state.error: Error
+
+cli.config.preflight.database.prompt: Database config is incomplete; choose a repair action
+cli.config.preflight.database.option.sqlite.label: Switch to SQLite
+cli.config.preflight.database.option.sqlite.description: Use a local SQLite database file for this deployment.
+cli.config.preflight.database.option.file.label: Write config file
+cli.config.preflight.database.option.file.description: Write the canonical database driver branch into the current config file.
+cli.config.preflight.option.runtimeEnv.label: Use environment variables
+cli.config.preflight.option.runtimeEnv.description: Keep config placeholders and require real runtime environment variables.
+cli.config.preflight.option.skip.label: Skip
+cli.config.preflight.option.skip.description: Leave the current config unchanged and show the blocking error.
+cli.config.preflight.database.info.sqlite: Database config switched to SQLite.
+cli.config.preflight.database.info.file: Database config written to config file.
+cli.config.preflight.database.info.runtimeEnv: Database config will be read from environment variables.
+cli.config.preflight.database.driverPrompt: Database driver
+cli.config.preflight.smtp.prompt: SMTP notification config is incomplete; choose a repair action
+cli.config.preflight.smtp.option.debug.label: Switch to debug
+cli.config.preflight.smtp.option.debug.description: Use debug notification output instead of SMTP.
+cli.config.preflight.smtp.option.file.label: Write config file
+cli.config.preflight.smtp.option.file.description: Write SMTP host, port, and sender into the current config file.
+cli.config.preflight.smtp.info.debug: Auth notification driver switched to debug.
+cli.config.preflight.smtp.info.file: SMTP config written to config file.
+cli.config.preflight.smtp.info.runtimeEnv: SMTP config will be read from environment variables.
+cli.config.privacy.error.exampleReadonly: "Example config is read-only for secret generation; copy it to a real config file or set {{.Env}}."
+cli.config.privacy.error.coreSecretMissing: "IAM core secrets are missing or too short in {{.ConfigPath}}. Set {{.Env}}, or run the interactive `run` flow and choose generated privacy config."
+cli.config.privacy.core.prompt: IAM core secrets are missing; choose a repair action
+cli.config.privacy.core.option.generateFile.label: Generate and write config file
+cli.config.privacy.core.option.generateFile.description: Generate stable random secrets and disable environment overrides for these paths.
+cli.config.privacy.option.runtimeEnv.label: Continue with environment variables
+cli.config.privacy.option.runtimeEnv.description: Validate real environment variables and do not write secrets to the config file.
+cli.config.privacy.core.option.manual.label: Enter values one by one
+cli.config.privacy.core.option.manual.description: Enter values manually, or type generate to generate one secret.
+cli.config.privacy.option.skip.label: Skip
+cli.config.privacy.option.skip.description: Keep the current config and return an actionable error.
+cli.config.privacy.core.info.generated: IAM core secrets generated and written to config.
+cli.config.privacy.core.info.runtimeEnv: IAM core secrets will be read from environment variables.
+cli.config.privacy.core.info.written: IAM core secrets written to config.
+cli.config.privacy.envManagedPrompt: "{{.Path}} is managed by environment variables; choose how to handle it."
+cli.config.privacy.option.forceFile.label: Write config file and disable environment override
+cli.config.privacy.option.forceFile.description: Replace the environment placeholder in the config file.
+cli.config.privacy.option.runtimeEnvRestore.label: Restore environment-variable mode
+cli.config.privacy.option.runtimeEnvRestore.description: Validate real environment variables and remove the file-first marker.
+cli.config.privacy.value.hint.skip: leave empty to skip
+cli.config.privacy.value.hint.generate: type generate to create a secret, or leave empty to skip
+cli.config.privacy.value.prompt: "{{.Path}}, {{.Hint}}:"
+cli.config.diagnostics.summary: "Config preflight found {{.Count}} blocking item(s) in {{.ConfigPath}}:"
+cli.config.diagnostics.advice: "Set the listed environment variables, edit the config file, or run interactive `run` without --yes to use the guided repair flow."

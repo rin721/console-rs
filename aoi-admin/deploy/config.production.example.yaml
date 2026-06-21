@@ -1,0 +1,244 @@
+# Production example. Runtime secrets must be supplied by environment variables
+# or a secret manager. This file intentionally uses only canonical capability
+# entries: database, cache, and storage.
+
+server:
+  host: 0.0.0.0
+  port: ${RIN_APP_SERVER_PORT:9999}
+  mode: release
+  read_timeout: ${RIN_APP_SERVER_READ_TIMEOUT:10}
+  write_timeout: ${RIN_APP_SERVER_WRITE_TIMEOUT:10}
+  idle_timeout: ${RIN_APP_SERVER_IDLE_TIMEOUT:30}
+
+webui:
+  enabled: ${RIN_APP_WEBUI_ENABLED:true}
+  mount_path: ${RIN_APP_WEBUI_MOUNT_PATH:/}
+  dist_dir: ${RIN_APP_WEBUI_DIST_DIR:./web/app/build/client}
+  public_base_url: ${RIN_APP_WEBUI_PUBLIC_BASE_URL:/}
+
+rpc:
+  enabled: ${RIN_APP_RPC_ENABLED:false}
+  host: ${RIN_APP_RPC_HOST:127.0.0.1}
+  port: ${RIN_APP_RPC_PORT:10099}
+  read_timeout: ${RIN_APP_RPC_READ_TIMEOUT:10}
+  write_timeout: ${RIN_APP_RPC_WRITE_TIMEOUT:10}
+  idle_timeout: ${RIN_APP_RPC_IDLE_TIMEOUT:30}
+
+plugins:
+  enabled: ${RIN_APP_PLUGINS_ENABLED:false}
+  base_path: ${RIN_APP_PLUGINS_BASE_PATH:/plugin-api/v1}
+  default_protocol_version: ${RIN_APP_PLUGINS_DEFAULT_PROTOCOL_VERSION:v1}
+  allowed_transports:
+    - http
+    - websocket
+  node_id: ${RIN_APP_PLUGINS_NODE_ID:}
+  node_address: ${RIN_APP_PLUGINS_NODE_ADDRESS:}
+  registry_backend: ${RIN_APP_PLUGINS_REGISTRY_BACKEND:db}
+  request_timeout_seconds: ${RIN_APP_PLUGINS_REQUEST_TIMEOUT_SECONDS:10}
+  heartbeat_timeout_seconds: ${RIN_APP_PLUGINS_HEARTBEAT_TIMEOUT_SECONDS:30}
+  lease_ttl_seconds: ${RIN_APP_PLUGINS_LEASE_TTL_SECONDS:30}
+  lease_scan_interval_seconds: ${RIN_APP_PLUGINS_LEASE_SCAN_INTERVAL_SECONDS:15}
+  retry_count: ${RIN_APP_PLUGINS_RETRY_COUNT:0}
+  router_strategy: ${RIN_APP_PLUGINS_ROUTER_STRATEGY:round_robin}
+  allowed_permissions: []
+  registration_auth_mode: ${RIN_APP_PLUGINS_REGISTRATION_AUTH_MODE:none}
+  shared_secret_env: ${RIN_APP_PLUGINS_SHARED_SECRET_ENV:}
+  http_enabled: ${RIN_APP_PLUGINS_HTTP_ENABLED:true}
+  ws_enabled: ${RIN_APP_PLUGINS_WS_ENABLED:true}
+  rpc_enabled: ${RIN_APP_PLUGINS_RPC_ENABLED:false}
+  injection_enabled: ${RIN_APP_PLUGINS_INJECTION_ENABLED:true}
+
+database:
+  driver: ${RIN_APP_DB_DRIVER:postgres}
+  sqlite:
+    path: ${RIN_APP_DB_SQLITE_PATH:/app/data/app.db}
+  mysql:
+    host: ${RIN_APP_DB_MYSQL_HOST:127.0.0.1}
+    port: ${RIN_APP_DB_MYSQL_PORT:3306}
+    username: ${RIN_APP_DB_MYSQL_USERNAME:go_scaffold}
+    password: ${RIN_APP_DB_MYSQL_PASSWORD:}
+    database: ${RIN_APP_DB_MYSQL_DATABASE:go_scaffold}
+    charset: ${RIN_APP_DB_MYSQL_CHARSET:utf8mb4}
+  postgres:
+    host: ${RIN_APP_DB_POSTGRES_HOST}
+    port: ${RIN_APP_DB_POSTGRES_PORT:5432}
+    username: ${RIN_APP_DB_POSTGRES_USERNAME}
+    password: ${RIN_APP_DB_POSTGRES_PASSWORD}
+    database: ${RIN_APP_DB_POSTGRES_DATABASE}
+    sslMode: ${RIN_APP_DB_POSTGRES_SSL_MODE:disable}
+  pool:
+    maxOpenConns: ${RIN_APP_DB_POOL_MAX_OPEN_CONNS:20}
+    maxIdleConns: ${RIN_APP_DB_POOL_MAX_IDLE_CONNS:10}
+
+cache:
+  driver: ${RIN_APP_CACHE_DRIVER:local}
+  local:
+    maxCost: ${RIN_APP_CACHE_LOCAL_MAX_COST:67108864}
+    numCounters: ${RIN_APP_CACHE_LOCAL_NUM_COUNTERS:1000000}
+    bufferItems: ${RIN_APP_CACHE_LOCAL_BUFFER_ITEMS:64}
+    defaultTtlSeconds: ${RIN_APP_CACHE_LOCAL_DEFAULT_TTL_SECONDS:0}
+  redis:
+    addr: ${RIN_APP_CACHE_REDIS_ADDR:127.0.0.1:6379}
+    username: ${RIN_APP_CACHE_REDIS_USERNAME:}
+    password: ${RIN_APP_CACHE_REDIS_PASSWORD:}
+    db: ${RIN_APP_CACHE_REDIS_DB:0}
+    poolSize: ${RIN_APP_CACHE_REDIS_POOL_SIZE:20}
+    minIdleConns: ${RIN_APP_CACHE_REDIS_MIN_IDLE_CONNS:5}
+    maxRetries: ${RIN_APP_CACHE_REDIS_MAX_RETRIES:3}
+    dialTimeout: ${RIN_APP_CACHE_REDIS_DIAL_TIMEOUT:5}
+    readTimeout: ${RIN_APP_CACHE_REDIS_READ_TIMEOUT:3}
+    writeTimeout: ${RIN_APP_CACHE_REDIS_WRITE_TIMEOUT:3}
+
+logger:
+  level: ${RIN_APP_LOG_LEVEL:info}
+  format: ${RIN_APP_LOG_FORMAT:json}
+  console_format: ${RIN_APP_LOG_CONSOLE_FORMAT:json}
+  file_format: ${RIN_APP_LOG_FILE_FORMAT:json}
+  output: ${RIN_APP_LOG_OUTPUT:stdout}
+  file_path: ${RIN_APP_LOG_FILE_PATH:/app/logs/aoi-admin.log}
+  max_size: ${RIN_APP_LOG_MAX_SIZE:100}
+  max_backups: ${RIN_APP_LOG_MAX_BACKUPS:7}
+  max_age: ${RIN_APP_LOG_MAX_AGE:30}
+
+i18n:
+  defaultLocale: ${RIN_APP_I18N_DEFAULT_LOCALE:zh-CN}
+  fallbackLocale: ${RIN_APP_I18N_FALLBACK_LOCALE:zh-CN}
+  supportedLocales:
+    - zh-CN
+    - en-US
+  resources:
+    ui: ${RIN_APP_I18N_RESOURCES_UI:./configs/locales/ui}
+    api: ${RIN_APP_I18N_RESOURCES_API:./configs/locales/api}
+    validation: ${RIN_APP_I18N_RESOURCES_VALIDATION:./configs/locales/validation}
+    system: ${RIN_APP_I18N_RESOURCES_SYSTEM:./configs/locales/system}
+
+brand:
+  productName: ${RIN_APP_BRAND_PRODUCT_NAME:Aoi Admin}
+  productCode: ${RIN_APP_BRAND_PRODUCT_CODE:aoi-admin}
+  versionName: ${RIN_APP_BRAND_VERSION_NAME:Community}
+
+executor:
+  enabled: ${RIN_APP_EXECUTOR_ENABLED:true}
+  pools:
+    - name: background
+      size: 16
+      expiry: 30
+      non_blocking: true
+
+storage:
+  driver: ${RIN_APP_STORAGE_DRIVER:local}
+  local:
+    fsType: ${RIN_APP_STORAGE_LOCAL_FS_TYPE:basepath}
+    basePath: ${RIN_APP_STORAGE_LOCAL_BASE_PATH:/app/data/uploads}
+    publicUrl: ${RIN_APP_STORAGE_LOCAL_PUBLIC_URL:/uploads}
+    enableWatch: ${RIN_APP_STORAGE_LOCAL_ENABLE_WATCH:false}
+    watchBufferSize: ${RIN_APP_STORAGE_LOCAL_WATCH_BUFFER_SIZE:100}
+  s3:
+    endpoint: ${RIN_APP_STORAGE_S3_ENDPOINT:https://s3.example.com}
+    region: ${RIN_APP_STORAGE_S3_REGION:us-east-1}
+    bucket: ${RIN_APP_STORAGE_S3_BUCKET:aoi-admin}
+    accessKeyId: ${RIN_APP_STORAGE_S3_ACCESS_KEY_ID:example}
+    secretAccessKey: ${RIN_APP_STORAGE_S3_SECRET_ACCESS_KEY:example}
+    usePathStyle: ${RIN_APP_STORAGE_S3_USE_PATH_STYLE:true}
+    publicBaseUrl: ${RIN_APP_STORAGE_S3_PUBLIC_BASE_URL:}
+  minio:
+    endpoint: ${RIN_APP_STORAGE_MINIO_ENDPOINT:http://127.0.0.1:9000}
+    region: ${RIN_APP_STORAGE_MINIO_REGION:us-east-1}
+    bucket: ${RIN_APP_STORAGE_MINIO_BUCKET:aoi-admin}
+    accessKeyId: ${RIN_APP_STORAGE_MINIO_ACCESS_KEY_ID:example}
+    secretAccessKey: ${RIN_APP_STORAGE_MINIO_SECRET_ACCESS_KEY:example}
+    usePathStyle: ${RIN_APP_STORAGE_MINIO_USE_PATH_STYLE:true}
+    publicBaseUrl: ${RIN_APP_STORAGE_MINIO_PUBLIC_BASE_URL:}
+
+system:
+  seed_defaults_on_start: ${RIN_APP_SYSTEM_SEED_DEFAULTS_ON_START:true}
+
+cors:
+  enabled: ${RIN_APP_CORS_ENABLED:true}
+  allow_origins:
+    - ${RIN_APP_CORS_ALLOW_ORIGINS:https://admin.example.invalid}
+  allow_methods:
+    - GET
+    - POST
+    - PUT
+    - DELETE
+    - PATCH
+    - OPTIONS
+  allow_headers:
+    - Origin
+    - Content-Type
+    - X-Request-ID
+    - Authorization
+  expose_headers:
+    - X-Request-ID
+  allow_credentials: ${RIN_APP_CORS_ALLOW_CREDENTIALS:false}
+  max_age: ${RIN_APP_CORS_MAX_AGE:3600}
+
+auth:
+  enabled: ${RIN_APP_AUTH_ENABLED:true}
+  registration_mode: ${RIN_APP_AUTH_REGISTRATION_MODE:disabled}
+  issuer: ${RIN_APP_AUTH_ISSUER:aoi-admin}
+  audience:
+    - aoi-admin-api
+  signing_key: ${RIN_APP_AUTH_SIGNING_KEY}
+  access_token_ttl_seconds: ${RIN_APP_AUTH_ACCESS_TOKEN_TTL_SECONDS:900}
+  refresh_token_ttl_seconds: ${RIN_APP_AUTH_REFRESH_TOKEN_TTL_SECONDS:604800}
+  refresh_token_pepper: ${RIN_APP_AUTH_REFRESH_TOKEN_PEPPER}
+  cookie:
+    name_prefix: ${RIN_APP_AUTH_COOKIE_NAME_PREFIX:aoi}
+    domain: ${RIN_APP_AUTH_COOKIE_DOMAIN:}
+    path: ${RIN_APP_AUTH_COOKIE_PATH:/}
+    same_site: ${RIN_APP_AUTH_COOKIE_SAME_SITE:lax}
+    secure: ${RIN_APP_AUTH_COOKIE_SECURE:true}
+  csrf:
+    enabled: ${RIN_APP_AUTH_CSRF_ENABLED:true}
+    cookie_name: ${RIN_APP_AUTH_CSRF_COOKIE_NAME:aoi_csrf}
+    header_name: ${RIN_APP_AUTH_CSRF_HEADER_NAME:X-CSRF-Token}
+  session:
+    single_per_product_platform: ${RIN_APP_AUTH_SESSION_SINGLE_PER_PRODUCT_PLATFORM:true}
+    product_header: ${RIN_APP_AUTH_SESSION_PRODUCT_HEADER:X-Aoi-Product-Code}
+    client_type_header: ${RIN_APP_AUTH_SESSION_CLIENT_TYPE_HEADER:X-Aoi-Client-Type}
+    default_client_type: ${RIN_APP_AUTH_SESSION_DEFAULT_CLIENT_TYPE:pc_web}
+    mobile_user_agent_hints:
+      - mobile
+      - android
+      - iphone
+      - ipad
+  cache:
+    enabled: ${RIN_APP_AUTH_CACHE_ENABLED:true}
+    user_ttl_seconds: ${RIN_APP_AUTH_CACHE_USER_TTL_SECONDS:120}
+    org_ttl_seconds: ${RIN_APP_AUTH_CACHE_ORG_TTL_SECONDS:120}
+    role_ttl_seconds: ${RIN_APP_AUTH_CACHE_ROLE_TTL_SECONDS:120}
+    permission_ttl_seconds: ${RIN_APP_AUTH_CACHE_PERMISSION_TTL_SECONDS:300}
+  mfa_issuer: ${RIN_APP_AUTH_MFA_ISSUER:aoi-admin}
+  mfa_secret_key: ${RIN_APP_AUTH_MFA_SECRET_KEY}
+  login_max_failures: ${RIN_APP_AUTH_LOGIN_MAX_FAILURES:5}
+  login_lock_minutes: ${RIN_APP_AUTH_LOGIN_LOCK_MINUTES:15}
+  login_captcha_enabled: ${RIN_APP_AUTH_LOGIN_CAPTCHA_ENABLED:false}
+  captcha_ttl_seconds: ${RIN_APP_AUTH_CAPTCHA_TTL_SECONDS:120}
+  invitation_ttl_seconds: ${RIN_APP_AUTH_INVITATION_TTL_SECONDS:86400}
+  email_verification_ttl_seconds: ${RIN_APP_AUTH_EMAIL_VERIFICATION_TTL_SECONDS:86400}
+  password_reset_ttl_seconds: ${RIN_APP_AUTH_PASSWORD_RESET_TTL_SECONDS:1800}
+  notification_driver: ${RIN_APP_AUTH_NOTIFICATION_DRIVER:smtp}
+  smtp:
+    host: ${RIN_APP_AUTH_SMTP_HOST}
+    port: ${RIN_APP_AUTH_SMTP_PORT:587}
+    username: ${RIN_APP_AUTH_SMTP_USERNAME:}
+    password: ${RIN_APP_AUTH_SMTP_PASSWORD:}
+    from: ${RIN_APP_AUTH_SMTP_FROM}
+    from_name: ${RIN_APP_AUTH_SMTP_FROM_NAME:${RIN_APP_BRAND_PRODUCT_NAME:Aoi Admin}}
+    security: ${RIN_APP_AUTH_SMTP_SECURITY:starttls}
+  password_policy:
+    min_length: ${RIN_APP_AUTH_PASSWORD_MIN_LENGTH:10}
+    require_lower: ${RIN_APP_AUTH_PASSWORD_REQUIRE_LOWER:true}
+    require_upper: ${RIN_APP_AUTH_PASSWORD_REQUIRE_UPPER:true}
+    require_number: ${RIN_APP_AUTH_PASSWORD_REQUIRE_NUMBER:true}
+    require_symbol: ${RIN_APP_AUTH_PASSWORD_REQUIRE_SYMBOL:false}
+  casbin_reload_interval_seconds: ${RIN_APP_AUTH_CASBIN_RELOAD_INTERVAL_SECONDS:300}
+
+migration:
+  auto_apply: ${RIN_APP_MIGRATION_AUTO_APPLY:false}
+  dir: ${RIN_APP_MIGRATION_DIR:./internal/migrations}
+
+env_override:
+  disabled_paths: []

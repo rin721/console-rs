@@ -1,0 +1,116 @@
+app:
+  product_name: "Aoi[葵]"
+  product_code: "console"
+  environment: "production"
+
+server:
+  host: 0.0.0.0
+  port: 8080
+
+database:
+  # 默认示例使用 SQLite；PostgreSQL/MySQL 已接入外部 pool、repository set 与迁移方言。
+  # 切换外部数据库前，请先在目标环境运行 database-external-smoke 与 database-deploy-preflight。
+  driver: sqlite
+  url: "sqlite://data/console.sqlite"
+  max_connections: 20
+
+migration:
+  auto_apply: false
+
+auth:
+  self_signup_enabled: false
+  # 生产密钥不得写在主配置；请通过 --secrets/CONSOLE_SECRETS 或 CONSOLE__AUTH__... 注入。
+  mfa_issuer: "Aoi[葵]"
+  mfa_recovery_code_count: 8
+  session_ttl_seconds: 86400
+  refresh_ttl_seconds: 604800
+  api_token_default_days: 30
+  invitation_ttl_seconds: 86400
+  password_reset_ttl_seconds: 1800
+  email_verification_ttl_seconds: 86400
+  cookie:
+    name: console_session
+    path: /
+    same_site: Lax
+    secure: true
+  refresh_cookie:
+    name: console_refresh
+    path: /
+    same_site: Lax
+    secure: true
+  csrf:
+    enabled: true
+    cookie_name: console_csrf
+    header_name: X-CSRF-Token
+    path: /
+    same_site: Lax
+    secure: true
+    ttl_seconds: 86400
+  context:
+    product_header: X-Console-Product-Code
+    client_type_header: X-Console-Client-Type
+    default_product_code: console
+    default_client_type: pc_web
+  password_policy:
+    min_length: 12
+
+notification:
+  # 生产环境禁止 file/log driver；可选择 smtp 或 queue。queue 会写入加密 envelope，供外部 worker 消费。
+  driver: smtp
+  local_dir: data/notifications
+  queue:
+    dir: data/notification-queue
+    secret_key: "replace-with-random-notification-queue-secret-at-least-32-bytes"
+  batch_size: 100
+  lock_ttl_seconds: 300
+  max_attempts: 5
+  retry_backoff_seconds: 300
+  smtp:
+    host: ""
+    port: 587
+    username: ""
+    password: ""
+    from: ""
+    tls: start_tls
+
+scheduler:
+  enabled: false
+  run_on_start: false
+  traffic_probe_interval_seconds: 300
+  event_stream_heartbeat_seconds: 15
+
+i18n:
+  default_locale: zh-CN
+  supported_locales:
+    - zh-CN
+    - en
+
+webui:
+  enabled: true
+  dist_dir: web/app/dist
+
+storage:
+  # 可改为 s3，并通过 secrets/env 注入 access_key_id 与 secret_access_key；生产环境禁止 allow_http=true。
+  driver: local
+  local_dir: data/media
+  max_upload_bytes: 8388608
+  s3:
+    endpoint: ""
+    bucket: ""
+    region: us-east-1
+    access_key_id: ""
+    secret_access_key: ""
+    force_path_style: true
+    allow_http: false
+    prefix: media
+
+audit:
+  operation_record_retention_days: 180
+  operation_record_prune_batch_size: 1000
+
+observability:
+  level: info
+  format: json
+  # 可选：用 `CONSOLE_OBSERVABILITY_SCRAPE_TOKEN=<raw> cargo run -p app -- observability-token-hash`
+  # 生成哈希后写入；生产环境不要把原始 token 写入 YAML。
+  prometheus_scrape_token_hash: ""

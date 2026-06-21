@@ -1,0 +1,288 @@
+{
+  "manifest": {
+    "author": "Aoi Admin",
+    "description": "Copy this source theme package to design a custom product skin.",
+    "id": "example/custom",
+    "name": "Example Custom",
+    "source": "example",
+    "version": "1.0.0"
+  },
+  "tokens": {
+    "tailwind": {
+      "--color-aoi-muted": "var(--aoi-color-surface-muted)",
+      "--color-aoi-primary": "var(--aoi-color-brand-primary)",
+      "--color-aoi-secondary": "var(--aoi-color-brand-secondary)",
+      "--color-aoi-surface": "var(--aoi-color-surface-default)",
+      "--color-aoi-text": "var(--aoi-color-text-primary)"
+    },
+    "variables": {
+      "light": {
+        "--aoi-breakpoint-compact": "520px",
+        "--aoi-breakpoint-desktop": "860px",
+        "--aoi-chart-border": "var(--aoi-palette-neutral-200)",
+        "--aoi-chart-danger": "var(--aoi-palette-coral-600)",
+        "--aoi-chart-primary": "var(--aoi-palette-teal-600)",
+        "--aoi-chart-secondary": "var(--aoi-palette-indigo-500)",
+        "--aoi-chart-success": "var(--aoi-palette-green-600)",
+        "--aoi-chart-surface": "var(--aoi-palette-neutral-0)",
+        "--aoi-chart-text-primary": "var(--aoi-palette-neutral-900)",
+        "--aoi-chart-text-secondary": "var(--aoi-palette-neutral-600)",
+        "--aoi-chart-track": "var(--aoi-palette-neutral-100)",
+        "--aoi-chart-warning": "var(--aoi-palette-amber-700)",
+        "--aoi-color-border-strong": "var(--aoi-palette-neutral-300)",
+        "--aoi-color-border-subtle": "var(--aoi-palette-neutral-200)",
+        "--aoi-color-brand-gradient-strong": "linear-gradient(135deg, rgba(18, 116, 107, 0.12), rgba(79, 92, 196, 0.10))",
+        "--aoi-color-brand-gradient-subtle": "linear-gradient(135deg, rgba(18, 116, 107, 0.08), rgba(244, 105, 84, 0.08))",
+        "--aoi-color-brand-primary": "var(--aoi-palette-teal-600)",
+        "--aoi-color-brand-primary-hover": "var(--aoi-palette-teal-700)",
+        "--aoi-color-brand-primary-soft": "color-mix(in oklab, var(--aoi-color-brand-primary), white 86%)",
+        "--aoi-color-brand-secondary": "var(--aoi-palette-coral-600)",
+        "--aoi-color-code-surface": "var(--aoi-palette-neutral-900)",
+        "--aoi-color-code-text": "var(--aoi-palette-neutral-50)",
+        "--aoi-color-focus-ring": "color-mix(in oklab, var(--aoi-color-brand-primary), white 38%)",
+        "--aoi-color-overlay-backdrop": "rgba(21, 42, 45, 0.34)",
+        "--aoi-color-page-end": "var(--aoi-palette-neutral-50)",
+        "--aoi-color-page-start": "var(--aoi-palette-neutral-0)",
+        "--aoi-color-state-danger": "var(--aoi-palette-coral-600)",
+        "--aoi-color-state-info": "var(--aoi-palette-indigo-500)",
+        "--aoi-color-state-success": "var(--aoi-palette-green-600)",
+        "--aoi-color-state-warning": "var(--aoi-palette-amber-700)",
+        "--aoi-color-surface-alpha": "rgba(255, 255, 255, 0.80)",
+        "--aoi-color-surface-default": "var(--aoi-palette-neutral-0)",
+        "--aoi-color-surface-inverse": "var(--aoi-palette-neutral-900)",
+        "--aoi-color-surface-muted": "var(--aoi-palette-neutral-50)",
+        "--aoi-color-surface-subtle": "var(--aoi-palette-neutral-100)",
+        "--aoi-color-surface-translucent": "rgba(255, 255, 255, 0.88)",
+        "--aoi-color-text-inverse": "var(--aoi-palette-neutral-0)",
+        "--aoi-color-text-primary": "var(--aoi-palette-neutral-900)",
+        "--aoi-color-text-secondary": "var(--aoi-palette-neutral-600)",
+        "--aoi-color-text-tertiary": "var(--aoi-palette-neutral-500)",
+        "--aoi-container-content": "1080px",
+        "--aoi-container-narrow": "720px",
+        "--aoi-container-wide": "1200px",
+        "--aoi-density-scale": "0.96",
+        "--aoi-duration-fast": "160ms",
+        "--aoi-duration-normal": "230ms",
+        "--aoi-duration-slow": "340ms",
+        "--aoi-easing-standard": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "--aoi-font-mono": "\"SFMono-Regular\", Consolas, \"Liberation Mono\", Menlo, ui-monospace, monospace",
+        "--aoi-font-sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "--aoi-font-size-lg": "1.22rem",
+        "--aoi-font-size-sm": "0.88rem",
+        "--aoi-font-size-xs": "0.76rem",
+        "--aoi-palette-amber-700": "#b86f00",
+        "--aoi-palette-coral-600": "#d95d4a",
+        "--aoi-palette-green-600": "#2f8a56",
+        "--aoi-palette-indigo-500": "#4f5cc4",
+        "--aoi-palette-neutral-0": "#ffffff",
+        "--aoi-palette-neutral-100": "#eef3f1",
+        "--aoi-palette-neutral-200": "#dbe6e2",
+        "--aoi-palette-neutral-300": "#c8d6d1",
+        "--aoi-palette-neutral-50": "#f7faf8",
+        "--aoi-palette-neutral-500": "#74817c",
+        "--aoi-palette-neutral-600": "#56635f",
+        "--aoi-palette-neutral-900": "#1f2826",
+        "--aoi-palette-teal-600": "#12746b",
+        "--aoi-palette-teal-700": "#0d5f58",
+        "--aoi-radius-card": "6px",
+        "--aoi-radius-control": "5px",
+        "--aoi-radius-pill": "999px",
+        "--aoi-radius-soft": "10px",
+        "--aoi-shadow-card": "0 1px 6px rgba(24, 50, 47, 0.07)",
+        "--aoi-shadow-card-hover": "0 8px 22px rgba(24, 50, 47, 0.12)",
+        "--aoi-shadow-overlay": "0 18px 46px rgba(21, 42, 45, 0.16)",
+        "--aoi-shadow-sticky-edge": "-12px 0 18px -18px color-mix(in oklab, var(--aoi-color-text-primary), transparent 44%)",
+        "--aoi-size-touch-target": "44px",
+        "--aoi-space-1": "4px",
+        "--aoi-space-12": "48px",
+        "--aoi-space-16": "64px",
+        "--aoi-space-2": "8px",
+        "--aoi-space-3": "12px",
+        "--aoi-space-4": "16px",
+        "--aoi-space-5": "20px",
+        "--aoi-space-6": "24px",
+        "--aoi-space-8": "32px",
+        "--aoi-syntax-surface": "var(--aoi-color-code-surface)",
+        "--aoi-syntax-text": "var(--aoi-color-code-text)",
+        "--aoi-z-index-base": "1",
+        "--aoi-z-index-header": "20",
+        "--aoi-z-index-overlay": "60",
+        "--aoi-z-index-popover": "80",
+        "--aoi-z-index-raised": "2",
+        "--aoi-z-index-sidebar": "25",
+        "--aoi-z-index-sticky": "30",
+        "--aoi-z-index-surface": "61"
+      },
+      "dark": {
+        "--aoi-chart-border": "var(--aoi-palette-neutral-200)",
+        "--aoi-chart-danger": "var(--aoi-palette-coral-600)",
+        "--aoi-chart-primary": "var(--aoi-palette-teal-600)",
+        "--aoi-chart-secondary": "var(--aoi-palette-indigo-500)",
+        "--aoi-chart-success": "var(--aoi-palette-green-600)",
+        "--aoi-chart-surface": "var(--aoi-palette-neutral-0)",
+        "--aoi-chart-text-primary": "var(--aoi-palette-neutral-900)",
+        "--aoi-chart-text-secondary": "var(--aoi-palette-neutral-600)",
+        "--aoi-chart-track": "var(--aoi-palette-neutral-100)",
+        "--aoi-chart-warning": "var(--aoi-palette-amber-700)",
+        "--aoi-color-brand-gradient-strong": "linear-gradient(135deg, rgba(86, 204, 194, 0.15), rgba(255, 141, 120, 0.12))",
+        "--aoi-color-brand-gradient-subtle": "linear-gradient(135deg, rgba(86, 204, 194, 0.10), rgba(255, 141, 120, 0.08))",
+        "--aoi-color-brand-primary-soft": "color-mix(in oklab, var(--aoi-color-brand-primary), black 74%)",
+        "--aoi-color-code-surface": "var(--aoi-palette-neutral-100)",
+        "--aoi-color-code-text": "var(--aoi-palette-neutral-900)",
+        "--aoi-color-focus-ring": "color-mix(in oklab, var(--aoi-color-brand-primary), black 18%)",
+        "--aoi-color-overlay-backdrop": "rgba(0, 0, 0, 0.50)",
+        "--aoi-color-page-end": "var(--aoi-palette-neutral-50)",
+        "--aoi-color-page-start": "var(--aoi-palette-neutral-0)",
+        "--aoi-color-surface-alpha": "rgba(33, 43, 42, 0.82)",
+        "--aoi-color-surface-inverse": "var(--aoi-palette-neutral-50)",
+        "--aoi-color-surface-translucent": "rgba(27, 35, 34, 0.88)",
+        "--aoi-color-text-inverse": "var(--aoi-palette-neutral-50)",
+        "--aoi-palette-amber-700": "#e0a550",
+        "--aoi-palette-coral-600": "#ff8d78",
+        "--aoi-palette-green-600": "#69c98b",
+        "--aoi-palette-indigo-500": "#95a0ff",
+        "--aoi-palette-neutral-0": "#212b2a",
+        "--aoi-palette-neutral-100": "#293634",
+        "--aoi-palette-neutral-200": "#344641",
+        "--aoi-palette-neutral-300": "#47605a",
+        "--aoi-palette-neutral-50": "#17201f",
+        "--aoi-palette-neutral-500": "#9badA7",
+        "--aoi-palette-neutral-600": "#c1cec9",
+        "--aoi-palette-neutral-900": "#f4f8f6",
+        "--aoi-palette-teal-600": "#56ccc2",
+        "--aoi-palette-teal-700": "#40b5ab",
+        "--aoi-shadow-card": "0 2px 10px rgba(0, 0, 0, 0.22)",
+        "--aoi-shadow-card-hover": "0 14px 32px rgba(0, 0, 0, 0.32)",
+        "--aoi-shadow-overlay": "0 22px 56px rgba(0, 0, 0, 0.42)",
+        "--aoi-shadow-sticky-edge": "-12px 0 18px -18px color-mix(in oklab, var(--aoi-color-text-primary), transparent 56%)",
+        "--aoi-syntax-surface": "var(--aoi-color-code-surface)",
+        "--aoi-syntax-text": "var(--aoi-color-code-text)"
+      }
+    },
+    "chartPalette": {
+      "light": {
+        "border": "#dbe6e2",
+        "danger": "#d95d4a",
+        "primary": "#12746b",
+        "secondary": "#4f5cc4",
+        "success": "#2f8a56",
+        "surface": "#ffffff",
+        "textPrimary": "#1f2826",
+        "textSecondary": "#56635f",
+        "track": "#eef3f1",
+        "warning": "#b86f00"
+      },
+      "dark": {
+        "border": "#344641",
+        "danger": "#ff8d78",
+        "primary": "#56ccc2",
+        "secondary": "#95a0ff",
+        "success": "#69c98b",
+        "surface": "#212b2a",
+        "textPrimary": "#f4f8f6",
+        "textSecondary": "#c1cec9",
+        "track": "#293634",
+        "warning": "#e0a550"
+      }
+    },
+    "themeSettingsDefaults": {
+      "accentColor": "#d95d4a",
+      "mode": "light",
+      "motionIntensity": "standard",
+      "primaryColor": "#12746b",
+      "radiusScale": 6,
+      "shadowLevel": "soft",
+      "spacingScale": 0.96,
+      "surfaceColor": "#ffffff",
+      "textColor": "#1f2826",
+      "typographyScale": 1
+    },
+    "coverage": [
+      "palette",
+      "semantic colors",
+      "state colors",
+      "chart colors",
+      "syntax colors",
+      "typography",
+      "spacing",
+      "density",
+      "radius",
+      "border",
+      "shadow",
+      "motion",
+      "container",
+      "breakpoint labels",
+      "z-index",
+      "overlay",
+      "focus",
+      "touch target"
+    ]
+  },
+  "assets": {
+    "fonts": [],
+    "icons": [],
+    "images": []
+  },
+  "recipes": {
+    "admin-shell": {
+      "description": "A tighter console shell intended for dense product operations.",
+      "label": "Admin shell",
+      "tokens": ["--aoi-container-wide", "--aoi-z-index-sidebar", "--aoi-color-surface-default"]
+    },
+    "skin-background": {
+      "description": "Muted teal/coral page skin for copied product themes.",
+      "label": "Skin background",
+      "tokens": [
+        "--aoi-color-brand-gradient-subtle",
+        "--aoi-color-overlay-backdrop",
+        "--aoi-color-surface-translucent"
+      ]
+    }
+  },
+  "templates": {
+    "adminLayout": {
+      "description": "Example wrapper around the admin console shell.",
+      "label": "Admin layout"
+    },
+    "adminSidebarNav": {
+      "description": "Example grouped platform navigation.",
+      "label": "Admin sidebar navigation"
+    },
+    "authTemplate": {
+      "description": "Example authentication surface recipe.",
+      "label": "Auth template"
+    },
+    "dashboardTemplate": {
+      "description": "Example metric and chart dashboard recipe.",
+      "label": "Dashboard template"
+    },
+    "detailPageTemplate": {
+      "description": "Example admin detail page recipe.",
+      "label": "Detail page template"
+    },
+    "errorTemplate": {
+      "description": "Example error and recovery surface recipe.",
+      "label": "Error template"
+    },
+    "listPageTemplate": {
+      "description": "Example toolbar, filters, table, and pagination recipe.",
+      "label": "List page template"
+    },
+    "loadingTemplate": {
+      "description": "Example hydration and skeleton loading recipe.",
+      "label": "Loading template"
+    },
+    "publicLayout": {
+      "description": "Example public site shell.",
+      "label": "Public layout"
+    },
+    "settingsTemplate": {
+      "description": "Example settings page recipe.",
+      "label": "Settings template"
+    },
+    "setupLayout": {
+      "description": "Example first-install setup shell.",
+      "label": "Setup layout"
+    }
+  }
+}

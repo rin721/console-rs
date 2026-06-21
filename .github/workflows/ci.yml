@@ -1,0 +1,247 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "codex/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rust-backend:
+    name: Rust backend, contracts, and governance
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Format
+        run: cargo fmt --all --check
+
+      - name: Check
+        run: cargo check --workspace
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Test
+        run: cargo test --workspace
+
+      - name: Build
+        run: cargo build --workspace
+
+      - name: Check config
+        run: cargo run -p app -- check-config --config configs/console.example.yaml
+
+      - name: Database runtime smoke
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/database-runtime-smoke.ps1
+
+      - name: Database deploy preflight
+        run: |
+          $env:CONSOLE__DATABASE__DRIVER = "sqlite"
+          $env:CONSOLE__DATABASE__URL = "sqlite://target/database-deploy-preflight/runtime.sqlite"
+          if (Test-Path -LiteralPath "target/database-deploy-preflight") {
+            Remove-Item -LiteralPath "target/database-deploy-preflight" -Recurse -Force
+          }
+          New-Item -ItemType Directory -Force -Path "target/database-deploy-preflight" | Out-Null
+          powershell -NoProfile -ExecutionPolicy Bypass -File scripts/database-deploy-preflight.ps1 -ApplyMigrations
+
+      - name: Inspect route registry
+        run: cargo run -p app -- routes --config configs/console.example.yaml
+
+      - name: Security scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/security-sensitive-scan.ps1
+
+      - name: Runtime config boundary scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/runtime-config-boundary-scan.ps1
+
+      - name: Governance scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/governance-scan.ps1
+
+      - name: Goal deliverable audit
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/goal-deliverable-audit.ps1
+
+      - name: Goal completion readiness audit
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/goal-completion-audit.ps1
+
+      - name: aoi-admin source audit
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/aoi-admin-source-audit.ps1
+
+      - name: Stage acceptance report audit
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stage-acceptance-report-audit.ps1
+
+      - name: Target acceptance report validator smoke
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/target-acceptance-report-validator-smoke.ps1
+
+      - name: Database schema dialect scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/database-schema-dialect-scan.ps1
+
+      - name: Architecture boundary scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/architecture-boundary-scan.ps1
+
+      - name: Repository dialect audit
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/repository-dialect-audit.ps1
+
+      - name: Trailing whitespace scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/trailing-whitespace-scan.ps1
+
+      - name: Git whitespace check
+        run: git diff --check
+
+  webui:
+    name: WebUI typecheck, i18n, build, and Playwright
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefix web/app
+
+      - name: Install Playwright Chromium
+        run: npm --prefix web/app exec playwright install chromium
+
+      - name: Typecheck
+        run: npm --prefix web/app run typecheck
+
+      - name: i18n parity lint
+        run: npm --prefix web/app run lint:i18n
+
+      - name: WebUI capability boundary scan
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/webui-capability-boundary-scan.ps1
+
+      - name: Build
+        run: npm --prefix web/app run build
+
+      - name: Playwright
+        run: npm --prefix web/app run test:e2e
+
+  external-database-smoke:
+    name: PostgreSQL and MySQL migration smoke
+    runs-on: ubuntu-latest
+    needs:
+      - rust-backend
+    defaults:
+      run:
+        shell: pwsh
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: console_ci
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d console_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: console_ci
+          MYSQL_PASSWORD: console
+          MYSQL_ROOT_PASSWORD: mysql
+          MYSQL_USER: console
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost -uroot -pmysql"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build app binary
+        run: cargo build -p app
+
+      - name: PostgreSQL migration smoke
+        run: >
+          pwsh -NoProfile -File scripts/database-external-smoke.ps1
+          -Driver postgres
+          -Url "postgres://postgres:postgres@127.0.0.1:5432/console_ci"
+
+      - name: PostgreSQL deploy preflight
+        run: >
+          pwsh -NoProfile -File scripts/database-deploy-preflight.ps1
+          -Driver postgres
+          -Url "postgres://postgres:postgres@127.0.0.1:5432/console_ci"
+          -ApplyMigrations
+
+      - name: MySQL migration smoke
+        run: >
+          pwsh -NoProfile -File scripts/database-external-smoke.ps1
+          -Driver mysql
+          -Url "mysql://console:console@127.0.0.1:3306/console_ci"
+
+      - name: MySQL deploy preflight
+        run: >
+          pwsh -NoProfile -File scripts/database-deploy-preflight.ps1
+          -Driver mysql
+          -Url "mysql://console:console@127.0.0.1:3306/console_ci"
+          -ApplyMigrations
+
+  local-deployment-smoke:
+    name: Local deployment smoke
+    runs-on: windows-latest
+    needs:
+      - rust-backend
+      - webui
+      - external-database-smoke
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefix web/app
+
+      - name: Smoke deployed service
+        run: powershell -NoProfile -ExecutionPolicy Bypass -File scripts/deployment-smoke.ps1 -Port 18080

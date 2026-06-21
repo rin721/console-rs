@@ -1,0 +1,3294 @@
+{
+  "common": {
+    "brand": {
+      "name": "Aoi",
+      "tagline": "Full-stack product platform base"
+    },
+    "actions": {
+      "backHome": "Back home",
+      "goAdmin": "Open platform console",
+      "learnMore": "Learn more",
+      "login": "Log in",
+      "logout": "Log out",
+      "openMenu": "Open menu",
+      "readArticle": "Read article",
+      "signup": "Sign up",
+      "submit": "Submit",
+      "switchLanguage": "Switch language",
+      "viewBlog": "Read blog"
+    },
+    "labels": {
+      "language": "Language",
+      "none": "None",
+      "status": "Status"
+    },
+    "locales": {
+      "en": "English",
+      "zh-CN": "简体中文"
+    },
+    "preferences": {
+      "open": "Open preferences",
+      "openTokens": "Open full Tokens settings",
+      "theme": "Theme",
+      "themeModes": {
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      }
+    }
+  },
+  "site": {
+    "nav": {
+      "home": "Home",
+      "about": "Platform",
+      "blog": "Blog",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "admin": "Platform console"
+    },
+    "home": {
+      "eyebrow": "Shared product base",
+      "title": "Aoi Admin runs the core platform and many product lines",
+      "description": "For developers, independent product teams, and growing SaaS teams, Aoi Admin reuses account, access, organization, configuration, audit, plugin, media, version, and system management foundations.",
+      "primaryCta": "Open platform console",
+      "secondaryCta": "Read platform notes",
+      "preview": {
+        "chromeLabel": "Aoi Platform Base",
+        "title": "One shared base, many independent product lines",
+        "description": "The core platform owns common capabilities while each product line keeps its own public site, business console, domain model, and experience.",
+        "surfaces": {
+          "site": {
+            "label": "Site",
+            "title": "Public platform story",
+            "description": "Home, platform narrative, blog, legal pages, auth entry points, and localized content."
+          },
+          "setup": {
+            "label": "Activate",
+            "title": "First-install setup",
+            "description": "Configure locale, storage, database, cache, first account, and site details from the backend schema."
+          },
+          "admin": {
+            "label": "Core",
+            "title": "Shared capability console",
+            "description": "Manage IAM, System, probes, media, versions, plugins, audit, and design-system settings."
+          },
+          "productLines": {
+            "label": "Lines",
+            "title": "Independent product entries",
+            "description": "Future product lines can extend their own sites, consoles, and domain modules while reusing the platform."
+          }
+        }
+      },
+      "surfaces": {
+        "eyebrow": "Product shape",
+        "title": "Site, setup, core console, and product lines share one base",
+        "description": "The current React frontend carries the brand story, safe activation flow, and shared business console; product lines can extend independent experiences on the same foundation.",
+        "items": {
+          "site": {
+            "title": "Public website",
+            "description": "Shows Aoi Admin's platform value, capability boundary, use cases, content articles, and auth entry points."
+          },
+          "setup": {
+            "title": "First-install setup",
+            "description": "A separate wizard handles pre-activation configuration, connection tests, recovery paths, and safe credential handling."
+          },
+          "admin": {
+            "title": "Shared platform console",
+            "description": "/admin manages backend-exposed core platform capabilities instead of product-line-specific business screens."
+          },
+          "productLines": {
+            "title": "Future product-line entries",
+            "description": "Each product line can own its site, business console, and domain modules while reusing accounts, orgs, permissions, and quality tools."
+          }
+        }
+      },
+      "capabilities": {
+        "eyebrow": "Core business base",
+        "title": "Build every shared product capability once",
+        "description": "The Aoi Admin console only connects real backend capabilities; features without APIs, permissions, persistence, and audit contracts remain explicit boundaries.",
+        "listLabel": "Shared product base capability areas",
+        "items": {
+          "iam": "Accounts, roles, permissions, sessions, API tokens, and MFA",
+          "tenant": "Organizations, membership, invitations, and audit context",
+          "configuration": "System settings, menus, dictionaries, parameters, and public settings",
+          "audit": "Operation records, audit logs, login logs, and error logs",
+          "plugins": "Remote plugin registration, capability declarations, health, and management views",
+          "media": "Media library, storage helpers, and resumable upload workflows",
+          "versions": "Version packages, API catalog, probes, and runtime status"
+        }
+      },
+      "rails": {
+        "eyebrow": "Shared rails",
+        "title": "Product lines can be independent; infrastructure cannot fork",
+        "description": "Every entry shares Aoi React components, API client, auth state, i18n, Markdown rendering, quality tooling, and the Go static hosting flow.",
+        "items": {
+          "i18n": {
+            "title": "Central i18n",
+            "description": "Public site, admin, setup, forms, SEO, empty states, errors, and accessibility labels live in zh-CN and en resources."
+          },
+          "api": {
+            "title": "Single API client",
+            "description": "Auth, refresh retry, normalized errors, abort signals, and X-Locale mapping stay in one integration layer."
+          },
+          "markdown": {
+            "title": "Verified Markdown",
+            "description": "Blog front matter is parsed with gray-matter, validated with Zod, rendered with react-markdown, and sanitized by default."
+          },
+          "quality": {
+            "title": "Unified quality gates",
+            "description": "Visible UI, routes, i18n, Markdown, builds, and browser viewport checks become the shared frontend baseline."
+          }
+        }
+      },
+      "cta": {
+        "eyebrow": "Runnable path",
+        "title": "Activate the shared base, then extend independent products",
+        "description": "Use setup to configure the core platform, enter /admin to manage shared capabilities, and extend future product lines without rebuilding foundations.",
+        "primary": "Open setup",
+        "secondary": "View platform architecture"
+      }
+    },
+    "about": {
+      "eyebrow": "Platform positioning",
+      "title": "Aoi Admin is a full-stack product platform base",
+      "description": "It is not a single admin template and not just a Go backend scaffold; it is a runnable, extensible base for hosting multiple business product lines.",
+      "principles": {
+        "eyebrow": "Product principles",
+        "title": "Stable core platform, independent product lines",
+        "description": "Shared capabilities are governed in the core platform, while business products keep independent routes, experiences, and domain models.",
+        "items": {
+          "evidence": {
+            "title": "Backend contracts define the boundary",
+            "description": "The public site can describe the direction, but production features must be backed by Go APIs, config, permissions, persistence, and audit behavior."
+          },
+          "boundary": {
+            "title": "Do not rebuild the platform base",
+            "description": "Product lines must not duplicate accounts, organizations, permissions, configuration, audit, API client, i18n, or design-system foundations."
+          },
+          "cleanup": {
+            "title": "Clean up old positioning and entries",
+            "description": "Current docs and frontend resources describe the shared product base instead of a single admin or temporary frontend rebuild."
+          }
+        }
+      },
+      "architecture": {
+        "eyebrow": "Long-term architecture",
+        "title": "Core platform + multiple product lines",
+        "description": "Aoi Admin hosts common capabilities in one runtime, while product lines extend their own user journeys and domain features on the same base.",
+        "items": {
+          "public": {
+            "title": "Public website",
+            "description": "Home, platform story, blog, legal, login, and signup pages carry the brand and content layer."
+          },
+          "setup": {
+            "title": "Setup flow",
+            "description": "The first-install wizard stays outside the public and platform console shells, using setup schema and status APIs to activate safely."
+          },
+          "admin": {
+            "title": "Core platform console",
+            "description": "/admin manages shared capabilities including IAM, System, plugins, media, versions, audit, and design-system settings."
+          },
+          "productLines": {
+            "title": "Independent product lines",
+            "description": "Future product lines can own their public pages, business consoles, business modules, and domain models."
+          },
+          "shared": {
+            "title": "Shared foundations",
+            "description": "Aoi components, tokens, API client, auth, TanStack Query, Zustand, i18n, Markdown, tests, and build flow stay shared."
+          }
+        }
+      },
+      "cta": {
+        "eyebrow": "Current boundary",
+        "title": "The platform story is unified; production features still follow the backend",
+        "description": "The site and docs can explain the multi-product direction, while real management operations only connect backend-exposed contracts.",
+        "primary": "Read platform notes",
+        "secondary": "Open platform console"
+      }
+    },
+    "blog": {
+      "eyebrow": "Local Markdown",
+      "title": "Product platform notes and engineering logs",
+      "description": "Blog content uses local Markdown with bilingual front matter, build-time validation, and safe rendering for platform positioning, architecture boundaries, and engineering decisions.",
+      "emptyTitle": "No articles for this language",
+      "emptyDescription": "New articles must keep localized Markdown metadata in sync."
+    },
+    "legal": {
+      "eyebrow": "Launch baseline",
+      "termsTitle": "Terms of Service",
+      "privacyTitle": "Privacy Policy",
+      "termsDescription": "This page keeps the public route and localization structure ready while final platform service legal text is reviewed before launch.",
+      "privacyDescription": "This page documents the privacy structure that must be confirmed against production hosting, auth, storage, and audit behavior before launch.",
+      "terms": {
+        "scope": {
+          "title": "Scope",
+          "description": "These draft terms describe the Aoi Admin platform surfaces and must be replaced with approved legal copy before public release."
+        },
+        "accounts": {
+          "title": "Accounts",
+          "description": "Login and signup forms only target backend-supported authentication contracts; final account rules belong in the approved terms."
+        },
+        "content": {
+          "title": "Content",
+          "description": "Local Markdown articles and product pages are maintained with bilingual metadata and must not imply unsupported production capabilities."
+        },
+        "changes": {
+          "title": "Changes",
+          "description": "Legal changes must update both zh-CN and en resources in the same commit and pass the i18n validation command."
+        }
+      },
+      "privacy": {
+        "collection": {
+          "title": "Data collection",
+          "description": "The React app should only collect information needed by backend-supported auth, setup, platform console, and content workflows."
+        },
+        "storage": {
+          "title": "Browser storage",
+          "description": "Auth tokens use browser session storage, locale preference uses local storage, and setup secrets stay in page memory only."
+        },
+        "integrations": {
+          "title": "Backend integrations",
+          "description": "API requests send X-Locale through the shared client and rely on the Go backend for persistence, authorization, and audit."
+        },
+        "launch": {
+          "title": "Launch review",
+          "description": "Final privacy copy must be reviewed against production hosting, analytics, storage, authentication, and product-line extension behavior before release."
+        }
+      }
+    },
+    "footer": {
+      "description": "Aoi Admin is a shared product base for the public site, setup, auth entry points, platform console, and future product-line entries.",
+      "copyright": "All rights reserved."
+    }
+  },
+  "setup": {
+    "title": "Platform first-install setup",
+    "description": "Complete the required configuration before enabling the shared product base. Sensitive fields are only used in this wizard session and are not written to browser persistent storage.",
+    "language": {
+      "title": "Choose language",
+      "description": "The language applies immediately to every following step, validation message, and help text.",
+      "field": "Interface language"
+    },
+    "status": {
+      "loading": "Loading setup status...",
+      "actionFailed": "Setup action failed",
+      "loadFailed": "Failed to load setup status",
+      "ready": "Ready",
+      "testPassed": "Connection test passed.",
+      "saved": "Configuration saved.",
+      "completed": "Setup completed. Redirecting.",
+      "running": "Running initialization...",
+      "retryExecuted": "Retry submitted.",
+      "skipped": "Step skipped.",
+      "restartRequired": "Restart required"
+    },
+    "progress": {
+      "label": "Step progress",
+      "text": "Step {{current}} of {{total}}"
+    },
+    "logs": {
+      "title": "Initialization logs"
+    },
+    "stepStatus": {
+      "blocked": "Blocked",
+      "current": "Current",
+      "failed": "Failed",
+      "pending": "Pending",
+      "running": "Running",
+      "skipped": "Skipped",
+      "succeeded": "Succeeded"
+    },
+    "actions": {
+      "back": "Back",
+      "complete": "Complete setup",
+      "continue": "Continue",
+      "goLogin": "Go to login",
+      "logs": "Reload logs",
+      "refresh": "Reload",
+      "retry": "Retry run",
+      "run": "Run setup",
+      "save": "Save and continue",
+      "skip": "Skip step",
+      "test": "Test connection"
+    },
+    "errors": {
+      "confirmRequired": "Confirm the final setup action before running initialization.",
+      "fieldRequired": "Fill in {{field}}.",
+      "ownerRequired": "Fill in the initial account and organization information first.",
+      "passwordConfirmRequired": "Confirm the initial account password.",
+      "passwordMismatch": "The initial account passwords do not match.",
+      "passwordWeakWithRules": "Password must also satisfy: {{rules}}.",
+      "skipNeedsRun": "A setup run is required before this step can be skipped.",
+      "stepBlocked": "Resolve the failed or running prerequisite step before opening this step.",
+      "testFailed": "Connection test failed. Update the configuration and try again."
+    },
+    "messages": {
+      "pathSeparator": ", ",
+      "savedEnvManagedOverwritten": "Configuration saved. Environment-managed placeholder fields were written to the config file for: {{paths}}."
+    },
+    "test": {
+      "failedTitle": "Connection test needs attention",
+      "passedTitle": "Connection test passed",
+      "repairHint": "Repair hint",
+      "restartRequired": "Restart the backend before continuing this setup step.",
+      "stale": "The form changed after this test. Run the connection test again before continuing."
+    },
+    "passwordPolicy": {
+      "separator": ", ",
+      "minLength": "at least {{count}} characters",
+      "lower": "one lowercase letter",
+      "upper": "one uppercase letter",
+      "number": "one number",
+      "symbol": "one symbol"
+    },
+    "confirm": {
+      "title": "I understand initialization will apply the current configuration",
+      "description": "The backend may run migrations, seed system data, create the first account, and issue login tokens based on these values."
+    },
+    "skip": {
+      "reason": "Skipped from setup wizard"
+    },
+    "report": {
+      "title": "Initialization report",
+      "stepTitle": "Step report",
+      "successful": "Successful",
+      "failed": "Failed",
+      "skipped": "Skipped",
+      "risk": "Risk",
+      "goal": "Goal",
+      "outputSummary": "Output",
+      "testSummary": "Test",
+      "completionMark": "Completion",
+      "recovery": "Recovery",
+      "automaticActions": "Automatic actions",
+      "error": "Error",
+      "restartRequired": "Restart the backend, then reload setup status."
+    },
+    "security": {
+      "title": "Credential safety",
+      "description": "Database, cache, storage credentials, and the initial account password only stay in page memory. Refreshing the page requires entering them again."
+    },
+    "empty": {
+      "title": "No setup steps available",
+      "description": "The backend did not return a setup schema. Check the service state."
+    },
+    "owner": {
+      "passwordConfirm": {
+        "label": "Confirm initial password",
+        "help": "Used only for this page validation. It is not sent to the backend or written to browser persistent storage."
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Log in to Aoi",
+      "description": "Use the existing Go backend auth endpoint to enter the platform console.",
+      "submit": "Log in",
+      "success": "Logged in. Opening platform console.",
+      "signupHint": "No account yet?",
+      "captchaTitle": "Captcha required",
+      "captchaDescription": "Enter the captcha returned by the Go backend before submitting the password again.",
+      "captchaRefresh": "Refresh captcha",
+      "captchaImageAlt": "Login captcha image",
+      "mfaTitle": "MFA code required",
+      "mfaDescription": "Enter the one-time code from the authenticator app linked to this account."
+    },
+    "signup": {
+      "title": "Create account",
+      "description": "The signup form only targets the backend-exposed signup contract.",
+      "submit": "Sign up",
+      "success": "Signed up. Opening platform console.",
+      "loadingTitle": "Checking registration settings",
+      "loadingDescription": "The signup form opens after the backend public settings are loaded.",
+      "verificationPendingTitle": "Check your email",
+      "verificationPendingDescription": "A verification link has been sent. The account and organization will activate after the link is confirmed.",
+      "debugTitle": "Email verification debug delivery",
+      "debugTokenLabel": "Debug token",
+      "debugUrlLabel": "Backend debug URL",
+      "openVerification": "Open verification",
+      "loginHint": "Already have an account?"
+    },
+    "signupVerify": {
+      "title": "Verify email",
+      "description": "Confirm the email verification token and open the platform console.",
+      "loadingTitle": "Verifying email",
+      "loadingDescription": "The backend is activating the pending account and organization.",
+      "successTitle": "Email verified",
+      "successDescription": "Opening the platform console.",
+      "errorTitle": "Email verification failed",
+      "missingTokenDescription": "Open the verification link from the notification message and try again."
+    },
+    "links": {
+      "backToLogin": "Back to login",
+      "forgotPassword": "Forgot password",
+      "resetPassword": "I have a reset token"
+    },
+    "passwordForgot": {
+      "title": "Recover password",
+      "description": "Enter the account email. If the account exists, the backend will send a reset link through the configured notification channel.",
+      "submit": "Send reset link",
+      "tokenCreated": "Reset token created.",
+      "emailSentIfExists": "If the email exists, a reset link will be sent.",
+      "successDescription": "Check the configured inbox or use the debug token returned by a debug notification driver.",
+      "debugTitle": "Password reset debug delivery",
+      "debugTokenLabel": "Debug token",
+      "debugUrlLabel": "Backend debug URL",
+      "openReset": "Open reset form"
+    },
+    "passwordReset": {
+      "title": "Reset password",
+      "description": "Use a one-time reset token and set a new password. Existing sessions for the account are revoked by the backend after success.",
+      "submit": "Reset password",
+      "resetComplete": "Password reset.",
+      "successDescription": "Log in again with the new password."
+    },
+    "invitation": {
+      "title": "Accept organization invitation",
+      "description": "Use the invitation token to create or complete an account for the invited organization.",
+      "submit": "Accept invitation",
+      "accepted": "Invitation accepted.",
+      "successDescription": "Log in with the invited account to open the platform console.",
+      "missingTokenTitle": "Invitation token missing",
+      "missingTokenDescription": "Open the invitation link from the notification message and try again."
+    },
+    "guard": {
+      "loadingTitle": "Checking session",
+      "loadingDescription": "The platform console opens after the browser session is restored."
+    }
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Overview",
+      "iam": "IAM",
+      "users": "Users",
+      "roles": "Roles",
+      "organizations": "Organizations",
+      "sessions": "Sessions",
+      "security": "Security",
+      "trafficHijack": "Traffic hijack monitoring",
+      "apiTokens": "API tokens",
+      "system": "System",
+      "probes": "Probes",
+      "menus": "Menus",
+      "dictionaries": "Dictionaries",
+      "apis": "API catalog",
+      "designSystem": "Design system",
+      "parameters": "Parameters",
+      "operationRecords": "Operation records",
+      "auditLogs": "Audit logs",
+      "loginLogs": "Login logs",
+      "errorLogs": "Error logs",
+      "media": "Media",
+      "plugins": "Plugins",
+      "versions": "Versions",
+      "mediaResumable": "Resumable upload"
+    },
+    "navGroups": {
+      "workspace": "Workspace",
+      "identity": "Identity and access",
+      "system": "System and config",
+      "logs": "Logs and audit",
+      "media": "Media and content",
+      "integration": "Integrations and release"
+    },
+    "platform": {
+      "ariaLabel": "Platform {{platform}}, product {{product}}",
+      "empty": "No platform recorded",
+      "filters": {
+        "all": "All platforms"
+      },
+      "productCode": "Product {{value}}",
+      "unknown": "Unknown platform: {{value}}",
+      "clientTypes": {
+        "pc_web": "web-pc",
+        "mobile_web": "web-mobile",
+        "mobile_app": "mobile app"
+      }
+    },
+    "header": {
+      "account": "Account",
+      "organization": "Organization",
+      "organizationEmpty": "No organizations available",
+      "organizationFallback": "Default organization",
+      "organizationSwitching": "Switching organization...",
+      "userFallback": "Aoi user",
+      "actions": {
+        "loggingOut": "Logging out...",
+        "openDesignSystem": "Open design system",
+        "openAccountMenu": "Open account menu for {{name}}",
+        "openOrganizationMenu": "Open organization switcher",
+        "openSystemSettings": "Open system settings"
+      },
+      "messages": {
+        "identityFailed": "Account details could not be refreshed.",
+        "organizationSwitched": "Organization context switched."
+      },
+      "tabs": {
+        "close": "Close {{label}} tab",
+        "label": "Admin workspace tabs"
+      }
+    },
+    "dashboard": {
+      "title": "Platform workspace",
+      "description": "The platform workspace reads health, readiness, server metric history, API catalog, and version records to show the real backend state of the shared product base.",
+      "backendBacked": "Backend-backed",
+      "summaryLabel": "Platform base backend summary",
+      "actions": {
+        "refresh": "Refresh"
+      },
+      "signedOutTitle": "Login required",
+      "signedOutDescription": "Log in before accessing the platform console. This page does not fabricate backend data.",
+      "capabilitiesTitle": "Shared core capabilities",
+      "capabilitiesDescription": "IAM, System, probes, media, versions, and plugin queries only connect to real APIs already exposed by the backend.",
+      "metrics": {
+        "apiCount": "API endpoints",
+        "uptime": "Uptime",
+        "versionCount": "Versions"
+      },
+      "probes": {
+        "health": "Health",
+        "ready": "Readiness"
+      },
+      "states": {
+        "errorShort": "Error",
+        "errorState": "error",
+        "errorTitle": "Panel unavailable",
+        "loadingDescription": "Reading the current backend response.",
+        "loadingShort": "Loading",
+        "loadingTitle": "Loading data",
+        "permissionDescription": "The current account does not have the permission required by this backend endpoint.",
+        "permissionTitle": "Permission required"
+      },
+      "serverInfo": {
+        "title": "Server status",
+        "description": "The current snapshot comes from /api/v1/system/server-info and summarizes CPU, RAM, disk, and runtime data.",
+        "gauges": {
+          "label": "Server resource usage",
+          "cpu": "CPU",
+          "cpuAria": "CPU usage ring chart",
+          "cpuDetail": "Average usage across {{cores}} cores",
+          "ram": "RAM",
+          "ramAria": "RAM usage ring chart",
+          "ramDetail": "{{used}} / {{total}}",
+          "disk": "Disk",
+          "diskAria": "Highest disk usage ring chart",
+          "diskDetail": "{{mount}}: {{used}} / {{total}}",
+          "diskEmpty": "The backend did not return disk metrics"
+        },
+        "quick": {
+          "uptime": "Uptime",
+          "platform": "Platform",
+          "heap": "Heap alloc",
+          "disks": "Disk count"
+        }
+      },
+      "apiCatalog": {
+        "columns": {
+          "count": "Endpoints",
+          "group": "Group",
+          "permissionProtected": "Permission"
+        },
+        "description": "Route catalog derived from the Go router and IAM permission rules.",
+        "empty": "No API groups returned.",
+        "summary": {
+          "permission": "{{count}} permission-protected",
+          "public": "{{count}} public",
+          "total": "{{count}} total"
+        },
+        "title": "API catalog"
+      },
+      "versions": {
+        "columns": {
+          "code": "Code",
+          "createdAt": "Created",
+          "name": "Name",
+          "source": "Source"
+        },
+        "description": "Recent version export/import records from /api/v1/system/versions.",
+        "empty": "No version records returned.",
+        "source": {
+          "export": "Export",
+          "import": "Import"
+        },
+        "summary": {
+          "latest": "Latest: {{name}}",
+          "none": "No releases yet",
+          "storage": "Storage: {{status}}"
+        },
+        "title": "Versions"
+      },
+      "serverMetrics": {
+        "title": "Server monitoring",
+        "description": "Short-window history comes from /api/v1/system/server-metrics/history and refreshes automatically on the backend sampling interval.",
+        "chartAria": "Network receive and transmit rate history chart",
+        "diskChartAria": "Disk read and write rate history chart",
+        "diskEmptyTitle": "No disk IO samples",
+        "diskEmptyDescription": "This platform has not returned disk IO counters yet, or the sampler has not produced disk data to display.",
+        "emptyTitle": "Not enough history yet",
+        "emptyDescription": "The sampler fills the short history window after startup; no samples are available right now.",
+        "modeLabel": "Server monitoring type",
+        "modes": {
+          "disk": "Disk IO",
+          "network": "Traffic"
+        },
+        "filters": {
+          "allDisks": "All disks",
+          "disk": "Disk"
+        },
+        "series": {
+          "read": "Read",
+          "receive": "Receive",
+          "transmit": "Transmit",
+          "write": "Write"
+        },
+        "summary": {
+          "interval": "{{seconds}}s interval",
+          "window": "{{seconds}}s window",
+          "receive": "Receive {{value}}",
+          "transmit": "Transmit {{value}}",
+          "read": "Read {{value}}",
+          "write": "Write {{value}}",
+          "readOps": "Read ops {{value}}",
+          "writeOps": "Write ops {{value}}",
+          "latency": "IO latency {{value}}",
+          "noDiskIo": "No disk IO"
+        }
+      },
+      "trafficHijack": {
+        "chartAria": "Traffic hijack probe latency trend chart",
+        "description": "Shows healthy targets, abnormal targets, recent events, and short-window latency from active HTTP(S) probes.",
+        "emptyDescription": "After a target is created and probed, the dashboard will show real trend data.",
+        "emptyTitle": "No probe samples yet",
+        "metric": "Traffic monitor",
+        "metricValue": "{{abnormal}} / {{total}} abnormal",
+        "series": {
+          "latency": "Total latency",
+          "statusCode": "Status code"
+        },
+        "summary": {
+          "abnormal": "Abnormal {{count}}",
+          "healthy": "Healthy {{count}}",
+          "latestEvent": "Latest: {{reason}}",
+          "noEvents": "No events"
+        },
+        "title": "Traffic hijack monitoring"
+      },
+      "runtime": {
+        "title": "Go runtime",
+        "description": "Backend process, platform, and refresh time summary.",
+        "rows": {
+          "goVersion": "Go version",
+          "platform": "Platform",
+          "cpus": "CPU cores",
+          "goroutines": "Goroutine",
+          "startTime": "Start time",
+          "refreshedAt": "Refreshed at"
+        }
+      },
+      "process": {
+        "title": "Process and build",
+        "description": "Go memory, GC, and build version summary.",
+        "rows": {
+          "heapAlloc": "Heap alloc",
+          "heapSys": "Heap sys",
+          "gcCount": "GC count",
+          "gcNext": "Next GC",
+          "gcPause": "GC pause total",
+          "buildVersion": "Build version"
+        }
+      }
+    },
+    "iam": {
+      "title": "IAM overview",
+      "description": "Read the backend IAM organization, member, role, permission, session, and audit log contracts without exposing unsupported write workflows.",
+      "badge": "Organization access",
+      "summaryLabel": "IAM backend summary",
+      "actions": {
+        "refresh": "Refresh"
+      },
+      "metrics": {
+        "members": "Members",
+        "organizations": "Organizations",
+        "permissions": "Permissions",
+        "roles": "Roles",
+        "sessions": "Sessions"
+      },
+      "currentOrg": {
+        "title": "Current organization",
+        "description": "Organization context is resolved from the authenticated access token and confirmed against /api/v1/orgs.",
+        "rows": {
+          "code": "Code",
+          "name": "Name",
+          "status": "Status"
+        }
+      },
+      "members": {
+        "title": "Members",
+        "description": "Showing {{count}} of {{total}} organization members from /api/v1/orgs/:orgId/users.",
+        "empty": "No organization members returned.",
+        "columns": {
+          "lastLogin": "Last login",
+          "mfa": "MFA",
+          "roles": "Roles",
+          "status": "Status",
+          "user": "User"
+        }
+      },
+      "roles": {
+        "title": "Roles",
+        "description": "Roles and permission counts from /api/v1/orgs/:orgId/roles.",
+        "empty": "No roles returned.",
+        "columns": {
+          "kind": "Kind",
+          "permissions": "Permissions",
+          "role": "Role",
+          "updatedAt": "Updated"
+        }
+      },
+      "sessions": {
+        "title": "Sessions",
+        "description": "Showing {{count}} of {{total}} organization sessions from /api/v1/orgs/:orgId/sessions.",
+        "empty": "No sessions returned.",
+        "columns": {
+          "expiresAt": "Expires",
+          "ipAddress": "IP address",
+          "lastUsed": "Last used",
+          "platform": "Platform",
+          "status": "Status",
+          "userId": "User ID"
+        }
+      },
+      "auditLogs": {
+        "title": "Audit logs",
+        "description": "Latest {{count}} audit records from /api/v1/orgs/:orgId/audit-logs.",
+        "empty": "No audit records returned.",
+        "columns": {
+          "action": "Action",
+          "createdAt": "Created",
+          "ipAddress": "IP address",
+          "platform": "Platform",
+          "userId": "User ID"
+        }
+      },
+      "values": {
+        "customRole": "Custom",
+        "disabled": "Disabled",
+        "enabled": "Enabled",
+        "systemRole": "System"
+      },
+      "status": {
+        "active": "Active",
+        "disabled": "Disabled",
+        "expired": "Expired",
+        "pending": "Pending",
+        "revoked": "Revoked",
+        "used": "Used"
+      },
+      "states": {
+        "emptyOrgTitle": "Current organization not returned",
+        "emptyOrgDescription": "The organization list did not include the current token organization. IAM scoped requests still use the token org ID.",
+        "errorTitle": "IAM data unavailable",
+        "loadingTitle": "Loading IAM data",
+        "loadingDescription": "Reading protected IAM endpoints for the current organization.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization-scoped IAM endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the matching IAM read permissions to view this panel."
+      }
+    },
+    "probes": {
+      "title": "Service probes",
+      "description": "Read the public /health and /ready probe endpoints without adding bearer authorization or unsupported operations.",
+      "badge": "Public probes",
+      "summaryLabel": "Service probe summary",
+      "actions": {
+        "refresh": "Refresh"
+      },
+      "metrics": {
+        "checks": "Readiness checks",
+        "health": "Health",
+        "lastChecked": "Last checked",
+        "readiness": "Readiness"
+      },
+      "health": {
+        "title": "Health probe",
+        "description": "Lightweight liveness response from the Go HTTP router."
+      },
+      "ready": {
+        "title": "Readiness probe",
+        "description": "Database readiness check returned by the Go HTTP router."
+      },
+      "labels": {
+        "endpoint": "Endpoint",
+        "lastChecked": "Last checked",
+        "status": "Status"
+      },
+      "checks": {
+        "label": "Readiness check results",
+        "title": "Checks"
+      },
+      "status": {
+        "error": "Error",
+        "loading": "Loading",
+        "missing": "Missing",
+        "notReady": "Not ready",
+        "ok": "OK",
+        "ready": "Ready",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyChecksTitle": "No readiness checks returned",
+        "emptyChecksDescription": "The backend returned a readiness status without check details.",
+        "emptyHealthTitle": "No health response returned",
+        "emptyHealthDescription": "The backend response did not include health data.",
+        "emptyReadyTitle": "No readiness response returned",
+        "emptyReadyDescription": "The backend response did not include readiness data.",
+        "healthErrorTitle": "Health probe unavailable",
+        "loadingTitle": "Loading probes",
+        "loadingDescription": "Reading the current backend probe response.",
+        "readyErrorTitle": "Readiness probe unavailable"
+      }
+    },
+    "apis": {
+      "title": "API catalog",
+      "description": "Review the HTTP API catalog registered by the backend through /api/v1/system/apis.",
+      "badge": "Backend routes",
+      "summaryLabel": "API catalog summary",
+      "empty": "No API entries match the current filters.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "syncPermissions": "Sync permissions",
+        "syncRoutes": "Sync routes"
+      },
+      "metrics": {
+        "authenticated": "Authenticated",
+        "permission": "Permission protected",
+        "public": "Public",
+        "synced": "Synced",
+        "total": "Total endpoints"
+      },
+      "filters": {
+        "title": "Filters",
+        "description": "These filters run on the current backend catalog response.",
+        "keyword": "Keyword",
+        "group": "Group",
+        "method": "Method",
+        "accessMode": "Access",
+        "allGroups": "All groups",
+        "allMethods": "All methods",
+        "allAccessModes": "All access modes"
+      },
+      "list": {
+        "title": "API entries",
+        "description": "{{count}} of {{total}} endpoints match the current filters."
+      },
+      "columns": {
+        "access": "Access",
+        "description": "Description",
+        "group": "Group",
+        "method": "Method",
+        "path": "Path",
+        "permission": "Permission",
+        "registration": "Registration",
+        "sync": "Sync"
+      },
+      "access": {
+        "authenticated": "Authenticated",
+        "permission": "Permission",
+        "public": "Public"
+      },
+      "status": {
+        "noPermissionBinding": "No permission binding",
+        "noPermissionCode": "No permission code",
+        "registered": "Registered",
+        "synced": "Synced",
+        "unregistered": "Unregistered",
+        "unsynced": "Unsynced"
+      },
+      "sync": {
+        "cancel": "Cancel",
+        "confirm": "Confirm sync",
+        "errorTitle": "Sync failed",
+        "permissionsConfirmDescription": "This calls /api/v1/system/apis/permissions/sync to create missing permission codes from the current backend API permission declarations without overwriting existing permission names or descriptions.",
+        "permissionsConfirmTitle": "Confirm permission-code sync",
+        "permissionsPersisted": "{{total}} permission codes synced, {{created}} created, {{skipped}} skipped.",
+        "permissionsStorageUnavailable": "The backend returned {{total}} permission codes, but permission storage is {{status}}, so this result was not persisted.",
+        "permissionsSuccessTitle": "Permission sync completed",
+        "routesConfirmDescription": "This calls /api/v1/system/apis/sync to sync the current Go route registry into the API catalog and refresh this table from the backend result.",
+        "routesConfirmTitle": "Confirm API route sync",
+        "routesMemoryOnly": "{{total}} endpoints were generated from runtime routes. The backend has no API storage connected, so this result is memory-only.",
+        "routesPersisted": "{{total}} endpoints synced, {{created}} created, {{updated}} updated, {{stale}} marked stale.",
+        "routesStorageUnavailable": "{{total}} endpoints were generated from runtime routes, but API storage is unavailable, so this result was not persisted.",
+        "routesSuccessTitle": "API route sync completed"
+      },
+      "states": {
+        "emptyTitle": "No API catalog returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "API catalog unavailable",
+        "loadingTitle": "Loading API catalog",
+        "loadingDescription": "Reading the protected API catalog endpoint.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the permission:read permission to view the API catalog."
+      }
+    },
+    "menus": {
+      "title": "Menu catalog",
+      "description": "Review the backend-filtered admin menu groups returned by /api/v1/system/menus for the current account.",
+      "badge": "Permission-aware menus",
+      "summaryLabel": "Menu catalog summary",
+      "empty": "No menu entries match the current filters.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset"
+      },
+      "metrics": {
+        "desktopOnly": "Desktop only",
+        "groups": "Groups",
+        "items": "Menu entries",
+        "mobile": "Mobile entries",
+        "protected": "Protected"
+      },
+      "filters": {
+        "title": "Filters",
+        "description": "These filters run on the menu catalog already filtered by the backend for the current account.",
+        "keyword": "Keyword",
+        "group": "Group",
+        "allGroups": "All groups"
+      },
+      "list": {
+        "title": "Menu groups",
+        "description": "{{count}} of {{total}} menu entries match the current filters."
+      },
+      "summary": {
+        "items": "{{count}} entries"
+      },
+      "groupMeta": "Code {{code}}, order {{order}}",
+      "columns": {
+        "entry": "Entry",
+        "icon": "Icon",
+        "menu": "Menu",
+        "order": "Order",
+        "path": "Path",
+        "permission": "Permission"
+      },
+      "entry": {
+        "desktop": "Desktop",
+        "mobileAndDesktop": "Mobile and desktop"
+      },
+      "permission": {
+        "loginVisible": "Visible after login"
+      },
+      "states": {
+        "emptyTitle": "No menu catalog returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Menu catalog unavailable",
+        "loadingTitle": "Loading menu catalog",
+        "loadingDescription": "Reading the authenticated backend menu endpoint.",
+        "noMatchesTitle": "No matching menus",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account cannot read the menu catalog returned by the backend."
+      }
+    },
+    "dictionaries": {
+      "title": "Dictionary catalog",
+      "description": "Manage dictionaries and dictionary items through the backend-supported system dictionary contract.",
+      "badge": "System dictionaries",
+      "summaryLabel": "Dictionary catalog summary",
+      "empty": "No dictionaries match the current filters.",
+      "emptyItems": "No dictionary items returned.",
+      "actions": {
+        "addItem": "Add item",
+        "addItemFor": "Add item to {{name}}",
+        "cancel": "Cancel",
+        "confirmDelete": "Confirm delete",
+        "create": "New dictionary",
+        "delete": "Delete",
+        "deleteDictionaryFor": "Delete dictionary {{name}}",
+        "deleteItemFor": "Delete item {{label}}",
+        "edit": "Edit",
+        "editDictionaryFor": "Edit dictionary {{name}}",
+        "editItemFor": "Edit item {{label}}",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "save": "Save dictionary",
+        "saveItem": "Save item",
+        "submitCreate": "Create dictionary",
+        "submitCreateItem": "Create item"
+      },
+      "metrics": {
+        "activeDictionaries": "Active dictionaries",
+        "activeItems": "Active items",
+        "dictionaries": "Dictionaries",
+        "items": "Items",
+        "storage": "Storage"
+      },
+      "filters": {
+        "title": "Filters",
+        "description": "These filters run on the current backend dictionary catalog response.",
+        "keyword": "Keyword",
+        "status": "Status",
+        "allStatuses": "All statuses"
+      },
+      "list": {
+        "title": "Dictionaries",
+        "description": "{{count}} of {{total}} dictionaries match the current filters, with {{items}} items visible."
+      },
+      "dictionaryMeta": "Code {{code}}, {{count}} items",
+      "columns": {
+        "actions": "Actions",
+        "extra": "Extra",
+        "label": "Label",
+        "sort": "Sort",
+        "status": "Status",
+        "updatedAt": "Updated",
+        "value": "Value"
+      },
+      "delete": {
+        "dictionaryTitle": "Delete dictionary",
+        "dictionaryDescription": "{{name}} and its {{count}} dictionary items will be deleted through the backend dictionary contract.",
+        "itemTitle": "Delete dictionary item",
+        "itemDescription": "{{label}} will be deleted from {{name}}."
+      },
+      "form": {
+        "code": "Dictionary code",
+        "codeHelp": "Use lowercase letters, numbers, dot, underscore, or hyphen. The first character must be a letter or number.",
+        "createDictionaryTitle": "Create dictionary",
+        "createItemTitle": "Create dictionary item",
+        "descriptionField": "Description",
+        "dictionaryDescription": "Submit only the code, name, description, and status fields accepted by the backend.",
+        "editDictionaryTitle": "Edit dictionary",
+        "editItemTitle": "Edit dictionary item",
+        "itemDescription": "Item writes stay scoped to {{name}} and use dictionary:update or dictionary:delete permissions.",
+        "itemExtra": "Extra",
+        "itemLabel": "Item label",
+        "itemSort": "Sort",
+        "itemStatus": "Item status",
+        "itemValue": "Item value",
+        "name": "Dictionary name",
+        "placeholders": {
+          "code": "system.status",
+          "description": "Optional usage notes for this dictionary",
+          "itemExtra": "{\"tone\":\"success\"}",
+          "itemLabel": "Enabled",
+          "itemValue": "active",
+          "name": "System status"
+        },
+        "status": "Dictionary status"
+      },
+      "messages": {
+        "createdTitle": "Dictionary created",
+        "createdDescription": "{{name}} is now available in the dictionary catalog.",
+        "deletedTitle": "Dictionary deleted",
+        "deletedDescription": "{{name}} was deleted.",
+        "deleteFailedTitle": "Delete failed",
+        "itemCreatedTitle": "Dictionary item created",
+        "itemCreatedDescription": "{{label}} was added to {{dictionary}}.",
+        "itemDeletedTitle": "Dictionary item deleted",
+        "itemDeletedDescription": "{{label}} was deleted.",
+        "itemUpdatedTitle": "Dictionary item updated",
+        "itemUpdatedDescription": "{{label}} was saved.",
+        "saveFailedTitle": "Save failed",
+        "updatedTitle": "Dictionary updated",
+        "updatedDescription": "{{name}} was saved."
+      },
+      "status": {
+        "active": "Active",
+        "disabled": "Disabled",
+        "unknown": "Unknown"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No dictionary catalog returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Dictionary catalog unavailable",
+        "loadingTitle": "Loading dictionaries",
+        "loadingDescription": "Reading protected dictionary catalog records.",
+        "noMatchesTitle": "No matching dictionaries",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the dictionary:read permission to view dictionaries.",
+        "writePermissionDescription": "The current account needs the {{permission}} permission for this dictionary action.",
+        "storageUnavailableTitle": "Dictionary storage unavailable",
+        "storageUnavailableDescription": "The backend reports that system_dictionaries is not persisted yet. Run the required migrations before using dictionary workflows."
+      },
+      "validation": {
+        "dictionaryTitle": "Dictionary fields need attention",
+        "dictionaryCodeDescription": "Dictionary code must start with a lowercase letter or number and may contain only lowercase letters, numbers, dot, underscore, or hyphen.",
+        "dictionaryRequiredDescription": "Dictionary name and status are required.",
+        "itemTitle": "Dictionary item fields need attention",
+        "itemRequiredDescription": "Dictionary item label, value, and status are required.",
+        "itemSortDescription": "Dictionary item sort must be an integer."
+      }
+    },
+    "system": {
+      "title": "System settings",
+      "description": "Read and update backend-editable runtime configuration values returned by /api/v1/system/config.",
+      "badge": "Runtime config",
+      "summaryLabel": "System settings summary",
+      "sectionsLabel": "System setting sections",
+      "empty": "No settings in this group.",
+      "visibleGroupCount": "{{count}} visible groups",
+      "persistWarningTitle": "Runtime persistence",
+      "persistWarningDescription": "Changes are submitted only for backend-marked editable fields and are persisted through the runtime config manager.",
+      "actions": {
+        "cancelEdit": "Cancel",
+        "editGroup": "Edit group",
+        "refresh": "Refresh",
+        "saveChanges": "Save changes"
+      },
+      "metrics": {
+        "editable": "Editable",
+        "groups": "Visible groups",
+        "items": "Settings",
+        "secret": "Secret",
+        "sections": "Sections"
+      },
+      "columns": {
+        "flags": "Flags",
+        "setting": "Setting",
+        "source": "Source",
+        "value": "Value"
+      },
+      "badges": {
+        "editable": "Editable",
+        "readonly": "Read-only",
+        "secret": "Secret"
+      },
+      "values": {
+        "false": "Disabled",
+        "secret": "Hidden",
+        "true": "Enabled"
+      },
+      "valueTypes": {
+        "array": "Array",
+        "boolean": "Boolean",
+        "number": "Number",
+        "object": "Object",
+        "string": "String",
+        "unknown": "Unknown"
+      },
+      "group": {
+        "inactive": "Inactive",
+        "inactiveDescription": "This group is hidden by another configuration value in the backend snapshot.",
+        "ready": "Ready",
+        "summary": "{{count}} settings, {{editable}} editable",
+        "testable": "Testable"
+      },
+      "editor": {
+        "arrayHelp": "Enter one value per line. Empty lines are ignored before submission.",
+        "defaultHelp": "This value is sent to the runtime config manager when it changes.",
+        "description": "Only editable fields in this group are submitted. Blank secret fields keep their current value.",
+        "invalidNumber": "Enter an integer value.",
+        "newSecretValue": "New secret value",
+        "noChanges": "No changed values yet.",
+        "numberHelp": "Use an integer accepted by the backend config manager.",
+        "objectHelp": "Object values are displayed as text; update them only when the backend marks the field editable.",
+        "pendingChanges": "Pending changes",
+        "pendingCount": "{{count}} changes",
+        "secretChanged": "Secret will be replaced",
+        "secretHelp": "Leave blank to keep the current secret.",
+        "title": "Edit {{label}}"
+      },
+      "messages": {
+        "updateSuccessDescription": "{{count}} changed values were persisted through /api/v1/system/config.",
+        "updateSuccessTitle": "Configuration updated"
+      },
+      "risk": {
+        "high": "High risk",
+        "low": "Low risk",
+        "medium": "Medium risk"
+      },
+      "states": {
+        "emptyTitle": "No system configuration returned",
+        "emptyDescription": "The backend response did not include configuration sections.",
+        "errorTitle": "System settings unavailable",
+        "groupEmptyTitle": "No visible settings",
+        "groupEmptyDescription": "This group has no settings visible under the current backend values.",
+        "loadingTitle": "Loading system settings",
+        "loadingDescription": "Reading the protected configuration snapshot endpoint.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the config:read permission to view system settings."
+      }
+    },
+    "media": {
+      "title": "Media library",
+      "description": "Read media categories and asset records from /api/v1/system/media, then use the backend upload and URL import endpoints for supported write workflows.",
+      "badge": "Media catalog",
+      "summaryLabel": "Media catalog summary",
+      "empty": "No media assets returned.",
+      "actions": {
+        "authenticatedDownload": "Authenticated download",
+        "cancelCategory": "Cancel",
+        "cancelDelete": "Cancel",
+        "cancelRename": "Cancel",
+        "confirmDeleteCategory": "Delete category",
+        "confirmDelete": "Delete asset",
+        "createCategory": "Create category",
+        "delete": "Delete",
+        "deleteAsset": "Delete {{name}}",
+        "deleteCategory": "Delete {{name}}",
+        "download": "Download",
+        "downloadAsset": "Download {{name}}",
+        "edit": "Edit",
+        "editCategory": "Edit {{name}}",
+        "openExternal": "Open external",
+        "refresh": "Refresh",
+        "rename": "Rename",
+        "renameAsset": "Rename {{name}}",
+        "reset": "Reset",
+        "saveCategory": "Save category",
+        "saveRename": "Save name",
+        "search": "Search",
+        "importUrls": "Import URLs",
+        "upload": "Upload files"
+      },
+      "metrics": {
+        "assets": "Assets",
+        "categories": "Categories",
+        "currentPage": "Current page",
+        "storage": "Storage",
+        "uploadLimit": "Upload limit"
+      },
+      "filters": {
+        "description": "These filters map to the backend media asset list endpoint.",
+        "keyword": "Name keyword",
+        "pageSize": "Page size",
+        "title": "Filters"
+      },
+      "categories": {
+        "all": "All media",
+        "count": "{{count}} categories",
+        "createDescription": "Create a category under {{parent}} through POST /api/v1/system/media/categories.",
+        "createTitle": "Create media category",
+        "deleteDescription": "This calls the backend category delete endpoint for {{name}}. The backend rejects categories that still contain child categories or media assets.",
+        "deleteTitle": "Confirm media category deletion",
+        "editDescription": "Update {{name}} through POST /api/v1/system/media/categories.",
+        "editTitle": "Edit media category",
+        "empty": "No media categories returned.",
+        "loadingStatus": "Loading media category status.",
+        "nameField": "Category name",
+        "nameHelp": "Names are trimmed by the backend and must be unique under the same parent.",
+        "parentField": "Parent category",
+        "parentHelp": "Root catalog stores the category at the top level.",
+        "requiredDescription": "Enter a category name before saving.",
+        "requiredTitle": "Category name required",
+        "root": "Root catalog",
+        "sortField": "Sort order",
+        "sortHelp": "Lower values appear earlier within the same parent.",
+        "title": "Categories",
+        "unknown": "Unknown category"
+      },
+      "list": {
+        "description": "{{count}} assets in {{category}}.",
+        "title": "Assets"
+      },
+      "pagination": {
+        "label": "Media pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "actions": "Actions",
+        "asset": "Asset",
+        "category": "Category",
+        "createdAt": "Created",
+        "link": "Link",
+        "size": "Size",
+        "source": "Source",
+        "type": "Type",
+        "uploadedBy": "Uploaded by"
+      },
+      "source": {
+        "resumable": "Resumable",
+        "upload": "Upload",
+        "url": "URL"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "values": {
+        "external": "External",
+        "noCategory": "Uncategorized",
+        "unknownAsset": "Unknown asset",
+        "unknownSize": "Unknown size",
+        "unknownUser": "Unknown user",
+        "uploadLimit": "{{value}} MB"
+      },
+      "states": {
+        "emptyTitle": "No media page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Media library unavailable",
+        "loadingTitle": "Loading media",
+        "loadingDescription": "Reading protected media catalog endpoints.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the media:read permission to view the media library.",
+        "storageUnavailableTitle": "Media storage unavailable",
+        "storageUnavailableDescription": "The backend reports that media metadata is not persisted yet. Run the required migrations before using media workflows.",
+        "uploadUnavailableTitle": "Object storage unavailable",
+        "uploadUnavailableDescription": "The backend reports that uploads are unavailable. Confirm object storage configuration before using media write workflows."
+      },
+      "a11y": {
+        "fileInput": "Choose media files for direct upload"
+      },
+      "messages": {
+        "categoryCreatedDescription": "{{name}} was created in the media category tree.",
+        "categoryCreatedTitle": "Media category created",
+        "categoryDeletedDescription": "{{name}} was deleted from the media category tree.",
+        "categoryDeletedTitle": "Media category deleted",
+        "categoryDeleteFailedTitle": "Category delete failed",
+        "categorySaveFailedTitle": "Category save failed",
+        "categoryUpdatedDescription": "{{name}} was updated in the media category tree.",
+        "categoryUpdatedTitle": "Media category updated",
+        "deleteFailedTitle": "Delete failed",
+        "deletedDescription": "{{name}} was deleted from the media library.",
+        "deletedTitle": "Media asset deleted",
+        "downloadFailedTitle": "Download failed",
+        "downloadedDescription": "{{name}} was downloaded through the authenticated backend endpoint.",
+        "downloadedTitle": "Download started",
+        "importFailedTitle": "URL import failed",
+        "importedDescription": "{{count}} URL record(s) imported into {{category}}.",
+        "importedTitle": "URL import completed",
+        "renameFailedTitle": "Rename failed",
+        "renamedDescription": "{{name}} was renamed.",
+        "renamedTitle": "Media asset renamed",
+        "uploadFailedTitle": "Upload failed",
+        "uploadedDescription": "{{count}} file(s) uploaded to {{category}}.",
+        "uploadedTitle": "Upload completed",
+        "writeUnavailableTitle": "Media writes unavailable"
+      },
+      "rename": {
+        "description": "Update the display name for {{name}} through PATCH /api/v1/system/media/assets/:assetId.",
+        "field": "Display name",
+        "help": "The backend keeps the original filename; this only changes the catalog display name.",
+        "requiredDescription": "Enter a display name before saving.",
+        "requiredTitle": "Display name required",
+        "title": "Rename media asset"
+      },
+      "delete": {
+        "confirmDescription": "This will delete {{name}} through the backend media delete endpoint. Storage-backed objects are removed with their catalog record.",
+        "confirmTitle": "Confirm media asset deletion"
+      },
+      "write": {
+        "description": "New assets are written to {{category}} through backend media endpoints.",
+        "import": {
+          "description": "Create external media records from HTTP or HTTPS URLs.",
+          "help": "Use one URL per line. Optional names use the Name|URL format.",
+          "label": "URL list",
+          "placeholder": "Hero image|https://assets.example.test/hero.png\nhttps://assets.example.test/logo.svg",
+          "title": "URL import"
+        },
+        "loadingStatus": "Loading media write status.",
+        "storage": "Storage status",
+        "targetCategory": "Target category",
+        "title": "Upload and import",
+        "upload": {
+          "description": "Select one or more local files. Current backend limit: {{limit}}.",
+          "title": "Direct upload"
+        }
+      }
+    },
+    "designSystem": {
+      "title": "Design system settings",
+      "description": "Inspect the active source theme package, preview controlled token drafts, and verify recipes, templates, assets, and contrast without adding production theme APIs.",
+      "badge": "Aoi React",
+      "summaryLabel": "Design system settings summary",
+      "actions": {
+        "applyImport": "Apply JSON",
+        "backendDisabled": "Backend disabled",
+        "exportJson": "Export JSON",
+        "importFile": "Import file",
+        "restoreDefaults": "Restore defaults",
+        "saveDraft": "Save local draft",
+        "sourcePackage": "Source package"
+      },
+      "contract": {
+        "title": "Source theme boundary",
+        "description": "Aoi themes are selected at build time from local source packages. No runtime CSS upload, HTML injection, publish, audit, or rollback API is exposed in v1."
+      },
+      "controls": {
+        "title": "Controlled semantic tokens",
+        "description": "The editor previews the active package defaults and exports a strict draft. Permanent theme changes are made in the source package and regenerated before build."
+      },
+      "coverage": {
+        "title": "Token coverage",
+        "description": "The active package declares every global definition it owns, from palette and layout to focus, overlays, charts, syntax, and motion."
+      },
+      "contrast": {
+        "title": "Contrast checks",
+        "description": "Each color pair is checked against the WCAG AA normal text threshold of 4.5:1 before it is treated as ready for a source theme package.",
+        "checks": {
+          "accentOnSurface": "Accent on surface",
+          "primaryOnSurface": "Primary on surface",
+          "textOnSurface": "Text on surface"
+        },
+        "status": {
+          "fail": "Needs adjustment",
+          "pass": "AA pass"
+        }
+      },
+      "diff": {
+        "changed": "{{from}} to {{to}}",
+        "empty": "No local draft changes.",
+        "label": "Pending theme token changes"
+      },
+      "fields": {
+        "accentColor": {
+          "help": "Secondary semantic accent used for small highlights and supporting controls.",
+          "label": "Accent color"
+        },
+        "mode": {
+          "help": "Preview how the semantic palette behaves in the selected interface mode.",
+          "label": "Mode"
+        },
+        "motionIntensity": {
+          "help": "Controls preview transition duration and documents the intended motion level.",
+          "label": "Motion"
+        },
+        "primaryColor": {
+          "help": "Main brand action color for buttons, active navigation, and emphasis.",
+          "label": "Primary color"
+        },
+        "radiusScale": {
+          "help": "Controls preview corner radius for panels and controls.",
+          "label": "Radius"
+        },
+        "shadowLevel": {
+          "help": "Controls preview elevation depth for modular surfaces.",
+          "label": "Shadow"
+        },
+        "spacingScale": {
+          "help": "Scales the preview module density without changing the global layout.",
+          "label": "Spacing scale"
+        },
+        "surfaceColor": {
+          "help": "Base surface color used for cards and work panels.",
+          "label": "Surface color"
+        },
+        "textColor": {
+          "help": "Primary readable text color for surface content.",
+          "label": "Text color"
+        },
+        "typographyScale": {
+          "help": "Scales preview body copy and supporting text.",
+          "label": "Typography scale"
+        }
+      },
+      "import": {
+        "description": "Import and export a strict token draft for review. This does not persist production themes or bypass the source package workflow.",
+        "fileLabel": "Import theme JSON file",
+        "help": "The JSON must match the current schema exactly. Unknown fields and non-hex color values are rejected.",
+        "placeholder": "Paste exported theme JSON here.",
+        "textarea": "Theme JSON",
+        "title": "Import and export",
+        "errors": {
+          "fileRead": "The selected file could not be read.",
+          "invalidJson": "The imported payload is not valid JSON.",
+          "invalidSchema": "The imported payload does not match the approved theme token schema.",
+          "title": "Import failed"
+        }
+      },
+      "messages": {
+        "defaultsDescription": "The editor has been reset to the approved default token draft.",
+        "defaultsTitle": "Defaults restored",
+        "exportedDescription": "The current draft has been exported as JSON.",
+        "exportedTitle": "Theme draft exported",
+        "importedDescription": "The imported token draft is now loaded in the preview.",
+        "importedTitle": "Theme draft imported",
+        "savedDescription": "The draft is saved in this browser only. It has not been sent to the backend.",
+        "savedTitle": "Local draft saved"
+      },
+      "metrics": {
+        "activeTheme": "Active theme",
+        "assets": "Assets",
+        "coverage": "Coverage",
+        "contrastFail": "Review",
+        "contrastPass": "AA pass",
+        "recipes": "Recipes",
+        "templates": "Templates"
+      },
+      "options": {
+        "mode": {
+          "dark": "Dark",
+          "light": "Light"
+        },
+        "motion": {
+          "none": "None",
+          "reduced": "Reduced",
+          "standard": "Standard"
+        },
+        "shadow": {
+          "none": "None",
+          "soft": "Soft",
+          "standard": "Standard"
+        }
+      },
+      "preview": {
+        "badge": "Preview module",
+        "copy": "This preview shows package defaults and local draft changes on a dense admin surface before they are written into a source theme package.",
+        "description": "Preview the current token draft on admin-style controls and modules.",
+        "heading": "Token-driven admin surface",
+        "moduleMeta": "Source package workflow",
+        "moduleTitle": "Release readiness",
+        "primaryAction": "Primary action",
+        "secondaryAction": "Secondary action",
+        "title": "Live preview"
+      },
+      "package": {
+        "title": "Active package",
+        "description": "The current build reads this package manifest, token map, local assets, recipes, and template exports.",
+        "fields": {
+          "id": "Package ID",
+          "source": "Source",
+          "version": "Version"
+        }
+      },
+      "recipes": {
+        "title": "Component recipes",
+        "description": "Recipes document which theme tokens control reusable Aoi primitives and patterns."
+      },
+      "release": {
+        "description": "Production changes happen by editing a source theme package, regenerating tokens, and rebuilding the WebUI. Runtime backend publishing stays disabled.",
+        "sourceOnly": "No backend theme release is pending. Copy the example package, change the active theme ID, regenerate, and rebuild to publish a custom skin.",
+        "title": "Release boundary"
+      },
+      "templates": {
+        "title": "Template exports",
+        "description": "Theme packages can replace shell and page templates through typed React exports while business pages keep shared API, i18n, auth, and primitive contracts."
+      },
+      "tokenLabels": {
+        "accentColor": "Accent color",
+        "mode": "Mode",
+        "motionIntensity": "Motion",
+        "primaryColor": "Primary color",
+        "radiusScale": "Radius",
+        "shadowLevel": "Shadow",
+        "spacingScale": "Spacing scale",
+        "surfaceColor": "Surface color",
+        "textColor": "Text color",
+        "typographyScale": "Typography scale"
+      },
+      "values": {
+        "radius": "{{value}} px"
+      }
+    },
+    "parameters": {
+      "title": "System parameters",
+      "description": "Manage backend-backed system parameter records through /api/v1/system/parameters.",
+      "badge": "Parameter catalog",
+      "summaryLabel": "System parameter summary",
+      "empty": "No parameter records returned.",
+      "actions": {
+        "cancel": "Cancel",
+        "confirmDelete": "Confirm delete",
+        "create": "Create parameter",
+        "delete": "Delete",
+        "deleteFor": "Delete {{name}}",
+        "deleteSelected": "Delete selected",
+        "edit": "Edit",
+        "editFor": "Edit {{name}}",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "save": "Save changes",
+        "search": "Search"
+      },
+      "metrics": {
+        "currentPage": "Current page",
+        "page": "Page",
+        "pageSize": "Page size",
+        "selected": "Selected",
+        "storage": "Storage",
+        "total": "Total records"
+      },
+      "filters": {
+        "description": "These fields map directly to the backend parameter list endpoint.",
+        "endCreatedAt": "End date",
+        "key": "Parameter key",
+        "name": "Name",
+        "pageSize": "Page size",
+        "startCreatedAt": "Start date",
+        "title": "Filters"
+      },
+      "list": {
+        "description": "{{count}} records match the current filters.",
+        "title": "Parameter list"
+      },
+      "pagination": {
+        "label": "Parameter pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "actions": "Actions",
+        "createdAt": "Created",
+        "description": "Description",
+        "key": "Key",
+        "name": "Name",
+        "updatedAt": "Updated",
+        "value": "Value"
+      },
+      "selection": {
+        "allAria": "Select all visible parameters",
+        "rowAria": "Select parameter {{id}}"
+      },
+      "form": {
+        "createTitle": "Create parameter",
+        "description": "Fields map directly to the backend create and update request bodies.",
+        "descriptionField": "Description",
+        "editTitle": "Edit parameter",
+        "key": "Parameter key",
+        "name": "Name",
+        "placeholders": {
+          "description": "Where this parameter is used",
+          "key": "site.title",
+          "name": "Site title",
+          "value": "Aoi Admin"
+        },
+        "value": "Value"
+      },
+      "delete": {
+        "bulkDescription": "This will delete {{count}} selected parameter record(s) through the backend bulk delete endpoint.",
+        "bulkTitle": "Confirm selected parameter deletion",
+        "singleDescription": "This will delete {{name}} through the backend parameter delete endpoint.",
+        "singleTitle": "Confirm parameter deletion"
+      },
+      "messages": {
+        "bulkDeletedDescription": "{{count}} selected parameter record(s) were deleted.",
+        "bulkDeletedTitle": "Parameters deleted",
+        "createdDescription": "{{name}} was created.",
+        "createdTitle": "Parameter created",
+        "deleteFailedTitle": "Delete failed",
+        "deletedDescription": "{{name}} was deleted.",
+        "deletedTitle": "Parameter deleted",
+        "requiredDescription": "Name, key, and value are required before saving.",
+        "requiredTitle": "Parameter fields required",
+        "saveFailedTitle": "Save failed",
+        "updatedDescription": "{{name}} was updated.",
+        "updatedTitle": "Parameter updated"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No parameter page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "System parameters unavailable",
+        "loadingTitle": "Loading parameters",
+        "loadingDescription": "Reading protected system parameter records.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the parameter:read permission to view system parameters.",
+        "storageUnavailableTitle": "Parameter storage unavailable",
+        "storageUnavailableDescription": "The backend reports that system_parameters is not persisted yet. Run the required migrations before using parameter workflows."
+      }
+    },
+    "organizations": {
+      "title": "Organizations",
+      "description": "Manage tenant context through backend-supported organization listing, creation, current organization update, and organization switching endpoints.",
+      "badge": "IAM organizations",
+      "summaryLabel": "Organization summary",
+      "empty": "No organizations returned.",
+      "actions": {
+        "create": "Create organization",
+        "current": "Current organization",
+        "dismiss": "Dismiss",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "save": "Save organization",
+        "search": "Search",
+        "switch": "Switch"
+      },
+      "metrics": {
+        "active": "Active on page",
+        "current": "Current organization",
+        "disabled": "Disabled on page",
+        "storage": "Storage",
+        "total": "Total organizations"
+      },
+      "filters": {
+        "allStatuses": "All statuses",
+        "description": "These fields map directly to the backend organization list query while preserving service-side sorting and pagination semantics.",
+        "keyword": "Keyword",
+        "pageSize": "Page size",
+        "title": "Filters"
+      },
+      "fields": {
+        "code": "Organization code",
+        "codePlaceholder": "acme",
+        "name": "Organization name",
+        "namePlaceholder": "Acme team",
+        "status": "Organization status"
+      },
+      "status": {
+        "active": "Active",
+        "disabled": "Disabled"
+      },
+      "list": {
+        "description": "{{total}} organizations match the current filters, with {{count}} shown on this page.",
+        "title": "Organization list"
+      },
+      "pagination": {
+        "label": "Organization pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "actions": "Actions",
+        "createdAt": "Created",
+        "current": "Context",
+        "organization": "Organization",
+        "status": "Status"
+      },
+      "current": {
+        "current": "Current organization",
+        "description": "The backend currently only allows updating the current organization name. Code and status remain read-only.",
+        "errorTitle": "Organization update failed",
+        "successDescription": "{{name}} was saved as the current organization name.",
+        "successTitle": "Organization updated",
+        "switchable": "Switchable",
+        "title": "Current organization"
+      },
+      "create": {
+        "description": "Create a new organization with a unique code and name. The backend assigns the creator as owner.",
+        "errorTitle": "Organization creation failed",
+        "successDescription": "{{name}} was created through the backend organization endpoint.",
+        "successTitle": "Organization created",
+        "title": "Create organization"
+      },
+      "switch": {
+        "errorTitle": "Organization switch failed",
+        "successDescription": "Switched to {{name}} and refreshed the current session identity.",
+        "successTitle": "Organization switched"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "errorTitle": "Organizations unavailable",
+        "loadingTitle": "Loading organizations",
+        "loadingDescription": "Reading protected organization records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization management endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs org:read permission to view organizations, plus org:create or org:update for changes.",
+        "storageUnavailableTitle": "Organization storage unavailable",
+        "storageUnavailableDescription": "The backend reports that IAM organization storage is not persisted yet. Run the required migrations before using organization workflows."
+      },
+      "validation": {
+        "code": "Organization code must start with a lowercase letter and contain only lowercase letters, numbers, underscores, or hyphens, up to 64 characters.",
+        "name": "Enter an organization name.",
+        "title": "Organization details incomplete"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "description": "Read and manage organization members through backend-supported /api/v1/orgs/:orgId/users and invitation endpoints.",
+      "badge": "IAM users",
+      "summaryLabel": "User summary",
+      "empty": "No organization users returned.",
+      "actions": {
+        "cancel": "Cancel",
+        "confirmRevoke": "Confirm revoke",
+        "disable": "Disable",
+        "enable": "Enable",
+        "invite": "Invite user",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "revoke": "Revoke",
+        "roleSelect": "Role for {{name}}",
+        "saveRole": "Save role",
+        "saveRoleFor": "Save role for {{name}}",
+        "search": "Search",
+        "sendInvitation": "Send invitation",
+        "toggleStatusFor": "Set {{name}} to {{status}}"
+      },
+      "metrics": {
+        "active": "Active on page",
+        "disabled": "Disabled on page",
+        "pendingInvitations": "Pending invites",
+        "storage": "Storage",
+        "total": "Total users"
+      },
+      "filters": {
+        "allRoles": "All roles",
+        "allStatuses": "All statuses",
+        "description": "These fields map directly to the backend user list endpoint and keep the current organization scope.",
+        "displayName": "Display name",
+        "email": "Email",
+        "keyword": "Keyword",
+        "pageSize": "Page size",
+        "role": "Role",
+        "status": "Member status",
+        "title": "Filters",
+        "username": "Username"
+      },
+      "fields": {
+        "role": "Role"
+      },
+      "status": {
+        "active": "Active",
+        "disabled": "Disabled",
+        "expired": "Expired",
+        "locked": "Locked",
+        "pending": "Pending",
+        "revoked": "Revoked",
+        "used": "Used"
+      },
+      "mfa": {
+        "disabled": "Disabled",
+        "enabled": "Enabled"
+      },
+      "roles": {
+        "noneAvailable": "No roles available",
+        "option": "{{name}} ({{code}})"
+      },
+      "list": {
+        "description": "{{count}} users match the current filters.",
+        "title": "User list"
+      },
+      "pagination": {
+        "label": "User pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "accountStatus": "Account",
+        "actions": "Actions",
+        "id": "ID",
+        "lastLogin": "Last login",
+        "memberStatus": "Member",
+        "mfa": "MFA",
+        "roles": "Roles",
+        "user": "User"
+      },
+      "member": {
+        "errorTitle": "Member update failed",
+        "roleSuccessTitle": "Role updated",
+        "roleSuccessDescription": "{{name}} now uses the selected organization role.",
+        "statusSuccessTitle": "Member status updated",
+        "statusSuccessDescription": "{{name}} is now {{status}}."
+      },
+      "invite": {
+        "debugDeliveryTitle": "Debug invitation delivery",
+        "debugDeliveryDescription": "The backend returned local debug delivery values because no external mail delivery was used.",
+        "debugSuccessDescription": "Invitation for {{email}} was created. Use the debug token or URL below to accept it locally.",
+        "debugToken": "Token",
+        "debugUrl": "URL",
+        "description": "Create an invitation with an email address and an existing organization role.",
+        "email": "Email",
+        "emailPlaceholder": "member@example.com",
+        "errorTitle": "Invitation failed",
+        "role": "Role",
+        "successDescription": "Invitation for {{email}} was created through the backend invitation endpoint.",
+        "successTitle": "Invitation created",
+        "title": "Invite user",
+        "validationDescription": "Enter a valid email address and choose an available role before sending the invitation.",
+        "validationTitle": "Invitation details incomplete"
+      },
+      "invitation": {
+        "columns": {
+          "email": "Email",
+          "expiresAt": "Expires",
+          "role": "Role",
+          "status": "Status"
+        },
+        "confirmRevokeDescription": "This will revoke the pending invitation for {{email}}. The backend will reject future acceptance with that token.",
+        "confirmRevokeTitle": "Confirm invitation revocation",
+        "description": "Showing {{count}} invitations returned by /api/v1/orgs/:orgId/invitations.",
+        "empty": "No invitations returned.",
+        "errorTitle": "Invitation update failed",
+        "invitedBy": "Invited by user {{id}}",
+        "pendingCount": "{{count}} pending",
+        "revokeInvitation": "Revoke invitation for {{email}}",
+        "revokeSuccessDescription": "Invitation for {{email}} was revoked.",
+        "revokeSuccessTitle": "Invitation revoked",
+        "title": "Invitations"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No user page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Users unavailable",
+        "loadingTitle": "Loading users",
+        "loadingDescription": "Reading protected IAM organization members.",
+        "loadingInvitationsTitle": "Loading invitations",
+        "loadingInvitationsDescription": "Reading protected invitation records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization user endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs user:read permission to view users and user:invite or user:update for invitation and member changes.",
+        "storageUnavailableTitle": "User storage unavailable",
+        "storageUnavailableDescription": "The backend reports that IAM user storage is not persisted yet. Run the required migrations before using user workflows."
+      }
+    },
+    "roles": {
+      "title": "Roles",
+      "description": "Read, create, and update organization roles through backend-supported IAM role and permission endpoints. System roles stay read-only.",
+      "badge": "IAM roles",
+      "summaryLabel": "Role summary",
+      "empty": "No roles returned.",
+      "actions": {
+        "cancelCreate": "Cancel",
+        "create": "Create role",
+        "dismiss": "Dismiss",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "save": "Save role",
+        "submitCreate": "Create role"
+      },
+      "metrics": {
+        "assignedPermissions": "Assigned permissions",
+        "custom": "Custom roles",
+        "permissions": "Permission catalog",
+        "system": "System roles",
+        "total": "Total roles"
+      },
+      "fields": {
+        "code": "Role code",
+        "codePlaceholder": "operator",
+        "description": "Description",
+        "descriptionHelp": "The backend trims the description and stores it with the role.",
+        "name": "Role name"
+      },
+      "columns": {
+        "kind": "Kind",
+        "permissions": "Permissions",
+        "role": "Role",
+        "updatedAt": "Updated"
+      },
+      "kind": {
+        "custom": "Custom",
+        "system": "System"
+      },
+      "list": {
+        "description": "{{count}} roles returned by /api/v1/orgs/:orgId/roles.",
+        "title": "Role list"
+      },
+      "create": {
+        "description": "Create a custom role and write its initial permission set through the backend role endpoint.",
+        "errorTitle": "Role creation failed",
+        "successDescription": "{{name}} was created and the role list is refreshing.",
+        "successTitle": "Role created",
+        "title": "Create custom role"
+      },
+      "edit": {
+        "description": "Select a custom role, then update its display name, description, and permission set. System roles are excluded because the backend rejects updates to them.",
+        "descriptionHelp": "Permission updates use replacement semantics, so the checked set becomes the role's full permission set.",
+        "errorTitle": "Role update failed",
+        "noSelectionDescription": "Choose an editable custom role before saving.",
+        "noSelectionTitle": "No role selected",
+        "noneDescription": "The backend only returned system roles. Create a custom role before using the editor.",
+        "noneTitle": "No editable role",
+        "role": "Editable role",
+        "roleOption": "{{name}} ({{code}})",
+        "successDescription": "{{name}} was updated through the backend role endpoint.",
+        "successTitle": "Role updated",
+        "title": "Edit custom role"
+      },
+      "permissions": {
+        "allObjects": "All permission objects",
+        "clearGroup": "Clear {{group}}",
+        "createDescription": "Choose existing permission codes from /api/v1/orgs/:orgId/permissions. Invalid backend permission codes are not invented in the UI.",
+        "createTitle": "Initial permissions",
+        "editDescription": "The selected permission codes replace the current custom role policy set.",
+        "editTitle": "Role permissions",
+        "emptyDescription": "No permissions match the current search or object filter.",
+        "emptyTitle": "No permissions found",
+        "groupCount": "{{selected}} / {{count}} selected",
+        "more": "+{{count}} more",
+        "object": "Permission object",
+        "search": "Search permissions",
+        "searchPlaceholder": "user:read",
+        "selectGroup": "Select {{group}}",
+        "selected": "{{count}} selected",
+        "toggle": "Toggle {{code}}"
+      },
+      "permissionObjects": {
+        "api_token": "API tokens",
+        "audit": "Audit",
+        "config": "Config",
+        "dictionary": "Dictionaries",
+        "media": "Media",
+        "menu": "Menus",
+        "me": "Current user",
+        "operation": "Operations",
+        "org": "Organizations",
+        "other": "Other",
+        "parameter": "Parameters",
+        "permission": "Permissions",
+        "plugin": "Plugins",
+        "role": "Roles",
+        "server": "Server",
+        "session": "Sessions",
+        "setup": "Setup",
+        "system": "System",
+        "user": "Users",
+        "version": "Versions"
+      },
+      "validation": {
+        "code": "Use a lowercase role code that starts with a letter and only contains letters, numbers, underscores, or hyphens.",
+        "description": "Keep the description within 500 characters.",
+        "name": "Enter a role name before submitting.",
+        "permissions": "Use non-empty permission codes returned by the backend permission catalog.",
+        "title": "Role details incomplete"
+      },
+      "states": {
+        "emptyTitle": "No roles returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Roles unavailable",
+        "loadingTitle": "Loading roles",
+        "loadingDescription": "Reading protected IAM roles and permissions.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization role endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs role:read and permission:read to view roles, plus role:create or role:update for changes."
+      }
+    },
+    "sessions": {
+      "title": "Sessions",
+      "description": "Read organization session records from /api/v1/orgs/:orgId/sessions, show product and platform dimensions, and call the backend-supported session revocation endpoint.",
+      "badge": "IAM sessions",
+      "summaryLabel": "Session summary",
+      "empty": "No sessions returned.",
+      "actions": {
+        "cancelRevoke": "Cancel",
+        "confirmRevoke": "Confirm revoke",
+        "currentSession": "Current session",
+        "refresh": "Refresh",
+        "revoke": "Revoke",
+        "revokeSession": "Revoke session {{id}}",
+        "reset": "Reset",
+        "search": "Search"
+      },
+      "metrics": {
+        "active": "Active on page",
+        "currentPage": "Current page",
+        "inactive": "Inactive on page",
+        "storage": "Storage",
+        "total": "Total sessions"
+      },
+      "filters": {
+        "allStatuses": "All statuses",
+        "description": "These fields map directly to the backend session list endpoint. Organization scope lists visible org sessions; self scope lists the current user unless a user ID is supplied.",
+        "ipAddress": "IP contains",
+        "keyword": "Keyword",
+        "pageSize": "Page size",
+        "platform": "Platform",
+        "productCode": "Product code",
+        "scope": "Scope",
+        "status": "Status",
+        "title": "Filters",
+        "userId": "User ID"
+      },
+      "scope": {
+        "organization": "Organization",
+        "self": "Self"
+      },
+      "status": {
+        "active": "Active",
+        "expired": "Expired",
+        "revoked": "Revoked"
+      },
+      "list": {
+        "description": "{{count}} sessions match the current filters.",
+        "title": "Session list"
+      },
+      "pagination": {
+        "label": "Session pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "actions": "Actions",
+        "device": "Device",
+        "expiresAt": "Expires",
+        "id": "Session",
+        "ip": "IP",
+        "lastUsed": "Last used",
+        "platform": "Platform",
+        "status": "Status",
+        "user": "User"
+      },
+      "revoke": {
+        "confirmTitle": "Confirm session revocation",
+        "confirmDescription": "This will revoke session {{id}} for user {{userId}} from IP {{ip}}. The backend will reject future requests from that session.",
+        "currentSessionTitle": "Current session cannot be revoked here",
+        "currentSessionDescription": "The current access token belongs to session {{id}}. Revoke it from a different session.",
+        "errorTitle": "Revocation failed",
+        "successTitle": "Session revoked",
+        "successDescription": "Session {{id}} was handled by the backend revocation endpoint. The list is refreshing."
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No session page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Sessions unavailable",
+        "loadingTitle": "Loading sessions",
+        "loadingDescription": "Reading protected IAM session records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization-scoped session endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs session:read permission to view sessions.",
+        "storageUnavailableTitle": "Session storage unavailable",
+        "storageUnavailableDescription": "The backend reports that sessions are not persisted yet. Run the required migrations before using session workflows."
+      }
+    },
+    "security": {
+      "badge": "Account security",
+      "title": "Security center",
+      "description": "Review the current account, organization, session, and platform dimension, then enable or rotate a TOTP factor through the backend MFA endpoints.",
+      "accountTitle": "Account and session",
+      "accountSummaryLabel": "Account security summary",
+      "actions": {
+        "copySecret": "Copy Secret",
+        "copyUrl": "Copy otpauth URL",
+        "generateSecret": "Generate MFA Secret",
+        "logout": "Log out current session",
+        "manageSessions": "Manage platform sessions",
+        "rotateSecret": "Rotate MFA Secret",
+        "verifyAndEnable": "Verify and enable",
+        "viewSessions": "View platform sessions"
+      },
+      "fields": {
+        "accessExpires": "Access token expires",
+        "account": "Account",
+        "email": "Email",
+        "mfaCode": "MFA code",
+        "mfaCodeHelp": "Enter the 6-digit code shown by your authenticator app.",
+        "mfaCodePlaceholder": "123456",
+        "organization": "Current organization",
+        "platform": "Current platform",
+        "refreshExpires": "Refresh token expires",
+        "session": "Current session"
+      },
+      "mfa": {
+        "disabledBadge": "MFA disabled",
+        "disabledDescription": "Generate a backend TOTP secret, add it to your authenticator app, and submit the current code.",
+        "enabledBadge": "MFA enabled",
+        "enabledDescription": "This account requires an MFA code at login. Complete verification immediately after rotating the secret.",
+        "otpauthLabel": "otpauth URL",
+        "secretLabel": "Secret",
+        "setupEmptyDescription": "After generation, the backend returns a one-time secret and otpauth URL for this page only.",
+        "setupEmptyTitle": "Waiting for an MFA secret",
+        "title": "MFA"
+      },
+      "messages": {
+        "copiedDescription": "{{label}} was copied to the clipboard.",
+        "copiedTitle": "Copied",
+        "copyDeniedDescription": "The browser did not allow writing {{label}}. Select and copy it manually.",
+        "copyDeniedTitle": "Clipboard write blocked",
+        "enabledDescription": "MFA was verified by the backend and the page secret has been cleared.",
+        "enabledTitle": "MFA enabled",
+        "secretGeneratedDescription": "The secret is shown only in page memory. Add it to your authenticator app now.",
+        "secretGeneratedTitle": "MFA secret generated",
+        "setupFailedTitle": "MFA secret generation failed",
+        "verifyFailedTitle": "MFA verification failed"
+      },
+      "validation": {
+        "mfaCodeFormat": "Enter a 6-digit numeric code.",
+        "mfaCodeRequired": "Enter the MFA code."
+      },
+      "values": {
+        "platform": "{{platform}} / {{product}}"
+      },
+      "states": {
+        "identityFailedTitle": "Account details failed to load",
+        "identityLoadingDescription": "Reading the current account, organization, and session context from the backend.",
+        "identityLoadingTitle": "Loading account details"
+      }
+    },
+    "apiTokens": {
+      "title": "API tokens",
+      "description": "Read, issue, and revoke organization API tokens through the backend-supported /api/v1/orgs/:orgId/api-tokens endpoints.",
+      "badge": "IAM API tokens",
+      "summaryLabel": "API token summary",
+      "empty": "No API tokens returned.",
+      "actions": {
+        "cancelIssue": "Cancel",
+        "cancelRevoke": "Cancel",
+        "closeIssued": "Done",
+        "confirmRevoke": "Confirm revoke",
+        "copyExample": "Copy example",
+        "copyToken": "Copy token",
+        "create": "Create token",
+        "issue": "Issue token",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "revoke": "Revoke",
+        "revokeToken": "Revoke API token {{id}}",
+        "search": "Search"
+      },
+      "metrics": {
+        "active": "Active on page",
+        "currentPage": "Current page",
+        "inactive": "Inactive on page",
+        "storage": "Storage",
+        "total": "Total tokens"
+      },
+      "filters": {
+        "allStatuses": "All statuses",
+        "description": "These fields map directly to the backend API token list endpoint.",
+        "pageSize": "Page size",
+        "status": "Status",
+        "title": "Filters",
+        "userId": "User ID"
+      },
+      "status": {
+        "active": "Active",
+        "expired": "Expired",
+        "revoked": "Revoked"
+      },
+      "validity": {
+        "days": "{{days}} days",
+        "never": "Never expires"
+      },
+      "list": {
+        "description": "{{count}} API tokens match the current filters.",
+        "title": "Token list"
+      },
+      "pagination": {
+        "label": "API token pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "actions": "Actions",
+        "expiresAt": "Expires",
+        "id": "Token",
+        "lastUsed": "Last used",
+        "lastUsedIp": "Last IP",
+        "remark": "Remark",
+        "role": "Role",
+        "status": "Status",
+        "user": "User"
+      },
+      "labels": {
+        "neverUsed": "Never used",
+        "tokenId": "Token #{{id}}",
+        "userId": "User #{{id}}"
+      },
+      "issue": {
+        "description": "Choose an organization member and one of that member's assigned roles. The backend returns the full secret only once after creation.",
+        "errorTitle": "Token creation failed",
+        "noAssignableRoleTitle": "No assignable role",
+        "noAssignableRoleDescription": "The selected member does not have a role returned by the backend role catalog.",
+        "remark": "Remark",
+        "remarkHelp": "Optional note stored with this token.",
+        "role": "Role",
+        "roleOption": "{{name}} ({{code}})",
+        "successTitle": "API token issued",
+        "successDescription": "Token {{id}} was created by the backend. Copy the secret before closing this panel.",
+        "title": "Issue API token",
+        "user": "User",
+        "userOption": "{{name}} (#{{id}})",
+        "validationTitle": "Token form incomplete",
+        "validationDescription": "Select a user, select an assigned role, and choose a supported validity period.",
+        "validity": "Validity"
+      },
+      "issued": {
+        "description": "The full token is kept only in page memory for this response. It is not saved to the session store.",
+        "example": "Example request",
+        "fullToken": "Full token",
+        "title": "Copy the new API token",
+        "warningTitle": "Secret shown once",
+        "warningDescription": "Copy this token now. The backend stores only the hashed token and cannot return the full value again."
+      },
+      "copy": {
+        "deniedTitle": "Copy unavailable",
+        "exampleDeniedDescription": "The browser did not allow copying the example request.",
+        "exampleSuccessDescription": "The example request was copied.",
+        "successTitle": "Copied",
+        "tokenDeniedDescription": "The browser did not allow copying the token.",
+        "tokenSuccessDescription": "The API token was copied."
+      },
+      "revoke": {
+        "confirmTitle": "Confirm token revocation",
+        "confirmDescription": "This will revoke token {{id}} for {{user}} with prefix {{prefix}}. Future requests using that token will be rejected by the backend.",
+        "errorTitle": "Revocation failed",
+        "successTitle": "API token revoked",
+        "successDescription": "Token {{id}} was handled by the backend revocation endpoint. The list is refreshing."
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No API token page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "API tokens unavailable",
+        "loadingTitle": "Loading API tokens",
+        "loadingDescription": "Reading protected IAM API token records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization-scoped API token endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs API token permissions for this workflow.",
+        "storageUnavailableTitle": "API token storage unavailable",
+        "storageUnavailableDescription": "The backend reports that API tokens are not persisted yet. Run the required migrations before using token workflows."
+      }
+    },
+    "auditLogs": {
+      "title": "Audit logs",
+      "description": "Read IAM audit records from /api/v1/orgs/:orgId/audit-logs with product and platform dimensions plus backend-supported action, user, time, cursor, and limit filters.",
+      "badge": "IAM audit trail",
+      "summaryLabel": "Audit log summary",
+      "empty": "No audit logs returned.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search"
+      },
+      "metrics": {
+        "actions": "Actions returned",
+        "nextCursor": "Next cursor",
+        "returned": "Returned logs",
+        "users": "Users returned",
+        "withMetadata": "With metadata"
+      },
+      "filters": {
+        "action": "Action",
+        "cursor": "Older than ID",
+        "description": "These fields map directly to the backend audit-log endpoint. Time filters are sent as RFC3339 values; the cursor reads records older than the given log ID.",
+        "from": "From",
+        "limit": "Limit",
+        "title": "Filters",
+        "to": "To",
+        "userId": "User ID"
+      },
+      "list": {
+        "description": "Showing {{count}} audit logs from a backend limit of {{limit}}.",
+        "title": "Audit log list"
+      },
+      "columns": {
+        "action": "Action",
+        "device": "Device",
+        "id": "ID",
+        "ip": "IP",
+        "metadata": "Metadata",
+        "platform": "Platform",
+        "resource": "Resource",
+        "time": "Time",
+        "user": "User"
+      },
+      "states": {
+        "emptyTitle": "No audit log page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Audit logs unavailable",
+        "loadingTitle": "Loading audit logs",
+        "loadingDescription": "Reading protected IAM audit records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization-scoped audit endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs audit:read permission to view IAM audit records."
+      }
+    },
+    "loginLogs": {
+      "title": "Login logs",
+      "description": "Read auth.login audit records from /api/v1/orgs/:orgId/audit-logs and show product and platform dimensions. User, time, and limit filters stay backend-supported; IP is filtered locally from the returned page.",
+      "badge": "IAM login trail",
+      "summaryLabel": "Login log summary",
+      "empty": "No matching login logs returned.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search"
+      },
+      "metrics": {
+        "action": "Fixed action",
+        "ipAddresses": "IP addresses",
+        "platforms": "Platforms",
+        "returned": "Login records",
+        "users": "Users"
+      },
+      "filters": {
+        "description": "Login logs always send action=auth.login. User, from, to, and limit are sent to the backend; IP address uses the old admin behavior and filters the current result locally.",
+        "from": "From",
+        "ipAddress": "IP contains",
+        "limit": "Limit",
+        "title": "Filters",
+        "to": "To",
+        "userId": "User ID"
+      },
+      "list": {
+        "backendAction": "Action {{action}}",
+        "description": "Showing {{count}} {{action}} login logs from a backend limit of {{limit}}.",
+        "title": "Login log list"
+      },
+      "columns": {
+        "device": "Device",
+        "id": "ID",
+        "ip": "IP",
+        "loginTime": "Login time",
+        "platform": "Platform",
+        "resource": "Resource",
+        "userId": "User ID"
+      },
+      "states": {
+        "emptyTitle": "No login log page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Login logs unavailable",
+        "loadingTitle": "Loading login logs",
+        "loadingDescription": "Reading protected IAM login audit records.",
+        "missingOrgTitle": "Organization context missing",
+        "missingOrgDescription": "The current session token does not include an orgId claim, so organization-scoped login log endpoints cannot be called.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs audit:read permission to view login logs."
+      }
+    },
+    "operationRecords": {
+      "title": "Operation records",
+      "description": "Read HTTP operation records from /api/v1/system/operation-records with backend-supported filters, pagination, request summaries, and response summaries.",
+      "badge": "System audit trail",
+      "summaryLabel": "Operation record summary",
+      "empty": "No operation records returned.",
+      "actions": {
+        "cancel": "Cancel",
+        "confirmDelete": "Confirm delete",
+        "deleteSelected": "Delete selected",
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search"
+      },
+      "metrics": {
+        "currentPage": "Current page",
+        "errors": "Errors on page",
+        "selected": "Selected",
+        "slowest": "Slowest on page",
+        "storage": "Storage",
+        "total": "Total records"
+      },
+      "filters": {
+        "allMethods": "All methods",
+        "description": "These fields map directly to the backend operation record endpoint. Exact status takes precedence over status class.",
+        "method": "Method",
+        "pageSize": "Page size",
+        "path": "Path contains",
+        "status": "Exact status",
+        "statusClass": "Status class",
+        "title": "Filters"
+      },
+      "statusClass": {
+        "all": "All statuses",
+        "clientError": "4xx client errors",
+        "error": "All errors",
+        "serverError": "5xx server errors"
+      },
+      "list": {
+        "description": "{{count}} records match the current filters.",
+        "title": "Record list"
+      },
+      "delete": {
+        "bulkDescription": "This will delete {{count}} selected operation record(s) through the backend bulk delete endpoint.",
+        "bulkTitle": "Confirm selected operation record deletion"
+      },
+      "messages": {
+        "deleteFailedTitle": "Delete failed",
+        "deletedSelectedDescription": "{{count}} selected operation record(s) were deleted.",
+        "deletedSelectedTitle": "Operation records deleted"
+      },
+      "selection": {
+        "allAria": "Select all visible operation records",
+        "rowAria": "Select operation record {{id}}"
+      },
+      "pagination": {
+        "label": "Operation record pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "createdAt": "Created",
+        "ip": "IP",
+        "latency": "Latency",
+        "payload": "Payload",
+        "request": "Request",
+        "status": "Status",
+        "traceId": "Trace ID",
+        "user": "User"
+      },
+      "labels": {
+        "anonymous": "Anonymous",
+        "durationMs": "{{value}} ms",
+        "errorMessage": "Error",
+        "noPayload": "No payload captured",
+        "requestBody": "Request",
+        "responseBody": "Response",
+        "userId": "User ID {{id}}"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No operation record page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Operation records unavailable",
+        "loadingTitle": "Loading operation records",
+        "loadingDescription": "Reading protected HTTP operation records.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the operation-record:read permission to view operation records.",
+        "deletePermissionDescription": "The current account needs the operation:delete permission to delete operation records.",
+        "storageUnavailableTitle": "Operation record storage unavailable",
+        "storageUnavailableDescription": "The backend reports that operation records are not persisted yet. Run the required migrations before using operation record workflows."
+      }
+    },
+    "errorLogs": {
+      "title": "Error logs",
+      "description": "Read HTTP error operation records from /api/v1/system/operation-records. The default view is 5xx and only exposes backend-supported status class, status, method, path, and pagination filters.",
+      "badge": "System error trail",
+      "summaryLabel": "Error log summary",
+      "empty": "No matching error logs returned.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search"
+      },
+      "metrics": {
+        "clientErrors": "4xx",
+        "currentPageErrors": "Errors on page",
+        "serverErrors": "5xx",
+        "storage": "Storage",
+        "total": "Total errors"
+      },
+      "filters": {
+        "allMethods": "All methods",
+        "description": "Error logs send statusClass=5xx by default; choosing 4xx or all errors changes that status class. Exact status takes precedence and is sent without status class.",
+        "method": "Method",
+        "pageSize": "Page size",
+        "path": "Path contains",
+        "status": "Exact status",
+        "statusClass": "Status class",
+        "title": "Filters"
+      },
+      "statusClass": {
+        "clientError": "4xx client errors",
+        "error": "All errors",
+        "serverError": "5xx server errors"
+      },
+      "list": {
+        "description": "{{count}} error records match the current filters.",
+        "title": "Error record list"
+      },
+      "pagination": {
+        "label": "Error log pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "createdAt": "Created",
+        "ip": "IP",
+        "request": "Request",
+        "status": "Status",
+        "summary": "Error summary",
+        "traceId": "Trace ID",
+        "user": "User"
+      },
+      "labels": {
+        "anonymous": "Anonymous",
+        "noSummary": "No error summary",
+        "userId": "User ID {{id}}"
+      },
+      "storage": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "unknown": "Unknown"
+      },
+      "states": {
+        "emptyTitle": "No error log page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Error logs unavailable",
+        "loadingTitle": "Loading error logs",
+        "loadingDescription": "Reading protected HTTP error records.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs operation-record:read permission to view error logs.",
+        "storageUnavailableTitle": "Error log storage unavailable",
+        "storageUnavailableDescription": "The backend reports that operation records are not persisted yet. Run the required migrations before using error log workflows."
+      }
+    },
+    "plugins": {
+      "title": "Plugins",
+      "description": "Read remote plugin host snapshots, health, and capability declarations from the backend plugin management contract.",
+      "badge": "Plugin query",
+      "summaryLabel": "Plugin runtime summary",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search",
+        "selected": "Selected",
+        "view": "View"
+      },
+      "metrics": {
+        "capabilities": "Capabilities",
+        "online": "Online",
+        "total": "Plugin instances",
+        "transports": "Transports"
+      },
+      "filters": {
+        "allStatuses": "All statuses",
+        "allTransports": "All transports",
+        "description": "These filters run on the current backend plugin snapshot response.",
+        "keyword": "Keyword",
+        "status": "Status",
+        "title": "Filters",
+        "transport": "Transport"
+      },
+      "list": {
+        "description": "{{count}} of {{total}} plugin instances match the current filters.",
+        "title": "Plugin instances"
+      },
+      "columns": {
+        "actions": "Actions",
+        "capabilities": "Capabilities",
+        "instance": "Instance",
+        "lastHeartbeat": "Last heartbeat",
+        "plugin": "Plugin",
+        "status": "Status",
+        "transport": "Transport"
+      },
+      "detail": {
+        "description": "The detail endpoint returns one snapshot for the selected plugin ID, preferring an online instance when multiple instances exist.",
+        "endpoint": "Endpoint",
+        "hooks": "Hooks",
+        "instanceId": "Instance ID",
+        "leaseExpiresAt": "Lease expires",
+        "name": "Name",
+        "ownerHost": "Owner host",
+        "permissions": "Permissions",
+        "pluginId": "Plugin ID",
+        "protocol": "Protocol",
+        "registeredAt": "Registered",
+        "title": "Plugin detail",
+        "transport": "Transport",
+        "version": "Version"
+      },
+      "health": {
+        "description": "Health is read from the plugin host and may return offline when the selected plugin has no online instance.",
+        "error": "Health error",
+        "instanceId": "Instance ID",
+        "lastHeartbeatAt": "Last heartbeat",
+        "leaseExpiresAt": "Lease expires",
+        "pluginId": "Plugin ID",
+        "runtimeStatus": "Runtime status",
+        "status": "Status",
+        "title": "Health"
+      },
+      "capabilities": {
+        "description": "Capabilities are declared by the remote plugin and are shown as metadata only; the frontend does not invoke them.",
+        "inputSchemaEmpty": "No input schema",
+        "inputSchemaPresent": "Input schema",
+        "noDescription": "No capability description returned.",
+        "outputSchemaEmpty": "No output schema",
+        "outputSchemaPresent": "Output schema",
+        "permissions": "Permissions",
+        "scope": "Scope",
+        "secretPolicy": "Secret policy",
+        "title": "Capabilities",
+        "version": "Version"
+      },
+      "status": {
+        "draining": "Draining",
+        "offline": "Offline",
+        "online": "Online",
+        "unknown": "Unknown"
+      },
+      "values": {
+        "none": "None"
+      },
+      "states": {
+        "capabilitiesEmptyDescription": "The selected plugin snapshot did not return capability declarations.",
+        "capabilitiesEmptyTitle": "No capabilities returned",
+        "capabilitiesLoadingDescription": "Reading remote plugin capability declarations.",
+        "capabilitiesLoadingTitle": "Loading capabilities",
+        "capabilitiesOfflineTitle": "Plugin offline",
+        "detailErrorTitle": "Plugin detail unavailable",
+        "disabledDescription": "The backend reports that plugin hosting or plugin management is disabled.",
+        "disabledTitle": "Plugins disabled",
+        "emptyDescription": "No remote plugins are currently registered.",
+        "emptyTitle": "No plugin instances returned",
+        "errorTitle": "Plugins unavailable",
+        "healthEmptyDescription": "No health snapshot was returned for the selected plugin.",
+        "healthEmptyTitle": "No health snapshot",
+        "healthLoadingDescription": "Reading plugin health from the backend host.",
+        "healthLoadingTitle": "Loading health",
+        "loadingDescription": "Reading protected plugin management endpoints.",
+        "loadingTitle": "Loading plugins",
+        "noMatchesDescription": "No plugin instances match the current filters.",
+        "noMatchesTitle": "No matching plugins",
+        "offlineDescription": "The backend reports that the selected plugin is offline.",
+        "offlineTitle": "Plugin offline",
+        "permissionDescription": "The current account needs plugin:read permission to view plugin management data.",
+        "permissionTitle": "Permission required"
+      }
+    },
+    "versions": {
+      "title": "Versions",
+      "description": "Read system release package records from /api/v1/system/versions with backend-supported filters.",
+      "badge": "Version records",
+      "summaryLabel": "Version record summary",
+      "empty": "No version records returned.",
+      "actions": {
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "search": "Search",
+        "cancelDelete": "Keep version",
+        "clearSources": "Clear sources",
+        "closeWorkflow": "Close",
+        "confirmDelete": "Confirm delete",
+        "createRelease": "Create release",
+        "delete": "Delete",
+        "deleteSelected": "Delete selected",
+        "download": "Download",
+        "importVersion": "Import version",
+        "selectAllSources": "Select all sources",
+        "submitImport": "Import package",
+        "view": "View"
+      },
+      "metrics": {
+        "latest": "Latest",
+        "page": "Page",
+        "storage": "Storage",
+        "total": "Total records"
+      },
+      "filters": {
+        "description": "Only filters supported by the backend list endpoint are available here.",
+        "endCreatedAt": "End date",
+        "pageSize": "Page size",
+        "startCreatedAt": "Start date",
+        "title": "Filters",
+        "versionCode": "Version code",
+        "versionName": "Version name"
+      },
+      "list": {
+        "description": "{{count}} records match the current filters.",
+        "title": "Version list"
+      },
+      "pagination": {
+        "label": "Version pagination",
+        "next": "Next",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "Previous"
+      },
+      "columns": {
+        "createdAt": "Created",
+        "createdBy": "Created by",
+        "description": "Description",
+        "dictionaries": "Dictionaries",
+        "menus": "Menus",
+        "source": "Source",
+        "version": "Version",
+        "actions": "Actions"
+      },
+      "source": {
+        "export": "Export",
+        "import": "Import"
+      },
+      "states": {
+        "emptyTitle": "No version page returned",
+        "emptyDescription": "The backend response was empty.",
+        "errorTitle": "Versions unavailable",
+        "loadingTitle": "Loading versions",
+        "loadingDescription": "Reading protected version records.",
+        "permissionTitle": "Permission required",
+        "permissionDescription": "The current account needs the version:read permission to view versions.",
+        "storageUnavailableTitle": "Version storage unavailable",
+        "storageUnavailableDescription": "The backend reports that system_versions is not persisted yet. Run the required migrations before using version package workflows.",
+        "detailErrorTitle": "Version detail unavailable",
+        "detailLoadingDescription": "Reading the selected version package from the backend.",
+        "detailLoadingTitle": "Loading version detail",
+        "dictionarySourceUnavailableDescription": "The backend reports dictionary storage is unavailable, so dictionary sources cannot be selected for export.",
+        "dictionarySourceUnavailableTitle": "Dictionary sources unavailable",
+        "sourceErrorTitle": "Version sources unavailable",
+        "sourceLoadingDescription": "Reading backend menu, API, and dictionary sources for package export.",
+        "sourceLoadingTitle": "Loading version sources"
+      },
+      "a11y": {
+        "selectAll": "Select all visible versions",
+        "selectVersion": "Select {{name}}"
+      },
+      "delete": {
+        "bulkDescription": "Delete {{count}} selected version records. This removes the stored package records through the backend contract.",
+        "bulkTitle": "Delete selected versions?",
+        "singleDescription": "Delete {{name}}. This removes the stored package record through the backend contract.",
+        "singleTitle": "Delete this version?"
+      },
+      "detail": {
+        "description": "Read the backend-returned package snapshot for this version record.",
+        "title": "Version detail"
+      },
+      "export": {
+        "defaultName": "Release {{date}}",
+        "description": "Create a backend-managed release package from selected menus, API routes, and persisted dictionaries.",
+        "descriptionField": "Release description",
+        "filterApis": "Filter API routes",
+        "filterDictionaries": "Filter dictionaries",
+        "filterMenus": "Filter menus",
+        "selectedSummary": "{{menus}} menus, {{apis}} API routes, {{dictionaries}} dictionaries selected",
+        "title": "Create release package",
+        "versionCode": "Version code",
+        "versionName": "Version name"
+      },
+      "import": {
+        "description": "Paste or choose a JSON package generated by the backend version export contract.",
+        "file": "JSON package file",
+        "invalidDescription": "The package must be valid JSON and include version.name and version.code.",
+        "invalidTitle": "Invalid package JSON",
+        "json": "Package JSON",
+        "title": "Import version package"
+      },
+      "messages": {
+        "deleteFailedTitle": "Version delete failed",
+        "deletedDescription": "{{name}} was deleted.",
+        "deletedSelectedDescription": "{{count}} selected version records were deleted.",
+        "deletedTitle": "Version deleted",
+        "downloadFailedTitle": "Version download failed",
+        "downloadedDescription": "{{name}} was downloaded as JSON.",
+        "downloadedTitle": "Version downloaded",
+        "exportFailedTitle": "Version export failed",
+        "exportedDescription": "{{name}} was created from backend version sources.",
+        "exportedTitle": "Release package created",
+        "importFailedTitle": "Version import failed",
+        "importedDescription": "{{name}} imported {{dictionaries}} dictionaries and {{items}} dictionary items.",
+        "importedTitle": "Version imported"
+      },
+      "summary": {
+        "apis": "{{count}} API routes",
+        "dictionaries": "{{count}} dictionaries",
+        "menus": "{{count}} menus"
+      }
+    },
+    "trafficHijack": {
+      "badge": "Security probe",
+      "title": "Traffic hijack monitoring",
+      "description": "Use backend HTTP(S) probes to detect DNS, TLS, redirect, status code, content fingerprint, and latency anomalies.",
+      "actions": {
+        "cancel": "Cancel",
+        "create": "Create target",
+        "delete": "Delete",
+        "edit": "Edit",
+        "probe": "Probe",
+        "refresh": "Refresh",
+        "resolve": "Mark resolved",
+        "save": "Save target"
+      },
+      "channels": {
+        "debug": "Debug log",
+        "email": "Email",
+        "event": "In-app event"
+      },
+      "events": {
+        "columns": {
+          "actions": "Actions",
+          "lastSeen": "Last seen",
+          "occurrences": "Count",
+          "reason": "Reason",
+          "severity": "Risk",
+          "target": "Target"
+        },
+        "description": "Incidents are grouped by target, reason, and evidence, then closed when the route recovers.",
+        "empty": "No events match the current filters.",
+        "title": "In-app events"
+      },
+      "filters": {
+        "allTargets": "All targets",
+        "eventState": "Event state",
+        "target": "Target filter"
+      },
+      "form": {
+        "description": "After saving, the backend scheduler probes the target at its interval. Private targets are blocked by default.",
+        "fields": {
+          "alertChannels": "Alert channels",
+          "allowPrivateNetwork": "Allow private/reserved network probes",
+          "emailRecipients": "Email recipients, comma separated",
+          "enabled": "Enable target",
+          "finalHost": "Expected final host",
+          "interval": "Interval seconds",
+          "ipCidrs": "Expected IP/CIDR, comma separated",
+          "keyword": "Expected content keyword",
+          "method": "Method",
+          "name": "Name",
+          "statusCodes": "Expected status codes",
+          "timeout": "Timeout seconds",
+          "tlsFingerprint": "TLS certificate SHA256 fingerprint",
+          "url": "Target URL"
+        },
+        "title": "Target configuration"
+      },
+      "results": {
+        "chartAria": "Traffic hijack probe latency trend",
+        "chartDescription": "Shows total probe latency and status code changes for recent results.",
+        "chartTitle": "Latency trend",
+        "columns": {
+          "duration": "Duration",
+          "stage": "Stage",
+          "status": "Status",
+          "statusCode": "Status code",
+          "target": "Target",
+          "time": "Time"
+        },
+        "description": "Recent probe results are retained in a short window to locate the failed stage and evidence.",
+        "empty": "No probe results yet.",
+        "emptyDescription": "After a target is saved and probed, real sample data appears here.",
+        "emptyTitle": "No trend data yet",
+        "series": {
+          "latency": "Total latency",
+          "statusCode": "Status code"
+        },
+        "title": "Recent results"
+      },
+      "severity": {
+        "critical": "Critical",
+        "high": "High",
+        "low": "Low",
+        "medium": "Medium",
+        "ok": "OK"
+      },
+      "states": {
+        "all": "All",
+        "loadFailed": "Load failed",
+        "open": "Open",
+        "resolved": "Resolved"
+      },
+      "status": {
+        "critical": "Critical",
+        "healthy": "Healthy",
+        "pending": "Pending",
+        "warning": "Warning"
+      },
+      "stream": {
+        "connected": "Live",
+        "connecting": "Connecting",
+        "fallback": "Polling"
+      },
+      "summary": {
+        "abnormal": "Abnormal targets",
+        "label": "Traffic hijack monitoring summary",
+        "latest": "Latest latency",
+        "stream": "Realtime channel",
+        "targets": "Enabled targets",
+        "targetsValue": "{{enabled}} / {{total}}"
+      },
+      "targets": {
+        "columns": {
+          "actions": "Actions",
+          "interval": "Interval",
+          "lastChecked": "Last checked",
+          "method": "Method",
+          "status": "Status",
+          "target": "Target"
+        },
+        "description": "Targets support HTTP(S) only, send no body, and follow up to 5 redirects.",
+        "empty": "No probe targets yet.",
+        "title": "Probe targets"
+      },
+      "units": {
+        "seconds": "{{count}} sec"
+      }
+    },
+    "notFound": {
+      "title": "Platform console page not found",
+      "description": "This platform console route does not exist, or the current backend has not exposed the matching contract."
+    },
+    "mediaResumable": {
+      "badge": "Media upload",
+      "title": "Resumable upload",
+      "description": "Check sessions, upload chunks, complete merges, or abort sessions through the media resumable endpoints already exposed by the Go backend.",
+      "summaryLabel": "Resumable upload status summary",
+      "actions": {
+        "mediaLibrary": "Back to media library",
+        "refreshStatus": "Refresh status",
+        "chooseFile": "Choose file",
+        "upload": "Start upload",
+        "abort": "Abort session",
+        "reset": "Reset",
+        "viewMediaLibrary": "View media library"
+      },
+      "a11y": {
+        "fileInput": "Choose a file for resumable upload"
+      },
+      "metrics": {
+        "status": "Page status",
+        "uploadLimit": "Upload limit",
+        "storage": "Storage status",
+        "chunkSize": "Chunk size"
+      },
+      "upload": {
+        "title": "Upload session",
+        "description": "Choose a category first, then choose a file. The file hash is computed in the browser and sent to the backend for session checking without persistent local storage.",
+        "emptyFileTitle": "No file selected",
+        "emptyFileDescription": "Choose a file to compute SHA-256 and ask the backend whether a resumable session already exists.",
+        "fileDescription": "{{size}}, estimated {{chunks}} chunks."
+      },
+      "fields": {
+        "category": "Media category",
+        "categoryHelp": "The category is submitted when the session is checked. Reset before changing it after a file is selected.",
+        "categoryRoot": "No category",
+        "unknownCategory": "Unnamed category"
+      },
+      "progress": {
+        "label": "Upload progress"
+      },
+      "meta": {
+        "session": "Session ID",
+        "sessionStatus": "Session status",
+        "uploadedChunks": "Uploaded chunks",
+        "missingChunks": "Missing chunks",
+        "expiresAt": "Expires at",
+        "fileHash": "File SHA-256"
+      },
+      "result": {
+        "title": "Upload result",
+        "description": "{{name}} has been merged into a media asset by the backend.",
+        "asset": "Asset name",
+        "mimeType": "MIME type",
+        "size": "Asset size"
+      },
+      "messages": {
+        "emptyFileTitle": "File cannot be read",
+        "emptyFileDescription": "Choose a file larger than 0 bytes.",
+        "fileTooLargeTitle": "File exceeds upload limit",
+        "fileTooLargeDescription": "The selected file is {{size}}, while the backend upload limit is {{limit}}.",
+        "hashUnsupportedTitle": "File hashing is not supported",
+        "hashUnsupportedDescription": "Resumable upload requires Web Crypto SHA-256 support. Use a browser with Web Crypto enabled.",
+        "readyTitle": "Session ready",
+        "readyDescription": "The backend returned {{count}} missing chunks. You can start uploading.",
+        "resumeTitle": "Recoverable session found",
+        "resumeDescription": "The backend already has {{count}} uploaded chunks. Upload will continue from the missing chunks.",
+        "duplicateTitle": "File already uploaded",
+        "duplicateDescription": "The backend returned a completed asset, so another upload is not needed.",
+        "checkFailedTitle": "Upload session check failed",
+        "uploadFailedTitle": "Chunk upload failed",
+        "abortFailedTitle": "Upload session abort failed",
+        "uploadCompletedTitle": "Upload complete",
+        "uploadCompletedDescription": "{{name}} finished resumable upload and was written as a media asset.",
+        "abortCompletedTitle": "Session aborted",
+        "abortCompletedDescription": "Session {{sessionId}} was aborted, and temporary chunks are cleaned by the backend.",
+        "storageUnavailableTitle": "Upload storage unavailable",
+        "storageUnavailableDescription": "The backend reports object storage is unavailable, so new upload sessions or chunks cannot be written right now.",
+        "statusLoadFailedTitle": "Media upload status unavailable"
+      },
+      "status": {
+        "idle": "Waiting for file",
+        "hashing": "Hashing file",
+        "checking": "Checking session",
+        "ready": "Ready to upload",
+        "uploading": "Uploading",
+        "completed": "Completed",
+        "aborted": "Aborted",
+        "error": "Needs attention"
+      },
+      "sessionStatus": {
+        "active": "Active",
+        "completed": "Completed",
+        "aborted": "Aborted",
+        "expired": "Expired"
+      },
+      "storageStatus": {
+        "persisted": "Persisted",
+        "unavailable": "Unavailable",
+        "memory": "In memory"
+      },
+      "values": {
+        "uploadLimit": "{{value}} MB"
+      }
+    }
+  },
+  "forms": {
+    "auth": {
+      "identifier": {
+        "label": "Email or username",
+        "placeholder": "name@example.com",
+        "help": "Use an identifier supported by the backend."
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "name@example.com",
+        "help": "Used for account notifications."
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "aoi-user",
+        "help": "Used for admin display and login."
+      },
+      "displayName": {
+        "label": "Display name",
+        "placeholder": "Aoi user",
+        "help": "Optional."
+      },
+      "orgCode": {
+        "label": "Organization code",
+        "placeholder": "default",
+        "help": "Only uses the backend-supported organization signup field."
+      },
+      "orgName": {
+        "label": "Organization name",
+        "placeholder": "Aoi Workspace",
+        "help": "The organization created during signup."
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "At least 8 characters",
+        "help": "Use a sufficiently strong password."
+      },
+      "captchaCode": {
+        "label": "Captcha",
+        "placeholder": "Enter captcha",
+        "help": "Use the challenge shown by the backend."
+      },
+      "mfaCode": {
+        "label": "MFA code",
+        "placeholder": "123456",
+        "help": "Use the one-time code from your authenticator app."
+      },
+      "newPassword": {
+        "label": "New password",
+        "placeholder": "At least 8 characters",
+        "help": "The backend validates and stores the new password securely."
+      },
+      "resetToken": {
+        "label": "Reset token",
+        "placeholder": "Paste the one-time token",
+        "help": "Use the token from the reset notification or debug delivery."
+      }
+    }
+  },
+  "errors": {
+    "api": {
+      "requestFailed": "The request failed. Please try again later.",
+      "unauthorized": "Your session has expired. Please log in again."
+    },
+    "route": {
+      "title": "Page unavailable",
+      "description": "This path could not render. Go back home and try again.",
+      "unexpectedTitle": "Something went wrong",
+      "unexpectedDescription": "The frontend hit an unexpected rendering error."
+    },
+    "validation": {
+      "email": "Enter a valid email address.",
+      "identifier": "Enter an email or username.",
+      "captchaCode": "Enter the captcha code.",
+      "mfaCode": "Enter the MFA code.",
+      "orgCode": "Enter an organization code.",
+      "orgName": "Enter an organization name.",
+      "password": "Password must be at least 8 characters.",
+      "resetToken": "Enter the reset token.",
+      "username": "Enter a username."
+    }
+  },
+  "empty": {
+    "notFound": {
+      "title": "Page not found",
+      "description": "Check the address or return home."
+    }
+  },
+  "loading": {
+    "app": "Loading the Aoi frontend...",
+    "submit": "Processing..."
+  },
+  "seo": {
+    "home": {
+      "title": "Aoi Admin: Full-Stack Product Platform Base",
+      "description": "Aoi Admin reuses account, access, organization, config, audit, plugin, media, and version capabilities for a core platform and multiple product lines.",
+      "ogTitle": "Aoi Admin shared product base",
+      "ogDescription": "One Go backend and React frontend for the public site, first-install setup, platform console, and future product-line entries."
+    },
+    "about": {
+      "title": "Aoi Admin Platform Architecture and Positioning",
+      "description": "Learn how Aoi Admin uses a shared core platform for accounts, access, organizations, config, audit, and future product-line expansion.",
+      "ogTitle": "Aoi Admin core platform and product-line architecture",
+      "ogDescription": "The core platform owns common capabilities while independent product lines extend their own sites, consoles, and domain modules."
+    },
+    "blog": {
+      "title": "Aoi Admin Product Platform Notes",
+      "description": "Read Aoi Admin platform positioning, product-line architecture, Markdown content system updates, i18n decisions, and engineering logs.",
+      "ogTitle": "Aoi engineering blog",
+      "ogDescription": "Engineering decisions for the Aoi Admin shared product base, React unified frontend, setup wizard, and platform console."
+    },
+    "login": {
+      "title": "Log in to Aoi",
+      "description": "Log in to the Aoi Admin platform console through the backend-supported authentication endpoint.",
+      "ogTitle": "Log in to Aoi",
+      "ogDescription": "Access the Aoi Admin platform console with the shared React auth entry point."
+    },
+    "signup": {
+      "title": "Sign up for Aoi",
+      "description": "Create an Aoi Admin platform account using the backend-supported signup contract.",
+      "ogTitle": "Sign up for Aoi",
+      "ogDescription": "Create an account for the Aoi Admin platform console through the shared auth flow."
+    },
+    "signupVerify": {
+      "title": "Verify Aoi email",
+      "description": "Confirm an Aoi Admin email verification token and activate the pending account.",
+      "ogTitle": "Verify Aoi email",
+      "ogDescription": "Complete the email verification step for the shared React auth flow."
+    },
+    "passwordForgot": {
+      "title": "Recover Aoi password",
+      "description": "Request a backend-supported one-time password reset token for an Aoi account.",
+      "ogTitle": "Recover Aoi password",
+      "ogDescription": "Start password recovery through the shared React auth entry point."
+    },
+    "passwordReset": {
+      "title": "Reset Aoi password",
+      "description": "Reset an Aoi account password with a backend-issued one-time token.",
+      "ogTitle": "Reset Aoi password",
+      "ogDescription": "Use a one-time token to reset an Aoi account password."
+    },
+    "invitation": {
+      "title": "Accept Aoi invitation",
+      "description": "Accept an organization invitation and prepare an account for the Aoi Admin platform console.",
+      "ogTitle": "Accept Aoi invitation",
+      "ogDescription": "Join an invited organization through the shared React auth flow."
+    },
+    "terms": {
+      "title": "Aoi Terms of Service",
+      "description": "Review the draft Aoi Admin platform terms structure before final launch copy is approved.",
+      "ogTitle": "Aoi Terms of Service",
+      "ogDescription": "Draft terms structure for the Aoi Admin public site, setup flow, and platform console."
+    },
+    "privacy": {
+      "title": "Aoi Privacy Policy",
+      "description": "Review the draft Aoi privacy structure for auth, setup, locale preference, and backend API interactions.",
+      "ogTitle": "Aoi Privacy Policy",
+      "ogDescription": "Draft privacy structure for the Aoi Admin React frontend and Go backend integrations."
+    }
+  },
+  "a11y": {
+    "primaryNavigation": "Primary navigation",
+    "footerNavigation": "Footer navigation",
+    "adminNavigation": "Platform console navigation",
+    "languageSwitcher": "Language switcher",
+    "dashboardPreview": "Shared product base preview"
+  },
+  "markdown": {
+    "blog": {
+      "dateLabel": "Published",
+      "updatedLabel": "Updated",
+      "tagsLabel": "Tags",
+      "authorLabel": "Author"
+    }
+  }
+}

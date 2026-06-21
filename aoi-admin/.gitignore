@@ -1,0 +1,70 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/bin/
+/build/
+
+# Test binary
+*.test
+
+# Output of the go coverage tool
+*.out
+*.tsbuildinfo
+coverage.html
+
+# Dependency directories
+/vendor/
+
+# Go workspace file
+go.work
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+/logs/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Config overrides
+configs/config.local.yaml
+configs/config.yaml
+
+# Temporary files
+/tmp/
+/data/
+*.tmp
+
+# ide
+.idea
+
+# git push
+commit.txt
+
+# ai ide
+.kiro
+.trae
+
+# React web app
+web/app/node_modules/
+web/app/build/
+web/app/dist/
+web/app/.react-router/
+web/app/coverage/
+web/app/playwright-report/
+web/app/test-results/

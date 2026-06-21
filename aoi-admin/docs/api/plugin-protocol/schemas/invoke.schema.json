@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoi.example.local/plugin-protocol/schemas/invoke.schema.json",
+  "title": "InvokeRequest",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/request_meta" },
+    {
+      "type": "object",
+      "required": ["capability"],
+      "properties": {
+        "plugin_id": { "type": "string" },
+        "instance_id": { "type": "string" },
+        "capability": { "type": "string" },
+        "timeout_millis": { "type": "integer", "minimum": 1 },
+        "permission_context": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "payload": true
+      }
+    }
+  ]
+}

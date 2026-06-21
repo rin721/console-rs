@@ -1,0 +1,3294 @@
+{
+  "common": {
+    "brand": {
+      "name": "Aoi",
+      "tagline": "全栈产品平台底座"
+    },
+    "actions": {
+      "backHome": "返回首页",
+      "goAdmin": "进入平台后台",
+      "learnMore": "了解更多",
+      "login": "登录",
+      "logout": "退出",
+      "openMenu": "打开菜单",
+      "readArticle": "阅读文章",
+      "signup": "注册",
+      "submit": "提交",
+      "switchLanguage": "切换语言",
+      "viewBlog": "阅读博客"
+    },
+    "labels": {
+      "language": "语言",
+      "none": "无",
+      "status": "状态"
+    },
+    "locales": {
+      "en": "English",
+      "zh-CN": "简体中文"
+    },
+    "preferences": {
+      "open": "打开偏好设置",
+      "openTokens": "打开完整 Tokens 设置",
+      "theme": "主题",
+      "themeModes": {
+        "dark": "深色",
+        "light": "浅色",
+        "system": "跟随系统"
+      }
+    }
+  },
+  "site": {
+    "nav": {
+      "home": "首页",
+      "about": "平台",
+      "blog": "博客",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "admin": "平台后台"
+    },
+    "home": {
+      "eyebrow": "共享产品底座",
+      "title": "Aoi Admin 承载主平台，也托管多条产品线",
+      "description": "面向开发者、独立产品团队和中小型 SaaS 团队，Aoi Admin 用统一 Go 后端与 React 前端复用账号、权限、组织、配置、审计、插件、媒体、版本和系统管理能力。",
+      "primaryCta": "进入平台后台",
+      "secondaryCta": "阅读平台笔记",
+      "preview": {
+        "chromeLabel": "Aoi Platform Base",
+        "title": "一个共享底座，多条独立产品线",
+        "description": "主平台沉淀公共能力，独立产品线保留各自的公开前台、业务后台、领域模型和用户体验。",
+        "surfaces": {
+          "site": {
+            "label": "官网",
+            "title": "平台公开表达",
+            "description": "首页、平台说明、博客、法律页面、认证入口和本地化内容。"
+          },
+          "setup": {
+            "label": "启用",
+            "title": "首次安装配置",
+            "description": "以后端 schema 为准完成语言、存储、数据库、缓存、初始账号和站点信息配置。"
+          },
+          "admin": {
+            "label": "主平台",
+            "title": "共享能力后台",
+            "description": "管理 IAM、System、探针、媒体、版本、插件、审计和设计系统配置。"
+          },
+          "productLines": {
+            "label": "产品线",
+            "title": "独立业务入口",
+            "description": "未来产品线可扩展自己的前台、后台和领域模块，并复用平台通用能力。"
+          }
+        }
+      },
+      "surfaces": {
+        "eyebrow": "产品形态",
+        "title": "官网、初始化、主后台和产品线入口共享同一底座",
+        "description": "当前 React 一体化前端负责承载品牌表达、安全启用流程和共享主业务管理；后续产品线在同一基础上扩展独立体验。",
+        "items": {
+          "site": {
+            "title": "公开官网",
+            "description": "展示 Aoi Admin 的平台价值、能力边界、使用场景、内容文章和认证入口。"
+          },
+          "setup": {
+            "title": "首次安装初始化",
+            "description": "独立向导完成系统启用前配置、连接测试、错误恢复和安全凭据处理。"
+          },
+          "admin": {
+            "title": "共享平台后台",
+            "description": "/admin 管理 Go 后端已暴露的主平台能力，不承载产品线私有业务。"
+          },
+          "productLines": {
+            "title": "未来产品线入口",
+            "description": "每条产品线拥有独立前台、业务后台和领域模块，同时复用账号、组织、权限和质量工具。"
+          }
+        }
+      },
+      "capabilities": {
+        "eyebrow": "主业务核心",
+        "title": "把每个产品都需要的基础能力沉淀一次",
+        "description": "Aoi Admin 的平台后台只连接后端真实暴露的能力；尚无 API、权限、持久化和审计契约的功能只作为边界说明。",
+        "listLabel": "共享产品底座能力区域",
+        "items": {
+          "iam": "账号、角色、权限、会话、API Token 和 MFA",
+          "tenant": "组织租户、成员关系、邀请、审计上下文",
+          "configuration": "系统设置、菜单、字典、参数和公开设置",
+          "audit": "操作记录、审计日志、登录日志和错误日志",
+          "plugins": "远程插件注册、能力声明、健康状态和管理视图",
+          "media": "媒体库、存储辅助和断点续传工作流",
+          "versions": "版本发布包、API 目录、探针和运行状态"
+        }
+      },
+      "rails": {
+        "eyebrow": "共享护栏",
+        "title": "产品线可以独立，基础设施不能重复",
+        "description": "所有入口共享 Aoi React 组件、API client、认证状态、i18n、Markdown 渲染、质量工具和 Go 静态托管流程。",
+        "items": {
+          "i18n": {
+            "title": "集中 i18n",
+            "description": "官网、后台、初始化、表单、SEO、空状态、错误提示和可访问性标签都维护在 zh-CN 与 en 资源中。"
+          },
+          "api": {
+            "title": "单一 API client",
+            "description": "认证、刷新重试、错误归一、取消信号和 X-Locale 映射都集中在同一集成层。"
+          },
+          "markdown": {
+            "title": "可校验 Markdown",
+            "description": "博客 front matter 使用 gray-matter 解析、Zod 校验、react-markdown 渲染，并默认清洗 HTML。"
+          },
+          "quality": {
+            "title": "统一质量门禁",
+            "description": "可见界面、路由、i18n、Markdown、构建和浏览器视口检查都作为平台前端共同基线。"
+          }
+        }
+      },
+      "cta": {
+        "eyebrow": "可运行路径",
+        "title": "先启用共享底座，再扩展独立产品",
+        "description": "从初始化完成主平台配置，进入 /admin 管理共享能力；未来产品线在同一底座上扩展，不重复实现基础设施。",
+        "primary": "打开初始化",
+        "secondary": "查看平台架构"
+      }
+    },
+    "about": {
+      "eyebrow": "平台定位",
+      "title": "Aoi Admin 是全栈产品平台底座",
+      "description": "它不是单一后台模板，也不只是 Go 后端脚手架；它是一套可运行、可扩展、可托管多条业务产品线的共享平台基础。",
+      "principles": {
+        "eyebrow": "产品原则",
+        "title": "主平台稳定，产品线独立",
+        "description": "共享能力在主平台中统一治理，业务产品在线路、体验和领域模型上保持独立。",
+        "items": {
+          "evidence": {
+            "title": "以后端契约为边界",
+            "description": "公开官网可以规划方向，但生产功能必须以 Go 后端 API、配置、权限、持久化和审计能力为准。"
+          },
+          "boundary": {
+            "title": "不重复底座能力",
+            "description": "产品线不得各自实现账号、组织、权限、配置、审计、API client、i18n 或设计系统等主平台能力。"
+          },
+          "cleanup": {
+            "title": "清理旧叙事和旧入口",
+            "description": "当前有效文档和前端资源只描述共享产品底座，不再把项目定位为单一后台或临时前端重构状态。"
+          }
+        }
+      },
+      "architecture": {
+        "eyebrow": "长期架构",
+        "title": "主平台 + 多产品线",
+        "description": "Aoi Admin 以统一运行时托管公共能力，各产品线在相同底座上扩展自己的用户旅程和领域功能。",
+        "items": {
+          "public": {
+            "title": "公开官网",
+            "description": "首页、平台说明、博客、法律、登录和注册页面负责品牌表达与内容承载。"
+          },
+          "setup": {
+            "title": "初始化流程",
+            "description": "首次安装向导独立于官网和后台，以 schema/status API 安全完成系统启用前配置。"
+          },
+          "admin": {
+            "title": "主平台后台",
+            "description": "/admin 管理共享主业务能力，包括 IAM、System、插件、媒体、版本、审计和设计系统配置。"
+          },
+          "productLines": {
+            "title": "独立产品线",
+            "description": "未来产品线可拥有自己的公开页面、业务后台、业务模块和领域模型。"
+          },
+          "shared": {
+            "title": "共享基础",
+            "description": "Aoi 组件、tokens、API client、认证、TanStack Query、Zustand、i18n、Markdown、测试和构建流程共用一套。"
+          }
+        }
+      },
+      "cta": {
+        "eyebrow": "当前边界",
+        "title": "平台表达已经统一，生产能力继续以后端为准",
+        "description": "官网和文档可以说明多产品线方向；真实管理操作仍只连接后端已经暴露的契约。",
+        "primary": "阅读平台笔记",
+        "secondary": "进入平台后台"
+      }
+    },
+    "blog": {
+      "eyebrow": "本地 Markdown",
+      "title": "产品平台笔记与工程日志",
+      "description": "博客使用本地 Markdown 维护，用双语 front matter、构建期校验和安全渲染记录平台定位、架构边界和工程决策。",
+      "emptyTitle": "当前语言还没有文章",
+      "emptyDescription": "新增文章时需要同步维护对应 locale 的 Markdown 元信息。"
+    },
+    "legal": {
+      "eyebrow": "发布基线",
+      "termsTitle": "服务条款",
+      "privacyTitle": "隐私政策",
+      "termsDescription": "本页面保留公开路由和本地化结构；正式上线前必须替换为确认后的平台服务法律文本。",
+      "privacyDescription": "本页面记录隐私政策结构；正式上线前必须结合生产部署、认证、存储和审计行为完成确认。",
+      "terms": {
+        "scope": {
+          "title": "适用范围",
+          "description": "当前条款草稿仅描述 Aoi Admin 平台表面，公开发布前必须替换为已确认的正式法律文本。"
+        },
+        "accounts": {
+          "title": "账户",
+          "description": "登录和注册表单只面向后端支持的认证契约，最终账户规则应写入正式服务条款。"
+        },
+        "content": {
+          "title": "内容",
+          "description": "本地 Markdown 文章和产品页面需要维护双语元信息，并且不得暗示未支持的生产能力。"
+        },
+        "changes": {
+          "title": "变更",
+          "description": "法律文本变更必须在同一次提交中同步 zh-CN 与 en 资源，并通过 i18n 校验命令。"
+        }
+      },
+      "privacy": {
+        "collection": {
+          "title": "数据收集",
+          "description": "React 应用只应收集后端支持的认证、初始化、平台后台和内容工作流所需的信息。"
+        },
+        "storage": {
+          "title": "浏览器存储",
+          "description": "认证 token 使用会话存储，语言偏好使用本地存储，初始化敏感字段仅保留在页面内存中。"
+        },
+        "integrations": {
+          "title": "后端集成",
+          "description": "API 请求通过共享 client 传递 X-Locale，并依赖 Go 后端处理持久化、授权和审计。"
+        },
+        "launch": {
+          "title": "上线审查",
+          "description": "最终隐私文本必须结合生产托管、统计、存储、认证和产品线扩展行为完成审查后再发布。"
+        }
+      }
+    },
+    "footer": {
+      "description": "Aoi Admin 是共享产品底座，承载公开官网、初始化、认证入口、平台后台和未来产品线入口。",
+      "copyright": "版权所有。"
+    }
+  },
+  "setup": {
+    "title": "平台首次安装初始化",
+    "description": "按步骤完成共享产品底座启用前配置。敏感字段仅在本次向导会话中使用，不会写入浏览器持久存储。",
+    "language": {
+      "title": "选择语言",
+      "description": "语言会立即应用到后续步骤的界面文案、校验提示和帮助文本。",
+      "field": "界面语言"
+    },
+    "status": {
+      "loading": "正在读取初始化状态...",
+      "actionFailed": "初始化操作失败",
+      "loadFailed": "初始化状态读取失败",
+      "ready": "准备就绪",
+      "testPassed": "连接测试通过。",
+      "saved": "配置已保存。",
+      "completed": "初始化已完成，正在跳转。",
+      "running": "正在执行初始化...",
+      "retryExecuted": "已重新提交初始化。",
+      "skipped": "步骤已跳过。",
+      "restartRequired": "需要重启"
+    },
+    "progress": {
+      "label": "步骤进度",
+      "text": "第 {{current}} 步，共 {{total}} 步"
+    },
+    "logs": {
+      "title": "初始化日志"
+    },
+    "stepStatus": {
+      "blocked": "受阻",
+      "current": "当前步骤",
+      "failed": "失败",
+      "pending": "等待中",
+      "running": "执行中",
+      "skipped": "已跳过",
+      "succeeded": "成功"
+    },
+    "actions": {
+      "back": "上一步",
+      "complete": "完成初始化",
+      "continue": "继续",
+      "goLogin": "去登录",
+      "logs": "重新读取日志",
+      "refresh": "重新读取",
+      "retry": "重试初始化",
+      "run": "执行初始化",
+      "save": "保存并继续",
+      "skip": "跳过步骤",
+      "test": "测试连接"
+    },
+    "errors": {
+      "confirmRequired": "请先确认最终初始化操作，再执行初始化。",
+      "fieldRequired": "请填写 {{field}}。",
+      "ownerRequired": "请先填写初始账户和组织信息。",
+      "passwordConfirmRequired": "请再次输入初始账号密码。",
+      "passwordMismatch": "两次输入的初始账号密码不一致。",
+      "passwordWeakWithRules": "密码还需要满足：{{rules}}。",
+      "skipNeedsRun": "需要先存在初始化运行记录，才能跳过该步骤。",
+      "stepBlocked": "请先处理失败或正在执行的前置步骤，再打开该步骤。",
+      "testFailed": "连接测试未通过，请修改配置后重试。"
+    },
+    "messages": {
+      "pathSeparator": "、",
+      "savedEnvManagedOverwritten": "配置已保存。以下环境变量托管占位字段已写入配置文件：{{paths}}。"
+    },
+    "test": {
+      "failedTitle": "连接测试需要处理",
+      "passedTitle": "连接测试通过",
+      "repairHint": "修复建议",
+      "restartRequired": "请先重启后端服务，再继续该初始化步骤。",
+      "stale": "表单内容已在本次测试后变更，请重新执行连接测试再继续。"
+    },
+    "passwordPolicy": {
+      "separator": "、",
+      "minLength": "至少 {{count}} 位",
+      "lower": "包含小写字母",
+      "upper": "包含大写字母",
+      "number": "包含数字",
+      "symbol": "包含符号"
+    },
+    "confirm": {
+      "title": "我确认初始化将应用当前配置",
+      "description": "后端可能会根据这些值执行迁移、写入系统种子数据、创建初始账号并签发登录令牌。"
+    },
+    "skip": {
+      "reason": "从初始化向导跳过"
+    },
+    "report": {
+      "title": "初始化报告",
+      "stepTitle": "步骤报告",
+      "successful": "成功",
+      "failed": "失败",
+      "skipped": "已跳过",
+      "risk": "风险",
+      "goal": "目标",
+      "outputSummary": "输出",
+      "testSummary": "测试",
+      "completionMark": "完成标记",
+      "recovery": "恢复方式",
+      "automaticActions": "自动动作",
+      "error": "错误",
+      "restartRequired": "请重启后端服务，然后重新读取初始化状态。"
+    },
+    "security": {
+      "title": "凭据安全",
+      "description": "数据库、缓存、存储凭据和初始账户密码只保存在当前页面内存中，刷新页面后需要重新输入。"
+    },
+    "empty": {
+      "title": "没有可用步骤",
+      "description": "后端没有返回初始化 schema，请检查服务状态。"
+    },
+    "owner": {
+      "passwordConfirm": {
+        "label": "确认初始密码",
+        "help": "仅用于本页面校验，不会发送给后端或写入浏览器持久存储。"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "登录 Aoi",
+      "description": "使用已有 Go 后端认证接口进入平台后台。",
+      "submit": "登录",
+      "success": "登录成功，正在进入平台后台。",
+      "signupHint": "还没有账号？",
+      "captchaTitle": "需要验证码",
+      "captchaDescription": "请填写 Go 后端返回的验证码，然后再次提交密码。",
+      "captchaRefresh": "刷新验证码",
+      "captchaImageAlt": "登录验证码图片",
+      "mfaTitle": "需要 MFA 验证码",
+      "mfaDescription": "请输入此账号绑定的认证器应用中的一次性验证码。"
+    },
+    "signup": {
+      "title": "创建账号",
+      "description": "注册表单只对接后端已暴露的 signup 契约。",
+      "submit": "注册",
+      "success": "注册成功，正在进入平台后台。",
+      "loadingTitle": "正在读取注册设置",
+      "loadingDescription": "后端公开设置加载完成后再打开注册表单。",
+      "verificationPendingTitle": "请检查邮箱",
+      "verificationPendingDescription": "验证链接已经发送。确认链接后，账号和组织才会激活。",
+      "debugTitle": "邮箱验证调试投递",
+      "debugTokenLabel": "调试令牌",
+      "debugUrlLabel": "后端调试 URL",
+      "openVerification": "打开验证页",
+      "loginHint": "已有账号？"
+    },
+    "signupVerify": {
+      "title": "验证邮箱",
+      "description": "确认邮箱验证令牌并进入平台后台。",
+      "loadingTitle": "正在验证邮箱",
+      "loadingDescription": "后端正在激活待验证账号和组织。",
+      "successTitle": "邮箱已验证",
+      "successDescription": "正在进入平台后台。",
+      "errorTitle": "邮箱验证失败",
+      "missingTokenDescription": "请从通知消息中的验证链接重新打开。"
+    },
+    "links": {
+      "backToLogin": "返回登录",
+      "forgotPassword": "忘记密码",
+      "resetPassword": "我有重置令牌"
+    },
+    "passwordForgot": {
+      "title": "找回密码",
+      "description": "输入账号邮箱。如果账号存在，后端会通过已配置的通知通道发送重置链接。",
+      "submit": "发送重置链接",
+      "tokenCreated": "重置令牌已生成。",
+      "emailSentIfExists": "如果邮箱存在，系统会发送重置链接。",
+      "successDescription": "请检查已配置的邮箱；如果当前使用调试通知驱动，也可以使用返回的调试令牌。",
+      "debugTitle": "密码重置调试投递",
+      "debugTokenLabel": "调试令牌",
+      "debugUrlLabel": "后端调试 URL",
+      "openReset": "打开重置表单"
+    },
+    "passwordReset": {
+      "title": "重置密码",
+      "description": "使用一次性重置令牌设置新密码。成功后后端会撤销该账号已有会话。",
+      "submit": "重置密码",
+      "resetComplete": "密码已重置。",
+      "successDescription": "请使用新密码重新登录。"
+    },
+    "invitation": {
+      "title": "接受组织邀请",
+      "description": "使用邀请令牌为受邀组织创建或补全账号。",
+      "submit": "接受邀请",
+      "accepted": "邀请已接受。",
+      "successDescription": "请使用受邀账号登录并打开平台后台。",
+      "missingTokenTitle": "缺少邀请令牌",
+      "missingTokenDescription": "请从通知消息中的邀请链接重新打开。"
+    },
+    "guard": {
+      "loadingTitle": "正在确认登录状态",
+      "loadingDescription": "浏览器会话恢复后再打开平台后台。"
+    }
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "概览",
+      "iam": "IAM",
+      "users": "用户",
+      "roles": "角色",
+      "organizations": "组织",
+      "sessions": "会话",
+      "security": "安全",
+      "trafficHijack": "流量劫持监控",
+      "apiTokens": "API Token",
+      "system": "系统",
+      "probes": "探针",
+      "menus": "菜单",
+      "dictionaries": "字典",
+      "apis": "API 清单",
+      "designSystem": "设计系统",
+      "parameters": "参数",
+      "operationRecords": "操作记录",
+      "auditLogs": "审计日志",
+      "loginLogs": "登录日志",
+      "errorLogs": "错误日志",
+      "media": "媒体",
+      "plugins": "插件",
+      "versions": "版本",
+      "mediaResumable": "断点续传"
+    },
+    "navGroups": {
+      "workspace": "工作台",
+      "identity": "身份与权限",
+      "system": "系统与配置",
+      "logs": "日志与审计",
+      "media": "媒体与内容",
+      "integration": "集成与发布"
+    },
+    "platform": {
+      "ariaLabel": "平台类型 {{platform}}，产品 {{product}}",
+      "empty": "未记录平台",
+      "filters": {
+        "all": "全部平台"
+      },
+      "productCode": "产品 {{value}}",
+      "unknown": "未知平台：{{value}}",
+      "clientTypes": {
+        "pc_web": "web-pc",
+        "mobile_web": "web-mobile",
+        "mobile_app": "mobile端"
+      }
+    },
+    "header": {
+      "account": "账户",
+      "organization": "组织",
+      "organizationEmpty": "没有可用组织",
+      "organizationFallback": "默认组织",
+      "organizationSwitching": "正在切换组织...",
+      "userFallback": "Aoi 用户",
+      "actions": {
+        "loggingOut": "正在退出...",
+        "openDesignSystem": "打开设计系统",
+        "openAccountMenu": "打开 {{name}} 的账户菜单",
+        "openOrganizationMenu": "打开组织切换菜单",
+        "openSystemSettings": "打开系统设置"
+      },
+      "messages": {
+        "identityFailed": "无法刷新账户信息。",
+        "organizationSwitched": "组织访问上下文已切换。"
+      },
+      "tabs": {
+        "close": "关闭 {{label}} 标签",
+        "label": "后台工作区标签页"
+      }
+    },
+    "dashboard": {
+      "title": "平台工作台",
+      "description": "平台工作台读取健康、就绪、服务器指标趋势、API 清单和版本记录，展示共享产品底座的真实后端状态。",
+      "backendBacked": "后端数据",
+      "summaryLabel": "平台底座后端摘要",
+      "actions": {
+        "refresh": "刷新"
+      },
+      "signedOutTitle": "需要登录",
+      "signedOutDescription": "登录后才能访问平台后台。当前页面不会伪造后端尚未提供的数据。",
+      "capabilitiesTitle": "共享主业务能力",
+      "capabilitiesDescription": "IAM、System、探针、媒体、版本和插件查询只连接当前后端已经暴露的真实 API。",
+      "metrics": {
+        "apiCount": "API 端点",
+        "uptime": "运行时长",
+        "versionCount": "版本记录"
+      },
+      "probes": {
+        "health": "存活探针",
+        "ready": "就绪探针"
+      },
+      "states": {
+        "errorShort": "错误",
+        "errorState": "error",
+        "errorTitle": "面板不可用",
+        "loadingDescription": "正在读取当前后端响应。",
+        "loadingShort": "加载中",
+        "loadingTitle": "正在加载数据",
+        "permissionDescription": "当前账号没有访问该后端端点所需的权限。",
+        "permissionTitle": "需要权限"
+      },
+      "serverInfo": {
+        "title": "服务器状态",
+        "description": "当前快照来自 /api/v1/system/server-info，展示 CPU、RAM、磁盘和运行时摘要。",
+        "gauges": {
+          "label": "服务器资源使用率",
+          "cpu": "CPU",
+          "cpuAria": "CPU 使用率环形图",
+          "cpuDetail": "{{cores}} 个核心平均使用率",
+          "ram": "RAM",
+          "ramAria": "RAM 使用率环形图",
+          "ramDetail": "{{used}} / {{total}}",
+          "disk": "磁盘",
+          "diskAria": "最高磁盘使用率环形图",
+          "diskDetail": "{{mount}}：{{used}} / {{total}}",
+          "diskEmpty": "后端未返回磁盘指标"
+        },
+        "quick": {
+          "uptime": "运行时长",
+          "platform": "平台",
+          "heap": "Heap alloc",
+          "disks": "磁盘数量"
+        }
+      },
+      "apiCatalog": {
+        "columns": {
+          "count": "端点数",
+          "group": "分组",
+          "permissionProtected": "权限端点"
+        },
+        "description": "由 Go 路由和 IAM 权限规则派生的接口清单。",
+        "empty": "后端没有返回 API 分组。",
+        "summary": {
+          "permission": "{{count}} 个权限保护",
+          "public": "{{count}} 个公开",
+          "total": "共 {{count}} 个"
+        },
+        "title": "API 清单"
+      },
+      "versions": {
+        "columns": {
+          "code": "编码",
+          "createdAt": "创建时间",
+          "name": "名称",
+          "source": "来源"
+        },
+        "description": "来自 /api/v1/system/versions 的最近导出或导入记录。",
+        "empty": "后端没有返回版本记录。",
+        "source": {
+          "export": "导出",
+          "import": "导入"
+        },
+        "summary": {
+          "latest": "最新：{{name}}",
+          "none": "暂无发布记录",
+          "storage": "存储状态：{{status}}"
+        },
+        "title": "版本记录"
+      },
+      "serverMetrics": {
+        "title": "服务器监控",
+        "description": "短窗口历史来自 /api/v1/system/server-metrics/history，并按后端采样间隔自动刷新。",
+        "chartAria": "网络接收和发送速率趋势图",
+        "diskChartAria": "磁盘读取和写入速率趋势图",
+        "diskEmptyTitle": "暂无磁盘 IO 样本",
+        "diskEmptyDescription": "当前平台没有返回磁盘 IO counter，或采样器还没有形成可展示的磁盘数据。",
+        "emptyTitle": "趋势样本不足",
+        "emptyDescription": "采样器启动后会逐步填充短窗口历史；当前没有可展示的样本。",
+        "modeLabel": "服务器监控类型",
+        "modes": {
+          "disk": "磁盘 IO",
+          "network": "流量"
+        },
+        "filters": {
+          "allDisks": "所有磁盘",
+          "disk": "磁盘"
+        },
+        "series": {
+          "read": "读取",
+          "receive": "接收",
+          "transmit": "发送",
+          "write": "写入"
+        },
+        "summary": {
+          "interval": "采样间隔 {{seconds}} 秒",
+          "window": "窗口 {{seconds}} 秒",
+          "receive": "接收 {{value}}",
+          "transmit": "发送 {{value}}",
+          "read": "读取 {{value}}",
+          "write": "写入 {{value}}",
+          "readOps": "读取次数 {{value}}",
+          "writeOps": "写入次数 {{value}}",
+          "latency": "IO 延迟 {{value}}",
+          "noDiskIo": "暂无磁盘 IO"
+        }
+      },
+      "trafficHijack": {
+        "chartAria": "流量劫持探针延迟趋势图",
+        "description": "展示 HTTP(S) 主动探针的健康目标、异常目标、最近事件和短窗口延迟。",
+        "emptyDescription": "创建目标并完成首次探测后，工作台会展示真实趋势。",
+        "emptyTitle": "暂无探测样本",
+        "metric": "流量监控",
+        "metricValue": "{{abnormal}} / {{total}} 异常",
+        "series": {
+          "latency": "总耗时",
+          "statusCode": "状态码"
+        },
+        "summary": {
+          "abnormal": "异常 {{count}}",
+          "healthy": "健康 {{count}}",
+          "latestEvent": "最近：{{reason}}",
+          "noEvents": "暂无事件"
+        },
+        "title": "流量劫持监控"
+      },
+      "runtime": {
+        "title": "Go runtime",
+        "description": "后端进程、平台和刷新时间摘要。",
+        "rows": {
+          "goVersion": "Go 版本",
+          "platform": "平台",
+          "cpus": "CPU 核心",
+          "goroutines": "Goroutine",
+          "startTime": "启动时间",
+          "refreshedAt": "刷新时间"
+        }
+      },
+      "process": {
+        "title": "进程与构建",
+        "description": "Go 内存、GC 和构建版本摘要。",
+        "rows": {
+          "heapAlloc": "Heap alloc",
+          "heapSys": "Heap sys",
+          "gcCount": "GC 次数",
+          "gcNext": "下次 GC",
+          "gcPause": "GC 暂停总时长",
+          "buildVersion": "构建版本"
+        }
+      }
+    },
+    "iam": {
+      "title": "IAM 概览",
+      "description": "只读取后端已暴露的组织、成员、角色、权限、会话和审计日志契约，不开放缺少后端支持的写入流程。",
+      "badge": "组织访问",
+      "summaryLabel": "IAM 后端摘要",
+      "actions": {
+        "refresh": "刷新"
+      },
+      "metrics": {
+        "members": "成员",
+        "organizations": "组织",
+        "permissions": "权限",
+        "roles": "角色",
+        "sessions": "会话"
+      },
+      "currentOrg": {
+        "title": "当前组织",
+        "description": "组织上下文来自已认证 access token，并通过 /api/v1/orgs 响应确认。",
+        "rows": {
+          "code": "编码",
+          "name": "名称",
+          "status": "状态"
+        }
+      },
+      "members": {
+        "title": "成员",
+        "description": "从 /api/v1/orgs/:orgId/users 显示 {{total}} 名组织成员中的 {{count}} 名。",
+        "empty": "后端没有返回组织成员。",
+        "columns": {
+          "lastLogin": "最近登录",
+          "mfa": "MFA",
+          "roles": "角色",
+          "status": "状态",
+          "user": "用户"
+        }
+      },
+      "roles": {
+        "title": "角色",
+        "description": "来自 /api/v1/orgs/:orgId/roles 的角色和权限数量。",
+        "empty": "后端没有返回角色。",
+        "columns": {
+          "kind": "类型",
+          "permissions": "权限",
+          "role": "角色",
+          "updatedAt": "更新时间"
+        }
+      },
+      "sessions": {
+        "title": "会话",
+        "description": "从 /api/v1/orgs/:orgId/sessions 显示 {{total}} 条组织会话中的 {{count}} 条。",
+        "empty": "后端没有返回会话。",
+        "columns": {
+          "expiresAt": "过期时间",
+          "ipAddress": "IP 地址",
+          "lastUsed": "最近使用",
+          "platform": "平台",
+          "status": "状态",
+          "userId": "用户 ID"
+        }
+      },
+      "auditLogs": {
+        "title": "审计日志",
+        "description": "来自 /api/v1/orgs/:orgId/audit-logs 的最近 {{count}} 条审计记录。",
+        "empty": "后端没有返回审计记录。",
+        "columns": {
+          "action": "动作",
+          "createdAt": "创建时间",
+          "ipAddress": "IP 地址",
+          "platform": "平台",
+          "userId": "用户 ID"
+        }
+      },
+      "values": {
+        "customRole": "自定义",
+        "disabled": "关闭",
+        "enabled": "开启",
+        "systemRole": "系统"
+      },
+      "status": {
+        "active": "启用",
+        "disabled": "禁用",
+        "expired": "已过期",
+        "pending": "待处理",
+        "revoked": "已撤销",
+        "used": "已使用"
+      },
+      "states": {
+        "emptyOrgTitle": "未返回当前组织",
+        "emptyOrgDescription": "组织列表中没有当前 token 的组织。组织作用域 IAM 请求仍使用 token 中的 orgId。",
+        "errorTitle": "IAM 数据不可用",
+        "loadingTitle": "正在加载 IAM 数据",
+        "loadingDescription": "正在读取当前组织的受保护 IAM 端点。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 不包含 orgId 声明，无法调用组织作用域 IAM 端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要对应的 IAM 读取权限才能查看此面板。"
+      }
+    },
+    "probes": {
+      "title": "服务探针",
+      "description": "读取公开的 /health 与 /ready 探针端点，不附加 bearer 授权，也不加入后端尚未暴露的操作。",
+      "badge": "公开探针",
+      "summaryLabel": "服务探针摘要",
+      "actions": {
+        "refresh": "刷新"
+      },
+      "metrics": {
+        "checks": "就绪检查",
+        "health": "健康状态",
+        "lastChecked": "最近检查",
+        "readiness": "就绪状态"
+      },
+      "health": {
+        "title": "健康探针",
+        "description": "来自 Go HTTP 路由的轻量存活响应。"
+      },
+      "ready": {
+        "title": "就绪探针",
+        "description": "来自 Go HTTP 路由的数据库就绪检查。"
+      },
+      "labels": {
+        "endpoint": "端点",
+        "lastChecked": "最近检查",
+        "status": "状态"
+      },
+      "checks": {
+        "label": "就绪检查结果",
+        "title": "检查项"
+      },
+      "status": {
+        "error": "错误",
+        "loading": "加载中",
+        "missing": "缺失",
+        "notReady": "未就绪",
+        "ok": "正常",
+        "ready": "就绪",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyChecksTitle": "没有返回就绪检查项",
+        "emptyChecksDescription": "后端返回了就绪状态，但没有包含检查明细。",
+        "emptyHealthTitle": "没有返回健康探针响应",
+        "emptyHealthDescription": "后端响应中没有健康探针数据。",
+        "emptyReadyTitle": "没有返回就绪探针响应",
+        "emptyReadyDescription": "后端响应中没有就绪探针数据。",
+        "healthErrorTitle": "健康探针不可用",
+        "loadingTitle": "正在加载探针",
+        "loadingDescription": "正在读取当前后端探针响应。",
+        "readyErrorTitle": "就绪探针不可用"
+      }
+    },
+    "apis": {
+      "title": "API 清单",
+      "description": "通过 /api/v1/system/apis 查看后端当前注册的 HTTP API 目录。",
+      "badge": "后端路由",
+      "summaryLabel": "API 清单摘要",
+      "empty": "当前筛选条件下没有 API 记录。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "syncPermissions": "同步权限",
+        "syncRoutes": "同步路由"
+      },
+      "metrics": {
+        "authenticated": "需登录",
+        "permission": "权限保护",
+        "public": "公开端点",
+        "synced": "已同步",
+        "total": "端点总数"
+      },
+      "filters": {
+        "title": "筛选",
+        "description": "这些筛选基于当前后端目录响应在前端执行。",
+        "keyword": "关键词",
+        "group": "分组",
+        "method": "方法",
+        "accessMode": "访问方式",
+        "allGroups": "全部分组",
+        "allMethods": "全部方法",
+        "allAccessModes": "全部访问方式"
+      },
+      "list": {
+        "title": "API 记录",
+        "description": "当前筛选命中 {{count}} / {{total}} 个端点。"
+      },
+      "columns": {
+        "access": "访问方式",
+        "description": "描述",
+        "group": "分组",
+        "method": "方法",
+        "path": "路径",
+        "permission": "权限",
+        "registration": "注册状态",
+        "sync": "同步状态"
+      },
+      "access": {
+        "authenticated": "需登录",
+        "permission": "权限",
+        "public": "公开"
+      },
+      "status": {
+        "noPermissionBinding": "无权限绑定",
+        "noPermissionCode": "无权限码",
+        "registered": "已注册",
+        "synced": "已同步",
+        "unregistered": "未注册",
+        "unsynced": "未同步"
+      },
+      "sync": {
+        "cancel": "取消",
+        "confirm": "确认同步",
+        "errorTitle": "同步失败",
+        "permissionsConfirmDescription": "将调用 /api/v1/system/apis/permissions/sync，根据当前后端 API 权限声明补齐缺失权限码，不覆盖已有权限名称或描述。",
+        "permissionsConfirmTitle": "确认同步权限码",
+        "permissionsPersisted": "已同步 {{total}} 个权限码，新增 {{created}} 个，跳过 {{skipped}} 个。",
+        "permissionsStorageUnavailable": "后端返回 {{total}} 个权限码，但权限仓储状态为 {{status}}，本次结果未持久化。",
+        "permissionsSuccessTitle": "权限同步完成",
+        "routesConfirmDescription": "将调用 /api/v1/system/apis/sync，把当前 Go 路由注册表同步到 API 目录，并用后端返回结果刷新当前表格。",
+        "routesConfirmTitle": "确认同步 API 路由",
+        "routesMemoryOnly": "已从运行时路由生成 {{total}} 个端点；当前后端未连接 API 仓储，本次结果仅用于内存展示。",
+        "routesPersisted": "已同步 {{total}} 个端点，新增 {{created}} 个，更新 {{updated}} 个，标记过期 {{stale}} 个。",
+        "routesStorageUnavailable": "已从运行时路由生成 {{total}} 个端点，但 API 仓储不可用，本次结果未持久化。",
+        "routesSuccessTitle": "API 路由同步完成"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回 API 清单",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "API 清单不可用",
+        "loadingTitle": "正在加载 API 清单",
+        "loadingDescription": "正在读取受保护的 API 清单端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 permission:read 权限才能查看 API 清单。"
+      }
+    },
+    "menus": {
+      "title": "菜单目录",
+      "description": "查看 /api/v1/system/menus 为当前账号返回的、已按权限过滤的后台菜单分组。",
+      "badge": "权限感知菜单",
+      "summaryLabel": "菜单目录摘要",
+      "empty": "当前筛选条件下没有菜单记录。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置"
+      },
+      "metrics": {
+        "desktopOnly": "仅桌面",
+        "groups": "分组",
+        "items": "菜单项",
+        "mobile": "移动端入口",
+        "protected": "权限保护"
+      },
+      "filters": {
+        "title": "筛选",
+        "description": "这些筛选基于后端已为当前账号过滤后的菜单目录在前端执行。",
+        "keyword": "关键词",
+        "group": "分组",
+        "allGroups": "全部分组"
+      },
+      "list": {
+        "title": "菜单分组",
+        "description": "当前筛选命中 {{count}} / {{total}} 个菜单项。"
+      },
+      "summary": {
+        "items": "{{count}} 个菜单项"
+      },
+      "groupMeta": "编码 {{code}}，排序 {{order}}",
+      "columns": {
+        "entry": "入口",
+        "icon": "图标",
+        "menu": "菜单",
+        "order": "排序",
+        "path": "路径",
+        "permission": "权限"
+      },
+      "entry": {
+        "desktop": "桌面端",
+        "mobileAndDesktop": "移动端与桌面端"
+      },
+      "permission": {
+        "loginVisible": "登录后可见"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回菜单目录",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "菜单目录不可用",
+        "loadingTitle": "正在加载菜单目录",
+        "loadingDescription": "正在读取需要登录的后端菜单端点。",
+        "noMatchesTitle": "没有匹配的菜单",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号无法读取后端返回的菜单目录。"
+      }
+    },
+    "dictionaries": {
+      "title": "字典目录",
+      "description": "通过后端已支持的系统字典契约管理字典和字典项。",
+      "badge": "系统字典",
+      "summaryLabel": "字典目录摘要",
+      "empty": "当前筛选条件下没有字典记录。",
+      "emptyItems": "后端没有返回字典项。",
+      "actions": {
+        "addItem": "新增字典项",
+        "addItemFor": "为 {{name}} 新增字典项",
+        "cancel": "取消",
+        "confirmDelete": "确认删除",
+        "create": "新建字典",
+        "delete": "删除",
+        "deleteDictionaryFor": "删除字典 {{name}}",
+        "deleteItemFor": "删除字典项 {{label}}",
+        "edit": "编辑",
+        "editDictionaryFor": "编辑字典 {{name}}",
+        "editItemFor": "编辑字典项 {{label}}",
+        "refresh": "刷新",
+        "reset": "重置",
+        "save": "保存字典",
+        "saveItem": "保存字典项",
+        "submitCreate": "创建字典",
+        "submitCreateItem": "创建字典项"
+      },
+      "metrics": {
+        "activeDictionaries": "启用字典",
+        "activeItems": "启用字典项",
+        "dictionaries": "字典",
+        "items": "字典项",
+        "storage": "存储状态"
+      },
+      "filters": {
+        "title": "筛选",
+        "description": "这些筛选基于当前后端字典目录响应在前端执行。",
+        "keyword": "关键词",
+        "status": "状态",
+        "allStatuses": "全部状态"
+      },
+      "list": {
+        "title": "字典列表",
+        "description": "当前筛选命中 {{count}} / {{total}} 个字典，可见 {{items}} 个字典项。"
+      },
+      "dictionaryMeta": "编码 {{code}}，{{count}} 个字典项",
+      "columns": {
+        "actions": "操作",
+        "extra": "扩展信息",
+        "label": "标签",
+        "sort": "排序",
+        "status": "状态",
+        "updatedAt": "更新时间",
+        "value": "值"
+      },
+      "delete": {
+        "dictionaryTitle": "删除字典",
+        "dictionaryDescription": "{{name}} 及其 {{count}} 个字典项将通过后端字典契约删除。",
+        "itemTitle": "删除字典项",
+        "itemDescription": "{{label}} 将从 {{name}} 中删除。"
+      },
+      "form": {
+        "code": "字典编码",
+        "codeHelp": "使用小写字母、数字、点、下划线或连字符，首字符必须是字母或数字。",
+        "createDictionaryTitle": "创建字典",
+        "createItemTitle": "创建字典项",
+        "descriptionField": "描述",
+        "dictionaryDescription": "仅提交后端接受的编码、名称、描述和状态字段。",
+        "editDictionaryTitle": "编辑字典",
+        "editItemTitle": "编辑字典项",
+        "itemDescription": "字典项写入限定在 {{name}} 下，并使用 dictionary:update 或 dictionary:delete 权限。",
+        "itemExtra": "扩展信息",
+        "itemLabel": "字典项标签",
+        "itemSort": "排序",
+        "itemStatus": "字典项状态",
+        "itemValue": "字典项值",
+        "name": "字典名称",
+        "placeholders": {
+          "code": "system.status",
+          "description": "该字典的可选用途说明",
+          "itemExtra": "{\"tone\":\"success\"}",
+          "itemLabel": "启用",
+          "itemValue": "active",
+          "name": "系统状态"
+        },
+        "status": "字典状态"
+      },
+      "messages": {
+        "createdTitle": "字典已创建",
+        "createdDescription": "{{name}} 已加入字典目录。",
+        "deletedTitle": "字典已删除",
+        "deletedDescription": "{{name}} 已删除。",
+        "deleteFailedTitle": "删除失败",
+        "itemCreatedTitle": "字典项已创建",
+        "itemCreatedDescription": "{{label}} 已加入 {{dictionary}}。",
+        "itemDeletedTitle": "字典项已删除",
+        "itemDeletedDescription": "{{label}} 已删除。",
+        "itemUpdatedTitle": "字典项已更新",
+        "itemUpdatedDescription": "{{label}} 已保存。",
+        "saveFailedTitle": "保存失败",
+        "updatedTitle": "字典已更新",
+        "updatedDescription": "{{name}} 已保存。"
+      },
+      "status": {
+        "active": "启用",
+        "disabled": "禁用",
+        "unknown": "未知"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回字典目录",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "字典目录不可用",
+        "loadingTitle": "正在加载字典",
+        "loadingDescription": "正在读取受保护的字典目录记录。",
+        "noMatchesTitle": "没有匹配的字典",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 dictionary:read 权限才能查看字典。",
+        "writePermissionDescription": "当前账号需要 {{permission}} 权限才能执行该字典操作。",
+        "storageUnavailableTitle": "字典存储不可用",
+        "storageUnavailableDescription": "后端报告 system_dictionaries 尚未持久化。使用字典工作流前，请先运行所需迁移。"
+      },
+      "validation": {
+        "dictionaryTitle": "字典字段需要修正",
+        "dictionaryCodeDescription": "字典编码必须以小写字母或数字开头，且只能包含小写字母、数字、点、下划线或连字符。",
+        "dictionaryRequiredDescription": "字典名称和状态为必填项。",
+        "itemTitle": "字典项字段需要修正",
+        "itemRequiredDescription": "字典项标签、值和状态为必填项。",
+        "itemSortDescription": "字典项排序必须是整数。"
+      }
+    },
+    "system": {
+      "title": "系统设置",
+      "description": "读取并更新 /api/v1/system/config 返回的后端可编辑运行时配置。",
+      "badge": "运行时配置",
+      "summaryLabel": "系统设置摘要",
+      "sectionsLabel": "系统设置分区",
+      "empty": "该分组没有设置项。",
+      "visibleGroupCount": "{{count}} 个可见分组",
+      "persistWarningTitle": "运行时持久化",
+      "persistWarningDescription": "仅提交后端标记为可编辑的字段，并通过运行时配置管理器持久化。",
+      "actions": {
+        "cancelEdit": "取消",
+        "editGroup": "编辑分组",
+        "refresh": "刷新",
+        "saveChanges": "保存更改"
+      },
+      "metrics": {
+        "editable": "可编辑",
+        "groups": "可见分组",
+        "items": "设置项",
+        "secret": "敏感项",
+        "sections": "分区"
+      },
+      "columns": {
+        "flags": "标记",
+        "setting": "设置项",
+        "source": "来源",
+        "value": "值"
+      },
+      "badges": {
+        "editable": "可编辑",
+        "readonly": "只读",
+        "secret": "敏感"
+      },
+      "values": {
+        "false": "关闭",
+        "secret": "已隐藏",
+        "true": "开启"
+      },
+      "valueTypes": {
+        "array": "数组",
+        "boolean": "布尔",
+        "number": "数字",
+        "object": "对象",
+        "string": "字符串",
+        "unknown": "未知"
+      },
+      "group": {
+        "inactive": "未启用",
+        "inactiveDescription": "该分组由后端快照中的其他配置值控制为隐藏。",
+        "ready": "可查看",
+        "summary": "{{count}} 个设置项，{{editable}} 个可编辑",
+        "testable": "可测试"
+      },
+      "editor": {
+        "arrayHelp": "每行填写一个值，提交前会忽略空行。",
+        "defaultHelp": "该值变化后会提交给运行时配置管理器。",
+        "description": "只提交该分组中的可编辑字段。敏感字段留空时保留当前值。",
+        "invalidNumber": "请输入整数。",
+        "newSecretValue": "新的敏感值",
+        "noChanges": "暂无变更。",
+        "numberHelp": "请输入后端配置管理器可接受的整数。",
+        "objectHelp": "对象值以文本显示；只有后端标记为可编辑时才应修改。",
+        "pendingChanges": "待提交变更",
+        "pendingCount": "{{count}} 项变更",
+        "secretChanged": "敏感值将被替换",
+        "secretHelp": "留空表示保留当前敏感值。",
+        "title": "编辑 {{label}}"
+      },
+      "messages": {
+        "updateSuccessDescription": "已通过 /api/v1/system/config 持久化 {{count}} 项变更。",
+        "updateSuccessTitle": "配置已更新"
+      },
+      "risk": {
+        "high": "高风险",
+        "low": "低风险",
+        "medium": "中风险"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回系统配置",
+        "emptyDescription": "后端响应中没有配置分区。",
+        "errorTitle": "系统设置不可用",
+        "groupEmptyTitle": "没有可见设置项",
+        "groupEmptyDescription": "在当前后端配置值下，该分组没有可见设置项。",
+        "loadingTitle": "正在加载系统设置",
+        "loadingDescription": "正在读取受保护的配置快照端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 config:read 权限才能查看系统设置。"
+      }
+    },
+    "media": {
+      "title": "媒体库",
+      "description": "从 /api/v1/system/media 读取媒体分类与资源记录，并通过后端已暴露的上传和 URL 导入端点执行受支持的写入流程。",
+      "badge": "媒体目录",
+      "summaryLabel": "媒体目录摘要",
+      "empty": "后端没有返回媒体资源。",
+      "actions": {
+        "authenticatedDownload": "认证下载",
+        "cancelCategory": "取消",
+        "cancelDelete": "取消",
+        "cancelRename": "取消",
+        "confirmDeleteCategory": "删除分类",
+        "confirmDelete": "删除资源",
+        "createCategory": "新建分类",
+        "delete": "删除",
+        "deleteAsset": "删除 {{name}}",
+        "deleteCategory": "删除 {{name}}",
+        "download": "下载",
+        "downloadAsset": "下载 {{name}}",
+        "edit": "编辑",
+        "editCategory": "编辑 {{name}}",
+        "openExternal": "打开外部链接",
+        "refresh": "刷新",
+        "rename": "重命名",
+        "renameAsset": "重命名 {{name}}",
+        "reset": "重置",
+        "saveCategory": "保存分类",
+        "saveRename": "保存名称",
+        "search": "搜索",
+        "importUrls": "导入 URL",
+        "upload": "上传文件"
+      },
+      "metrics": {
+        "assets": "资源",
+        "categories": "分类",
+        "currentPage": "当前页",
+        "storage": "存储",
+        "uploadLimit": "上传上限"
+      },
+      "filters": {
+        "description": "这些筛选条件对应后端媒体资源列表端点。",
+        "keyword": "名称关键词",
+        "pageSize": "每页数量",
+        "title": "筛选"
+      },
+      "categories": {
+        "all": "全部媒体",
+        "count": "{{count}} 个分类",
+        "createDescription": "通过 POST /api/v1/system/media/categories 在 {{parent}} 下创建分类。",
+        "createTitle": "新建媒体分类",
+        "deleteDescription": "将通过后端分类删除端点删除 {{name}}。如果分类仍包含子分类或媒体资源，后端会拒绝删除。",
+        "deleteTitle": "确认删除媒体分类",
+        "editDescription": "通过 POST /api/v1/system/media/categories 更新 {{name}}。",
+        "editTitle": "编辑媒体分类",
+        "empty": "后端没有返回媒体分类。",
+        "loadingStatus": "正在读取媒体分类状态。",
+        "nameField": "分类名称",
+        "nameHelp": "后端会裁剪名称；同一父级下分类名称必须唯一。",
+        "parentField": "父级分类",
+        "parentHelp": "根目录表示顶层媒体分类。",
+        "requiredDescription": "保存前请输入分类名称。",
+        "requiredTitle": "需要分类名称",
+        "root": "根目录",
+        "sortField": "排序",
+        "sortHelp": "数值越小，在同一父级下越靠前。",
+        "title": "分类",
+        "unknown": "未知分类"
+      },
+      "list": {
+        "description": "{{category}} 中共有 {{count}} 个资源。",
+        "title": "资源"
+      },
+      "pagination": {
+        "label": "媒体分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "actions": "操作",
+        "asset": "资源",
+        "category": "分类",
+        "createdAt": "创建时间",
+        "link": "链接",
+        "size": "大小",
+        "source": "来源",
+        "type": "类型",
+        "uploadedBy": "上传人"
+      },
+      "source": {
+        "resumable": "分片上传",
+        "upload": "上传",
+        "url": "URL"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "values": {
+        "external": "外部",
+        "noCategory": "未分类",
+        "unknownAsset": "未知资源",
+        "unknownSize": "未知大小",
+        "unknownUser": "未知用户",
+        "uploadLimit": "{{value}} MB"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回媒体页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "媒体库不可用",
+        "loadingTitle": "正在加载媒体",
+        "loadingDescription": "正在读取受保护的媒体目录端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 media:read 权限才能查看媒体库。",
+        "storageUnavailableTitle": "媒体存储不可用",
+        "storageUnavailableDescription": "后端报告媒体元数据尚未持久化。使用媒体工作流前，请先运行所需迁移。",
+        "uploadUnavailableTitle": "对象存储不可用",
+        "uploadUnavailableDescription": "后端报告上传不可用。请确认对象存储配置后再使用媒体写入流程。"
+      },
+      "a11y": {
+        "fileInput": "选择要直接上传的媒体文件"
+      },
+      "messages": {
+        "categoryCreatedDescription": "{{name}} 已创建到媒体分类树。",
+        "categoryCreatedTitle": "媒体分类已创建",
+        "categoryDeletedDescription": "{{name}} 已从媒体分类树删除。",
+        "categoryDeletedTitle": "媒体分类已删除",
+        "categoryDeleteFailedTitle": "分类删除失败",
+        "categorySaveFailedTitle": "分类保存失败",
+        "categoryUpdatedDescription": "{{name}} 已在媒体分类树中更新。",
+        "categoryUpdatedTitle": "媒体分类已更新",
+        "deleteFailedTitle": "删除失败",
+        "deletedDescription": "{{name}} 已从媒体库删除。",
+        "deletedTitle": "媒体资源已删除",
+        "downloadFailedTitle": "下载失败",
+        "downloadedDescription": "{{name}} 已通过认证后端端点开始下载。",
+        "downloadedTitle": "已开始下载",
+        "importFailedTitle": "URL 导入失败",
+        "importedDescription": "已将 {{count}} 条 URL 记录导入到 {{category}}。",
+        "importedTitle": "URL 导入完成",
+        "renameFailedTitle": "重命名失败",
+        "renamedDescription": "{{name}} 已重命名。",
+        "renamedTitle": "媒体资源已重命名",
+        "uploadFailedTitle": "上传失败",
+        "uploadedDescription": "已将 {{count}} 个文件上传到 {{category}}。",
+        "uploadedTitle": "上传完成",
+        "writeUnavailableTitle": "媒体写入不可用"
+      },
+      "rename": {
+        "description": "通过 PATCH /api/v1/system/media/assets/:assetId 更新 {{name}} 的展示名称。",
+        "field": "展示名称",
+        "help": "后端会保留原始文件名；此处只修改媒体目录中的展示名称。",
+        "requiredDescription": "保存前请输入展示名称。",
+        "requiredTitle": "需要展示名称",
+        "title": "重命名媒体资源"
+      },
+      "delete": {
+        "confirmDescription": "将通过后端媒体删除端点删除 {{name}}。持久化对象会随目录记录一起删除。",
+        "confirmTitle": "确认删除媒体资源"
+      },
+      "write": {
+        "description": "新资源会通过后端媒体端点写入 {{category}}。",
+        "import": {
+          "description": "从 HTTP 或 HTTPS URL 创建外部媒体记录。",
+          "help": "每行填写一个 URL。可选名称使用“名称|URL”格式。",
+          "label": "URL 列表",
+          "placeholder": "首页配图|https://assets.example.test/hero.png\nhttps://assets.example.test/logo.svg",
+          "title": "URL 导入"
+        },
+        "loadingStatus": "正在读取媒体写入状态。",
+        "storage": "存储状态",
+        "targetCategory": "目标分类",
+        "title": "上传与导入",
+        "upload": {
+          "description": "选择一个或多个本地文件。当前后端上限：{{limit}}。",
+          "title": "直接上传"
+        }
+      }
+    },
+    "designSystem": {
+      "title": "设计系统设置",
+      "description": "查看当前源码主题包，预览受控 token 草稿，并校验 recipe、模板、素材和对比度，不新增生产主题 API。",
+      "badge": "Aoi React",
+      "summaryLabel": "设计系统设置摘要",
+      "actions": {
+        "applyImport": "应用 JSON",
+        "backendDisabled": "后端禁用",
+        "exportJson": "导出 JSON",
+        "importFile": "导入文件",
+        "restoreDefaults": "恢复默认",
+        "saveDraft": "保存本地草稿",
+        "sourcePackage": "源码主题包"
+      },
+      "contract": {
+        "title": "源码主题边界",
+        "description": "Aoi 主题在构建期从本地源码包选择。v1 不开放运行时 CSS 上传、HTML 注入、发布、审计或回滚 API。"
+      },
+      "controls": {
+        "title": "受控语义 token",
+        "description": "编辑器用于预览当前主题包默认值并导出严格草稿。永久主题变更需要写入源码主题包，并在构建前重新生成。"
+      },
+      "coverage": {
+        "title": "Token 覆盖",
+        "description": "当前主题包声明它负责的所有全局定义，从色板、布局到焦点、遮罩、图表、语法高亮和动效。"
+      },
+      "contrast": {
+        "title": "对比度检查",
+        "description": "每组颜色都会按 WCAG AA 普通文本 4.5:1 阈值检查，满足后才可视为适合写入源码主题包。",
+        "checks": {
+          "accentOnSurface": "强调色与表面",
+          "primaryOnSurface": "主色与表面",
+          "textOnSurface": "文本与表面"
+        },
+        "status": {
+          "fail": "需要调整",
+          "pass": "AA 通过"
+        }
+      },
+      "diff": {
+        "changed": "从 {{from}} 到 {{to}}",
+        "empty": "没有本地草稿变更。",
+        "label": "待处理主题 token 变更"
+      },
+      "fields": {
+        "accentColor": {
+          "help": "用于小面积高亮和辅助控件的次级语义强调色。",
+          "label": "强调色"
+        },
+        "mode": {
+          "help": "预览语义色板在所选界面模式下的表现。",
+          "label": "模式"
+        },
+        "motionIntensity": {
+          "help": "控制预览过渡时长，并记录预期动效等级。",
+          "label": "动效"
+        },
+        "primaryColor": {
+          "help": "用于按钮、激活导航和重点强调的主品牌动作色。",
+          "label": "主色"
+        },
+        "radiusScale": {
+          "help": "控制预览中面板和控件的圆角。",
+          "label": "圆角"
+        },
+        "shadowLevel": {
+          "help": "控制模块化表面的预览层级深度。",
+          "label": "阴影"
+        },
+        "spacingScale": {
+          "help": "在不改变全局布局的前提下缩放预览模块密度。",
+          "label": "间距比例"
+        },
+        "surfaceColor": {
+          "help": "用于卡片和工作面板的基础表面色。",
+          "label": "表面色"
+        },
+        "textColor": {
+          "help": "用于表面内容的主要可读文本色。",
+          "label": "文本色"
+        },
+        "typographyScale": {
+          "help": "缩放预览正文和辅助文本。",
+          "label": "字号比例"
+        }
+      },
+      "import": {
+        "description": "导入和导出严格 token 草稿用于评审。这不会持久化生产主题，也不会绕过源码主题包流程。",
+        "fileLabel": "导入主题 JSON 文件",
+        "help": "JSON 必须完全匹配当前 schema。未知字段和非十六进制颜色值都会被拒绝。",
+        "placeholder": "在此粘贴导出的主题 JSON。",
+        "textarea": "主题 JSON",
+        "title": "导入与导出",
+        "errors": {
+          "fileRead": "无法读取所选文件。",
+          "invalidJson": "导入内容不是有效 JSON。",
+          "invalidSchema": "导入内容不符合已批准的主题 token schema。",
+          "title": "导入失败"
+        }
+      },
+      "messages": {
+        "defaultsDescription": "编辑器已恢复为批准的默认 token 草稿。",
+        "defaultsTitle": "已恢复默认",
+        "exportedDescription": "当前草稿已导出为 JSON。",
+        "exportedTitle": "主题草稿已导出",
+        "importedDescription": "导入的 token 草稿已加载到预览中。",
+        "importedTitle": "主题草稿已导入",
+        "savedDescription": "草稿只保存在当前浏览器中，尚未发送到后端。",
+        "savedTitle": "本地草稿已保存"
+      },
+      "metrics": {
+        "activeTheme": "当前主题",
+        "assets": "素材",
+        "coverage": "覆盖项",
+        "contrastFail": "需检查",
+        "contrastPass": "AA 通过",
+        "recipes": "Recipe",
+        "templates": "模板"
+      },
+      "options": {
+        "mode": {
+          "dark": "深色",
+          "light": "浅色"
+        },
+        "motion": {
+          "none": "无动效",
+          "reduced": "弱动效",
+          "standard": "标准"
+        },
+        "shadow": {
+          "none": "无阴影",
+          "soft": "柔和",
+          "standard": "标准"
+        }
+      },
+      "preview": {
+        "badge": "预览模块",
+        "copy": "这个预览展示主题包默认值和本地草稿变更在密集后台界面中的效果，确认后再写入源码主题包。",
+        "description": "在后台风格控件和模块上预览当前 token 草稿。",
+        "heading": "由 token 驱动的后台界面",
+        "moduleMeta": "源码主题包流程",
+        "moduleTitle": "发布就绪度",
+        "primaryAction": "主操作",
+        "secondaryAction": "次操作",
+        "title": "实时预览"
+      },
+      "package": {
+        "title": "当前主题包",
+        "description": "当前构建会读取这个主题包的 manifest、token 映射、本地素材、recipe 和模板导出。",
+        "fields": {
+          "id": "包 ID",
+          "source": "来源",
+          "version": "版本"
+        }
+      },
+      "recipes": {
+        "title": "组件 Recipe",
+        "description": "Recipe 说明可复用 Aoi primitive 和 pattern 分别由哪些主题 token 控制。"
+      },
+      "release": {
+        "description": "生产变更通过编辑源码主题包、重新生成 token 并重建 WebUI 完成。运行时后端发布保持禁用。",
+        "sourceOnly": "当前没有待发布的后端主题版本。复制示例主题包、修改 active theme、重新生成并构建，即可发布自定义皮肤。",
+        "title": "发布边界"
+      },
+      "templates": {
+        "title": "模板导出",
+        "description": "主题包可以通过类型化 React 导出替换 shell 和页面模板，业务页面继续复用共享 API、i18n、认证和 primitive 契约。"
+      },
+      "tokenLabels": {
+        "accentColor": "强调色",
+        "mode": "模式",
+        "motionIntensity": "动效",
+        "primaryColor": "主色",
+        "radiusScale": "圆角",
+        "shadowLevel": "阴影",
+        "spacingScale": "间距比例",
+        "surfaceColor": "表面色",
+        "textColor": "文本色",
+        "typographyScale": "字号比例"
+      },
+      "values": {
+        "radius": "{{value}} px"
+      }
+    },
+    "parameters": {
+      "title": "系统参数",
+      "description": "通过 /api/v1/system/parameters 管理由后端持久化的系统参数记录。",
+      "badge": "参数目录",
+      "summaryLabel": "系统参数摘要",
+      "empty": "后端没有返回参数记录。",
+      "actions": {
+        "cancel": "取消",
+        "confirmDelete": "确认删除",
+        "create": "创建参数",
+        "delete": "删除",
+        "deleteFor": "删除 {{name}}",
+        "deleteSelected": "删除所选",
+        "edit": "编辑",
+        "editFor": "编辑 {{name}}",
+        "refresh": "刷新",
+        "reset": "重置",
+        "save": "保存修改",
+        "search": "搜索"
+      },
+      "metrics": {
+        "currentPage": "当前页",
+        "page": "页码",
+        "pageSize": "每页数量",
+        "selected": "已选择",
+        "storage": "存储状态",
+        "total": "记录总数"
+      },
+      "filters": {
+        "description": "这些字段直接对应后端参数列表端点的查询条件。",
+        "endCreatedAt": "结束日期",
+        "key": "参数键",
+        "name": "名称",
+        "pageSize": "每页数量",
+        "startCreatedAt": "开始日期",
+        "title": "筛选"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条记录。",
+        "title": "参数列表"
+      },
+      "pagination": {
+        "label": "参数分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "actions": "操作",
+        "createdAt": "创建时间",
+        "description": "描述",
+        "key": "键",
+        "name": "名称",
+        "updatedAt": "更新时间",
+        "value": "值"
+      },
+      "selection": {
+        "allAria": "选择当前页全部参数",
+        "rowAria": "选择参数 {{id}}"
+      },
+      "form": {
+        "createTitle": "创建参数",
+        "description": "字段会直接映射到后端创建和更新请求体。",
+        "descriptionField": "描述",
+        "editTitle": "编辑参数",
+        "key": "参数键",
+        "name": "名称",
+        "placeholders": {
+          "description": "说明这个参数的使用位置",
+          "key": "site.title",
+          "name": "站点标题",
+          "value": "Aoi Admin"
+        },
+        "value": "值"
+      },
+      "delete": {
+        "bulkDescription": "将通过后端批量删除端点删除 {{count}} 条已选择的参数记录。",
+        "bulkTitle": "确认删除所选参数",
+        "singleDescription": "将通过后端参数删除端点删除 {{name}}。",
+        "singleTitle": "确认删除参数"
+      },
+      "messages": {
+        "bulkDeletedDescription": "已删除 {{count}} 条已选择的参数记录。",
+        "bulkDeletedTitle": "参数已删除",
+        "createdDescription": "{{name}} 已创建。",
+        "createdTitle": "参数已创建",
+        "deleteFailedTitle": "删除失败",
+        "deletedDescription": "{{name}} 已删除。",
+        "deletedTitle": "参数已删除",
+        "requiredDescription": "保存前必须填写名称、参数键和值。",
+        "requiredTitle": "缺少参数字段",
+        "saveFailedTitle": "保存失败",
+        "updatedDescription": "{{name}} 已更新。",
+        "updatedTitle": "参数已更新"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回参数页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "系统参数不可用",
+        "loadingTitle": "正在加载系统参数",
+        "loadingDescription": "正在读取受保护的系统参数记录。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 parameter:read 权限才能查看系统参数。",
+        "storageUnavailableTitle": "参数存储不可用",
+        "storageUnavailableDescription": "后端报告 system_parameters 尚未持久化。使用参数工作流前，请先运行所需迁移。"
+      }
+    },
+    "organizations": {
+      "title": "组织",
+      "description": "通过后端已支持的组织列表、创建、当前组织更新和切换组织接口管理租户上下文。",
+      "badge": "IAM 组织",
+      "summaryLabel": "组织摘要",
+      "empty": "后端没有返回组织。",
+      "actions": {
+        "create": "创建组织",
+        "current": "当前组织",
+        "dismiss": "关闭",
+        "refresh": "刷新",
+        "reset": "重置",
+        "save": "保存组织",
+        "search": "搜索",
+        "switch": "切换"
+      },
+      "metrics": {
+        "active": "本页活跃",
+        "current": "当前组织",
+        "disabled": "本页禁用",
+        "storage": "存储状态",
+        "total": "组织总数"
+      },
+      "filters": {
+        "allStatuses": "全部状态",
+        "description": "这些字段直接对应后端组织列表查询，并保持服务层排序与分页语义。",
+        "keyword": "关键词",
+        "pageSize": "每页数量",
+        "title": "筛选"
+      },
+      "fields": {
+        "code": "组织编码",
+        "codePlaceholder": "acme",
+        "name": "组织名称",
+        "namePlaceholder": "Acme 团队",
+        "status": "组织状态"
+      },
+      "status": {
+        "active": "活跃",
+        "disabled": "禁用"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{total}} 个组织，本页显示 {{count}} 个。",
+        "title": "组织列表"
+      },
+      "pagination": {
+        "label": "组织分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "actions": "操作",
+        "createdAt": "创建时间",
+        "current": "上下文",
+        "organization": "组织",
+        "status": "状态"
+      },
+      "current": {
+        "current": "当前组织",
+        "description": "后端当前只允许更新当前组织名称，编码和组织状态保持只读。",
+        "errorTitle": "组织更新失败",
+        "successDescription": "{{name}} 已保存为当前组织名称。",
+        "successTitle": "组织已更新",
+        "switchable": "可切换",
+        "title": "当前组织"
+      },
+      "create": {
+        "description": "使用唯一组织编码和名称创建新组织，后端会把创建者设为 owner。",
+        "errorTitle": "组织创建失败",
+        "successDescription": "{{name}} 已通过后端组织接口创建。",
+        "successTitle": "组织已创建",
+        "title": "创建组织"
+      },
+      "switch": {
+        "errorTitle": "组织切换失败",
+        "successDescription": "已切换到 {{name}}，并刷新当前会话身份。",
+        "successTitle": "组织已切换"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "errorTitle": "组织不可用",
+        "loadingTitle": "正在加载组织",
+        "loadingDescription": "正在读取受保护的组织列表。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织管理端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 org:read 权限才能查看组织，创建和更新还需要 org:create 或 org:update 权限。",
+        "storageUnavailableTitle": "组织存储不可用",
+        "storageUnavailableDescription": "后端报告 IAM 组织存储尚未持久化。使用组织工作流前，请先运行所需迁移。"
+      },
+      "validation": {
+        "code": "组织编码必须以小写字母开头，只能包含小写字母、数字、下划线或连字符，最多 64 个字符。",
+        "name": "请输入组织名称。",
+        "title": "组织信息不完整"
+      }
+    },
+    "users": {
+      "title": "用户",
+      "description": "通过后端已支持的 /api/v1/orgs/:orgId/users 与邀请接口读取和管理组织成员。",
+      "badge": "IAM 用户",
+      "summaryLabel": "用户摘要",
+      "empty": "后端没有返回组织用户。",
+      "actions": {
+        "cancel": "取消",
+        "confirmRevoke": "确认撤销",
+        "disable": "禁用",
+        "enable": "启用",
+        "invite": "邀请用户",
+        "refresh": "刷新",
+        "reset": "重置",
+        "revoke": "撤销",
+        "roleSelect": "{{name}} 的角色",
+        "saveRole": "保存角色",
+        "saveRoleFor": "保存 {{name}} 的角色",
+        "search": "搜索",
+        "sendInvitation": "发送邀请",
+        "toggleStatusFor": "将 {{name}} 设为{{status}}"
+      },
+      "metrics": {
+        "active": "本页活跃",
+        "disabled": "本页禁用",
+        "pendingInvitations": "待接受邀请",
+        "storage": "存储状态",
+        "total": "用户总数"
+      },
+      "filters": {
+        "allRoles": "全部角色",
+        "allStatuses": "全部状态",
+        "description": "这些字段直接对应后端用户列表端点，并保持当前组织范围。",
+        "displayName": "显示名称",
+        "email": "邮箱",
+        "keyword": "关键词",
+        "pageSize": "每页数量",
+        "role": "角色",
+        "status": "成员状态",
+        "title": "筛选",
+        "username": "用户名"
+      },
+      "fields": {
+        "role": "角色"
+      },
+      "status": {
+        "active": "活跃",
+        "disabled": "禁用",
+        "expired": "已过期",
+        "locked": "已锁定",
+        "pending": "待处理",
+        "revoked": "已撤销",
+        "used": "已使用"
+      },
+      "mfa": {
+        "disabled": "未启用",
+        "enabled": "已启用"
+      },
+      "roles": {
+        "noneAvailable": "没有可用角色",
+        "option": "{{name}}（{{code}}）"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 名用户。",
+        "title": "用户列表"
+      },
+      "pagination": {
+        "label": "用户分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "accountStatus": "账号",
+        "actions": "操作",
+        "id": "ID",
+        "lastLogin": "最近登录",
+        "memberStatus": "成员",
+        "mfa": "MFA",
+        "roles": "角色",
+        "user": "用户"
+      },
+      "member": {
+        "errorTitle": "成员更新失败",
+        "roleSuccessTitle": "角色已更新",
+        "roleSuccessDescription": "{{name}} 已使用选中的组织角色。",
+        "statusSuccessTitle": "成员状态已更新",
+        "statusSuccessDescription": "{{name}} 当前为{{status}}。"
+      },
+      "invite": {
+        "debugDeliveryTitle": "调试邀请投递",
+        "debugDeliveryDescription": "后端返回了本地调试投递值，因为当前没有使用外部邮件投递。",
+        "debugSuccessDescription": "{{email}} 的邀请已创建。可使用下方调试 token 或 URL 在本地接受邀请。",
+        "debugToken": "Token",
+        "debugUrl": "URL",
+        "description": "使用邮箱地址和已有组织角色创建邀请。",
+        "email": "邮箱",
+        "emailPlaceholder": "member@example.com",
+        "errorTitle": "邀请失败",
+        "role": "角色",
+        "successDescription": "{{email}} 的邀请已通过后端邀请端点创建。",
+        "successTitle": "邀请已创建",
+        "title": "邀请用户",
+        "validationDescription": "发送邀请前请输入有效邮箱并选择可用角色。",
+        "validationTitle": "邀请信息不完整"
+      },
+      "invitation": {
+        "columns": {
+          "email": "邮箱",
+          "expiresAt": "过期时间",
+          "role": "角色",
+          "status": "状态"
+        },
+        "confirmRevokeDescription": "将撤销 {{email}} 的待接受邀请。后端会拒绝该 token 后续接受请求。",
+        "confirmRevokeTitle": "确认撤销邀请",
+        "description": "显示 /api/v1/orgs/:orgId/invitations 返回的 {{count}} 条邀请。",
+        "empty": "后端没有返回邀请记录。",
+        "errorTitle": "邀请更新失败",
+        "invitedBy": "邀请人用户 {{id}}",
+        "pendingCount": "{{count}} 条待接受",
+        "revokeInvitation": "撤销 {{email}} 的邀请",
+        "revokeSuccessDescription": "{{email}} 的邀请已撤销。",
+        "revokeSuccessTitle": "邀请已撤销",
+        "title": "邀请"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回用户分页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "用户不可用",
+        "loadingTitle": "正在加载用户",
+        "loadingDescription": "正在读取受保护的 IAM 组织成员。",
+        "loadingInvitationsTitle": "正在加载邀请",
+        "loadingInvitationsDescription": "正在读取受保护的邀请记录。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织用户端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 user:read 权限才能查看用户，邀请和成员变更还需要 user:invite 或 user:update 权限。",
+        "storageUnavailableTitle": "用户存储不可用",
+        "storageUnavailableDescription": "后端报告 IAM 用户存储尚未持久化。使用用户工作流前，请先运行所需迁移。"
+      }
+    },
+    "roles": {
+      "title": "角色",
+      "description": "通过后端已支持的 IAM 角色与权限接口读取、创建和更新组织角色。系统角色保持只读。",
+      "badge": "IAM 角色",
+      "summaryLabel": "角色摘要",
+      "empty": "后端没有返回角色。",
+      "actions": {
+        "cancelCreate": "取消",
+        "create": "创建角色",
+        "dismiss": "关闭",
+        "refresh": "刷新",
+        "reset": "重置",
+        "save": "保存角色",
+        "submitCreate": "创建角色"
+      },
+      "metrics": {
+        "assignedPermissions": "已分配权限",
+        "custom": "自定义角色",
+        "permissions": "权限清单",
+        "system": "系统角色",
+        "total": "角色总数"
+      },
+      "fields": {
+        "code": "角色编码",
+        "codePlaceholder": "operator",
+        "description": "描述",
+        "descriptionHelp": "后端会裁剪描述并随角色一起保存。",
+        "name": "角色名称"
+      },
+      "columns": {
+        "kind": "类型",
+        "permissions": "权限",
+        "role": "角色",
+        "updatedAt": "更新时间"
+      },
+      "kind": {
+        "custom": "自定义",
+        "system": "系统"
+      },
+      "list": {
+        "description": "显示 /api/v1/orgs/:orgId/roles 返回的 {{count}} 个角色。",
+        "title": "角色列表"
+      },
+      "create": {
+        "description": "创建自定义角色，并通过后端角色端点写入初始权限集合。",
+        "errorTitle": "角色创建失败",
+        "successDescription": "{{name}} 已创建，角色列表正在刷新。",
+        "successTitle": "角色已创建",
+        "title": "创建自定义角色"
+      },
+      "edit": {
+        "description": "选择一个自定义角色，更新它的显示名称、描述和权限集合。系统角色会被排除，因为后端拒绝更新系统角色。",
+        "descriptionHelp": "权限更新采用替换语义，勾选集合会成为该角色的完整权限集合。",
+        "errorTitle": "角色更新失败",
+        "noSelectionDescription": "保存前请选择一个可编辑的自定义角色。",
+        "noSelectionTitle": "未选择角色",
+        "noneDescription": "后端当前只返回系统角色。请先创建自定义角色再使用编辑器。",
+        "noneTitle": "没有可编辑角色",
+        "role": "可编辑角色",
+        "roleOption": "{{name}}（{{code}}）",
+        "successDescription": "{{name}} 已通过后端角色端点更新。",
+        "successTitle": "角色已更新",
+        "title": "编辑自定义角色"
+      },
+      "permissions": {
+        "allObjects": "全部权限对象",
+        "clearGroup": "清空{{group}}",
+        "createDescription": "从 /api/v1/orgs/:orgId/permissions 选择已有权限编码。界面不会凭空创建后端不存在的权限。",
+        "createTitle": "初始权限",
+        "editDescription": "选中的权限编码会替换当前自定义角色的策略集合。",
+        "editTitle": "角色权限",
+        "emptyDescription": "当前搜索或权限对象筛选下没有匹配权限。",
+        "emptyTitle": "没有匹配权限",
+        "groupCount": "已选 {{selected}} / {{count}}",
+        "more": "另有 {{count}} 项",
+        "object": "权限对象",
+        "search": "搜索权限",
+        "searchPlaceholder": "user:read",
+        "selectGroup": "全选{{group}}",
+        "selected": "已选 {{count}} 项",
+        "toggle": "切换 {{code}}"
+      },
+      "permissionObjects": {
+        "api_token": "API Token",
+        "audit": "审计",
+        "config": "配置",
+        "dictionary": "字典",
+        "media": "媒体",
+        "menu": "菜单",
+        "me": "当前用户",
+        "operation": "操作",
+        "org": "组织",
+        "other": "其他",
+        "parameter": "参数",
+        "permission": "权限",
+        "plugin": "插件",
+        "role": "角色",
+        "server": "服务器",
+        "session": "会话",
+        "setup": "初始化",
+        "system": "系统",
+        "user": "用户",
+        "version": "版本"
+      },
+      "validation": {
+        "code": "请使用小写角色编码：以字母开头，只包含字母、数字、下划线或连字符。",
+        "description": "描述不能超过 500 个字符。",
+        "name": "提交前请输入角色名称。",
+        "permissions": "请只使用后端权限清单返回的非空权限编码。",
+        "title": "角色信息不完整"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回角色",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "角色不可用",
+        "loadingTitle": "正在加载角色",
+        "loadingDescription": "正在读取受保护的 IAM 角色和权限。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织角色端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 role:read 和 permission:read 才能查看角色，变更还需要 role:create 或 role:update 权限。"
+      }
+    },
+    "sessions": {
+      "title": "会话",
+      "description": "通过 /api/v1/orgs/:orgId/sessions 读取组织会话记录，展示产品和平台维度，并对接后端已支持的会话撤销接口。",
+      "badge": "IAM 会话",
+      "summaryLabel": "会话摘要",
+      "empty": "后端没有返回会话记录。",
+      "actions": {
+        "cancelRevoke": "取消",
+        "confirmRevoke": "确认撤销",
+        "currentSession": "当前会话",
+        "refresh": "刷新",
+        "revoke": "撤销",
+        "revokeSession": "撤销会话 {{id}}",
+        "reset": "重置",
+        "search": "搜索"
+      },
+      "metrics": {
+        "active": "本页活跃",
+        "currentPage": "当前页",
+        "inactive": "本页非活跃",
+        "storage": "存储状态",
+        "total": "会话总数"
+      },
+      "filters": {
+        "allStatuses": "全部状态",
+        "description": "这些字段直接对应后端会话列表端点。组织范围列出可见组织会话；自己范围在未指定用户 ID 时列出当前用户会话。",
+        "ipAddress": "IP 包含",
+        "keyword": "关键词",
+        "pageSize": "每页数量",
+        "platform": "平台",
+        "productCode": "产品码",
+        "scope": "范围",
+        "status": "状态",
+        "title": "筛选",
+        "userId": "用户 ID"
+      },
+      "scope": {
+        "organization": "组织",
+        "self": "自己"
+      },
+      "status": {
+        "active": "活跃",
+        "expired": "已过期",
+        "revoked": "已撤销"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条会话。",
+        "title": "会话列表"
+      },
+      "pagination": {
+        "label": "会话分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "actions": "操作",
+        "device": "设备",
+        "expiresAt": "过期时间",
+        "id": "会话",
+        "ip": "IP",
+        "lastUsed": "最近使用",
+        "platform": "平台",
+        "status": "状态",
+        "user": "用户"
+      },
+      "revoke": {
+        "confirmTitle": "确认撤销会话",
+        "confirmDescription": "将撤销会话 {{id}}（用户 {{userId}}，IP {{ip}}）。后端会立即拒绝该会话后续请求。",
+        "currentSessionTitle": "不能撤销当前会话",
+        "currentSessionDescription": "当前 access token 对应会话 {{id}}。请从其他会话执行撤销。",
+        "errorTitle": "撤销失败",
+        "successTitle": "会话已撤销",
+        "successDescription": "会话 {{id}} 已通过后端撤销接口处理，列表正在刷新。"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回会话页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "会话不可用",
+        "loadingTitle": "正在加载会话",
+        "loadingDescription": "正在读取受保护的 IAM 会话记录。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织范围会话端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 session:read 权限才能查看会话。",
+        "storageUnavailableTitle": "会话存储不可用",
+        "storageUnavailableDescription": "后端报告会话尚未持久化。使用会话工作流前，请先运行所需迁移。"
+      }
+    },
+    "security": {
+      "badge": "账户安全",
+      "title": "安全中心",
+      "description": "查看当前账号、组织、会话和平台维度，并通过后端 MFA 接口启用或轮换 TOTP 因子。",
+      "accountTitle": "账号与会话",
+      "accountSummaryLabel": "账户安全概览",
+      "actions": {
+        "copySecret": "复制 Secret",
+        "copyUrl": "复制 otpauth URL",
+        "generateSecret": "生成 MFA Secret",
+        "logout": "退出当前会话",
+        "manageSessions": "管理平台会话",
+        "rotateSecret": "轮换 MFA Secret",
+        "verifyAndEnable": "验证并启用",
+        "viewSessions": "查看平台会话"
+      },
+      "fields": {
+        "accessExpires": "访问令牌过期时间",
+        "account": "账号",
+        "email": "邮箱",
+        "mfaCode": "MFA 验证码",
+        "mfaCodeHelp": "输入认证器应用中显示的 6 位验证码。",
+        "mfaCodePlaceholder": "123456",
+        "organization": "当前组织",
+        "platform": "当前平台",
+        "refreshExpires": "刷新令牌过期时间",
+        "session": "当前会话"
+      },
+      "mfa": {
+        "disabledBadge": "未启用 MFA",
+        "disabledDescription": "生成后端 TOTP secret，将其加入认证器应用，然后提交当前验证码。",
+        "enabledBadge": "已启用 MFA",
+        "enabledDescription": "该账号登录时需要 MFA 验证码。轮换 secret 后请立即完成验证。",
+        "otpauthLabel": "otpauth URL",
+        "secretLabel": "Secret",
+        "setupEmptyDescription": "生成后，后端只会为当前页面返回一次性 secret 和 otpauth URL。",
+        "setupEmptyTitle": "等待 MFA secret",
+        "title": "MFA"
+      },
+      "messages": {
+        "copiedDescription": "{{label}} 已复制到剪贴板。",
+        "copiedTitle": "已复制",
+        "copyDeniedDescription": "浏览器不允许写入 {{label}}。请手动选择并复制。",
+        "copyDeniedTitle": "剪贴板写入被阻止",
+        "enabledDescription": "后端已验证 MFA，页面中的 secret 已清除。",
+        "enabledTitle": "MFA 已启用",
+        "secretGeneratedDescription": "Secret 只保存在页面内存中。请立即加入认证器应用。",
+        "secretGeneratedTitle": "MFA secret 已生成",
+        "setupFailedTitle": "MFA secret 生成失败",
+        "verifyFailedTitle": "MFA 验证失败"
+      },
+      "validation": {
+        "mfaCodeFormat": "请输入 6 位数字验证码。",
+        "mfaCodeRequired": "请输入 MFA 验证码。"
+      },
+      "values": {
+        "platform": "{{platform}} / {{product}}"
+      },
+      "states": {
+        "identityFailedTitle": "账号详情加载失败",
+        "identityLoadingDescription": "正在从后端读取当前账号、组织和会话上下文。",
+        "identityLoadingTitle": "正在加载账号详情"
+      }
+    },
+    "apiTokens": {
+      "title": "API Token",
+      "description": "通过后端已支持的 /api/v1/orgs/:orgId/api-tokens 接口读取、签发和撤销组织 API Token。",
+      "badge": "IAM API Token",
+      "summaryLabel": "API Token 摘要",
+      "empty": "后端没有返回 API Token 记录。",
+      "actions": {
+        "cancelIssue": "取消",
+        "cancelRevoke": "取消",
+        "closeIssued": "完成",
+        "confirmRevoke": "确认撤销",
+        "copyExample": "复制示例",
+        "copyToken": "复制 Token",
+        "create": "创建 Token",
+        "issue": "签发 Token",
+        "refresh": "刷新",
+        "reset": "重置",
+        "revoke": "撤销",
+        "revokeToken": "撤销 API Token {{id}}",
+        "search": "搜索"
+      },
+      "metrics": {
+        "active": "本页活跃",
+        "currentPage": "当前页",
+        "inactive": "本页非活跃",
+        "storage": "存储状态",
+        "total": "Token 总数"
+      },
+      "filters": {
+        "allStatuses": "全部状态",
+        "description": "这些字段直接对应后端 API Token 列表端点。",
+        "pageSize": "每页数量",
+        "status": "状态",
+        "title": "筛选",
+        "userId": "用户 ID"
+      },
+      "status": {
+        "active": "活跃",
+        "expired": "已过期",
+        "revoked": "已撤销"
+      },
+      "validity": {
+        "days": "{{days}} 天",
+        "never": "永不过期"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条 API Token。",
+        "title": "Token 列表"
+      },
+      "pagination": {
+        "label": "API Token 分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "actions": "操作",
+        "expiresAt": "过期时间",
+        "id": "Token",
+        "lastUsed": "最近使用",
+        "lastUsedIp": "最近 IP",
+        "remark": "备注",
+        "role": "角色",
+        "status": "状态",
+        "user": "用户"
+      },
+      "labels": {
+        "neverUsed": "从未使用",
+        "tokenId": "Token #{{id}}",
+        "userId": "用户 #{{id}}"
+      },
+      "issue": {
+        "description": "选择组织成员以及该成员已拥有的角色。后端只会在创建成功后返回一次完整密钥。",
+        "errorTitle": "Token 创建失败",
+        "noAssignableRoleTitle": "没有可签发角色",
+        "noAssignableRoleDescription": "所选成员没有出现在后端角色目录中的已分配角色。",
+        "remark": "备注",
+        "remarkHelp": "可选，随这个 Token 一起保存。",
+        "role": "角色",
+        "roleOption": "{{name}}（{{code}}）",
+        "successTitle": "API Token 已签发",
+        "successDescription": "Token {{id}} 已由后端创建。关闭面板前请复制完整密钥。",
+        "title": "签发 API Token",
+        "user": "用户",
+        "userOption": "{{name}}（#{{id}}）",
+        "validationTitle": "Token 表单不完整",
+        "validationDescription": "请选择用户、选择该用户已分配的角色，并选择后端支持的有效期。",
+        "validity": "有效期"
+      },
+      "issued": {
+        "description": "完整 Token 仅保留在本次页面响应的内存状态中，不会写入会话存储。",
+        "example": "请求示例",
+        "fullToken": "完整 Token",
+        "title": "复制新的 API Token",
+        "warningTitle": "密钥只显示一次",
+        "warningDescription": "请现在复制这个 Token。后端只保存哈希值，之后无法再次返回完整内容。"
+      },
+      "copy": {
+        "deniedTitle": "无法复制",
+        "exampleDeniedDescription": "浏览器没有允许复制请求示例。",
+        "exampleSuccessDescription": "请求示例已复制。",
+        "successTitle": "已复制",
+        "tokenDeniedDescription": "浏览器没有允许复制 Token。",
+        "tokenSuccessDescription": "API Token 已复制。"
+      },
+      "revoke": {
+        "confirmTitle": "确认撤销 Token",
+        "confirmDescription": "将撤销 {{user}} 的 Token {{id}}，前缀为 {{prefix}}。后端会拒绝该 Token 后续请求。",
+        "errorTitle": "撤销失败",
+        "successTitle": "API Token 已撤销",
+        "successDescription": "Token {{id}} 已通过后端撤销接口处理，列表正在刷新。"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回 API Token 页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "API Token 不可用",
+        "loadingTitle": "正在加载 API Token",
+        "loadingDescription": "正在读取受保护的 IAM API Token 记录。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织范围 API Token 端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 API Token 相关权限才能使用这个工作流。",
+        "storageUnavailableTitle": "API Token 存储不可用",
+        "storageUnavailableDescription": "后端报告 API Token 尚未持久化。使用 Token 工作流前，请先运行所需迁移。"
+      }
+    },
+    "auditLogs": {
+      "title": "审计日志",
+      "description": "通过 /api/v1/orgs/:orgId/audit-logs 读取 IAM 审计记录，展示产品和平台维度，仅开放后端已支持的动作、用户、时间、游标和数量筛选。",
+      "badge": "IAM 审计轨迹",
+      "summaryLabel": "审计日志摘要",
+      "empty": "后端没有返回审计日志。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索"
+      },
+      "metrics": {
+        "actions": "返回动作",
+        "nextCursor": "下一游标",
+        "returned": "返回日志",
+        "users": "返回用户",
+        "withMetadata": "含元数据"
+      },
+      "filters": {
+        "action": "动作",
+        "cursor": "早于 ID",
+        "description": "这些字段直接对应后端审计日志端点。时间筛选会以 RFC3339 发送；游标用于读取早于指定日志 ID 的记录。",
+        "from": "开始时间",
+        "limit": "数量",
+        "title": "筛选",
+        "to": "结束时间",
+        "userId": "用户 ID"
+      },
+      "list": {
+        "description": "当前后端限制 {{limit}} 条，已显示 {{count}} 条审计日志。",
+        "title": "审计日志列表"
+      },
+      "columns": {
+        "action": "动作",
+        "device": "设备",
+        "id": "ID",
+        "ip": "IP",
+        "metadata": "元数据",
+        "platform": "平台",
+        "resource": "资源",
+        "time": "时间",
+        "user": "用户"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回审计日志页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "审计日志不可用",
+        "loadingTitle": "正在加载审计日志",
+        "loadingDescription": "正在读取受保护的 IAM 审计记录。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织范围审计端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 audit:read 权限才能查看 IAM 审计记录。"
+      }
+    },
+    "loginLogs": {
+      "title": "登录日志",
+      "description": "通过 /api/v1/orgs/:orgId/audit-logs 读取 auth.login 审计记录，展示产品和平台维度；仅保留后端已支持的用户、时间和数量筛选，IP 在前端结果中本地过滤。",
+      "badge": "IAM 登录轨迹",
+      "summaryLabel": "登录日志摘要",
+      "empty": "后端没有返回匹配的登录日志。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索"
+      },
+      "metrics": {
+        "action": "固定动作",
+        "ipAddresses": "IP 数",
+        "platforms": "平台数",
+        "returned": "登录记录",
+        "users": "用户数"
+      },
+      "filters": {
+        "description": "登录日志固定发送 action=auth.login。用户、开始时间、结束时间和数量会传给后端；IP 地址按旧后台行为在当前结果中本地包含过滤。",
+        "from": "开始时间",
+        "ipAddress": "IP 包含",
+        "limit": "数量",
+        "title": "筛选",
+        "to": "结束时间",
+        "userId": "用户 ID"
+      },
+      "list": {
+        "backendAction": "动作 {{action}}",
+        "description": "当前后端限制 {{limit}} 条，已显示 {{count}} 条 {{action}} 登录日志。",
+        "title": "登录日志列表"
+      },
+      "columns": {
+        "device": "设备",
+        "id": "ID",
+        "ip": "IP",
+        "loginTime": "登录时间",
+        "platform": "平台",
+        "resource": "资源",
+        "userId": "用户 ID"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回登录日志页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "登录日志不可用",
+        "loadingTitle": "正在加载登录日志",
+        "loadingDescription": "正在读取受保护的 IAM 登录审计记录。",
+        "missingOrgTitle": "缺少组织上下文",
+        "missingOrgDescription": "当前会话 token 没有包含 orgId 声明，因此无法调用组织范围登录日志端点。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 audit:read 权限才能查看登录日志。"
+      }
+    },
+    "operationRecords": {
+      "title": "操作记录",
+      "description": "通过 /api/v1/system/operation-records 读取 HTTP 操作记录，仅开放后端已支持的筛选、分页、请求摘要和响应摘要。",
+      "badge": "系统审计轨迹",
+      "summaryLabel": "操作记录摘要",
+      "empty": "后端没有返回操作记录。",
+      "actions": {
+        "cancel": "取消",
+        "confirmDelete": "确认删除",
+        "deleteSelected": "删除所选",
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索"
+      },
+      "metrics": {
+        "currentPage": "当前页",
+        "errors": "本页错误",
+        "selected": "已选择",
+        "slowest": "本页最慢",
+        "storage": "存储状态",
+        "total": "记录总数"
+      },
+      "filters": {
+        "allMethods": "全部方法",
+        "description": "这些字段直接对应后端操作记录端点；填写精确状态码时，将优先使用状态码而不发送状态分类。",
+        "method": "方法",
+        "pageSize": "每页数量",
+        "path": "路径包含",
+        "status": "精确状态码",
+        "statusClass": "状态分类",
+        "title": "筛选"
+      },
+      "statusClass": {
+        "all": "全部状态",
+        "clientError": "4xx 客户端错误",
+        "error": "全部错误",
+        "serverError": "5xx 服务端错误"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条记录。",
+        "title": "记录列表"
+      },
+      "delete": {
+        "bulkDescription": "将通过后端批量删除端点删除选中的 {{count}} 条操作记录。",
+        "bulkTitle": "确认删除所选操作记录"
+      },
+      "messages": {
+        "deleteFailedTitle": "删除失败",
+        "deletedSelectedDescription": "已删除选中的 {{count}} 条操作记录。",
+        "deletedSelectedTitle": "操作记录已删除"
+      },
+      "selection": {
+        "allAria": "选择当前页全部操作记录",
+        "rowAria": "选择操作记录 {{id}}"
+      },
+      "pagination": {
+        "label": "操作记录分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "createdAt": "创建时间",
+        "ip": "IP",
+        "latency": "耗时",
+        "payload": "载荷",
+        "request": "请求",
+        "status": "状态",
+        "traceId": "Trace ID",
+        "user": "用户"
+      },
+      "labels": {
+        "anonymous": "匿名用户",
+        "durationMs": "{{value}} ms",
+        "errorMessage": "错误",
+        "noPayload": "未捕获载荷",
+        "requestBody": "请求",
+        "responseBody": "响应",
+        "userId": "用户 ID {{id}}"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回操作记录页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "操作记录不可用",
+        "loadingTitle": "正在加载操作记录",
+        "loadingDescription": "正在读取受保护的 HTTP 操作记录。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 operation-record:read 权限才能查看操作记录。",
+        "deletePermissionDescription": "当前账号需要 operation:delete 权限才能删除操作记录。",
+        "storageUnavailableTitle": "操作记录存储不可用",
+        "storageUnavailableDescription": "后端报告操作记录尚未持久化。使用操作记录工作流前，请先运行所需迁移。"
+      }
+    },
+    "errorLogs": {
+      "title": "错误日志",
+      "description": "通过 /api/v1/system/operation-records 读取 HTTP 错误操作记录，默认查看 5xx，并只暴露后端已支持的状态分类、状态码、方法、路径和分页筛选。",
+      "badge": "系统错误轨迹",
+      "summaryLabel": "错误日志摘要",
+      "empty": "后端没有返回匹配的错误日志。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索"
+      },
+      "metrics": {
+        "clientErrors": "4xx",
+        "currentPageErrors": "本页错误",
+        "serverErrors": "5xx",
+        "storage": "存储状态",
+        "total": "错误总数"
+      },
+      "filters": {
+        "allMethods": "全部方法",
+        "description": "错误日志默认发送 statusClass=5xx；选择 4xx 或全部错误时会改用对应状态分类。填写精确状态码时，将优先使用状态码而不发送状态分类。",
+        "method": "方法",
+        "pageSize": "每页数量",
+        "path": "路径包含",
+        "status": "精确状态码",
+        "statusClass": "状态分类",
+        "title": "筛选"
+      },
+      "statusClass": {
+        "clientError": "4xx 客户端错误",
+        "error": "全部错误",
+        "serverError": "5xx 服务端错误"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条错误记录。",
+        "title": "错误记录列表"
+      },
+      "pagination": {
+        "label": "错误日志分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "createdAt": "创建时间",
+        "ip": "IP",
+        "request": "请求",
+        "status": "状态",
+        "summary": "错误摘要",
+        "traceId": "Trace ID",
+        "user": "用户"
+      },
+      "labels": {
+        "anonymous": "匿名用户",
+        "noSummary": "没有错误摘要",
+        "userId": "用户 ID {{id}}"
+      },
+      "storage": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "unknown": "未知"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回错误日志页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "错误日志不可用",
+        "loadingTitle": "正在加载错误日志",
+        "loadingDescription": "正在读取受保护的 HTTP 错误记录。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 operation-record:read 权限才能查看错误日志。",
+        "storageUnavailableTitle": "错误日志存储不可用",
+        "storageUnavailableDescription": "后端报告操作记录尚未持久化。使用错误日志工作流前，请先运行所需迁移。"
+      }
+    },
+    "plugins": {
+      "title": "插件",
+      "description": "通过后端插件管理契约读取远程插件宿主快照、健康状态和能力声明。",
+      "badge": "插件查询",
+      "summaryLabel": "插件运行摘要",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索",
+        "selected": "已选中",
+        "view": "查看"
+      },
+      "metrics": {
+        "capabilities": "能力",
+        "online": "在线",
+        "total": "插件实例",
+        "transports": "传输方式"
+      },
+      "filters": {
+        "allStatuses": "全部状态",
+        "allTransports": "全部传输方式",
+        "description": "这些筛选基于当前后端插件快照响应在前端执行。",
+        "keyword": "关键词",
+        "status": "状态",
+        "title": "筛选",
+        "transport": "传输方式"
+      },
+      "list": {
+        "description": "当前筛选命中 {{count}} / {{total}} 个插件实例。",
+        "title": "插件实例"
+      },
+      "columns": {
+        "actions": "操作",
+        "capabilities": "能力",
+        "instance": "实例",
+        "lastHeartbeat": "最近心跳",
+        "plugin": "插件",
+        "status": "状态",
+        "transport": "传输方式"
+      },
+      "detail": {
+        "description": "详情端点按选中的插件 ID 返回一个快照；存在多个实例时，后端优先返回在线实例。",
+        "endpoint": "端点",
+        "hooks": "钩子",
+        "instanceId": "实例 ID",
+        "leaseExpiresAt": "租约过期",
+        "name": "名称",
+        "ownerHost": "宿主节点",
+        "permissions": "权限",
+        "pluginId": "插件 ID",
+        "protocol": "协议",
+        "registeredAt": "注册时间",
+        "title": "插件详情",
+        "transport": "传输方式",
+        "version": "版本"
+      },
+      "health": {
+        "description": "健康状态来自插件宿主；如果选中的插件没有在线实例，后端可能返回离线状态。",
+        "error": "健康错误",
+        "instanceId": "实例 ID",
+        "lastHeartbeatAt": "最近心跳",
+        "leaseExpiresAt": "租约过期",
+        "pluginId": "插件 ID",
+        "runtimeStatus": "运行状态",
+        "status": "状态",
+        "title": "健康状态"
+      },
+      "capabilities": {
+        "description": "能力由远程插件声明，此处只展示元信息；前端不会调用这些能力。",
+        "inputSchemaEmpty": "无输入 Schema",
+        "inputSchemaPresent": "输入 Schema",
+        "noDescription": "后端未返回能力描述。",
+        "outputSchemaEmpty": "无输出 Schema",
+        "outputSchemaPresent": "输出 Schema",
+        "permissions": "权限",
+        "scope": "作用域",
+        "secretPolicy": "密钥策略",
+        "title": "能力声明",
+        "version": "版本"
+      },
+      "status": {
+        "draining": "下线准备",
+        "offline": "离线",
+        "online": "在线",
+        "unknown": "未知"
+      },
+      "values": {
+        "none": "无"
+      },
+      "states": {
+        "capabilitiesEmptyDescription": "选中的插件快照没有返回能力声明。",
+        "capabilitiesEmptyTitle": "没有能力声明",
+        "capabilitiesLoadingDescription": "正在读取远程插件能力声明。",
+        "capabilitiesLoadingTitle": "正在加载能力",
+        "capabilitiesOfflineTitle": "插件离线",
+        "detailErrorTitle": "插件详情不可用",
+        "disabledDescription": "后端报告插件宿主或插件管理能力未启用。",
+        "disabledTitle": "插件未启用",
+        "emptyDescription": "当前没有已注册的远程插件。",
+        "emptyTitle": "没有插件实例",
+        "errorTitle": "插件不可用",
+        "healthEmptyDescription": "选中的插件没有返回健康快照。",
+        "healthEmptyTitle": "没有健康快照",
+        "healthLoadingDescription": "正在从后端宿主读取插件健康状态。",
+        "healthLoadingTitle": "正在加载健康状态",
+        "loadingDescription": "正在读取受保护的插件管理端点。",
+        "loadingTitle": "正在加载插件",
+        "noMatchesDescription": "当前筛选下没有匹配的插件实例。",
+        "noMatchesTitle": "没有匹配插件",
+        "offlineDescription": "后端报告选中的插件处于离线状态。",
+        "offlineTitle": "插件离线",
+        "permissionDescription": "当前账号需要 plugin:read 权限才能查看插件管理数据。",
+        "permissionTitle": "需要权限"
+      }
+    },
+    "versions": {
+      "title": "版本记录",
+      "description": "通过后端支持的筛选条件，从 /api/v1/system/versions 读取系统版本发布包记录。",
+      "badge": "版本记录",
+      "summaryLabel": "版本记录摘要",
+      "empty": "后端没有返回版本记录。",
+      "actions": {
+        "refresh": "刷新",
+        "reset": "重置",
+        "search": "搜索",
+        "cancelDelete": "保留版本",
+        "clearSources": "清空来源",
+        "closeWorkflow": "关闭",
+        "confirmDelete": "确认删除",
+        "createRelease": "创建发布包",
+        "delete": "删除",
+        "deleteSelected": "删除所选",
+        "download": "下载",
+        "importVersion": "导入版本",
+        "selectAllSources": "选择全部来源",
+        "submitImport": "导入发布包",
+        "view": "查看"
+      },
+      "metrics": {
+        "latest": "最新版本",
+        "page": "页码",
+        "storage": "存储状态",
+        "total": "记录总数"
+      },
+      "filters": {
+        "description": "这里仅提供后端列表端点支持的筛选条件。",
+        "endCreatedAt": "结束日期",
+        "pageSize": "每页数量",
+        "startCreatedAt": "开始日期",
+        "title": "筛选",
+        "versionCode": "版本编码",
+        "versionName": "版本名称"
+      },
+      "list": {
+        "description": "当前筛选条件匹配 {{count}} 条记录。",
+        "title": "版本列表"
+      },
+      "pagination": {
+        "label": "版本分页",
+        "next": "下一页",
+        "pageStatus": "{{page}} / {{totalPages}}",
+        "previous": "上一页"
+      },
+      "columns": {
+        "createdAt": "创建时间",
+        "createdBy": "创建人",
+        "description": "描述",
+        "dictionaries": "字典",
+        "menus": "菜单",
+        "source": "来源",
+        "version": "版本",
+        "actions": "操作"
+      },
+      "source": {
+        "export": "导出",
+        "import": "导入"
+      },
+      "states": {
+        "emptyTitle": "后端没有返回版本页",
+        "emptyDescription": "后端响应为空。",
+        "errorTitle": "版本记录不可用",
+        "loadingTitle": "正在加载版本记录",
+        "loadingDescription": "正在读取受保护的版本记录。",
+        "permissionTitle": "需要权限",
+        "permissionDescription": "当前账号需要 version:read 权限才能查看版本记录。",
+        "storageUnavailableTitle": "版本存储不可用",
+        "storageUnavailableDescription": "后端报告 system_versions 尚未持久化。使用版本发布包工作流前，请先运行所需迁移。",
+        "detailErrorTitle": "版本详情不可用",
+        "detailLoadingDescription": "正在从后端读取所选版本发布包。",
+        "detailLoadingTitle": "正在加载版本详情",
+        "dictionarySourceUnavailableDescription": "后端报告字典存储不可用，因此不能为导出选择字典来源。",
+        "dictionarySourceUnavailableTitle": "字典来源不可用",
+        "sourceErrorTitle": "版本来源不可用",
+        "sourceLoadingDescription": "正在读取后端菜单、API 和字典来源以创建发布包。",
+        "sourceLoadingTitle": "正在加载版本来源"
+      },
+      "a11y": {
+        "selectAll": "选择当前页全部版本",
+        "selectVersion": "选择 {{name}}"
+      },
+      "delete": {
+        "bulkDescription": "将删除 {{count}} 条已选择的版本记录，并通过后端契约移除对应发布包记录。",
+        "bulkTitle": "删除所选版本？",
+        "singleDescription": "将删除 {{name}}，并通过后端契约移除对应发布包记录。",
+        "singleTitle": "删除这个版本？"
+      },
+      "detail": {
+        "description": "读取后端返回的该版本发布包快照。",
+        "title": "版本详情"
+      },
+      "export": {
+        "defaultName": "{{date}} 发布包",
+        "description": "从已选择的菜单、API 路由和已持久化字典创建后端管理的版本发布包。",
+        "descriptionField": "发布说明",
+        "filterApis": "筛选 API 路由",
+        "filterDictionaries": "筛选字典",
+        "filterMenus": "筛选菜单",
+        "selectedSummary": "已选择 {{menus}} 个菜单、{{apis}} 个 API 路由、{{dictionaries}} 个字典",
+        "title": "创建版本发布包",
+        "versionCode": "版本编码",
+        "versionName": "版本名称"
+      },
+      "import": {
+        "description": "粘贴或选择由后端版本导出契约生成的 JSON 发布包。",
+        "file": "JSON 发布包文件",
+        "invalidDescription": "发布包必须是有效 JSON，并包含 version.name 和 version.code。",
+        "invalidTitle": "发布包 JSON 无效",
+        "json": "发布包 JSON",
+        "title": "导入版本发布包"
+      },
+      "messages": {
+        "deleteFailedTitle": "版本删除失败",
+        "deletedDescription": "{{name}} 已删除。",
+        "deletedSelectedDescription": "已删除 {{count}} 条所选版本记录。",
+        "deletedTitle": "版本已删除",
+        "downloadFailedTitle": "版本下载失败",
+        "downloadedDescription": "{{name}} 已下载为 JSON。",
+        "downloadedTitle": "版本已下载",
+        "exportFailedTitle": "版本导出失败",
+        "exportedDescription": "{{name}} 已根据后端版本来源创建。",
+        "exportedTitle": "发布包已创建",
+        "importFailedTitle": "版本导入失败",
+        "importedDescription": "{{name}} 已导入 {{dictionaries}} 个字典和 {{items}} 个字典项。",
+        "importedTitle": "版本已导入"
+      },
+      "summary": {
+        "apis": "{{count}} 个 API 路由",
+        "dictionaries": "{{count}} 个字典",
+        "menus": "{{count}} 个菜单"
+      }
+    },
+    "trafficHijack": {
+      "badge": "安全探针",
+      "title": "流量劫持监控",
+      "description": "通过后端主动 HTTP(S) 探针检测 DNS、TLS、跳转、状态码、内容指纹和耗时异常。",
+      "actions": {
+        "cancel": "取消",
+        "create": "创建目标",
+        "delete": "删除",
+        "edit": "编辑",
+        "probe": "探测",
+        "refresh": "刷新",
+        "resolve": "标记恢复",
+        "save": "保存目标"
+      },
+      "channels": {
+        "debug": "调试日志",
+        "email": "邮件",
+        "event": "站内事件"
+      },
+      "events": {
+        "columns": {
+          "actions": "操作",
+          "lastSeen": "最近发现",
+          "occurrences": "次数",
+          "reason": "原因",
+          "severity": "风险",
+          "target": "目标"
+        },
+        "description": "按目标、原因和证据聚合的站内事件，恢复后可手动关闭。",
+        "empty": "当前筛选条件下没有事件。",
+        "title": "站内事件"
+      },
+      "filters": {
+        "allTargets": "全部目标",
+        "eventState": "事件状态",
+        "target": "目标筛选"
+      },
+      "form": {
+        "description": "保存后目标会按间隔由后端调度探测；私网目标默认被阻止。",
+        "fields": {
+          "alertChannels": "告警通道",
+          "allowPrivateNetwork": "允许私网/保留地址探测",
+          "emailRecipients": "邮件收件人，逗号分隔",
+          "enabled": "启用目标",
+          "finalHost": "期望最终 Host",
+          "interval": "间隔秒数",
+          "ipCidrs": "期望 IP/CIDR，逗号分隔",
+          "keyword": "期望内容关键字",
+          "method": "方法",
+          "name": "名称",
+          "statusCodes": "期望状态码",
+          "timeout": "超时秒数",
+          "tlsFingerprint": "TLS 证书 SHA256 指纹",
+          "url": "目标 URL"
+        },
+        "title": "目标配置"
+      },
+      "results": {
+        "chartAria": "流量劫持探针延迟趋势",
+        "chartDescription": "展示最近探测的总耗时和状态码变化。",
+        "chartTitle": "延迟趋势",
+        "columns": {
+          "duration": "耗时",
+          "stage": "阶段",
+          "status": "状态",
+          "statusCode": "状态码",
+          "target": "目标",
+          "time": "时间"
+        },
+        "description": "最近探测结果保留短窗口，用于定位异常阶段和证据。",
+        "empty": "暂无探测结果。",
+        "emptyDescription": "保存目标并运行一次探测后，这里会出现真实采样数据。",
+        "emptyTitle": "还没有趋势数据",
+        "series": {
+          "latency": "总耗时",
+          "statusCode": "状态码"
+        },
+        "title": "最近结果"
+      },
+      "severity": {
+        "critical": "严重",
+        "high": "高",
+        "low": "低",
+        "medium": "中",
+        "ok": "正常"
+      },
+      "states": {
+        "all": "全部",
+        "loadFailed": "加载失败",
+        "open": "打开",
+        "resolved": "已恢复"
+      },
+      "status": {
+        "critical": "严重",
+        "healthy": "健康",
+        "pending": "等待",
+        "warning": "告警"
+      },
+      "stream": {
+        "connected": "实时连接",
+        "connecting": "连接中",
+        "fallback": "轮询刷新"
+      },
+      "summary": {
+        "abnormal": "异常目标",
+        "label": "流量劫持监控摘要",
+        "latest": "最近耗时",
+        "stream": "实时通道",
+        "targets": "启用目标",
+        "targetsValue": "{{enabled}} / {{total}}"
+      },
+      "targets": {
+        "columns": {
+          "actions": "操作",
+          "interval": "间隔",
+          "lastChecked": "最近检查",
+          "method": "方法",
+          "status": "状态",
+          "target": "目标"
+        },
+        "description": "目标只支持 HTTP(S)，请求不带 body，跳转最多 5 次。",
+        "empty": "暂无探测目标。",
+        "title": "探测目标"
+      },
+      "units": {
+        "seconds": "{{count}} 秒"
+      }
+    },
+    "notFound": {
+      "title": "平台后台页面不存在",
+      "description": "该平台后台路由不存在，或当前后端尚未提供对应契约。"
+    },
+    "mediaResumable": {
+      "badge": "媒体上传",
+      "title": "断点续传上传",
+      "description": "通过 Go 后端已暴露的媒体断点续传接口检查会话、上传分片、完成合并或终止会话。",
+      "summaryLabel": "断点续传状态摘要",
+      "actions": {
+        "mediaLibrary": "返回媒体库",
+        "refreshStatus": "刷新状态",
+        "chooseFile": "选择文件",
+        "upload": "开始上传",
+        "abort": "终止会话",
+        "reset": "重置",
+        "viewMediaLibrary": "查看媒体库"
+      },
+      "a11y": {
+        "fileInput": "选择要断点续传上传的文件"
+      },
+      "metrics": {
+        "status": "页面状态",
+        "uploadLimit": "上传上限",
+        "storage": "存储状态",
+        "chunkSize": "分片大小"
+      },
+      "upload": {
+        "title": "上传会话",
+        "description": "先选择分类，再选择文件。文件哈希只在浏览器内计算并提交给后端检查会话，不写入本地持久存储。",
+        "emptyFileTitle": "尚未选择文件",
+        "emptyFileDescription": "选择文件后会计算 SHA-256，并向后端检查是否已有可恢复会话。",
+        "fileDescription": "{{size}}，预计 {{chunks}} 个分片。"
+      },
+      "fields": {
+        "category": "媒体分类",
+        "categoryHelp": "分类会在检查会话时提交。已选择文件后如需更改分类，请先重置。",
+        "categoryRoot": "不指定分类",
+        "unknownCategory": "未命名分类"
+      },
+      "progress": {
+        "label": "上传进度"
+      },
+      "meta": {
+        "session": "会话 ID",
+        "sessionStatus": "会话状态",
+        "uploadedChunks": "已上传分片",
+        "missingChunks": "待上传分片",
+        "expiresAt": "过期时间",
+        "fileHash": "文件 SHA-256"
+      },
+      "result": {
+        "title": "上传结果",
+        "description": "{{name}} 已由后端合并为媒体资源。",
+        "asset": "资源名称",
+        "mimeType": "MIME 类型",
+        "size": "资源大小"
+      },
+      "messages": {
+        "emptyFileTitle": "无法读取文件",
+        "emptyFileDescription": "请选择大小大于 0 的文件。",
+        "fileTooLargeTitle": "文件超出上传上限",
+        "fileTooLargeDescription": "当前文件大小为 {{size}}，后端返回的上传上限为 {{limit}}。",
+        "hashUnsupportedTitle": "当前浏览器不支持文件哈希",
+        "hashUnsupportedDescription": "断点续传需要 Web Crypto SHA-256 支持，请使用支持 Web Crypto 的浏览器。",
+        "readyTitle": "会话已就绪",
+        "readyDescription": "后端返回 {{count}} 个待上传分片，可以开始上传。",
+        "resumeTitle": "发现可恢复会话",
+        "resumeDescription": "后端已记录 {{count}} 个已上传分片，将从缺失分片继续。",
+        "duplicateTitle": "文件已上传",
+        "duplicateDescription": "后端返回已完成资源，无需再次上传。",
+        "checkFailedTitle": "检查上传会话失败",
+        "uploadFailedTitle": "分片上传失败",
+        "abortFailedTitle": "终止上传会话失败",
+        "uploadCompletedTitle": "上传完成",
+        "uploadCompletedDescription": "{{name}} 已完成断点续传并写入媒体资源。",
+        "abortCompletedTitle": "会话已终止",
+        "abortCompletedDescription": "会话 {{sessionId}} 已终止，临时分片由后端清理。",
+        "storageUnavailableTitle": "上传存储不可用",
+        "storageUnavailableDescription": "后端报告对象存储不可用，当前无法创建上传会话或写入分片。",
+        "statusLoadFailedTitle": "媒体上传状态不可用"
+      },
+      "status": {
+        "idle": "等待文件",
+        "hashing": "计算哈希",
+        "checking": "检查会话",
+        "ready": "可上传",
+        "uploading": "上传中",
+        "completed": "已完成",
+        "aborted": "已终止",
+        "error": "需要处理"
+      },
+      "sessionStatus": {
+        "active": "进行中",
+        "completed": "已完成",
+        "aborted": "已终止",
+        "expired": "已过期"
+      },
+      "storageStatus": {
+        "persisted": "已持久化",
+        "unavailable": "不可用",
+        "memory": "内存态"
+      },
+      "values": {
+        "uploadLimit": "{{value}} MB"
+      }
+    }
+  },
+  "forms": {
+    "auth": {
+      "identifier": {
+        "label": "邮箱或用户名",
+        "placeholder": "name@example.com",
+        "help": "使用后端支持的登录标识。"
+      },
+      "email": {
+        "label": "邮箱",
+        "placeholder": "name@example.com",
+        "help": "用于接收账号通知。"
+      },
+      "username": {
+        "label": "用户名",
+        "placeholder": "aoi-user",
+        "help": "用于后台显示和登录。"
+      },
+      "displayName": {
+        "label": "显示名称",
+        "placeholder": "Aoi 用户",
+        "help": "可选。"
+      },
+      "orgCode": {
+        "label": "组织编码",
+        "placeholder": "default",
+        "help": "仅使用后端已支持的组织注册字段。"
+      },
+      "orgName": {
+        "label": "组织名称",
+        "placeholder": "Aoi Workspace",
+        "help": "注册时创建的组织名称。"
+      },
+      "password": {
+        "label": "密码",
+        "placeholder": "至少 8 位",
+        "help": "请使用足够强度的密码。"
+      },
+      "captchaCode": {
+        "label": "验证码",
+        "placeholder": "输入验证码",
+        "help": "使用后端显示的挑战验证码。"
+      },
+      "mfaCode": {
+        "label": "MFA 验证码",
+        "placeholder": "123456",
+        "help": "使用认证器应用中的一次性验证码。"
+      },
+      "newPassword": {
+        "label": "新密码",
+        "placeholder": "至少 8 位",
+        "help": "后端会校验并安全保存新密码。"
+      },
+      "resetToken": {
+        "label": "重置令牌",
+        "placeholder": "粘贴一次性令牌",
+        "help": "使用重置通知或调试投递返回的令牌。"
+      }
+    }
+  },
+  "errors": {
+    "api": {
+      "requestFailed": "请求失败，请稍后重试。",
+      "unauthorized": "登录状态已过期，请重新登录。"
+    },
+    "route": {
+      "title": "页面不可用",
+      "description": "当前路径无法完成渲染，请返回首页重试。",
+      "unexpectedTitle": "出现异常",
+      "unexpectedDescription": "前端渲染时遇到未知错误。"
+    },
+    "validation": {
+      "email": "请输入有效的邮箱地址。",
+      "identifier": "请输入邮箱或用户名。",
+      "captchaCode": "请输入验证码。",
+      "mfaCode": "请输入 MFA 验证码。",
+      "orgCode": "请输入组织编码。",
+      "orgName": "请输入组织名称。",
+      "password": "密码至少需要 8 位。",
+      "resetToken": "请输入重置令牌。",
+      "username": "请输入用户名。"
+    }
+  },
+  "empty": {
+    "notFound": {
+      "title": "页面不存在",
+      "description": "请检查地址，或返回首页继续浏览。"
+    }
+  },
+  "loading": {
+    "app": "正在加载 Aoi 前端...",
+    "submit": "处理中..."
+  },
+  "seo": {
+    "home": {
+      "title": "Aoi Admin：全栈产品平台底座",
+      "description": "Aoi Admin 复用账号、权限、组织、配置、审计、插件、媒体和版本能力，支撑主平台与多条独立产品线。",
+      "ogTitle": "Aoi Admin 共享产品底座",
+      "ogDescription": "一个统一 Go 后端与 React 前端，承载公开官网、首次安装、平台后台和未来多产品线入口。"
+    },
+    "about": {
+      "title": "Aoi Admin 平台架构与产品定位",
+      "description": "了解 Aoi Admin 如何以共享主平台承载账号、权限、组织、配置、审计和未来多产品线扩展。",
+      "ogTitle": "Aoi Admin 主平台与多产品线架构",
+      "ogDescription": "主平台沉淀公共能力，独立产品线扩展自己的公开前台、业务后台和领域模块。"
+    },
+    "blog": {
+      "title": "Aoi Admin 产品平台笔记",
+      "description": "阅读 Aoi Admin 的平台定位、产品线架构、Markdown 内容系统、i18n 决策和工程日志。",
+      "ogTitle": "Aoi 工程博客",
+      "ogDescription": "记录 Aoi Admin 共享产品底座、React 一体化前端、初始化向导和平台后台的工程决策。"
+    },
+    "login": {
+      "title": "登录 Aoi",
+      "description": "通过后端支持的认证接口登录 Aoi Admin 平台后台。",
+      "ogTitle": "登录 Aoi",
+      "ogDescription": "通过共享 React 认证入口访问 Aoi Admin 平台后台。"
+    },
+    "signup": {
+      "title": "注册 Aoi",
+      "description": "使用后端支持的注册契约创建 Aoi Admin 平台账号。",
+      "ogTitle": "注册 Aoi",
+      "ogDescription": "通过共享认证流程为 Aoi Admin 平台后台创建账号。"
+    },
+    "signupVerify": {
+      "title": "验证 Aoi 邮箱",
+      "description": "确认 Aoi Admin 邮箱验证令牌并激活待验证账号。",
+      "ogTitle": "验证 Aoi 邮箱",
+      "ogDescription": "完成共享 React 认证流程的邮箱验证步骤。"
+    },
+    "passwordForgot": {
+      "title": "找回 Aoi 密码",
+      "description": "为 Aoi 账号请求后端支持的一次性密码重置令牌。",
+      "ogTitle": "找回 Aoi 密码",
+      "ogDescription": "通过共享 React 认证入口开始密码找回。"
+    },
+    "passwordReset": {
+      "title": "重置 Aoi 密码",
+      "description": "使用后端签发的一次性令牌重置 Aoi 账号密码。",
+      "ogTitle": "重置 Aoi 密码",
+      "ogDescription": "使用一次性令牌重置 Aoi 账号密码。"
+    },
+    "invitation": {
+      "title": "接受 Aoi 邀请",
+      "description": "接受组织邀请，并为 Aoi Admin 平台后台准备账号。",
+      "ogTitle": "接受 Aoi 邀请",
+      "ogDescription": "通过共享 React 认证流程加入受邀组织。"
+    },
+    "terms": {
+      "title": "Aoi 服务条款",
+      "description": "查看 Aoi Admin 平台正式上线前的服务条款结构草稿。",
+      "ogTitle": "Aoi 服务条款",
+      "ogDescription": "Aoi Admin 公开官网、初始化流程和平台后台的服务条款结构草稿。"
+    },
+    "privacy": {
+      "title": "Aoi 隐私政策",
+      "description": "查看 Aoi 认证、初始化、语言偏好和后端 API 交互相关的隐私政策结构草稿。",
+      "ogTitle": "Aoi 隐私政策",
+      "ogDescription": "Aoi Admin React 前端与 Go 后端集成相关的隐私政策结构草稿。"
+    }
+  },
+  "a11y": {
+    "primaryNavigation": "主导航",
+    "footerNavigation": "页脚导航",
+    "adminNavigation": "平台后台导航",
+    "languageSwitcher": "语言切换",
+    "dashboardPreview": "共享产品底座预览"
+  },
+  "markdown": {
+    "blog": {
+      "dateLabel": "发布日期",
+      "updatedLabel": "更新时间",
+      "tagsLabel": "标签",
+      "authorLabel": "作者"
+    }
+  }
+}

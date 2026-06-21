@@ -1,0 +1,338 @@
+brand.productName: "{{.ProductName}}"
+brand.versionName: "{{.VersionName}}"
+menus.groups.workspace.label: 工作台
+menus.groups.security.label: 安全审计
+menus.groups.system.label: 系统管理
+menus.items.dashboard.label: 仪表盘
+menus.items.organizations.label: 组织
+menus.items.users.label: 用户
+menus.items.roles.label: 角色权限
+menus.items.sessions.label: 会话
+menus.items.apiTokens.label: API Token
+menus.items.loginLogs.label: 登录日志
+menus.items.auditLogs.label: 审计日志
+menus.items.errorLogs.label: 错误日志
+menus.items.trafficHijack.label: 流量劫持监控
+menus.items.security.label: 安全
+menus.items.menus.label: 菜单管理
+menus.items.apis.label: API 管理
+menus.items.dictionaries.label: 字典管理
+menus.items.operationRecords.label: 操作历史
+menus.items.parameters.label: 参数管理
+menus.items.versions.label: 版本管理
+menus.items.mediaResumable.label: 断点上传
+menus.items.media.label: 媒体库
+menus.items.system.label: 系统配置
+
+config.sections.brand.label: 品牌
+config.sections.brand.description: 产品名称、产品编码和公开版本显示。
+config.sections.server.label: 系统服务
+config.sections.server.description: HTTP 服务监听、运行模式和连接超时。
+config.sections.database.label: 数据库
+config.sections.database.description: 主数据库驱动、连接参数和连接池。
+config.sections.cache.label: 缓存
+config.sections.cache.description: 缓存驱动、本地缓存容量和 Redis 连接参数。
+config.sections.auth.label: 认证安全
+config.sections.auth.description: IAM、令牌、MFA、登录锁定和通知策略。
+config.sections.logger.label: 日志
+config.sections.logger.description: 日志级别、格式和文件轮转。
+config.sections.webui.label: WebUI
+config.sections.webui.description: 内置 WebUI 静态资源挂载和公开访问地址。
+config.sections.storage.label: 文件存储
+config.sections.storage.description: 存储驱动、本地路径和对象存储配置。
+config.sections.runtime.label: 运行策略
+config.sections.runtime.description: CORS、国际化、迁移、执行器和 RPC 的运行策略。
+config.sections.plugins.label: 插件
+config.sections.plugins.description: 远程插件宿主、主动注册和心跳策略。
+
+config.groups.brand.general.label: 品牌设置
+config.groups.brand.general.description: 官网、后台和通知中展示的公开产品身份。
+config.groups.server.general.label: 服务参数
+config.groups.server.general.description: 当前进程的 HTTP 服务监听和超时设置。
+config.groups.database.driver.label: 数据库方案
+config.groups.database.driver.description: 选择当前运行时使用的数据库驱动。
+config.groups.database.sqlite.label: SQLite
+config.groups.database.sqlite.description: 适合本地和轻量部署的文件数据库。
+config.groups.database.mysql.label: MySQL
+config.groups.database.mysql.description: 生产或团队部署常用的 MySQL 连接参数。
+config.groups.database.postgres.label: PostgreSQL
+config.groups.database.postgres.description: 生产或团队部署常用的 PostgreSQL 连接参数。
+config.groups.database.pool.label: 连接池
+config.groups.database.pool.description: 调整数据库连接池容量。
+config.groups.cache.driver.label: 缓存方案
+config.groups.cache.driver.description: 选择本地缓存、Redis 或 Hybrid 缓存策略。
+config.groups.cache.local.label: 本地缓存
+config.groups.cache.local.description: 进程内缓存容量和默认 TTL。
+config.groups.cache.redis.label: Redis
+config.groups.cache.redis.description: Redis 连接、连接池和重试参数。
+config.groups.auth.iam.label: IAM 基础
+config.groups.auth.iam.description: 账号体系、签发方、受众和签名密钥。
+config.groups.auth.registration.label: 注册策略
+config.groups.auth.registration.description: 公开注册模式、邮箱验证和邀请有效期。
+config.groups.auth.tokens.label: 令牌
+config.groups.auth.tokens.description: Access/Refresh Token 生命周期和刷新密钥。
+config.groups.auth.cookie.label: Cookie 会话
+config.groups.auth.cookie.description: 浏览器会话 Cookie 的名称、域名、安全属性和 SameSite 策略。
+config.groups.auth.csrf.label: CSRF 防护
+config.groups.auth.csrf.description: Cookie 会话写操作的双提交 Token 配置。
+config.groups.auth.session.label: 平台会话
+config.groups.auth.session.description: 产品维度、客户端类型和单会话并发策略。
+config.groups.auth.cache.label: IAM 缓存
+config.groups.auth.cache.description: 账号、组织、角色和权限列表缓存开关与 TTL。
+config.groups.auth.mfa.label: MFA
+config.groups.auth.mfa.description: 一次性验证码签发方和密钥。
+config.groups.auth.login.label: 登录保护
+config.groups.auth.login.description: 登录失败锁定、验证码和验证码有效期。
+config.groups.auth.notification.label: 通知方案
+config.groups.auth.notification.description: 选择调试通知或真实 SMTP 邮件通知。
+config.groups.auth.smtp_connection.label: SMTP 连接
+config.groups.auth.smtp_connection.description: SMTP 主机和端口。
+config.groups.auth.smtp_security.label: SMTP 安全与认证
+config.groups.auth.smtp_security.description: SMTP 加密方式、账号和密码。
+config.groups.auth.smtp_sender.label: 发件人
+config.groups.auth.smtp_sender.description: 邮件中展示的发件地址和名称。
+config.groups.auth.password_policy.label: 密码与权限策略
+config.groups.auth.password_policy.description: 密码长度、重置有效期和权限策略刷新。
+config.groups.logger.general.label: 日志输出
+config.groups.logger.general.description: 日志级别、格式、输出位置和文件轮转。
+config.groups.webui.general.label: WebUI 挂载
+config.groups.webui.general.description: WebUI 启用状态、挂载路径和静态资源目录。
+config.groups.storage.driver.label: 存储方案
+config.groups.storage.driver.description: 选择本地、S3、MinIO 或本地加远端组合方案。
+config.groups.storage.local.label: 本地存储
+config.groups.storage.local.description: 本地文件系统、上传路径、公开 URL 和监听策略。
+config.groups.storage.s3.label: S3 兼容存储
+config.groups.storage.s3.description: Cloudflare R2、AWS S3 或其它 S3 兼容服务参数。
+config.groups.storage.minio.label: MinIO
+config.groups.storage.minio.description: MinIO 连接、桶和访问密钥。
+config.groups.runtime.cors.label: CORS
+config.groups.runtime.cors.description: 跨域来源、方法、请求头和凭证策略。
+config.groups.runtime.i18n.label: 国际化
+config.groups.runtime.i18n.description: 默认语言、回退语言和资源目录。
+config.groups.runtime.migration.label: 数据库迁移
+config.groups.runtime.migration.description: 启动迁移策略和迁移目录。
+config.groups.runtime.executor.label: 执行器
+config.groups.runtime.executor.description: 后台执行池和工作池参数。
+config.groups.runtime.rpc.label: RPC
+config.groups.runtime.rpc.description: RPC 服务入口、监听地址和超时。
+config.groups.plugins.general.label: 插件运行
+config.groups.plugins.general.description: 插件接口、节点、注册、心跳、路由和传输策略。
+
+config.items.brand.productName.label: 产品名称
+config.items.brand.productName.description: 官网和后台展示的公开产品名称。
+config.items.brand.productCode.label: 产品编码
+config.items.brand.productCode.description: 用于生成标签和集成标识的稳定产品编码。
+config.items.brand.versionName.label: 版本名称
+config.items.brand.versionName.description: 对外展示的发布通道或版本名称。
+config.items.server.host.label: 监听地址
+config.items.server.port.label: 监听端口
+config.items.server.mode.label: 运行模式
+config.items.server.read_timeout.label: 读取超时秒数
+config.items.server.write_timeout.label: 写入超时秒数
+config.items.server.idle_timeout.label: 空闲超时秒数
+config.items.database.driver.label: 驱动
+config.items.database.sqlite.path.label: SQLite 文件
+config.items.database.mysql.host.label: MySQL 主机
+config.items.database.mysql.port.label: MySQL 端口
+config.items.database.mysql.username.label: MySQL 用户
+config.items.database.mysql.password.label: MySQL 密码
+config.items.database.mysql.database.label: MySQL 数据库
+config.items.database.mysql.charset.label: MySQL 字符集
+config.items.database.postgres.host.label: PostgreSQL 主机
+config.items.database.postgres.port.label: PostgreSQL 端口
+config.items.database.postgres.username.label: PostgreSQL 用户
+config.items.database.postgres.password.label: PostgreSQL 密码
+config.items.database.postgres.database.label: PostgreSQL 数据库
+config.items.database.postgres.sslMode.label: PostgreSQL SSL
+config.items.database.pool.maxOpenConns.label: 最大打开连接
+config.items.database.pool.maxIdleConns.label: 最大空闲连接
+config.items.cache.driver.label: 驱动
+config.items.cache.local.maxCost.label: 本地最大成本
+config.items.cache.local.numCounters.label: 本地计数器
+config.items.cache.local.bufferItems.label: 本地写入缓冲
+config.items.cache.local.defaultTtlSeconds.label: 本地默认 TTL 秒数
+config.items.cache.redis.addr.label: Redis 地址
+config.items.cache.redis.username.label: Redis 用户
+config.items.cache.redis.password.label: Redis 密码
+config.items.cache.redis.db.label: Redis 数据库
+config.items.cache.redis.poolSize.label: Redis 连接池
+config.items.cache.redis.minIdleConns.label: Redis 最小空闲连接
+config.items.cache.redis.maxRetries.label: Redis 最大重试
+config.items.cache.redis.dialTimeout.label: Redis 连接超时秒数
+config.items.cache.redis.readTimeout.label: Redis 读取超时秒数
+config.items.cache.redis.writeTimeout.label: Redis 写入超时秒数
+config.items.auth.enabled.label: 启用 IAM
+config.items.auth.registration_mode.label: 注册模式
+config.items.auth.issuer.label: 签发方
+config.items.auth.audience.label: 受众
+config.items.auth.signing_key.label: 签名密钥
+config.items.auth.access_token_ttl_seconds.label: Access Token TTL 秒数
+config.items.auth.refresh_token_ttl_seconds.label: Refresh Token TTL 秒数
+config.items.auth.refresh_token_pepper.label: Refresh Pepper
+config.items.auth.cookie.name_prefix.label: Cookie 名称前缀
+config.items.auth.cookie.domain.label: Cookie 域名
+config.items.auth.cookie.path.label: Cookie 路径
+config.items.auth.cookie.same_site.label: Cookie SameSite
+config.items.auth.cookie.secure.label: Cookie Secure
+config.items.auth.csrf.enabled.label: 启用 CSRF 防护
+config.items.auth.csrf.cookie_name.label: CSRF Cookie 名称
+config.items.auth.csrf.header_name.label: CSRF Header 名称
+config.items.auth.session.single_per_product_platform.label: 单产品平台单会话
+config.items.auth.session.product_header.label: 产品维度 Header
+config.items.auth.session.client_type_header.label: 客户端类型 Header
+config.items.auth.session.default_client_type.label: 默认客户端类型
+config.items.auth.session.mobile_user_agent_hints.label: 移动端 UA 关键字
+config.items.auth.cache.enabled.label: 启用 IAM 缓存
+config.items.auth.cache.user_ttl_seconds.label: 用户缓存 TTL 秒数
+config.items.auth.cache.org_ttl_seconds.label: 组织缓存 TTL 秒数
+config.items.auth.cache.role_ttl_seconds.label: 角色缓存 TTL 秒数
+config.items.auth.cache.permission_ttl_seconds.label: 权限缓存 TTL 秒数
+config.items.auth.mfa_issuer.label: MFA 签发方
+config.items.auth.mfa_secret_key.label: MFA 密钥
+config.items.auth.login_max_failures.label: 登录失败锁定次数
+config.items.auth.login_lock_minutes.label: 锁定时长分钟
+config.items.auth.login_captcha_enabled.label: 登录验证码
+config.items.auth.captcha_ttl_seconds.label: 验证码 TTL 秒数
+config.items.auth.invitation_ttl_seconds.label: 邀请 TTL 秒数
+config.items.auth.email_verification_ttl_seconds.label: 邮箱验证 TTL 秒数
+config.items.auth.password_reset_ttl_seconds.label: 重置 TTL 秒数
+config.items.auth.notification_driver.label: 通知驱动
+config.items.auth.casbin_reload_interval_seconds.label: 权限策略刷新秒数
+config.items.auth.password_policy.min_length.label: 密码最小长度
+config.items.auth.smtp.host.label: SMTP 主机
+config.items.auth.smtp.port.label: SMTP 端口
+config.items.auth.smtp.username.label: SMTP 用户
+config.items.auth.smtp.password.label: SMTP 密码
+config.items.auth.smtp.from.label: SMTP 发件人
+config.items.auth.smtp.from_name.label: SMTP 发件人名称
+config.items.auth.smtp.security.label: SMTP 加密方式
+config.items.logger.level.label: 级别
+config.items.logger.format.label: 默认格式
+config.items.logger.console_format.label: 控制台格式
+config.items.logger.file_format.label: 文件格式
+config.items.logger.output.label: 输出
+config.items.logger.file_path.label: 文件路径
+config.items.logger.max_size.label: 单文件大小 MB
+config.items.logger.max_backups.label: 备份数量
+config.items.logger.max_age.label: 保留天数
+config.items.webui.enabled.label: 启用
+config.items.webui.mount_path.label: 挂载路径
+config.items.webui.dist_dir.label: 静态目录
+config.items.webui.public_base_url.label: 公开地址
+config.items.storage.driver.label: 驱动
+config.items.storage.local.fsType.label: 本地文件系统
+config.items.storage.local.basePath.label: 本地路径
+config.items.storage.local.publicUrl.label: 本地公开 URL
+config.items.storage.local.enableWatch.label: 监听变更
+config.items.storage.local.watchBufferSize.label: 监听缓冲区
+config.items.storage.s3.endpoint.label: S3 Endpoint
+config.items.storage.s3.region.label: S3 Region
+config.items.storage.s3.bucket.label: S3 Bucket
+config.items.storage.s3.accessKeyId.label: S3 Access Key
+config.items.storage.s3.secretAccessKey.label: S3 Secret
+config.items.storage.s3.usePathStyle.label: S3 Path-style
+config.items.storage.s3.publicBaseUrl.label: S3 公开 URL
+config.items.storage.minio.endpoint.label: MinIO Endpoint
+config.items.storage.minio.region.label: MinIO Region
+config.items.storage.minio.bucket.label: MinIO Bucket
+config.items.storage.minio.accessKeyId.label: MinIO Access Key
+config.items.storage.minio.secretAccessKey.label: MinIO Secret
+config.items.storage.minio.usePathStyle.label: MinIO Path-style
+config.items.storage.minio.publicBaseUrl.label: MinIO 公开 URL
+config.items.plugins.enabled.label: 启用
+config.items.plugins.base_path.label: Plugin API Path
+config.items.plugins.default_protocol_version.label: Protocol Version
+config.items.plugins.allowed_transports.label: Allowed Transports
+config.items.plugins.node_id.label: Node ID
+config.items.plugins.node_address.label: Node Address
+config.items.plugins.registry_backend.label: Registry Backend
+config.items.plugins.request_timeout_seconds.label: Request Timeout 秒数
+config.items.plugins.heartbeat_timeout_seconds.label: 心跳超时秒数
+config.items.plugins.lease_ttl_seconds.label: Lease TTL 秒数
+config.items.plugins.lease_scan_interval_seconds.label: Lease Scan 秒数
+config.items.plugins.retry_count.label: Retry Count
+config.items.plugins.router_strategy.label: Router Strategy
+config.items.plugins.allowed_permissions.label: Allowed Permissions
+config.items.plugins.registration_auth_mode.label: Registration Auth
+config.items.plugins.shared_secret_env.label: Shared Secret Env
+config.items.plugins.http_enabled.label: HTTP Enabled
+config.items.plugins.ws_enabled.label: WebSocket Enabled
+config.items.plugins.rpc_enabled.label: RPC Enabled
+config.items.plugins.injection_enabled.label: Injection Enabled
+config.items.cors.enabled.label: 启用 CORS
+config.items.cors.allow_origins.label: 允许来源
+config.items.cors.allow_methods.label: 允许方法
+config.items.cors.allow_headers.label: 允许请求头
+config.items.cors.expose_headers.label: 暴露响应头
+config.items.cors.allow_credentials.label: 允许凭证
+config.items.cors.max_age.label: 预检缓存秒数
+config.items.i18n.defaultLocale.label: 默认语言
+config.items.i18n.fallbackLocale.label: 回退语言
+config.items.i18n.supportedLocales.label: 支持语言
+config.items.i18n.resources.ui.label: UI 语言目录
+config.items.i18n.resources.api.label: API 语言目录
+config.items.i18n.resources.validation.label: 校验语言目录
+config.items.i18n.resources.system.label: 系统语言目录
+config.items.migration.auto_apply.label: 自动迁移
+config.items.migration.dir.label: 迁移目录
+config.items.executor.enabled.label: 执行器
+config.items.rpc.enabled.label: RPC 入口
+config.items.rpc.host.label: RPC 主机
+config.items.rpc.port.label: RPC 端口
+config.items.rpc.read_timeout.label: RPC 读取超时秒数
+config.items.rpc.write_timeout.label: RPC 写入超时秒数
+
+config.options.database.driver.sqlite.label: SQLite
+config.options.database.driver.mysql.label: MySQL
+config.options.database.driver.postgres.label: PostgreSQL
+config.options.cache.driver.local.label: 本地缓存
+config.options.cache.driver.hybrid.label: 本地 + Redis
+config.options.cache.driver.redis.label: Redis
+config.options.cache.driver.disabled.label: 关闭缓存
+config.options.storage.driver.local.label: 本地存储
+config.options.storage.driver.s3.label: S3 兼容存储
+config.options.storage.driver.minio.label: MinIO
+config.options.storage.driver.local_s3.label: 本地 + S3
+config.options.storage.driver.local_minio.label: 本地 + MinIO
+config.options.storage.driver.disabled.label: 关闭存储
+config.options.storage.local.fsType.basepath.label: Base Path
+config.options.storage.local.fsType.os.label: OS 文件系统
+config.options.storage.local.fsType.memory.label: 内存文件系统
+config.options.storage.local.fsType.readonly.label: 只读文件系统
+config.options.auth.notification_driver.debug.label: 调试通知
+config.options.auth.notification_driver.smtp.label: SMTP 邮件
+config.options.auth.registration_mode.disabled.label: 关闭注册
+config.options.auth.registration_mode.direct.label: 直接注册
+config.options.auth.registration_mode.email_verification.label: 邮箱验证
+config.options.auth.registration_mode.invite_only.label: 仅邀请
+config.options.auth.cookie.same_site.lax.label: Lax
+config.options.auth.cookie.same_site.strict.label: Strict
+config.options.auth.cookie.same_site.none.label: None
+config.options.auth.session.default_client_type.pc_web.label: PC Web
+config.options.auth.session.default_client_type.mobile_web.label: Mobile Web
+config.options.auth.session.default_client_type.mobile_app.label: Mobile App
+config.options.auth.smtp.security.none.label: 不加密
+config.options.auth.smtp.security.starttls.label: STARTTLS
+config.options.auth.smtp.security.tls.label: TLS/SMTPS
+config.options.logger.level.debug.label: Debug
+config.options.logger.level.info.label: Info
+config.options.logger.level.warn.label: Warn
+config.options.logger.level.error.label: Error
+config.options.logger.format.json.label: JSON
+config.options.logger.format.console.label: Console
+config.options.logger.console_format.json.label: JSON
+config.options.logger.console_format.console.label: Console
+config.options.logger.file_format.json.label: JSON
+config.options.logger.file_format.console.label: Console
+config.options.logger.output.stdout.label: 标准输出
+config.options.logger.output.file.label: 文件
+config.options.logger.output.both.label: 标准输出 + 文件
+config.options.plugins.registration_auth_mode.none.label: 不鉴权
+config.options.plugins.registration_auth_mode.shared_secret.label: Shared Secret
+
+config.secret.configured: 已配置
+config.secret.unconfigured: 未配置
+menu.workspace.label: 工作台
+dictionary.system.status.name: 系统状态
+dictionary.system.status.enabled: 启用
+dictionary.system.status.disabled: 禁用

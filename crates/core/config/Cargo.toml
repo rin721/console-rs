@@ -1,0 +1,15 @@
+[package]
+name = "config"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+config-rs = { package = "config", version = "0.15" }
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0"
+
+[lints]
+workspace = true

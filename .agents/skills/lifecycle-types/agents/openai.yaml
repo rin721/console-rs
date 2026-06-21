@@ -1,0 +1,5 @@
+interface:
+  display_name: "Aoi Lifecycle Types"
+  short_description: "Keep shared app lifecycle types in lifecycle modules."
+  default_prompt: "Use this when moving shared Result, Error, context, config, or runtime types in console-rs."
+

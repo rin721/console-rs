@@ -1,0 +1,431 @@
+app.name: "{{.ProductName}}"
+app.versionName: "{{.VersionName}}"
+
+common.actions.back: 上一步
+common.actions.continue: 继续
+common.actions.retry: 重试
+common.actions.save: 保存
+common.actions.skip: 跳过
+common.actions.test: 测试
+
+setup.steps.welcome.title: 欢迎与初始化说明
+setup.steps.welcome.description: 当前系统尚未完成初始化，向导会依次完成语言、文件存储、数据库、缓存、管理员账号和官网信息配置。
+setup.steps.config.source.title: 配置来源
+setup.steps.config.source.description: 确认系统当前读取的配置文件和运行环境。
+setup.steps.config.diagnostics.title: 配置诊断
+setup.steps.config.diagnostics.description: 检查配置文件中阻塞启动或初始化的缺失项。
+setup.steps.dependencies.check.title: 依赖检查
+setup.steps.dependencies.check.description: 确认数据库和已启用的可选依赖具备运行条件。
+setup.steps.database.configure.title: 数据库配置与连接测试
+setup.steps.database.configure.description: 选择数据库驱动，并测试连接、权限和迁移可用性。
+setup.steps.cache.configure.title: 缓存方案
+setup.steps.cache.configure.description: 选择缓存后端并测试读写能力。
+setup.steps.storage.configure.title: 文件存储
+setup.steps.storage.configure.description: 选择本地或对象存储方案，并执行读写健康检查。
+setup.steps.system.configure.title: 系统基础配置
+setup.steps.system.configure.description: 确认默认语言、IAM issuer、密码策略和默认数据策略。
+setup.steps.database.migrate.title: 数据库迁移
+setup.steps.database.migrate.description: 在加载应用数据前执行数据库迁移。
+setup.steps.system.seed.title: 系统基础数据
+setup.steps.system.seed.description: 初始化内置字典、参数、菜单和必要系统默认数据。
+setup.steps.catalog.sync.title: API 与权限同步
+setup.steps.catalog.sync.description: 同步 API 目录、IAM 权限、菜单和访问策略。
+setup.steps.iam.owner.title: 管理员账号
+setup.steps.iam.owner.description: 创建首个平台 owner 账号，并加载默认 IAM 权限策略。
+setup.steps.site.configure.title: 官网信息
+setup.steps.site.configure.description: 确认产品名称、版本展示名和公开访问地址。
+setup.steps.optional.finalize.title: 可选能力收尾
+setup.steps.optional.finalize.description: 按需创建服务 API Token。
+setup.steps.verify.finish.title: 最终验证
+setup.steps.verify.finish.description: 验证必要配置、基础数据、权限和运行依赖已经就绪。
+
+setup.report.restartRequired: 需要重启当前进程后继续初始化。
+setup.report.failed: "{{.count}} 个初始化步骤失败。"
+setup.report.risk: "{{.count}} 个初始化项仍需要处理。"
+setup.report.passed: 初始化检查已通过。
+setup.stepStatus.succeeded: "{{.step}} 已完成。"
+setup.stepStatus.failed: "{{.step}} 执行失败。"
+setup.stepStatus.skipped: "{{.step}} 已跳过。"
+setup.stepStatus.running: "{{.step}} 正在执行。"
+setup.stepStatus.pending: "{{.step}} 等待处理。"
+setup.tests.succeeded: "{{.step}} 测试通过。"
+setup.tests.failed: "{{.step}} 测试失败。"
+setup.tests.skipped: "{{.step}} 没有可执行测试。"
+setup.testRepair.database_configure: 修正数据库驱动及对应分支配置后重试。
+setup.testRepair.cache_configure: 修正缓存驱动和连接参数后重试。
+setup.testRepair.storage_configure: 修正存储驱动、本地目录、Endpoint、Bucket 和密钥后重试。
+setup.testRepair.system_configure: 确认默认语言、IAM issuer、安全密钥和密码策略配置完整。
+setup.testRepair.site_configure: 确认产品名称、版本展示名和公开访问地址配置完整。
+
+setup.details.welcome.automaticActions.1: 读取初始化状态。
+setup.details.welcome.automaticActions.2: 展示初始化步骤。
+setup.details.welcome.completionMark: 用户已进入统一初始化入口。
+setup.details.welcome.recovery: 可继续使用 Web 向导，或在 CLI 中运行 aoi init。
+setup.details.database_configure.automaticActions.1: 测试数据库连接。
+setup.details.database_configure.automaticActions.2: 检查 SQLite 目录权限。
+setup.details.database_configure.automaticActions.3: 保存数据库配置变更时返回重启提示。
+setup.details.database_configure.completionMark: 数据库连接可用。
+setup.details.database_configure.recovery: 修正数据库配置后重新测试；如果已保存新的数据库配置，请重启进程后继续。
+setup.details.cache_configure.automaticActions.1: 保存配置草稿。
+setup.details.cache_configure.automaticActions.2: 执行即时可用性测试。
+setup.details.cache_configure.automaticActions.3: 记录跳过或降级原因。
+setup.details.cache_configure.completionMark: 当前可选能力已确认。
+setup.details.cache_configure.recovery: 修正配置后重新测试；未启用能力可以跳过，显式启用失败会阻塞继续。
+setup.details.storage_configure.automaticActions.1: 保存配置草稿。
+setup.details.storage_configure.automaticActions.2: 执行即时可用性测试。
+setup.details.storage_configure.automaticActions.3: 记录跳过或降级原因。
+setup.details.storage_configure.completionMark: 当前可选能力已确认。
+setup.details.storage_configure.recovery: 修正配置后重新测试；未启用能力可以跳过，显式启用失败会阻塞继续。
+setup.details.system_configure.automaticActions.1: 校验系统配置。
+setup.details.system_configure.automaticActions.2: 应用必要默认值。
+setup.details.system_configure.completionMark: 系统基础配置有效。
+setup.details.system_configure.recovery: 修正语言、IAM 和密码策略配置后重试。
+setup.details.config_source.automaticActions.1: 读取配置文件路径。
+setup.details.config_source.automaticActions.2: 生成配置指纹。
+setup.details.config_source.completionMark: 配置快照已加载。
+setup.details.config_source.recovery: 检查 --config 参数或 RIN_CONFIG_PATH 环境变量。
+setup.details.config_diagnostics.automaticActions.1: 执行配置诊断。
+setup.details.config_diagnostics.automaticActions.2: 返回阻塞项和环境变量候选名。
+setup.details.config_diagnostics.completionMark: 无阻塞配置诊断。
+setup.details.config_diagnostics.recovery: 运行 aoi init 或 aoi run，并根据提示修复配置。
+setup.details.dependencies_check.automaticActions.1: Ping 数据库。
+setup.details.dependencies_check.automaticActions.2: 检查 Redis、存储、WebUI 和插件启用状态。
+setup.details.dependencies_check.completionMark: 必要依赖可用。
+setup.details.dependencies_check.recovery: 修复数据库连接；可选依赖可关闭或修复配置后重试。
+setup.details.database_migrate.automaticActions.1: 运行所有未应用迁移。
+setup.details.database_migrate.automaticActions.2: 不自动创建远程数据库。
+setup.details.database_migrate.completionMark: 迁移已应用到最新版本。
+setup.details.database_migrate.recovery: 修复数据库权限或迁移 SQL 后从失败步骤重试。
+setup.details.system_seed.automaticActions.1: 执行系统默认数据种子。
+setup.details.system_seed.automaticActions.2: 保持幂等写入。
+setup.details.system_seed.completionMark: 默认数据已补齐。
+setup.details.system_seed.recovery: 检查 system_* 表结构和数据库写权限后重试。
+setup.details.catalog_sync.automaticActions.1: 同步 API catalog。
+setup.details.catalog_sync.automaticActions.2: 同步 permission catalog。
+setup.details.catalog_sync.completionMark: 路由和权限目录已同步。
+setup.details.catalog_sync.recovery: 确认 HTTP 路由已装配且 IAM 权限仓储可用。
+setup.details.iam_owner.userInputs.1: 组织 code。
+setup.details.iam_owner.userInputs.2: 组织名称。
+setup.details.iam_owner.userInputs.3: 管理员用户名。
+setup.details.iam_owner.userInputs.4: 邮箱。
+setup.details.iam_owner.userInputs.5: 显示名。
+setup.details.iam_owner.userInputs.6: 密码。
+setup.details.iam_owner.automaticActions.1: 创建组织、用户和成员关系。
+setup.details.iam_owner.automaticActions.2: 绑定 platform owner 角色。
+setup.details.iam_owner.automaticActions.3: Web setup 签发登录令牌。
+setup.details.iam_owner.completionMark: platform owner 管理员可登录并拥有平台权限。
+setup.details.iam_owner.recovery: 确认用户表为空，或使用 CLI 幂等 bootstrap 模式重试。
+setup.details.site_configure.automaticActions.1: 校验官网信息配置。
+setup.details.site_configure.automaticActions.2: 保存品牌和公开访问配置。
+setup.details.site_configure.completionMark: 官网信息配置有效。
+setup.details.site_configure.recovery: 修正产品名称、版本展示名或公开访问地址后重试。
+setup.details.optional_finalize.userInputs.1: 是否创建服务 API Token。
+setup.details.optional_finalize.userInputs.2: Token 有效期。
+setup.details.optional_finalize.userInputs.3: Token 备注。
+setup.details.optional_finalize.automaticActions.1: 按需创建 API Token。
+setup.details.optional_finalize.automaticActions.2: 跳过未启用的可选能力。
+setup.details.optional_finalize.completionMark: 可选输出已处理。
+setup.details.optional_finalize.recovery: 若 Token 创建失败，确认 IAM platform owner 已完成后重试。
+setup.details.verify_finish.automaticActions.1: Ping 数据库。
+setup.details.verify_finish.automaticActions.2: 重新加载 IAM policies。
+setup.details.verify_finish.automaticActions.3: 汇总初始化状态。
+setup.details.verify_finish.completionMark: 系统初始化流程完成。
+setup.details.verify_finish.recovery: 查看失败步骤日志，修复后从失败步骤重试。
+
+setup.groups.driver.title: 方案
+setup.groups.driver.description: 选择当前能力使用的实现方案。
+setup.groups.sqlite.title: SQLite
+setup.groups.sqlite.description: 本地文件数据库。系统会检查目录是否可以创建和写入。
+setup.groups.mysql.title: MySQL
+setup.groups.mysql.description: 远程 MySQL 数据库。应用不会自动创建远程数据库。
+setup.groups.postgres.title: PostgreSQL
+setup.groups.postgres.description: 远程 PostgreSQL 数据库。应用不会自动创建远程数据库。
+setup.groups.pool.title: 连接池
+setup.groups.pool.description: 小规模部署保持默认即可；高并发或远程数据库可按部署规模调整。
+setup.groups.local.title: 本地
+setup.groups.local.description: 用于单节点部署和组合模式的本地缓存或本地文件存储。
+setup.groups.redis.title: Redis
+setup.groups.redis.description: Redis 用于跨进程共享缓存；Hybrid 模式下 Redis 不可用时可降级为本地缓存。
+setup.groups.s3.title: S3-compatible 对象存储
+setup.groups.s3.description: 适用于 Cloudflare R2、AWS S3、OSS、COS 等 S3-compatible 服务。密钥不会回显。
+setup.groups.minio.title: MinIO
+setup.groups.minio.description: 适用于自建 MinIO 服务。密钥不会回显。
+setup.groups.locale.title: 默认语言
+setup.groups.locale.description: 后端 API、CLI 和初始化流程使用的默认语言。
+setup.groups.security.title: 安全与默认数据
+setup.groups.security.description: 令牌签发方、密码策略和默认数据行为。
+setup.groups.site.title: 官网展示
+setup.groups.site.description: 产品身份和公开访问地址，供官网、通知和后台展示使用。
+
+setup.fields.database.driver.label: 数据库驱动
+setup.fields.database.sqlite.path.label: 数据库文件
+setup.fields.database.sqlite.path.help: 例如 ./data/app.db
+setup.fields.database.mysql.host.label: MySQL 主机
+setup.fields.database.mysql.host.help: 例如 127.0.0.1
+setup.fields.database.mysql.port.label: MySQL 端口
+setup.fields.database.mysql.username.label: MySQL 用户名
+setup.fields.database.mysql.password.label: MySQL 密码
+setup.fields.database.mysql.database.label: MySQL 数据库
+setup.fields.database.mysql.charset.label: MySQL 字符集
+setup.fields.database.mysql.charset.help: 例如 utf8mb4
+setup.fields.database.postgres.host.label: PostgreSQL 主机
+setup.fields.database.postgres.host.help: 例如 127.0.0.1
+setup.fields.database.postgres.port.label: PostgreSQL 端口
+setup.fields.database.postgres.username.label: PostgreSQL 用户名
+setup.fields.database.postgres.password.label: PostgreSQL 密码
+setup.fields.database.postgres.database.label: PostgreSQL 数据库
+setup.fields.database.postgres.sslMode.label: PostgreSQL SSL 模式
+setup.fields.database.postgres.sslMode.help: 例如 disable 或 require
+setup.fields.database.pool.maxOpenConns.label: 最大打开连接数
+setup.fields.database.pool.maxIdleConns.label: 最大空闲连接数
+
+setup.fields.cache.driver.label: 缓存驱动
+setup.fields.cache.local.maxCost.label: 本地缓存最大成本
+setup.fields.cache.local.numCounters.label: 本地缓存计数器数量
+setup.fields.cache.local.bufferItems.label: 本地缓存写入缓冲
+setup.fields.cache.local.defaultTtlSeconds.label: 默认 TTL 秒数
+setup.fields.cache.redis.addr.label: Redis 地址
+setup.fields.cache.redis.addr.help: 例如 127.0.0.1:6379
+setup.fields.cache.redis.username.label: Redis 用户名
+setup.fields.cache.redis.password.label: Redis 密码
+setup.fields.cache.redis.db.label: Redis DB
+setup.fields.cache.redis.poolSize.label: Redis 连接池大小
+setup.fields.cache.redis.minIdleConns.label: Redis 最小空闲连接
+setup.fields.cache.redis.maxRetries.label: Redis 最大重试次数
+setup.fields.cache.redis.dialTimeout.label: Redis 连接超时秒数
+setup.fields.cache.redis.readTimeout.label: Redis 读取超时秒数
+setup.fields.cache.redis.writeTimeout.label: Redis 写入超时秒数
+
+setup.fields.storage.driver.label: 存储驱动
+setup.fields.storage.local.fsType.label: 本地文件系统后端
+setup.fields.storage.local.fsType.help: OS 使用真实文件系统；Base Path 将访问限制在配置目录下；Memory 是临时内存存储；Readonly 禁止写入。
+setup.fields.storage.local.basePath.label: 本地目录
+setup.fields.storage.local.basePath.help: 例如 ./data/uploads
+setup.fields.storage.local.publicUrl.label: 公开 URL 前缀
+setup.fields.storage.local.publicUrl.help: 例如 /uploads
+setup.fields.storage.local.enableWatch.label: 监听本地文件变化
+setup.fields.storage.local.watchBufferSize.label: 监听缓冲区大小
+setup.fields.storage.s3.endpoint.label: S3 Endpoint
+setup.fields.storage.s3.endpoint.help: R2 示例 https://<account>.r2.cloudflarestorage.com
+setup.fields.storage.s3.region.label: S3 Region
+setup.fields.storage.s3.region.help: R2 可使用 auto
+setup.fields.storage.s3.bucket.label: S3 Bucket
+setup.fields.storage.s3.accessKeyId.label: S3 Access Key ID
+setup.fields.storage.s3.secretAccessKey.label: S3 Secret Access Key
+setup.fields.storage.s3.usePathStyle.label: S3 Path-style 访问
+setup.fields.storage.s3.publicBaseUrl.label: S3 公开访问地址
+setup.fields.storage.s3.publicBaseUrl.help: 可选，用于生成公开对象 URL。
+setup.fields.storage.minio.endpoint.label: MinIO Endpoint
+setup.fields.storage.minio.endpoint.help: 例如 http://127.0.0.1:9000
+setup.fields.storage.minio.region.label: MinIO Region
+setup.fields.storage.minio.region.help: 例如 us-east-1
+setup.fields.storage.minio.bucket.label: MinIO Bucket
+setup.fields.storage.minio.accessKeyId.label: MinIO Access Key ID
+setup.fields.storage.minio.secretAccessKey.label: MinIO Secret Access Key
+setup.fields.storage.minio.usePathStyle.label: MinIO Path-style 访问
+setup.fields.storage.minio.publicBaseUrl.label: MinIO 公开访问地址
+setup.fields.storage.minio.publicBaseUrl.help: 可选，用于生成公开对象 URL。
+
+setup.fields.i18n.defaultLocale.label: 默认语言
+setup.fields.brand.productName.label: 产品名称
+setup.fields.brand.versionName.label: 版本展示名
+setup.fields.webui.public_base_url.label: 公开访问地址
+setup.fields.webui.public_base_url.help: 例如 https://aoi.example.com
+setup.fields.auth.issuer.label: IAM Issuer
+setup.fields.auth.issuer.help: 令牌签发方标识。
+setup.fields.auth.password_policy.min_length.label: 密码最小长度
+setup.fields.system.seed_defaults_on_start.label: 启动时补齐默认数据
+setup.fields.orgCode.label: 组织 Code
+setup.fields.orgCode.help: 例如 default
+setup.fields.orgName.label: 组织名称
+setup.fields.username.label: 管理员用户名
+setup.fields.email.label: 管理员邮箱
+setup.fields.displayName.label: 显示名称
+setup.fields.password.label: 管理员密码
+setup.fields.createServiceToken.label: 创建服务 API Token
+setup.fields.serviceTokenDays.label: Token 有效天数
+setup.fields.serviceTokenRemark.label: Token 备注
+
+setup.options.database.driver.sqlite: SQLite
+setup.options.database.driver.mysql: MySQL
+setup.options.database.driver.postgres: PostgreSQL
+setup.options.cache.driver.local: 本地缓存
+setup.options.cache.driver.hybrid: 本地 + Redis
+setup.options.cache.driver.redis: Redis
+setup.options.cache.driver.disabled: 禁用
+setup.options.storage.driver.local: 本地存储
+setup.options.storage.driver.s3: S3-compatible
+setup.options.storage.driver.minio: MinIO
+setup.options.storage.driver.local_s3: 本地 + S3-compatible
+setup.options.storage.driver.local_minio: 本地 + MinIO
+setup.options.storage.driver.disabled: 禁用
+setup.options.storage.local.fsType.os: OS 文件系统
+setup.options.storage.local.fsType.basepath: Base Path 文件系统
+setup.options.storage.local.fsType.memory: 内存文件系统
+setup.options.storage.local.fsType.readonly: 只读文件系统
+setup.options.i18n.defaultLocale.zh_cn: 简体中文
+setup.options.i18n.defaultLocale.en_us: English
+
+email.invitation.subject: "{{.ProductName}} 邀请"
+email.invitation.body: "你已被邀请加入 {{.ProductName}}。\r\n\r\n打开以下链接接受邀请：\r\n{{.URL}}\r\n"
+email.passwordReset.subject: "{{.ProductName}} 密码重置"
+email.passwordReset.body: "有人请求重置你的 {{.ProductName}} 账号密码。\r\n\r\n打开以下链接重置密码：\r\n{{.URL}}\r\n"
+email.emailVerification.subject: "{{.ProductName}} 邮箱验证"
+email.emailVerification.body: "你的 {{.ProductName}} 账号已发起注册请求。\r\n\r\n打开以下链接验证邮箱并激活账号：\r\n{{.URL}}\r\n"
+
+cli.flags.locale.description: 显示语言
+cli.flags.config.description: 配置文件路径
+
+cli.run.description: 启动托管后台服务
+cli.run.homeLabel: 启动 / run
+cli.run.server.description: 以托管后台进程启动服务
+cli.run.flags.service.description: 启动流程中选择的服务：server、db、iam、cache 或 storage
+cli.run.flags.yes.description: 使用默认选项并跳过剩余交互确认
+cli.run.prompts.service: 选择服务
+cli.run.prompts.privacy: 是否填写或生成隐私配置？
+cli.run.errors.exampleConfigReadonly: 示例配置只读，不能写入隐私配置。
+cli.run.info.privacyHandled: 隐私配置已处理。
+cli.run.info.uninitializedWithYes: 系统尚未完成初始化；继续启动后 WebUI 会进入初始化向导，业务功能在完成初始化前不可完整使用。
+cli.run.initialization.prompt: 系统尚未完成初始化，请选择初始化方式。
+cli.run.initialization.option.cli.label: CLI 初始化
+cli.run.initialization.option.cli.description: 在命令行中按步骤填写必要配置并执行初始化。
+cli.run.initialization.option.web.label: WebUI 初始化
+cli.run.initialization.option.web.description: 启动后台服务，通过浏览器完成初始化向导。
+cli.run.initialization.option.continue.label: 继续上次初始化
+cli.run.initialization.option.continue.description: 复用当前配置和状态，从初始化中心继续执行。
+cli.run.initialization.option.status.label: 查看初始化状态
+cli.run.initialization.option.status.description: 查看当前步骤、失败原因、风险项和修复建议。
+cli.run.initialization.option.skip.label: 暂时跳过
+cli.run.initialization.option.skip.description: 继续启动服务，但系统当前不可完整使用。
+cli.run.initialization.skipped: 已暂时跳过初始化；系统会启动，但未完成初始化前不可完整使用。
+cli.run.initialization.status.notStarted: 未开始
+cli.run.initialization.status.line: "初始化状态：required={{.Required}} completed={{.Completed}} currentStep={{.CurrentStep}}"
+cli.run.initialization.status.restartRequired: "需要重启：{{.Reason}}"
+cli.run.initialization.status.failedStep: "失败步骤：{{.Title}} ({{.Key}})"
+cli.run.initialization.status.reason: "原因：{{.Reason}}"
+cli.run.initialization.status.repairHint: "建议：{{.Hint}}"
+cli.run.initialization.status.report: "报告：成功 {{.Successful}}，失败 {{.Failed}}，跳过 {{.Skipped}}，风险 {{.Risk}}"
+cli.run.setupUrl: "Setup URL：{{.URL}}"
+cli.run.service.server.description: 后台托管 HTTP 服务进程
+cli.run.service.db.description: 数据库配置、迁移和初始化能力
+cli.run.service.iam.description: IAM 管理员、角色权限和 API Token
+cli.run.service.cache.description: 缓存依赖状态
+cli.run.service.storage.description: 存储配置和依赖状态
+cli.run.dependencyInfo.note: v1 仅托管 server 后台进程；其它服务作为配置、初始化、帮助和依赖状态展示。
+
+cli.config.selector.exampleDescription: 示例配置，隐私配置只读
+cli.config.selector.customPath: 手动输入路径
+cli.config.selector.prompt: 选择配置文件
+cli.config.selector.pathPrompt: 配置文件路径
+cli.config.summary.configFile: 配置文件
+cli.config.summary.http: HTTP
+cli.config.summary.database: 数据库
+cli.config.summary.cache: 缓存
+cli.config.summary.storage: 存储
+cli.config.summary.iam: IAM
+cli.config.summary.appLog: 应用日志
+
+cli.init.description: 初始化数据库、IAM 管理员、服务账号和系统默认数据
+cli.init.homeLabel: 初始化 / init
+cli.init.defaults.serviceTokenRemark: created by cli init
+cli.init.flags.orgCode.description: 可选管理员引导使用的 IAM 组织 code
+cli.init.flags.orgName.description: 可选管理员引导使用的 IAM 组织名称
+cli.init.flags.adminUsername.description: IAM 管理员用户名
+cli.init.flags.adminEmail.description: IAM 管理员邮箱
+cli.init.flags.adminDisplayName.description: IAM 管理员显示名
+cli.init.flags.adminPassword.description: IAM 管理员密码；省略时跳过管理员引导
+cli.init.flags.adminPasswordStdin.description: 从 stdin 读取 IAM 管理员密码
+cli.init.flags.createServiceToken.description: 为初始化后的管理员创建 API Token
+cli.init.flags.serviceTokenDays.description: API Token 有效天数；-1 表示永不过期
+cli.init.flags.serviceTokenRemark.description: API Token 备注
+cli.init.prompts.orgCode: 组织 code
+cli.init.prompts.orgName: 组织名称
+cli.init.prompts.adminUsername: 管理员用户名
+cli.init.prompts.adminEmail: 管理员邮箱
+cli.init.prompts.adminDisplayName: 管理员显示名
+cli.init.prompts.adminPassword: 管理员密码，留空跳过管理员创建
+cli.init.prompts.createServiceToken: 是否创建服务账号 API Token？
+cli.init.prompts.serviceTokenDays: Token 有效天数，-1 表示永不过期
+cli.init.prompts.serviceTokenRemark: Token 备注
+cli.init.prompts.configureStep: "是否配置并测试 {{.Step}}？"
+cli.init.prompts.secretKeepCurrent: "{{.Label}}（留空保持当前值）"
+cli.init.restartRequired: 配置已保存，需要重启进程后继续初始化。
+cli.init.post.statusCheckFailed: "初始化已完成，但无法检查托管服务状态：{{.Error}}"
+cli.init.post.restartCommand: "托管服务仍在运行；请重启以刷新内存中的 IAM 策略：{{.Command}} service restart {{.Service}}"
+cli.init.post.restartPrompt: 托管服务正在运行。是否立即重启以刷新 IAM 策略？
+cli.init.post.restartSkipped: "托管服务未重启；使用 WebUI 权限前请先重启：{{.Command}} service restart {{.Service}}"
+cli.init.post.startCommand: "初始化已完成。准备好后启动服务：{{.Command}} run --service=server --config={{.ConfigPath}} --yes"
+cli.init.post.startPrompt: 初始化已完成。是否立即启动托管服务？
+cli.init.post.startSkipped: "服务未启动。准备好后启动：{{.Command}} run --service=server --config={{.ConfigPath}} --yes"
+
+cli.service.description: 查看和控制托管服务
+cli.service.homeLabel: 服务 / service
+cli.service.status.description: 查看托管服务状态
+cli.service.info.description: 查看托管服务元数据
+cli.service.logs.description: 查看托管服务日志
+cli.service.terminal.description: 附加到托管服务日志终端
+cli.service.restart.description: 重启托管服务
+cli.service.stop.description: 停止托管服务
+cli.service.flags.lines.description: 输出的历史日志行数
+cli.service.flags.follow.description: 实时跟随新增日志
+cli.service.prompts.action: "服务管理：server"
+cli.service.prompts.followLogs: 是否实时跟随日志？
+cli.service.actions.status: 查看运行状态
+cli.service.actions.info: 查看服务信息
+cli.service.actions.logs: 查看服务日志
+cli.service.actions.terminal: 进入服务终端
+cli.service.actions.restart: 重启服务
+cli.service.actions.stop: 停止服务
+cli.service.actions.back: 退出服务
+cli.service.state.service: 服务
+cli.service.state.status: 状态
+cli.service.state.listen: 监听
+cli.service.state.executable: 可执行文件
+cli.service.state.config: 配置
+cli.service.state.error: 错误
+
+cli.config.preflight.database.prompt: 数据库配置不完整，请选择修复方式
+cli.config.preflight.database.option.sqlite.label: 切换到 SQLite
+cli.config.preflight.database.option.sqlite.description: 为本次部署使用本地 SQLite 数据库文件。
+cli.config.preflight.database.option.file.label: 写入配置文件
+cli.config.preflight.database.option.file.description: 将标准数据库驱动分支写入当前配置文件。
+cli.config.preflight.option.runtimeEnv.label: 使用环境变量
+cli.config.preflight.option.runtimeEnv.description: 保留配置占位符，并要求运行环境提供真实变量。
+cli.config.preflight.option.skip.label: 跳过
+cli.config.preflight.option.skip.description: 保留当前配置，并显示阻断错误。
+cli.config.preflight.database.info.sqlite: 数据库配置已切换到 SQLite。
+cli.config.preflight.database.info.file: 数据库配置已写入配置文件。
+cli.config.preflight.database.info.runtimeEnv: 数据库配置将从环境变量读取。
+cli.config.preflight.database.driverPrompt: 数据库驱动
+cli.config.preflight.smtp.prompt: SMTP 通知配置不完整，请选择修复方式
+cli.config.preflight.smtp.option.debug.label: 切换到调试模式
+cli.config.preflight.smtp.option.debug.description: 使用调试通知输出代替 SMTP。
+cli.config.preflight.smtp.option.file.label: 写入配置文件
+cli.config.preflight.smtp.option.file.description: 将 SMTP 主机、端口和发件人写入当前配置文件。
+cli.config.preflight.smtp.info.debug: 认证通知驱动已切换到调试模式。
+cli.config.preflight.smtp.info.file: SMTP 配置已写入配置文件。
+cli.config.preflight.smtp.info.runtimeEnv: SMTP 配置将从环境变量读取。
+cli.config.privacy.error.exampleReadonly: "示例配置不能写入密钥；请复制为真实配置文件，或设置 {{.Env}}。"
+cli.config.privacy.error.coreSecretMissing: "{{.ConfigPath}} 中的 IAM 核心密钥缺失或长度不足。请设置 {{.Env}}，或运行交互式 `run` 并选择生成隐私配置。"
+cli.config.privacy.core.prompt: IAM 核心密钥缺失，请选择修复方式
+cli.config.privacy.core.option.generateFile.label: 生成并写入配置文件
+cli.config.privacy.core.option.generateFile.description: 生成稳定随机密钥，并禁用这些路径的环境变量覆盖。
+cli.config.privacy.option.runtimeEnv.label: 继续使用环境变量
+cli.config.privacy.option.runtimeEnv.description: 校验真实环境变量，配置文件不写入密钥。
+cli.config.privacy.core.option.manual.label: 逐项输入
+cli.config.privacy.core.option.manual.description: 手动输入；也可以输入 generate 自动生成单项密钥。
+cli.config.privacy.option.skip.label: 跳过
+cli.config.privacy.option.skip.description: 保留当前配置，并返回可操作错误。
+cli.config.privacy.core.info.generated: IAM 核心密钥已生成并写入配置。
+cli.config.privacy.core.info.runtimeEnv: IAM 核心密钥将从环境变量读取。
+cli.config.privacy.core.info.written: IAM 核心密钥已写入配置。
+cli.config.privacy.envManagedPrompt: "{{.Path}} 由环境变量管理，请选择处理方式。"
+cli.config.privacy.option.forceFile.label: 写入配置文件并禁用环境变量覆盖
+cli.config.privacy.option.forceFile.description: 替换配置文件中的环境变量占位符。
+cli.config.privacy.option.runtimeEnvRestore.label: 恢复使用环境变量
+cli.config.privacy.option.runtimeEnvRestore.description: 校验真实环境变量，并移除配置文件优先标记。
+cli.config.privacy.value.hint.skip: 留空跳过
+cli.config.privacy.value.hint.generate: 输入 generate 自动生成，或留空跳过
+cli.config.privacy.value.prompt: "{{.Path}}，{{.Hint}}："
+cli.config.diagnostics.summary: "配置预检在 {{.ConfigPath}} 中发现 {{.Count}} 个阻断项："
+cli.config.diagnostics.advice: "请设置列出的环境变量、编辑配置文件，或不带 --yes 运行交互式 `run` 并使用引导修复流程。"

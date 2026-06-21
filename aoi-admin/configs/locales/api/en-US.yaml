@@ -1,0 +1,27 @@
+common.success: Operation succeeded
+common.invalidRequest: The request parameters are invalid
+common.notFound: The resource was not found
+common.internalError: The system could not complete the request
+common.rateLimited: Too many requests. Please try again later
+common.notReady: Service is not ready
+common.duplicate: The resource already exists
+common.requestCanceled: The request was canceled
+auth.unauthorized: Sign-in is required or the session has expired
+auth.forbidden: You do not have permission to access this resource
+auth.unavailable: Authentication is unavailable
+auth.missingBearerToken: Access token is required
+auth.authorizationUnavailable: Authorization is unavailable
+auth.missingPrincipal: Current principal is missing
+auth.captchaRequired: Captcha verification is required
+auth.captchaInvalid: Captcha verification failed
+auth.mfaRequired: Multi-factor authentication code is required
+auth.invalidToken: The token is invalid or expired
+auth.accountLocked: The account is locked
+auth.accountDisabled: The account is disabled
+auth.sessionRevoked: The session has been revoked
+auth.signupDisabled: Signup is disabled
+auth.invitationClosed: The invitation is no longer available
+auth.notificationDeliveryFailed: The notification email could not be delivered. Check the SMTP configuration and try again.
+setup.forbidden: This setup action is not authorized
+setup.runNotFound: Initialization run was not found
+setup.failed: "Initialization failed: {{.error}}"

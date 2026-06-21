@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoi.example.local/plugin-protocol/schemas/register.schema.json",
+  "title": "RegisterRequest",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/request_meta" },
+    {
+      "type": "object",
+      "required": ["plugin"],
+      "properties": {
+        "plugin": { "$ref": "common.schema.json#/$defs/plugin_metadata" }
+      }
+    }
+  ]
+}

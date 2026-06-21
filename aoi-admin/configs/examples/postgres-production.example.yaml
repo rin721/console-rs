@@ -1,0 +1,225 @@
+﻿# PostgreSQL production scenario.
+
+server:
+  host: 0.0.0.0
+  port: ${RIN_APP_SERVER_PORT:9999}
+  mode: release
+  read_timeout: 10
+  write_timeout: 10
+  idle_timeout: 30
+
+webui:
+  enabled: true
+  mount_path: /
+  dist_dir: ./web/app/build/client
+  public_base_url: /
+
+rpc:
+  enabled: false
+  host: 127.0.0.1
+  port: 10099
+  read_timeout: 10
+  write_timeout: 10
+  idle_timeout: 30
+
+plugins:
+  enabled: false
+  base_path: /plugin-api/v1
+  default_protocol_version: v1
+  allowed_transports: [http, websocket]
+  node_id: ""
+  node_address: ""
+  registry_backend: db
+  request_timeout_seconds: 10
+  heartbeat_timeout_seconds: 30
+  lease_ttl_seconds: 30
+  lease_scan_interval_seconds: 15
+  retry_count: 0
+  router_strategy: round_robin
+  allowed_permissions: []
+  registration_auth_mode: none
+  shared_secret_env: ""
+  http_enabled: true
+  ws_enabled: true
+  rpc_enabled: false
+  injection_enabled: true
+
+database:
+  driver: postgres
+  sqlite:
+    path: ./data/app.db
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    username: root
+    password: example
+    database: aoi_admin
+    charset: utf8mb4
+  postgres:
+    host: ${RIN_APP_DB_POSTGRES_HOST}
+    port: ${RIN_APP_DB_POSTGRES_PORT:5432}
+    username: ${RIN_APP_DB_POSTGRES_USERNAME}
+    password: ${RIN_APP_DB_POSTGRES_PASSWORD}
+    database: ${RIN_APP_DB_POSTGRES_DATABASE}
+    sslMode: ${RIN_APP_DB_POSTGRES_SSL_MODE:disable}
+  pool:
+    maxOpenConns: 20
+    maxIdleConns: 10
+
+cache:
+  driver: local
+  local:
+    maxCost: 134217728
+    numCounters: 2000000
+    bufferItems: 64
+    defaultTtlSeconds: 0
+  redis:
+    addr: 127.0.0.1:6379
+    username: ""
+    password: ""
+    db: 0
+    poolSize: 20
+    minIdleConns: 5
+    maxRetries: 3
+    dialTimeout: 5
+    readTimeout: 3
+    writeTimeout: 3
+
+logger:
+  level: info
+  format: json
+  console_format: json
+  file_format: json
+  output: stdout
+  file_path: /app/logs/go-scaffold.log
+  max_size: 100
+  max_backups: 7
+  max_age: 30
+
+i18n:
+  defaultLocale: zh-CN
+  fallbackLocale: zh-CN
+  supportedLocales: [zh-CN, en-US]
+  resources:
+    ui: ./configs/locales/ui
+    api: ./configs/locales/api
+    validation: ./configs/locales/validation
+    system: ./configs/locales/system
+
+brand:
+  productName: Aoi Admin
+  productCode: aoi-admin
+  versionName: Community
+
+executor:
+  enabled: true
+  pools:
+    - name: background
+      size: 16
+      expiry: 30
+      non_blocking: true
+
+storage:
+  driver: local
+  local:
+    fsType: basepath
+    basePath: /app/data/uploads
+    publicUrl: /uploads
+    enableWatch: false
+    watchBufferSize: 100
+  s3:
+    endpoint: https://s3.example.com
+    region: us-east-1
+    bucket: aoi-admin
+    accessKeyId: example
+    secretAccessKey: example
+    usePathStyle: true
+    publicBaseUrl: ""
+  minio:
+    endpoint: http://127.0.0.1:9000
+    region: us-east-1
+    bucket: aoi-admin
+    accessKeyId: example
+    secretAccessKey: example
+    usePathStyle: true
+    publicBaseUrl: ""
+
+system:
+  seed_defaults_on_start: true
+
+cors:
+  enabled: true
+  allow_origins: [https://admin.example.invalid]
+  allow_methods: [GET, POST, PUT, DELETE, PATCH, OPTIONS]
+  allow_headers: [Origin, Content-Type, X-Request-ID, Authorization, X-Locale, X-Setup-Token]
+  expose_headers: [X-Request-ID]
+  allow_credentials: false
+  max_age: 3600
+
+auth:
+  enabled: true
+  registration_mode: disabled
+  issuer: aoi-admin
+  audience: [aoi-admin-api]
+  signing_key: ${RIN_APP_AUTH_SIGNING_KEY}
+  access_token_ttl_seconds: 900
+  refresh_token_ttl_seconds: 604800
+  refresh_token_pepper: ${RIN_APP_AUTH_REFRESH_TOKEN_PEPPER}
+  cookie:
+    name_prefix: aoi
+    domain: ""
+    path: /
+    same_site: lax
+    secure: false
+  csrf:
+    enabled: true
+    cookie_name: aoi_csrf
+    header_name: X-CSRF-Token
+  session:
+    single_per_product_platform: true
+    product_header: X-Aoi-Product-Code
+    client_type_header: X-Aoi-Client-Type
+    default_client_type: pc_web
+    mobile_user_agent_hints:
+      - mobile
+      - android
+      - iphone
+      - ipad
+  cache:
+    enabled: true
+    user_ttl_seconds: 120
+    org_ttl_seconds: 120
+    role_ttl_seconds: 120
+    permission_ttl_seconds: 300
+  mfa_issuer: aoi-admin
+  mfa_secret_key: ${RIN_APP_AUTH_MFA_SECRET_KEY}
+  login_max_failures: 5
+  login_lock_minutes: 15
+  login_captcha_enabled: false
+  captcha_ttl_seconds: 120
+  invitation_ttl_seconds: 86400
+  email_verification_ttl_seconds: 86400
+  password_reset_ttl_seconds: 1800
+  notification_driver: smtp
+  smtp:
+    host: ${RIN_APP_AUTH_SMTP_HOST}
+    port: ${RIN_APP_AUTH_SMTP_PORT:587}
+    username: ${RIN_APP_AUTH_SMTP_USERNAME:}
+    password: ${RIN_APP_AUTH_SMTP_PASSWORD:}
+    from: ${RIN_APP_AUTH_SMTP_FROM}
+    from_name: ${RIN_APP_AUTH_SMTP_FROM_NAME:Aoi Admin}
+    security: ${RIN_APP_AUTH_SMTP_SECURITY:starttls}
+  password_policy:
+    min_length: 10
+    require_lower: true
+    require_upper: true
+    require_number: true
+    require_symbol: false
+  casbin_reload_interval_seconds: 300
+
+migration:
+  auto_apply: false
+  dir: ./internal/migrations
+
+env_override:
+  disabled_paths: []

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoi.example.local/plugin-protocol/schemas/negotiate.schema.json",
+  "title": "NegotiateProtocolRequest",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/request_meta" },
+    {
+      "type": "object",
+      "properties": {
+        "plugin_id": { "type": "string" },
+        "instance_id": { "type": "string" },
+        "protocol_versions": { "type": "array", "items": { "type": "string" } },
+        "transports": { "type": "array", "items": { "enum": ["http", "websocket", "rpc"] } },
+        "schema_version": { "type": "string" },
+        "preferred_protocol": { "type": "string" }
+      }
+    }
+  ]
+}

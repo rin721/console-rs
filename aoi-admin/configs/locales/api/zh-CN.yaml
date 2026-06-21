@@ -1,0 +1,27 @@
+common.success: 操作成功
+common.invalidRequest: 请求参数不正确
+common.notFound: 资源不存在
+common.internalError: 系统暂时无法完成请求
+common.rateLimited: 请求过于频繁，请稍后再试
+common.notReady: 服务尚未就绪
+common.duplicate: 资源已存在
+common.requestCanceled: 请求已取消
+auth.unauthorized: 未登录或登录已过期
+auth.forbidden: 无权访问该资源
+auth.unavailable: 认证服务暂不可用
+auth.missingBearerToken: 缺少访问令牌
+auth.authorizationUnavailable: 授权服务暂不可用
+auth.missingPrincipal: 缺少当前登录主体
+auth.captchaRequired: 需要完成验证码校验
+auth.captchaInvalid: 验证码校验失败
+auth.mfaRequired: 需要输入多因素认证验证码
+auth.invalidToken: 令牌无效或已过期
+auth.accountLocked: 账号已被锁定
+auth.accountDisabled: 账号已被禁用
+auth.sessionRevoked: 会话已失效
+auth.signupDisabled: 当前注册入口不可用
+auth.invitationClosed: 邀请已不可用
+auth.notificationDeliveryFailed: 通知邮件投递失败，请检查 SMTP 配置后重试
+setup.forbidden: 当前初始化操作未授权
+setup.runNotFound: 初始化运行记录不存在
+setup.failed: 初始化失败：{{.error}}

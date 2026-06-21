@@ -1,0 +1,5 @@
+common.required: "{{.field}} 为必填项"
+common.invalid: "{{.field}} 格式不正确"
+common.invalidNumber: "{{.field}} 必须是有效数字"
+common.invalidBoolean: "{{.field}} 必须是布尔值"
+common.invalidEmail: "{{.field}} 必须是有效邮箱地址"

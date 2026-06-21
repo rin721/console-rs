@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aoi.example.local/plugin-protocol/schemas/get_injected_schema.schema.json",
+  "title": "GetInjectedSchemaRequest",
+  "allOf": [
+    { "$ref": "common.schema.json#/$defs/request_meta" },
+    {
+      "type": "object",
+      "properties": {
+        "capabilities": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  ]
+}
