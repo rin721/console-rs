@@ -6,7 +6,9 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 $rootPath = (Resolve-Path -LiteralPath $Root).Path
-$reportRoot = Join-Path $rootPath "target/target-acceptance-report-validator-smoke"
+$runId = [System.Guid]::NewGuid().ToString("N")
+$reportBase = Join-Path $rootPath "target/target-acceptance-report-validator-smoke"
+$reportRoot = Join-Path $reportBase $runId
 $validatorPath = Join-Path $rootPath "scripts/validate-target-acceptance-report.ps1"
 
 function Get-PowerShellExecutable {
@@ -156,9 +158,8 @@ if (-not (Test-Path -LiteralPath $validatorPath -PathType Leaf)) {
     throw "validator script is missing: $validatorPath"
 }
 
-if (Test-Path -LiteralPath $reportRoot) {
-    Remove-Item -LiteralPath $reportRoot -Recurse -Force
-}
+# smoke 可能被 goal-completion-audit 并发调用，每次使用独立目录避免互相删除临时报告。
+New-Item -ItemType Directory -Force -Path $reportBase | Out-Null
 New-Item -ItemType Directory -Force -Path $reportRoot | Out-Null
 
 $finalHttpsReport = Write-Report "final-https-pass.json" (New-Report)
